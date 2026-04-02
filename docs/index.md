@@ -383,6 +383,14 @@ const result = await team.executeWorkflow({
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 8px;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.cta-desc {
+  font-size: 14px;
+  white-space: nowrap;
+  word-break: keep-all;
 }
 
 @media (max-width: 960px) {
