@@ -1,0 +1,151 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "code-review",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  
+  "metadata": {
+    "name": "Code Review",
+    "nameZh": "代码审查",
+    "description": "全面审查代码质量、安全性、性能和可维护性",
+    "descriptionZh": "全面审查代码质量、安全性、性能和可维护性",
+    "author": "skills4coder-team",
+    "tags": ["review", "quality", "security"],
+    "category": "development"
+  },
+  
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "filePath": {
+          "type": "string",
+          "description": "要审查的文件路径"
+        },
+        "fileContent": {
+          "type": "string",
+          "description": "文件内容（如未提供则自动读取）"
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "relatedFiles": { "type": "array", "items": { "type": "string" } },
+            "prDescription": { "type": "string" },
+            "techStack": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "focus": {
+          "type": "array",
+          "items": {
+            "enum": ["security", "performance", "maintainability", "accessibility", "all"]
+          },
+          "default": ["all"]
+        }
+      },
+      "required": ["filePath"]
+    }
+  },
+  
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "severity": { "enum": ["critical", "high", "medium", "low"] },
+              "category": { "enum": ["security", "performance", "style", "logic"] },
+              "line": { "type": "number" },
+              "message": { "type": "string" },
+              "suggestion": { "type": "string" }
+            }
+          }
+        },
+        "suggestions": { "type": "array", "items": { "type": "string" } },
+        "approval": { "enum": ["approved", "comment", "request-changes"] }
+      }
+    }
+  },
+  
+  "workflow": {
+    "description": "代码审查工作流",
+    "steps": [
+      {
+        "id": "read-file",
+        "name": "读取文件",
+        "atomicSkill": "read-file",
+        "input": {
+          "path": "{{input.filePath}}"
+        },
+        "output": "fileContent"
+      },
+      {
+        "id": "analyze-syntax",
+        "name": "语法分析",
+        "atomicSkill": "analyze-code",
+        "input": {
+          "content": "{{steps.read-file.output.content}}",
+          "type": "syntax"
+        },
+        "output": "syntaxIssues"
+      },
+      {
+        "id": "check-security",
+        "name": "安全检查",
+        "atomicSkill": "analyze-code",
+        "condition": "{{input.focus.includes('security')}}",
+        "input": {
+          "content": "{{steps.read-file.output.content}}",
+          "type": "security"
+        },
+        "output": "securityIssues"
+      },
+      {
+        "id": "check-performance",
+        "name": "性能分析",
+        "atomicSkill": "analyze-code",
+        "condition": "{{input.focus.includes('performance')}}",
+        "input": {
+          "content": "{{steps.read-file.output.content}}",
+          "type": "performance"
+        },
+        "output": "performanceIssues"
+      },
+      {
+        "id": "llm-review",
+        "name": "AI 深度审查",
+        "type": "llm",
+        "input": {
+          "fileContent": "{{steps.read-file.output.content}}",
+          "syntaxIssues": "{{steps.analyze-syntax.output}}",
+          "securityIssues": "{{steps.check-security.output}}",
+          "performanceIssues": "{{steps.check-performance.output}}"
+        },
+        "prompt": "你是一位资深代码审查专家...",
+        "output": "reviewResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "reviewResult": "{{steps.llm-review.output}}"
+        },
+        "transform": "formatReviewOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+  
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "llm-review",
+      "action": "skip-partial-analysis"
+    }
+  }
+}

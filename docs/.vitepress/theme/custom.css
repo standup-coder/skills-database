@@ -1,0 +1,616 @@
+/**
+ * Skills4Coder - CNCF Style Theme
+ * Professional design inspired by Kubernetes, Prometheus
+ */
+
+/* ========================================
+   CSS Variables - Design System
+   ======================================== */
+
+:root {
+  /* Primary - Kubernetes Blue */
+  --s4c-primary: #326CE5;
+  --s4c-primary-dark: #1a3a7a;
+  --s4c-primary-light: #5c8af5;
+  --s4c-primary-soft: rgba(50, 108, 229, 0.14);
+  
+  /* Secondary - Teal */
+  --s4c-secondary: #00B4D8;
+  --s4c-secondary-dark: #0077B6;
+  --s4c-secondary-soft: rgba(0, 180, 216, 0.14);
+  
+  /* Accent - Orange */
+  --s4c-accent: #FF6B35;
+  --s4c-accent-light: #FF8C61;
+  --s4c-accent-soft: rgba(255, 107, 53, 0.14);
+  
+  /* Neutral */
+  --s4c-bg: #FFFFFF;
+  --s4c-bg-soft: #F8FAFC;
+  --s4c-bg-mute: #F1F5F9;
+  
+  /* Text */
+  --s4c-text: #1E293B;
+  --s4c-text-2: #334155;
+  --s4c-text-3: #64748B;
+  
+  /* Semantic */
+  --s4c-success: #10B981;
+  --s4c-warning: #F59E0B;
+  --s4c-danger: #EF4444;
+  --s4c-info: #3B82F6;
+  
+  /* Override VitePress defaults */
+  --vp-c-brand-1: var(--s4c-primary);
+  --vp-c-brand-2: var(--s4c-primary-light);
+  --vp-c-brand-3: var(--s4c-primary);
+  --vp-c-brand-soft: var(--s4c-primary-soft);
+  
+  --vp-c-bg: var(--s4c-bg);
+  --vp-c-bg-alt: var(--s4c-bg-soft);
+  --vp-c-bg-elv: #FFFFFF;
+  --vp-c-bg-soft: var(--s4c-bg-soft);
+  
+  --vp-c-text-1: var(--s4c-text);
+  --vp-c-text-2: var(--s4c-text-2);
+  --vp-c-text-3: var(--s4c-text-3);
+  
+  /* Hero */
+  --vp-home-hero-name-color: var(--s4c-primary);
+  --vp-home-hero-name-background: transparent;
+}
+
+/* Dark mode */
+.dark {
+  --s4c-bg: #0F172A;
+  --s4c-bg-soft: #1E293B;
+  --s4c-bg-mute: #334155;
+  
+  --s4c-text: #F8FAFC;
+  --s4c-text-2: #E2E8F0;
+  --s4c-text-3: #94A3B8;
+  
+  --vp-c-bg: var(--s4c-bg);
+  --vp-c-bg-alt: var(--s4c-bg-soft);
+  --vp-c-bg-elv: #1E293B;
+  --vp-c-bg-soft: var(--s4c-bg-soft);
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+:root {
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, monospace;
+}
+
+/* ========================================
+   Layout & Navigation
+   ======================================== */
+
+/* Navbar */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPNavBar {
+  padding: 0 24px;
+}
+
+.VPNavBar .title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.VPNavBar .VPImage.logo {
+  height: 32px;
+  margin-right: 12px;
+}
+
+/* Navigation Menu */
+.VPNavBarMenu .VPFlyout .button {
+  font-weight: 500;
+}
+
+.VPNavBarMenuLink {
+  font-weight: 500;
+}
+
+/* Sidebar */
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+.VPSidebarItem.is-active > .item > .link {
+  font-weight: 600;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+
+.VPHero {
+  padding: 80px 24px 60px;
+}
+
+.VPHero .name {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--s4c-primary) 0%, var(--s4c-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.VPHero .text {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--s4c-text);
+  margin-top: 12px;
+}
+
+.VPHero .tagline {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--s4c-text-2);
+  margin-top: 24px;
+  max-width: 640px;
+}
+
+.VPHero .actions {
+  margin-top: 40px;
+}
+
+.VPHero .action {
+  margin-right: 12px;
+}
+
+.VPHero .VPButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.VPHero .VPButton.brand {
+  background: linear-gradient(135deg, var(--s4c-primary) 0%, var(--s4c-primary-light) 100%);
+  box-shadow: 0 4px 14px rgba(50, 108, 229, 0.39);
+}
+
+.VPHero .VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(50, 108, 229, 0.5);
+}
+
+/* Hero Image */
+.VPHero .image {
+  margin-top: 40px;
+}
+
+.VPHero .image-container {
+  background: linear-gradient(135deg, var(--s4c-primary-soft) 0%, var(--s4c-secondary-soft) 100%);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+/* ========================================
+   Features Section
+   ======================================== */
+
+.VPFeatures {
+  padding: 60px 24px;
+}
+
+.VPFeatures .container {
+  max-width: 1200px;
+}
+
+.VPFeatures .items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.VPFeature {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--s4c-primary-soft);
+}
+
+.VPFeature .icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.VPFeature .title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--s4c-text);
+  margin-bottom: 12px;
+}
+
+.VPFeature .details {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--s4c-text-3);
+}
+
+/* ========================================
+   Custom Components
+   ======================================== */
+
+/* Architecture Diagram */
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px;
+}
+
+.architecture-diagram .layer {
+  width: 100%;
+  max-width: 600px;
+  padding: 24px 32px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.architecture-diagram .layer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.architecture-diagram .layer .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.architecture-diagram .layer .item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.architecture-diagram .role-layer {
+  background: linear-gradient(135deg, var(--s4c-primary-soft) 0%, rgba(50, 108, 229, 0.08) 100%);
+  border: 2px solid var(--s4c-primary);
+}
+
+.architecture-diagram .role-layer .item {
+  background: var(--s4c-primary);
+  color: white;
+}
+
+.architecture-diagram .skill-layer {
+  background: linear-gradient(135deg, var(--s4c-secondary-soft) 0%, rgba(0, 180, 216, 0.08) 100%);
+  border: 2px solid var(--s4c-secondary);
+}
+
+.architecture-diagram .skill-layer .item {
+  background: var(--s4c-secondary);
+  color: white;
+}
+
+.architecture-diagram .atomic-layer {
+  background: linear-gradient(135deg, var(--s4c-accent-soft) 0%, rgba(255, 107, 53, 0.08) 100%);
+  border: 2px solid var(--s4c-accent);
+}
+
+.architecture-diagram .atomic-layer .item {
+  background: var(--s4c-accent);
+  color: white;
+}
+
+.architecture-diagram .arrow {
+  font-size: 24px;
+  color: var(--s4c-text-3);
+}
+
+/* Role Cards */
+.role-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.role-card:hover {
+  border-color: var(--s4c-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.role-card .header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.role-card .icon {
+  font-size: 32px;
+}
+
+.role-card .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--s4c-text);
+}
+
+.role-card .description {
+  font-size: 14px;
+  color: var(--s4c-text-3);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.role-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.required {
+  background: var(--s4c-danger);
+  color: white;
+}
+
+.badge.recommended {
+  background: var(--s4c-warning);
+  color: white;
+}
+
+.badge.optional {
+  background: var(--s4c-success);
+  color: white;
+}
+
+.badge.info {
+  background: var(--s4c-info);
+  color: white;
+}
+
+.badge.primary {
+  background: var(--s4c-primary);
+  color: white;
+}
+
+/* Skill Level */
+.skill-level {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.skill-level.junior {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.skill-level.mid {
+  background: #F3E8FF;
+  color: #7C3AED;
+}
+
+.skill-level.senior {
+  background: #FFEDD5;
+  color: #C2410C;
+}
+
+.skill-level.lead {
+  background: #DBFDE4;
+  color: #15803D;
+}
+
+/* Code Blocks */
+.vp-doc div[class*="language-"] {
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.vp-doc div[class*="language-"] code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Tables */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--vp-c-divider);
+}
+
+.vp-doc td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Custom Containers */
+.vp-doc .custom-block {
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.vp-doc .custom-block.tip {
+  border-left-color: var(--s4c-primary);
+  background: var(--s4c-primary-soft);
+}
+
+.vp-doc .custom-block.warning {
+  border-left-color: var(--s4c-warning);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.vp-doc .custom-block.danger {
+  border-left-color: var(--s4c-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Links */
+.vp-doc a {
+  color: var(--s4c-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 32px 24px;
+}
+
+.VPFooter .message {
+  font-size: 14px;
+  color: var(--s4c-text-3);
+}
+
+.VPFooter .copyright {
+  font-size: 14px;
+  color: var(--s4c-text-3);
+  margin-top: 8px;
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--s4c-text-3);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--s4c-text-2);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 960px) {
+  .VPFeatures .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .VPHero .name {
+    font-size: 48px;
+  }
+  
+  .VPHero .text {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPFeatures .items {
+    grid-template-columns: 1fr;
+  }
+  
+  .VPHero {
+    padding: 60px 20px 40px;
+  }
+  
+  .VPHero .name {
+    font-size: 36px;
+  }
+  
+  .VPHero .text {
+    font-size: 28px;
+  }
+  
+  .VPHero .tagline {
+    font-size: 18px;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter,
+  .VPNavBarSearch {
+    display: none !important;
+  }
+  
+  .VPContent {
+    padding: 0 !important;
+  }
+}

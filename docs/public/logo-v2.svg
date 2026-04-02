@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 简约版本 2: S + 下划线 -->
+  <rect width="100" height="100" rx="20" fill="#326CE5"/>
+  <text x="50" y="62" font-family="Inter, -apple-system, sans-serif" font-size="50" font-weight="700" text-anchor="middle" fill="white">S</text>
+  <line x1="25" y1="72" x2="75" y2="72" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>

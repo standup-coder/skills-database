@@ -1,0 +1,106 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "read-file",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  
+  "metadata": {
+    "name": "Read File",
+    "nameZh": "读取文件",
+    "description": "读取指定路径的文件内容",
+    "descriptionZh": "读取指定路径的文件内容",
+    "author": "skills4coder-team",
+    "tags": ["file", "io", "basic"],
+    "category": "filesystem"
+  },
+  
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "文件路径（相对或绝对）"
+        },
+        "encoding": {
+          "type": "string",
+          "default": "utf-8",
+          "enum": ["utf-8", "utf-16", "ascii", "binary"]
+        },
+        "maxSize": {
+          "type": "number",
+          "description": "最大读取字节数",
+          "default": 10485760
+        }
+      },
+      "required": ["path"]
+    }
+  },
+  
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "文件内容"
+        },
+        "size": {
+          "type": "number",
+          "description": "文件大小（字节）"
+        },
+        "encoding": {
+          "type": "string",
+          "description": "实际使用的编码"
+        },
+        "lastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "最后修改时间"
+        }
+      },
+      "required": ["content", "size"]
+    }
+  },
+  
+  "implementation": {
+    "type": "mcp-tool",
+    "server": "filesystem",
+    "tool": "read_file",
+    "fallback": {
+      "type": "native",
+      "function": "fs.readFileSync"
+    }
+  },
+  
+  "constraints": {
+    "permissions": ["read"],
+    "blockedPaths": [
+      "/etc/passwd",
+      "/etc/shadow",
+      "~/.ssh/*",
+      "**/*.key",
+      "**/*.pem"
+    ],
+    "maxFileSize": 10485760,
+    "allowedExtensions": ["*"]
+  },
+  
+  "errors": {
+    "FILE_NOT_FOUND": {
+      "code": "E001",
+      "message": "文件不存在",
+      "retryable": false
+    },
+    "PERMISSION_DENIED": {
+      "code": "E002",
+      "message": "权限不足",
+      "retryable": false
+    },
+    "FILE_TOO_LARGE": {
+      "code": "E003",
+      "message": "文件超过大小限制",
+      "retryable": false
+    }
+  }
+}

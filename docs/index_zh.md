@@ -57,6 +57,15 @@
   - [安全运维](ops-skills/skills-lists/secops.md) | [中文](ops-skills/skills-lists/secops_zh.md)
   - [平台工程](ops-skills/skills-lists/platform-engineering.md) | [中文](ops-skills/skills-lists/platform-engineering_zh.md)
 
+### 技能生态
+AI 驱动的开发工具和技能市场：
+- [腾讯 SkillHub](ecosystem/skillhub.md) - 腾讯 AI 技能市场
+- [Claw Hub](ecosystem/claw-hub.md) - Lobehub 开放 AI 技能生态
+- [MCP Registry](ecosystem/mcp-registry.md) - Model Context Protocol 技能
+- [GitHub Copilot](ecosystem/github-copilot.md) - AI 结对编程
+- [Cursor](ecosystem/cursor.md) - AI 优先代码编辑器
+- [Lobe Chat](ecosystem/lobe-chat.md) - 开源 AI 聊天平台
+
 ### 社区与支持
 贡献者和社区成员的资源：
 - [常见问题](community/faq.md) - 常见问题解答

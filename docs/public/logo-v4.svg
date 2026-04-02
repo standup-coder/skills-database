@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 简约版本 4: 极简线条 S -->
+  <rect width="100" height="100" rx="24" fill="white" stroke="#326CE5" stroke-width="2"/>
+  <path d="M 35 35 Q 65 35 65 50 Q 65 65 35 65" stroke="#326CE5" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
