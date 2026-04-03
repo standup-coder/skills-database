@@ -1,0 +1,118 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "terraform-plan-review",
+  "type": "composite-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Terraform Plan Review",
+    "nameZh": "Terraform Plan 审查",
+    "description": "分析 Terraform Plan 的风险、成本影响与策略合规性",
+    "descriptionZh": "分析 Terraform Plan 的风险、成本影响与策略合规性",
+    "author": "skills4coder-team",
+    "tags": ["terraform", "iac", "security", "cost", "ops"],
+    "category": "operations"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "planFilePath": {
+          "type": "string",
+          "description": "terraform plan 输出文件路径（JSON 格式）"
+        },
+        "focus": {
+          "type": "array",
+          "items": { "enum": ["security", "cost", "compliance"] },
+          "default": ["security", "cost", "compliance"]
+        }
+      },
+      "required": ["planFilePath"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "riskScore": { "type": "number" },
+        "approval": { "enum": ["approved", "comment", "request-changes"] },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "severity": { "enum": ["critical", "high", "medium", "low"] },
+              "category": { "type": "string" },
+              "resource": { "type": "string" },
+              "message": { "type": "string" },
+              "suggestion": { "type": "string" }
+            }
+          }
+        },
+        "costImpact": {
+          "type": "object",
+          "properties": {
+            "estimatedMonthly": { "type": "string" },
+            "trend": { "enum": ["increase", "decrease", "neutral"] }
+          }
+        }
+      }
+    }
+  },
+
+  "workflow": {
+    "description": "Terraform Plan 审查工作流",
+    "steps": [
+      {
+        "id": "read-plan",
+        "name": "读取 Plan 文件",
+        "atomicSkill": "read-file",
+        "input": {
+          "path": "{{input.planFilePath}}"
+        },
+        "output": "planContent"
+      },
+      {
+        "id": "parse-plan",
+        "name": "解析 Plan",
+        "atomicSkill": "parse-json-log",
+        "input": {
+          "content": "{{steps.read-plan.output.content}}",
+          "limit": 10000
+        },
+        "output": "planJson"
+      },
+      {
+        "id": "llm-review",
+        "name": "AI 风险审查",
+        "type": "llm",
+        "input": {
+          "plan": "{{steps.parse-plan.output.entries}}",
+          "focus": "{{input.focus}}"
+        },
+        "prompt": "你是一位资深云架构师。请分析以下 Terraform Plan JSON，评估其安全性、成本影响与合规性。按 critical/high/medium/low 分级列出问题，给出 approval 建议（approved/comment/request-changes），并估算月度成本变化趋势（increase/decrease/neutral）。",
+        "output": "reviewResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "reviewResult": "{{steps.llm-review.output}}"
+        },
+        "transform": "formatTerraformReviewOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "llm-review",
+      "action": "skip-partial-analysis"
+    }
+  }
+}

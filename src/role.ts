@@ -2,7 +2,7 @@
  * Role 管理类
  */
 
-import type { Role as RoleType } from './types';
+import type { Role as RoleType } from './types.js';
 import { readFileSync } from 'fs';
 
 export class Role {
@@ -28,6 +28,10 @@ export class Role {
 
   get name(): string {
     return this.data.metadata.name;
+  }
+
+  get metadata(): any {
+    return this.data.metadata;
   }
 
   get description(): string {

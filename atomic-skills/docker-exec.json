@@ -1,0 +1,104 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "docker-exec",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Docker Exec",
+    "nameZh": "Docker 容器执行",
+    "description": "Execute a command inside a running Docker container",
+    "descriptionZh": "在运行中的 Docker 容器内执行命令",
+    "author": "skills4coder-team",
+    "tags": ["docker", "container", "exec", "ops"],
+    "category": "container"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "container": {
+          "type": "string",
+          "description": "容器名称或 ID"
+        },
+        "command": {
+          "type": "string",
+          "description": "要执行的命令"
+        },
+        "workdir": {
+          "type": "string",
+          "description": "容器内工作目录"
+        },
+        "user": {
+          "type": "string",
+          "description": "执行用户（默认 root）"
+        },
+        "timeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "超时时间（毫秒）"
+        }
+      },
+      "required": ["container", "command"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "stdout": {
+          "type": "string",
+          "description": "标准输出"
+        },
+        "stderr": {
+          "type": "string",
+          "description": "标准错误"
+        },
+        "exitCode": {
+          "type": "number",
+          "description": "退出码"
+        }
+      },
+      "required": ["stdout", "stderr", "exitCode"]
+    }
+  },
+
+  "implementation": {
+    "type": "native",
+    "function": "dockerExec",
+    "module": "internal/docker-client"
+  },
+
+  "constraints": {
+    "permissions": ["read", "exec"],
+    "allowedCommands": [
+      "docker exec"
+    ],
+    "blockedContainerPaths": [
+      "/etc/shadow",
+      "/proc/1/environ"
+    ],
+    "timeout": 60000,
+    "maxOutputSize": 10485760
+  },
+
+  "errors": {
+    "CONTAINER_NOT_FOUND": {
+      "code": "E501",
+      "message": "容器不存在或未运行",
+      "retryable": false
+    },
+    "EXEC_FAILED": {
+      "code": "E502",
+      "message": "容器内命令执行失败",
+      "retryable": false
+    },
+    "TIMEOUT": {
+      "code": "E503",
+      "message": "执行超时",
+      "retryable": true
+    }
+  }
+}

@@ -32,6 +32,19 @@ Skill 是完成特定任务的能力模块，由多个原子技能编排而成�
 | write-unit-tests | 单元测试 | 编写单元测试 | read-code, generate-tests, run-tests |
 | write-e2e-tests | E2E 测试 | 编写端到端测试 | read-spec, record-flow, generate-tests |
 
+### 4. 运维类 Skills
+
+| Skill ID | 名称 | 描述 | 原子技能 |
+|----------|------|------|----------|
+| docker-container-management | Docker 容器管理 | 查看状态、执行命令、收集日志 | run-shell-command, docker-exec |
+| k8s-deployment-review | K8s 部署审查 | 审查 Deployment 配置的正确性与安全性 | read-file, validate-k8s-manifest, analyze-code |
+| terraform-plan-review | Terraform Plan 审查 | 分析 Plan 风险、成本与合规性 | read-file, parse-json-log |
+| ci-pipeline-setup | CI 流水线搭建 | 生成 GitHub Actions 等 CI/CD 配置 | run-shell-command, write-file |
+| monitoring-stack-setup | 监控栈搭建 | 生成 Prometheus + Grafana 配置与告警规则 | http-health-check, write-file |
+| incident-diagnosis | 故障诊断 | 结合日志、指标和容器状态进行根因分析 | http-health-check, read-file, parse-json-log, run-shell-command |
+| security-audit | 安全审计 | 扫描配置文件与代码的安全风险 | run-shell-command, read-file |
+| log-analysis | 日志分析 | 分析应用日志，定位异常模式 | read-file, parse-json-log |
+
 ## Skill 结构
 
 ```json

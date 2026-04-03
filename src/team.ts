@@ -2,9 +2,9 @@
  * Team 类 - 多 Agent 协作团队
  */
 
-import type { TeamConfig, TeamMemberConfig, WorkflowConfig, WorkflowStepConfig } from './types';
-import { Agent } from './agent';
-import { Role } from './role';
+import type { TeamConfig, TeamMemberConfig, WorkflowConfig, WorkflowStepConfig } from './types.js';
+import { Agent } from './agent.js';
+import { Role } from './role.js';
 import { EventEmitter } from 'events';
 
 export interface TeamExecutionResult {
@@ -109,6 +109,9 @@ export class Team extends EventEmitter {
       this.emit('step:start', { step, agent: step.agent });
 
       try {
+        if (!step.agent) {
+          throw new Error(`Step ${step.id} has no agent assigned`);
+        }
         const agent = this.agents.get(step.agent);
         if (!agent) {
           throw new Error(`Agent ${step.agent} not found`);

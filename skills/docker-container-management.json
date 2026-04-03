@@ -1,0 +1,105 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "docker-container-management",
+  "type": "composite-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Docker Container Management",
+    "nameZh": "Docker 容器管理",
+    "description": "管理 Docker 容器生命周期：查看状态、执行命令、收集日志",
+    "descriptionZh": "管理 Docker 容器生命周期：查看状态、执行命令、收集日志",
+    "author": "skills4coder-team",
+    "tags": ["docker", "container", "ops"],
+    "category": "operations"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["status", "exec", "logs"],
+          "description": "操作类型"
+        },
+        "container": {
+          "type": "string",
+          "description": "容器名称或 ID"
+        },
+        "command": {
+          "type": "string",
+          "description": "exec 时执行的命令"
+        }
+      },
+      "required": ["action", "container"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "result": { "type": "string" },
+        "exitCode": { "type": "number" }
+      }
+    }
+  },
+
+  "workflow": {
+    "description": "Docker 容器管理工作流",
+    "steps": [
+      {
+        "id": "check-status",
+        "name": "检查容器状态",
+        "atomicSkill": "run-shell-command",
+        "condition": "{{input.action === 'status'}}",
+        "input": {
+          "command": "docker ps --filter 'name={{input.container}}' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+        },
+        "output": "statusResult"
+      },
+      {
+        "id": "exec-command",
+        "name": "容器内执行命令",
+        "atomicSkill": "docker-exec",
+        "condition": "{{input.action === 'exec'}}",
+        "input": {
+          "container": "{{input.container}}",
+          "command": "{{input.command}}"
+        },
+        "output": "execResult"
+      },
+      {
+        "id": "fetch-logs",
+        "name": "获取容器日志",
+        "atomicSkill": "run-shell-command",
+        "condition": "{{input.action === 'logs'}}",
+        "input": {
+          "command": "docker logs --tail 100 {{input.container}}"
+        },
+        "output": "logsResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "status": "{{steps.check-status.output}}",
+          "exec": "{{steps.exec-command.output}}",
+          "logs": "{{steps.fetch-logs.output}}"
+        },
+        "transform": "formatDockerOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "format-output",
+      "action": "return-raw"
+    }
+  }
+}

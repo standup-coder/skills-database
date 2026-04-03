@@ -1,0 +1,142 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "incident-diagnosis",
+  "type": "composite-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Incident Diagnosis",
+    "nameZh": "故障诊断",
+    "description": "结合日志、指标和容器状态进行故障根因分析",
+    "descriptionZh": "结合日志、指标和容器状态进行故障根因分析",
+    "author": "skills4coder-team",
+    "tags": ["sre", "incident", "troubleshooting", "ops"],
+    "category": "operations"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "serviceUrl": {
+          "type": "string",
+          "description": "服务 URL"
+        },
+        "logFilePath": {
+          "type": "string",
+          "description": "日志文件路径"
+        },
+        "containerName": {
+          "type": "string",
+          "description": "相关容器名称"
+        },
+        "symptom": {
+          "type": "string",
+          "description": "故障现象描述"
+        }
+      },
+      "anyOf": [
+        { "required": ["serviceUrl"] },
+        { "required": ["logFilePath"] },
+        { "required": ["containerName"] }
+      ]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "rootCause": { "type": "string" },
+        "confidence": { "type": "number" },
+        "evidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "remediation": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "workflow": {
+    "description": "故障诊断工作流",
+    "steps": [
+      {
+        "id": "health-check",
+        "name": "健康探测",
+        "atomicSkill": "http-health-check",
+        "condition": "{{input.serviceUrl !== undefined}}",
+        "input": {
+          "url": "{{input.serviceUrl}}"
+        },
+        "output": "healthResult"
+      },
+      {
+        "id": "read-logs",
+        "name": "读取日志",
+        "atomicSkill": "read-file",
+        "condition": "{{input.logFilePath !== undefined}}",
+        "input": {
+          "path": "{{input.logFilePath}}"
+        },
+        "output": "logContent"
+      },
+      {
+        "id": "parse-logs",
+        "name": "解析日志",
+        "atomicSkill": "parse-json-log",
+        "condition": "{{steps.read-logs.output !== undefined}}",
+        "input": {
+          "content": "{{steps.read-logs.output.content}}",
+          "filter": { "level": "ERROR" },
+          "limit": 50
+        },
+        "output": "parsedLogs"
+      },
+      {
+        "id": "container-status",
+        "name": "容器状态",
+        "atomicSkill": "run-shell-command",
+        "condition": "{{input.containerName !== undefined}}",
+        "input": {
+          "command": "docker inspect {{input.containerName}} --format='{{json .State}}'"
+        },
+        "output": "containerState"
+      },
+      {
+        "id": "llm-diagnosis",
+        "name": "AI 根因分析",
+        "type": "llm",
+        "input": {
+          "symptom": "{{input.symptom}}",
+          "health": "{{steps.health-check.output}}",
+          "logs": "{{steps.parse-logs.output}}",
+          "container": "{{steps.container-status.output}}"
+        },
+        "prompt": "你是一位资深 SRE。根据以下故障现象、健康探测结果、错误日志和容器状态，进行根因分析。输出：1) 最可能的根因（rootCause）；2) 置信度 0-1（confidence）；3) 证据列表（evidence）；4) 修复步骤（remediation）。",
+        "output": "diagnosisResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "diagnosis": "{{steps.llm-diagnosis.output}}"
+        },
+        "transform": "formatIncidentOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "llm-diagnosis",
+      "action": "skip-partial"
+    }
+  }
+}

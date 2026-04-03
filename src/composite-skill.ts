@@ -2,7 +2,7 @@
  * 复合技能类
  */
 
-import type { CompositeSkill as CompositeSkillType, WorkflowStep } from './types';
+import type { CompositeSkill as CompositeSkillType, WorkflowStep } from './types.js';
 
 export class CompositeSkill {
   private data: CompositeSkillType;

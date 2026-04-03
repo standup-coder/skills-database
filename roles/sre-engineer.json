@@ -1,0 +1,85 @@
+{
+  "$schema": "../schema/role-v1.json",
+  "id": "sre-engineer",
+  "type": "role",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "SRE Engineer",
+    "nameZh": "SRE 工程师",
+    "description": "负责系统可靠性、可观测性、故障响应与性能优化",
+    "descriptionZh": "负责系统可靠性、可观测性、故障响应与性能优化",
+    "author": "skills4coder-team",
+    "tags": ["sre", "reliability", "monitoring", "observability", "incident-response"],
+    "level": "senior"
+  },
+
+  "jd": {
+    "summary": "保障生产系统的高可用性、可观测性与快速恢复能力",
+    "summaryZh": "保障生产系统的高可用性、可观测性与快速恢复能力",
+
+    "responsibilities": [
+      "定义和追踪 SLI/SLO/Error Budget",
+      "搭建和维护监控告警体系",
+      "主导故障排查与事后复盘",
+      "推动自动化以减少重复劳动"
+    ],
+    "responsibilitiesZh": [
+      "定义和追踪 SLI/SLO/Error Budget",
+      "搭建和维护监控告警体系",
+      "主导故障排查与事后复盘",
+      "推动自动化以减少重复劳动"
+    ],
+
+    "requirements": {
+      "experience": "4+ years",
+      "coreSkills": ["Kubernetes", "Prometheus", "Grafana", "Terraform", "Incident Management"]
+    }
+  },
+
+  "capabilities": {
+    "mainSkills": [
+      "sre-engineer",
+      "prometheus-monitoring",
+      "grafana-dashboard",
+      "logging-observability",
+      "incident-runbook",
+      "cost-optimization",
+      "platform-healthcheck",
+      "k8s-security",
+      "k8s-troubleshooting",
+      "terraform-plan-review",
+      "security-scan",
+      "log-parser",
+      "service-health-check",
+      "system-watchdog",
+      "docker-container-management",
+      "k8s-deployment-review",
+      "ci-pipeline-setup",
+      "monitoring-stack-setup",
+      "incident-diagnosis",
+      "security-audit",
+      "log-analysis"
+    ],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "run-shell-command",
+      "http-health-check",
+      "parse-json-log",
+      "docker-exec",
+      "validate-k8s-manifest",
+      "api-call"
+    ]
+  },
+
+  "context": {
+    "techStack": {
+      "container": ["Docker", "Kubernetes", "Helm"],
+      "iac": ["Terraform", "Pulumi"],
+      "observability": ["Prometheus", "Grafana", "Loki", "Elasticsearch", "Jaeger"],
+      "incident": ["PagerDuty", "OpsGenie", "Slack"],
+      "cloud": ["AWS", "Azure", "GCP", "Tencent Cloud"]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "../schema/role-v1.json",
+  "id": "devops-engineer",
+  "type": "role",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "DevOps Engineer",
+    "nameZh": "DevOps 工程师",
+    "description": "负责 CI/CD 流水线、容器化、基础设施即代码与云平台管理",
+    "descriptionZh": "负责 CI/CD 流水线、容器化、基础设施即代码与云平台管理",
+    "author": "skills4coder-team",
+    "tags": ["devops", "cicd", "docker", "kubernetes", "terraform", "cloud"],
+    "level": "mid"
+  },
+
+  "jd": {
+    "summary": "构建和维护高效的持续交付体系与云原生基础设施",
+    "summaryZh": "构建和维护高效的持续交付体系与云原生基础设施",
+
+    "responsibilities": [
+      "设计和优化 CI/CD 流水线",
+      "管理容器和 Kubernetes 集群",
+      "编写和维护 Terraform / Ansible 基础设施代码",
+      "多云平台运维与成本优化"
+    ],
+    "responsibilitiesZh": [
+      "设计和优化 CI/CD 流水线",
+      "管理容器和 Kubernetes 集群",
+      "编写和维护 Terraform / Ansible 基础设施代码",
+      "多云平台运维与成本优化"
+    ],
+
+    "requirements": {
+      "experience": "2-5 years",
+      "coreSkills": ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "AWS/Azure/Tencent Cloud"]
+    }
+  },
+
+  "capabilities": {
+    "mainSkills": [
+      "docker-essentials",
+      "kubernetes-basics",
+      "docker-to-k8s",
+      "terraform-basics",
+      "ansible-automation",
+      "github-actions",
+      "gitops-workflow",
+      "secrets-management",
+      "config-validator",
+      "aws-cli-basics",
+      "azure-cli-basics",
+      "tencent-cloud-lighthouse",
+      "cloudflare-manager",
+      "docker-container-management",
+      "k8s-deployment-review",
+      "terraform-plan-review",
+      "ci-pipeline-setup",
+      "monitoring-stack-setup",
+      "incident-diagnosis",
+      "security-audit",
+      "log-analysis"
+    ],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "run-shell-command",
+      "docker-exec",
+      "validate-k8s-manifest",
+      "http-health-check",
+      "parse-json-log",
+      "api-call"
+    ]
+  },
+
+  "context": {
+    "techStack": {
+      "container": ["Docker", "Kubernetes", "Helm"],
+      "iac": ["Terraform", "Ansible", "Pulumi"],
+      "cicd": ["GitHub Actions", "GitLab CI", "ArgoCD"],
+      "cloud": ["AWS", "Azure", "Tencent Cloud", "Cloudflare"],
+      "monitoring": ["Prometheus", "Grafana", "Loki"]
+    }
+  }
+}

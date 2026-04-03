@@ -2,8 +2,8 @@
  * Agent 类 - 执行具体任务的智能体
  */
 
-import type { AgentConfig, Role as RoleType, CompositeSkill, AtomicSkill, WorkflowConfig } from './types';
-import { Role } from './role';
+import type { AgentConfig, Role as RoleType, CompositeSkill, AtomicSkill, WorkflowConfig } from './types.js';
+import { Role } from './role.js';
 
 export interface ExecutionResult {
   success: boolean;

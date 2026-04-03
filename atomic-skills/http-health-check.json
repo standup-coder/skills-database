@@ -1,0 +1,109 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "http-health-check",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "HTTP Health Check",
+    "nameZh": "HTTP 健康探测",
+    "description": "Send an HTTP request to verify endpoint health",
+    "descriptionZh": "发送 HTTP 请求验证端点健康状态",
+    "author": "skills4coder-team",
+    "tags": ["http", "health", "monitoring", "ops"],
+    "category": "network"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "探测目标 URL"
+        },
+        "method": {
+          "type": "string",
+          "default": "GET",
+          "enum": ["GET", "HEAD", "POST"]
+        },
+        "headers": {
+          "type": "object",
+          "description": "请求头"
+        },
+        "expectedStatus": {
+          "type": "array",
+          "items": { "type": "number" },
+          "default": [200, 204],
+          "description": "期望的 HTTP 状态码"
+        },
+        "timeout": {
+          "type": "number",
+          "default": 5000,
+          "description": "超时时间（毫秒）"
+        }
+      },
+      "required": ["url"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "healthy": {
+          "type": "boolean",
+          "description": "是否健康"
+        },
+        "statusCode": {
+          "type": "number",
+          "description": "实际状态码"
+        },
+        "responseTime": {
+          "type": "number",
+          "description": "响应时间（毫秒）"
+        },
+        "body": {
+          "type": "string",
+          "description": "响应体（截断）"
+        }
+      },
+      "required": ["healthy", "statusCode", "responseTime"]
+    }
+  },
+
+  "implementation": {
+    "type": "native",
+    "function": "fetch",
+    "module": "global"
+  },
+
+  "constraints": {
+    "permissions": ["network"],
+    "blockedHosts": [
+      "localhost:22",
+      "127.0.0.1:22",
+      "169.254.169.254"
+    ],
+    "timeout": 10000,
+    "maxResponseSize": 1048576
+  },
+
+  "errors": {
+    "TIMEOUT": {
+      "code": "E201",
+      "message": "探测超时",
+      "retryable": true
+    },
+    "DNS_ERROR": {
+      "code": "E202",
+      "message": "域名解析失败",
+      "retryable": false
+    },
+    "UNEXPECTED_STATUS": {
+      "code": "E203",
+      "message": "返回非期望状态码",
+      "retryable": false
+    }
+  }
+}

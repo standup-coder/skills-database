@@ -2,7 +2,7 @@
  * 原子技能类
  */
 
-import type { AtomicSkill as AtomicSkillType } from './types';
+import type { AtomicSkill as AtomicSkillType } from './types.js';
 
 export class AtomicSkill {
   private data: AtomicSkillType;

@@ -53,6 +53,16 @@
 |----------|------|------|------|
 | http-request | HTTP 请求 | 发送 HTTP 请求 | native |
 | api-call | API 调用 | 调用 REST/GraphQL API | native |
+| http-health-check | HTTP 健康探测 | 验证端点健康状态 | native |
+
+### 6. 运维操作
+
+| Skill ID | 名称 | 描述 | 实现 |
+|----------|------|------|------|
+| run-shell-command | 执行 Shell 命令 | 受控环境下执行命令并捕获输出 | native |
+| docker-exec | Docker 容器执行 | 在运行中的容器内执行命令 | native |
+| validate-k8s-manifest | 校验 K8s 清单 | 使用 kubeval/kubectl 校验 YAML | native |
+| parse-json-log | 解析 JSON 日志 | 解析并过滤结构化日志 | native |
 
 ## 原子技能结构
 

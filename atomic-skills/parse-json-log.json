@@ -1,0 +1,96 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "parse-json-log",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Parse JSON Log",
+    "nameZh": "解析 JSON 日志",
+    "description": "Parse and filter structured JSON logs",
+    "descriptionZh": "解析并过滤结构化 JSON 日志",
+    "author": "skills4coder-team",
+    "tags": ["log", "json", "parser", "ops"],
+    "category": "data"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "日志内容（多行 JSON）"
+        },
+        "filter": {
+          "type": "object",
+          "description": "过滤条件，如 { level: 'ERROR' }"
+        },
+        "timeRange": {
+          "type": "object",
+          "properties": {
+            "start": { "type": "string", "format": "date-time" },
+            "end": { "type": "string", "format": "date-time" }
+          }
+        },
+        "limit": {
+          "type": "number",
+          "default": 100,
+          "description": "返回最大条目数"
+        }
+      },
+      "required": ["content"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": { "type": "object" },
+          "description": "解析后的日志条目"
+        },
+        "matchedCount": {
+          "type": "number",
+          "description": "匹配条数"
+        },
+        "totalCount": {
+          "type": "number",
+          "description": "总条数"
+        },
+        "summary": {
+          "type": "object",
+          "description": "级别分布等统计"
+        }
+      },
+      "required": ["entries", "matchedCount", "totalCount"]
+    }
+  },
+
+  "implementation": {
+    "type": "native",
+    "function": "JSON.parse",
+    "module": "global"
+  },
+
+  "constraints": {
+    "permissions": ["read"],
+    "maxInputSize": 52428800,
+    "maxEntries": 10000
+  },
+
+  "errors": {
+    "INVALID_JSON": {
+      "code": "E301",
+      "message": "日志包含非法 JSON",
+      "retryable": false
+    },
+    "INPUT_TOO_LARGE": {
+      "code": "E302",
+      "message": "日志内容超过大小限制",
+      "retryable": false
+    }
+  }
+}

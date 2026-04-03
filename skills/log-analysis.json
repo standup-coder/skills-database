@@ -1,0 +1,120 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "log-analysis",
+  "type": "composite-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Log Analysis",
+    "nameZh": "日志分析",
+    "description": "分析应用日志，定位异常模式并生成摘要报告",
+    "descriptionZh": "分析应用日志，定位异常模式并生成摘要报告",
+    "author": "skills4coder-team",
+    "tags": ["logging", "analysis", "troubleshooting", "ops"],
+    "category": "operations"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "logFilePath": {
+          "type": "string",
+          "description": "日志文件路径"
+        },
+        "logFormat": {
+          "type": "string",
+          "enum": ["json", "nginx", "apache", "plain"],
+          "default": "json"
+        },
+        "query": {
+          "type": "string",
+          "description": "自然语言查询，如'找出5xx错误的原因'"
+        }
+      },
+      "required": ["logFilePath", "query"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "anomalies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "count": { "type": "number" },
+              "example": { "type": "string" },
+              "suggestion": { "type": "string" }
+            }
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    }
+  },
+
+  "workflow": {
+    "description": "日志分析工作流",
+    "steps": [
+      {
+        "id": "read-log",
+        "name": "读取日志",
+        "atomicSkill": "read-file",
+        "input": {
+          "path": "{{input.logFilePath}}"
+        },
+        "output": "logContent"
+      },
+      {
+        "id": "parse-log",
+        "name": "解析日志",
+        "atomicSkill": "parse-json-log",
+        "condition": "{{input.logFormat === 'json'}}",
+        "input": {
+          "content": "{{steps.read-log.output.content}}",
+          "limit": 200
+        },
+        "output": "parsedEntries"
+      },
+      {
+        "id": "llm-analysis",
+        "name": "AI 日志分析",
+        "type": "llm",
+        "input": {
+          "query": "{{input.query}}",
+          "logFormat": "{{input.logFormat}}",
+          "parsedEntries": "{{steps.parse-log.output}}",
+          "rawContent": "{{steps.read-log.output.content}}"
+        },
+        "prompt": "你是一位日志分析专家。用户的问题是：{{input.query}}。请根据以下日志内容（格式：{{input.logFormat}}）进行分析。输出：1) 一句话摘要（summary）；2) 异常模式列表（anomalies），包含类型、数量、示例和建议；3) 关键时间线（timeline）。",
+        "output": "analysisResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "analysisResult": "{{steps.llm-analysis.output}}"
+        },
+        "transform": "formatLogAnalysisOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "llm-analysis",
+      "action": "skip-partial"
+    }
+  }
+}

@@ -31,7 +31,8 @@ Role 定义了一个岗位的能力边界、职责范围和技能要求。它是
 | backend-architect | 后端架构师 | Senior | 系统架构、技术选型 |
 | qa-automation | 自动化测试 | Mid | 测试策略、自动化框架 |
 | product-manager | 产品经理 | Senior | 需求分析、PRD 编写 |
-| sre-engineer | SRE 工程师 | Senior | 可靠性工程、运维 |
+| devops-engineer | DevOps 工程师 | Mid | CI/CD、容器、IaC、多云运维 |
+| sre-engineer | SRE 工程师 | Senior | 可靠性工程、监控、故障响应 |
 
 ## 创建新 Role
 

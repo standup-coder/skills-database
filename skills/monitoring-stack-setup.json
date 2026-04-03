@@ -1,0 +1,97 @@
+{
+  "$schema": "../schema/skill-v1.json",
+  "id": "monitoring-stack-setup",
+  "type": "composite-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Monitoring Stack Setup",
+    "nameZh": "监控栈搭建",
+    "description": "生成 Prometheus + Grafana 监控栈的 Docker Compose 配置与告警规则",
+    "descriptionZh": "生成 Prometheus + Grafana 监控栈的 Docker Compose 配置与告警规则",
+    "author": "skills4coder-team",
+    "tags": ["prometheus", "grafana", "monitoring", "observability", "ops"],
+    "category": "operations"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "targets": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "要监控的服务地址列表"
+        },
+        "alertChannels": {
+          "type": "array",
+          "items": { "enum": ["email", "slack", "webhook"] },
+          "default": ["email"]
+        },
+        "outputDir": {
+          "type": "string",
+          "default": "./monitoring",
+          "description": "配置输出目录"
+        }
+      },
+      "required": ["targets"]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "composeYaml": { "type": "string" },
+        "prometheusConfig": { "type": "string" },
+        "alertRules": { "type": "string" },
+        "setupInstructions": { "type": "string" }
+      }
+    }
+  },
+
+  "workflow": {
+    "description": "监控栈搭建工作流",
+    "steps": [
+      {
+        "id": "health-check",
+        "name": "探测目标健康状态",
+        "atomicSkill": "http-health-check",
+        "input": {
+          "url": "{{input.targets[0]}}/metrics"
+        },
+        "output": "healthResult"
+      },
+      {
+        "id": "generate-configs",
+        "name": "生成监控配置",
+        "type": "llm",
+        "input": {
+          "targets": "{{input.targets}}",
+          "alertChannels": "{{input.alertChannels}}",
+          "healthResult": "{{steps.health-check.output}}"
+        },
+        "prompt": "你是一位可观测性专家。请为以下目标生成一套完整的 Prometheus + Grafana Docker Compose 监控方案：1) docker-compose.yml；2) prometheus.yml（包含所有 targets 的 scrape 配置）；3) alert_rules.yml（CPU、内存、请求延迟、错误率告警）；4) Grafana 数据源与仪表板配置建议。请确保配置可直接运行。",
+        "output": "configResult"
+      },
+      {
+        "id": "format-output",
+        "name": "格式化输出",
+        "type": "transform",
+        "input": {
+          "configResult": "{{steps.generate-configs.output}}"
+        },
+        "transform": "formatMonitoringOutput",
+        "output": "finalResult"
+      }
+    ]
+  },
+
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": {
+      "step": "generate-configs",
+      "action": "use-default-template"
+    }
+  }
+}

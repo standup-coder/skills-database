@@ -1,0 +1,95 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "validate-k8s-manifest",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Validate K8s Manifest",
+    "nameZh": "校验 K8s 清单",
+    "description": "Validate Kubernetes YAML manifests using kubeval or kubectl",
+    "descriptionZh": "使用 kubeval 或 kubectl 校验 Kubernetes YAML 清单",
+    "author": "skills4coder-team",
+    "tags": ["kubernetes", "validation", "yaml", "ops"],
+    "category": "validation"
+  },
+
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "manifestPath": {
+          "type": "string",
+          "description": "YAML 文件路径"
+        },
+        "manifestContent": {
+          "type": "string",
+          "description": "YAML 内容（与路径二选一）"
+        },
+        "strict": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用严格模式"
+        }
+      },
+      "anyOf": [
+        { "required": ["manifestPath"] },
+        { "required": ["manifestContent"] }
+      ]
+    }
+  },
+
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean",
+          "description": "是否通过校验"
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "错误信息列表"
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "警告信息列表"
+        }
+      },
+      "required": ["valid", "errors", "warnings"]
+    }
+  },
+
+  "implementation": {
+    "type": "native",
+    "function": "validateK8sManifest",
+    "module": "internal/k8s-validator"
+  },
+
+  "constraints": {
+    "permissions": ["read", "exec"],
+    "allowedCommands": ["kubectl", "kubeval"],
+    "maxFileSize": 10485760,
+    "allowedExtensions": [".yaml", ".yml", ".json"]
+  },
+
+  "errors": {
+    "MANIFEST_NOT_FOUND": {
+      "code": "E401",
+      "message": "清单文件不存在",
+      "retryable": false
+    },
+    "VALIDATION_FAILED": {
+      "code": "E402",
+      "message": "清单校验失败",
+      "retryable": false
+    },
+    "TOOL_NOT_FOUND": {
+      "code": "E403",
+      "message": "未找到 kubectl 或 kubeval",
+      "retryable": false
+    }
+  }
+}

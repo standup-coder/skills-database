@@ -2,7 +2,7 @@
  * 工作流类
  */
 
-import type { WorkflowConfig, WorkflowStepConfig } from './types';
+import type { WorkflowConfig, WorkflowStepConfig } from './types.js';
 import { EventEmitter } from 'events';
 
 export interface WorkflowContext {

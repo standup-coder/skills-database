@@ -1,0 +1,269 @@
+{
+  "version": "1.0.0",
+  "role": "ops",
+  "specialization": "devops",
+  "metadata": {
+    "title": {
+      "en": "Intermediate DevOps / Operations Skills",
+      "zh": "中级运维 / DevOps 技能"
+    },
+    "description": {
+      "en": "Skills for mid-level DevOps engineers focusing on orchestration, IaC, and monitoring",
+      "zh": "面向中级 DevOps 工程师的编排、IaC 与监控技能"
+    },
+    "lastUpdated": "2026-04-03"
+  },
+  "skills": [
+    {
+      "id": "container-orchestration",
+      "name": {
+        "en": "Container Orchestration",
+        "zh": "容器编排"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Kubernetes cluster management and deployment workflows",
+        "zh": "Kubernetes 集群管理与部署工作流"
+      },
+      "items": [
+        {
+          "id": "kubernetes-basics",
+          "name": {
+            "en": "Kubernetes Basics",
+            "zh": "Kubernetes 基础"
+          },
+          "description": {
+            "en": "Production cluster management, deployment, service exposure, and basic troubleshooting",
+            "zh": "生产集群管理、Deployment、Service 暴露与基础排障"
+          },
+          "importance": "required",
+          "tags": ["kubernetes", "k8s", "container", "orchestration"]
+        },
+        {
+          "id": "docker-to-k8s",
+          "name": {
+            "en": "Docker to K8s Manifests",
+            "zh": "Docker 转 K8s 清单"
+          },
+          "description": {
+            "en": "Automatically generate optimized Kubernetes manifests from Dockerfile and docker-compose",
+            "zh": "从 Dockerfile 与 docker-compose 自动生成优化后的 K8s 清单"
+          },
+          "importance": "recommended",
+          "tags": ["kubernetes", "docker", "generator", "iac"]
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-as-code",
+      "name": {
+        "en": "Infrastructure as Code",
+        "zh": "基础设施即代码"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Automated infrastructure provisioning and configuration management",
+        "zh": "自动化基础设施供应与配置管理"
+      },
+      "items": [
+        {
+          "id": "terraform-basics",
+          "name": {
+            "en": "Terraform Basics",
+            "zh": "Terraform 基础"
+          },
+          "description": {
+            "en": "Write and apply Terraform configurations for AWS, Azure, and Tencent Cloud",
+            "zh": "编写并执行适用于 AWS、Azure、腾讯云的 Terraform 配置"
+          },
+          "importance": "required",
+          "tags": ["terraform", "iac", "cloud"]
+        },
+        {
+          "id": "ansible-automation",
+          "name": {
+            "en": "Ansible Automation",
+            "zh": "Ansible 自动化"
+          },
+          "description": {
+            "en": "Infrastructure automation with Ansible playbooks and roles",
+            "zh": "使用 Ansible Playbook 与 Role 实现基础设施自动化"
+          },
+          "importance": "recommended",
+          "tags": ["ansible", "iac", "configuration-management"]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-observability",
+      "name": {
+        "en": "Monitoring & Observability",
+        "zh": "监控与可观测性"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Metrics, logs, dashboards, and alerting for production systems",
+        "zh": "生产系统的指标、日志、仪表板与告警"
+      },
+      "items": [
+        {
+          "id": "prometheus-monitoring",
+          "name": {
+            "en": "Prometheus Monitoring",
+            "zh": "Prometheus 监控"
+          },
+          "description": {
+            "en": "Set up Prometheus scraping, recording rules, and basic alerting",
+            "zh": "搭建 Prometheus 采集、Recording Rule 与基础告警"
+          },
+          "importance": "required",
+          "tags": ["prometheus", "monitoring", "metrics", "observability"]
+        },
+        {
+          "id": "grafana-dashboard",
+          "name": {
+            "en": "Grafana Dashboard",
+            "zh": "Grafana 仪表板"
+          },
+          "description": {
+            "en": "Query metrics, build dashboards, manage alerts, and trace visualization",
+            "zh": "查询指标、构建仪表板、管理告警与链路可视化"
+          },
+          "importance": "required",
+          "tags": ["grafana", "dashboard", "visualization", "observability"]
+        },
+        {
+          "id": "logging-observability",
+          "name": {
+            "en": "Logging Observability",
+            "zh": "日志可观测性"
+          },
+          "description": {
+            "en": "Unified log search across Loki, Elasticsearch, and CloudWatch",
+            "zh": "跨 Loki、Elasticsearch、CloudWatch 的统一日志检索"
+          },
+          "importance": "recommended",
+          "tags": ["logging", "elk", "loki", "observability"]
+        }
+      ]
+    },
+    {
+      "id": "security-basics",
+      "name": {
+        "en": "Security Basics",
+        "zh": "安全基础"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Essential security scanning and secrets management",
+        "zh": "基础安全扫描与密钥管理"
+      },
+      "items": [
+        {
+          "id": "secrets-management",
+          "name": {
+            "en": "Secrets Management",
+            "zh": "密钥管理"
+          },
+          "description": {
+            "en": "Secure secrets for CI/CD using Vault, AWS Secrets Manager, and native solutions",
+            "zh": "使用 Vault、AWS Secrets Manager 及原生方案管理 CI/CD 密钥"
+          },
+          "importance": "required",
+          "tags": ["security", "secrets", "cicd", "vault"]
+        },
+        {
+          "id": "config-validator",
+          "name": {
+            "en": "Config Validator",
+            "zh": "配置校验"
+          },
+          "description": {
+            "en": "Validate Kubernetes YAML, Terraform, and Ansible configs for syntax and best practices",
+            "zh": "校验 Kubernetes YAML、Terraform、Ansible 配置的语法与最佳实践"
+          },
+          "importance": "recommended",
+          "tags": ["security", "validation", "k8s", "terraform", "ansible"]
+        }
+      ]
+    }
+  ],
+  "ecosystemMappings": {
+    "claw": [
+      {
+        "skillId": "kubernetes-basics",
+        "externalId": "kubernetes-specialist",
+        "externalName": "Kubernetes Specialist",
+        "externalUrl": "https://clawhub.ai/skills/kubernetes-specialist",
+        "confidence": 0.95,
+        "notes": "From jeffallan/claude-skills"
+      },
+      {
+        "skillId": "docker-to-k8s",
+        "externalId": "neo-docker-to-k8s-manifests",
+        "externalName": "Neo Docker to K8s Manifests",
+        "externalUrl": "https://clawhub.ai/skills/neo-docker-to-k8s-manifests",
+        "confidence": 0.9,
+        "notes": "Auto-generator skill"
+      },
+      {
+        "skillId": "terraform-basics",
+        "externalId": "terraform-engineer",
+        "externalName": "Terraform Engineer",
+        "externalUrl": "https://clawhub.ai/skills/terraform-engineer",
+        "confidence": 0.9,
+        "notes": "Also related to terraform skill"
+      },
+      {
+        "skillId": "ansible-automation",
+        "externalId": "ansible-skill",
+        "externalName": "Ansible Skill",
+        "externalUrl": "https://clawhub.ai/skills/ansible-skill",
+        "confidence": 0.95,
+        "notes": "Infrastructure automation"
+      },
+      {
+        "skillId": "prometheus-monitoring",
+        "externalId": "monitoring-expert",
+        "externalName": "Monitoring Expert",
+        "externalUrl": "https://clawhub.ai/skills/monitoring-expert",
+        "confidence": 0.9,
+        "notes": "Covers Prometheus, Grafana, DataDog"
+      },
+      {
+        "skillId": "grafana-dashboard",
+        "externalId": "grafana-lens",
+        "externalName": "Grafana Lens",
+        "externalUrl": "https://clawhub.ai/skills/grafana-lens",
+        "confidence": 0.95,
+        "notes": "16-agent-tool Grafana skill"
+      },
+      {
+        "skillId": "logging-observability",
+        "externalId": "log-dive",
+        "externalName": "Log Dive",
+        "externalUrl": "https://clawhub.ai/skills/log-dive",
+        "confidence": 0.85,
+        "notes": "Also maps to elasticsearch-skill"
+      },
+      {
+        "skillId": "config-validator",
+        "externalId": "config-validator-skill",
+        "externalName": "Config Validator Skill",
+        "externalUrl": "https://clawhub.ai/skills/config-validator-skill",
+        "confidence": 0.9,
+        "notes": "K8s/Terraform/Ansible validation"
+      }
+    ],
+    "skillhub": [
+      {
+        "skillId": "terraform-basics",
+        "externalId": "terraform-engineer",
+        "externalName": "Terraform Engineer",
+        "externalUrl": "https://skillhub.tencent.com/skills/terraform-engineer",
+        "confidence": 0.9,
+        "notes": "Available on Tencent SkillHub mirror"
+      }
+    ]
+  }
+}
