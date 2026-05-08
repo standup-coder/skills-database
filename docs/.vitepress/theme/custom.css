@@ -251,128 +251,386 @@
 }
 
 /* ========================================
-   Custom Components
+   Section Headers
    ======================================== */
 
-/* Architecture Diagram */
+.home-stats + hr,
+.home-compare + hr,
+.home-roles + hr,
+.home-code-split + hr,
+.home-cta + hr,
+.architecture-diagram + hr {
+  margin: 56px 0 40px;
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* Section headings after <hr> get a decorative left accent */
+.vp-doc hr + h2 {
+  position: relative;
+  font-size: 28px;
+  font-weight: 700;
+  padding-left: 20px;
+  margin-bottom: 32px;
+}
+
+.vp-doc hr + h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--s4c-primary) 0%, var(--s4c-secondary) 100%);
+}
+
+/* ========================================
+   Stats Banner
+   ======================================== */
+
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--vp-c-divider);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.home-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  background: var(--vp-c-bg);
+  gap: 8px;
+}
+
+.home-stats__number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--s4c-primary);
+  letter-spacing: -0.02em;
+}
+
+.home-stats__label {
+  font-size: 14px;
+  color: var(--s4c-text-3);
+  font-weight: 500;
+}
+
+/* ========================================
+   Architecture Diagram
+   ======================================== */
+
 .architecture-diagram {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 40px;
+  gap: 0;
+  padding: 32px 24px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.architecture-diagram .layer {
+.arch-layer {
   width: 100%;
-  max-width: 600px;
-  padding: 24px 32px;
-  border-radius: 12px;
+  padding: 24px 28px;
+  border-radius: 14px;
   text-align: center;
 }
 
-.architecture-diagram .layer h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.architecture-diagram .layer .items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.architecture-diagram .layer .item {
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.architecture-diagram .role-layer {
-  background: linear-gradient(135deg, var(--s4c-primary-soft) 0%, rgba(50, 108, 229, 0.08) 100%);
+.arch-layer--role {
+  background: linear-gradient(135deg, rgba(50,108,229,0.08) 0%, rgba(50,108,229,0.04) 100%);
   border: 2px solid var(--s4c-primary);
 }
 
-.architecture-diagram .role-layer .item {
-  background: var(--s4c-primary);
-  color: white;
-}
-
-.architecture-diagram .skill-layer {
-  background: linear-gradient(135deg, var(--s4c-secondary-soft) 0%, rgba(0, 180, 216, 0.08) 100%);
+.arch-layer--skill {
+  background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(0,180,216,0.04) 100%);
   border: 2px solid var(--s4c-secondary);
 }
 
-.architecture-diagram .skill-layer .item {
-  background: var(--s4c-secondary);
-  color: white;
-}
-
-.architecture-diagram .atomic-layer {
-  background: linear-gradient(135deg, var(--s4c-accent-soft) 0%, rgba(255, 107, 53, 0.08) 100%);
+.arch-layer--atomic {
+  background: linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(255,107,53,0.04) 100%);
   border: 2px solid var(--s4c-accent);
 }
 
-.architecture-diagram .atomic-layer .item {
-  background: var(--s4c-accent);
-  color: white;
-}
-
-.architecture-diagram .arrow {
-  font-size: 24px;
-  color: var(--s4c-text-3);
-}
-
-/* Role Cards */
-.role-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.role-card:hover {
-  border-color: var(--s4c-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.role-card .header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.role-card .icon {
-  font-size: 32px;
-}
-
-.role-card .title {
-  font-size: 18px;
-  font-weight: 600;
+.arch-label {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
   color: var(--s4c-text);
 }
 
-.role-card .description {
-  font-size: 14px;
+.arch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.arch-tags span {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.arch-layer--role .arch-tags span {
+  background: var(--s4c-primary);
+  color: #fff;
+}
+
+.arch-layer--skill .arch-tags span {
+  background: var(--s4c-secondary);
+  color: #fff;
+}
+
+.arch-layer--atomic .arch-tags span {
+  background: var(--s4c-accent);
+  color: #fff;
+}
+
+.arch-arrow {
+  font-size: 13px;
   color: var(--s4c-text-3);
-  line-height: 1.6;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+/* ========================================
+   Comparison Cards
+   ======================================== */
+
+.home-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.home-compare__card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.home-compare__card:hover {
+  border-color: var(--s4c-primary-soft);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.home-compare__icon {
+  font-size: 36px;
+  display: block;
   margin-bottom: 16px;
 }
 
-.role-card .tags {
+.home-compare__card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--s4c-primary);
+  margin: 0 0 20px;
+}
+
+.home-compare__row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.home-compare__old,
+.home-compare__new {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-compare__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  color: var(--s4c-text-3);
+}
+
+.home-compare__old {
+  opacity: 0.7;
+}
+
+.home-compare__old p,
+.home-compare__new p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--s4c-text-2);
+  margin: 0;
+}
+
+.home-compare__new .home-compare__label {
+  color: var(--s4c-primary);
+}
+
+.home-compare__arrow {
+  font-size: 20px;
+  color: var(--s4c-secondary);
+  flex-shrink: 0;
+  padding-top: 14px;
+}
+
+/* ========================================
+   Role Cards Grid
+   ======================================== */
+
+.home-roles {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.home-role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 14px 22px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.home-role-card:hover {
+  border-color: var(--s4c-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.home-role-card--more {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.home-role-card--more:hover {
+  opacity: 1;
+  border-style: solid;
+}
+
+.home-role-card__icon {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.home-role-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--s4c-text);
+}
+
+.home-role-card__stack {
+  font-size: 11px;
+  color: var(--s4c-text-3);
+  line-height: 1.5;
+}
+
+/* ========================================
+   Code Split Panels
+   ======================================== */
+
+.home-code-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.home-code-split__panel {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.home-code-split__panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--s4c-text);
+}
+
+.home-code-split__panel > p {
+  font-size: 14px;
+  color: var(--s4c-text-3);
+  margin: 0 0 20px;
+}
+
+.home-code-split__panel div[class*="language-"] {
+  margin: 0;
+  border-radius: 10px;
+}
+
+/* ========================================
+   CTA Section
+   ======================================== */
+
+.home-cta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.home-cta__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--vp-c-bg);
+  border: 2px solid var(--vp-c-divider);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.home-cta__card:hover {
+  border-color: var(--s4c-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+}
+
+.home-cta__card--primary {
+  background: linear-gradient(135deg, var(--s4c-primary) 0%, var(--s4c-primary-light) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.home-cta__card--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(50,108,229,0.35);
+  color: #fff;
+}
+
+.home-cta__icon {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.home-cta__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.home-cta__desc {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 /* Badges */
@@ -563,7 +821,18 @@
    ======================================== */
 
 @media (max-width: 960px) {
-  .VPFeatures .items {
+  .VPFeatures .items,
+  .home-compare,
+  .home-code-split,
+  .home-cta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-roles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home-stats {
     grid-template-columns: repeat(2, 1fr);
   }
   
@@ -577,7 +846,12 @@
 }
 
 @media (max-width: 640px) {
-  .VPFeatures .items {
+  .VPFeatures .items,
+  .home-compare,
+  .home-roles,
+  .home-code-split,
+  .home-cta,
+  .home-stats {
     grid-template-columns: 1fr;
   }
   
@@ -595,6 +869,10 @@
   
   .VPHero .tagline {
     font-size: 18px;
+  }
+
+  .vp-doc hr + h2 {
+    font-size: 22px;
   }
 }
 

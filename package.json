@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "bin": {
+    "skills": "./dist/skills-cli.js"
+  },
   "scripts": {
     "build": "tsc && tsc -p tsconfig.orchestration.json",
     "dev": "tsc --watch",
