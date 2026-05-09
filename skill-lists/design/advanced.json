@@ -1,0 +1,151 @@
+{
+  "version": "1.0.0",
+  "role": "designer",
+  "specialization": "ui-ux",
+  "metadata": {
+    "title": {
+      "en": "Advanced UI/UX Designer Skills",
+      "zh": "高级 UI/UX 设计师技能"
+    },
+    "description": {
+      "en": "Expert skills for senior UI/UX designers",
+      "zh": "资深 UI/UX 设计师的专业技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "design-strategy",
+      "name": {
+        "en": "Design Strategy",
+        "zh": "设计策略"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Strategic design thinking and leadership",
+        "zh": "战略性设计思维和领导力"
+      },
+      "items": [
+        {
+          "id": "design-thinking",
+          "name": {
+            "en": "Design Thinking Facilitation",
+            "zh": "设计思维引导"
+          },
+          "description": {
+            "en": "Facilitating design thinking workshops and sprints",
+            "zh": "引导设计思维研讨会和冲刺"
+          },
+          "importance": "required",
+          "tags": ["strategy", "design-thinking", "workshop"]
+        },
+        {
+          "id": "design-ops",
+          "name": {
+            "en": "Design Operations",
+            "zh": "设计运营"
+          },
+          "description": {
+            "en": "Optimizing design team workflows and infrastructure",
+            "zh": "优化设计团队工作流程和基础设施"
+          },
+          "importance": "recommended",
+          "tags": ["strategy", "design-ops", "workflow"]
+        },
+        {
+          "id": "design-brief",
+          "name": {
+            "en": "Design Brief Development",
+            "zh": "设计简报制定"
+          },
+          "description": {
+            "en": "Creating strategic design briefs aligned with business goals",
+            "zh": "创建与业务目标一致的战略设计简报"
+          },
+          "importance": "required",
+          "tags": ["strategy", "brief", "business"]
+        }
+      ]
+    },
+    {
+      "id": "research-leadership",
+      "name": {
+        "en": "Research Leadership",
+        "zh": "研究领导力"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Leading research initiatives and teams",
+        "zh": "领导研究倡议和团队"
+      },
+      "items": [
+        {
+          "id": "research-strategy",
+          "name": {
+            "en": "Research Strategy",
+            "zh": "研究策略"
+          },
+          "description": {
+            "en": "Defining research roadmaps and prioritization",
+            "zh": "定义研究路线图和优先级"
+          },
+          "importance": "required",
+          "tags": ["research", "strategy", "leadership"]
+        },
+        {
+          "id": "insight-synthesis",
+          "name": {
+            "en": "Insight Synthesis",
+            "zh": "洞察综合"
+          },
+          "description": {
+            "en": "Synthesizing complex research findings into actionable insights",
+            "zh": "将复杂的研究发现综合为可操作的洞察"
+          },
+          "importance": "required",
+          "tags": ["research", "insights", "synthesis"]
+        }
+      ]
+    },
+    {
+      "id": "cross-team-collaboration",
+      "name": {
+        "en": "Cross-team Collaboration",
+        "zh": "跨团队协作"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Working effectively with engineering and product",
+        "zh": "与工程和产品有效协作"
+      },
+      "items": [
+        {
+          "id": "design-handoff",
+          "name": {
+            "en": "Design Handoff",
+            "zh": "设计交接"
+          },
+          "description": {
+            "en": "Preparing and handing off designs to engineering",
+            "zh": "准备和交接设计给工程团队"
+          },
+          "importance": "required",
+          "tags": ["collaboration", "handoff", "engineering"]
+        },
+        {
+          "id": "design-review",
+          "name": {
+            "en": "Design Review Leadership",
+            "zh": "设计评审领导"
+          },
+          "description": {
+            "en": "Leading design reviews with stakeholders",
+            "zh": "领导与利益相关者的设计评审"
+          },
+          "importance": "required",
+          "tags": ["collaboration", "review", "stakeholders"]
+        }
+      ]
+    }
+  ]
+}

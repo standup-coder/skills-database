@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "mobile-developer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Beginner Mobile Developer Skills",
+      "zh": "初级移动开发工程师技能"
+    },
+    "description": {
+      "en": "Essential skills for mobile developers starting their journey",
+      "zh": "移动开发工程师入门必备技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "mobile-fundamentals",
+      "name": {
+        "en": "Mobile Fundamentals",
+        "zh": "移动基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Core mobile development concepts",
+        "zh": "核心移动开发概念"
+      },
+      "items": [
+        {
+          "id": "ios-basics",
+          "name": {
+            "en": "iOS Development Basics",
+            "zh": "iOS 开发基础"
+          },
+          "description": {
+            "en": "Swift, Xcode, UIKit fundamentals",
+            "zh": "Swift、Xcode、UIKit 基础"
+          },
+          "importance": "required",
+          "tags": ["ios", "swift", "xcode"]
+        },
+        {
+          "id": "android-basics",
+          "name": {
+            "en": "Android Development Basics",
+            "zh": "Android 开发基础"
+          },
+          "description": {
+            "en": "Kotlin, Android Studio, Jetpack Compose",
+            "zh": "Kotlin、Android Studio、Jetpack Compose"
+          },
+          "importance": "required",
+          "tags": ["android", "kotlin", "studio"]
+        },
+        {
+          "id": "cross-platform-basics",
+          "name": {
+            "en": "Cross-platform Basics",
+            "zh": "跨平台基础"
+          },
+          "description": {
+            "en": "React Native or Flutter fundamentals",
+            "zh": "React Native 或 Flutter 基础"
+          },
+          "importance": "recommended",
+          "tags": ["react-native", "flutter", "cross-platform"]
+        }
+      ]
+    },
+    {
+      "id": "mobile-ui",
+      "name": {
+        "en": "Mobile UI Development",
+        "zh": "移动 UI 开发"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Building mobile interfaces",
+        "zh": "构建移动界面"
+      },
+      "items": [
+        {
+          "id": "layout-systems",
+          "name": {
+            "en": "Layout Systems",
+            "zh": "布局系统"
+          },
+          "description": {
+            "en": "Auto Layout, ConstraintLayout, Flexbox",
+            "zh": "Auto Layout、ConstraintLayout、Flexbox"
+          },
+          "importance": "required",
+          "tags": ["layout", "constraints", "ui"]
+        },
+        {
+          "id": "navigation",
+          "name": {
+            "en": "Navigation",
+            "zh": "导航"
+          },
+          "description": {
+            "en": "Screen navigation and deep linking",
+            "zh": "屏幕导航和深度链接"
+          },
+          "importance": "required",
+          "tags": ["navigation", "routing", "deep-link"]
+        },
+        {
+          "id": "platform-widgets",
+          "name": {
+            "en": "Platform Widgets",
+            "zh": "平台组件"
+          },
+          "description": {
+            "en": "Using native UI components",
+            "zh": "使用原生 UI 组件"
+          },
+          "importance": "required",
+          "tags": ["widgets", "native", "ui"]
+        }
+      ]
+    },
+    {
+      "id": "mobile-data",
+      "name": {
+        "en": "Mobile Data Handling",
+        "zh": "移动数据处理"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Networking and local storage",
+        "zh": "网络和本地存储"
+      },
+      "items": [
+        {
+          "id": "api-integration",
+          "name": {
+            "en": "API Integration",
+            "zh": "API 集成"
+          },
+          "description": {
+            "en": "REST API calls, authentication tokens",
+            "zh": "REST API 调用、认证令牌"
+          },
+          "importance": "required",
+          "tags": ["api", "network", "rest"]
+        },
+        {
+          "id": "local-storage",
+          "name": {
+            "en": "Local Storage",
+            "zh": "本地存储"
+          },
+          "description": {
+            "en": "UserDefaults, SQLite, Realm",
+            "zh": "UserDefaults、SQLite、Realm"
+          },
+          "importance": "required",
+          "tags": ["storage", "database", "local"]
+        },
+        {
+          "id": "offline-support",
+          "name": {
+            "en": "Offline Support",
+            "zh": "离线支持"
+          },
+          "description": {
+            "en": "Caching strategies and offline-first architecture",
+            "zh": "缓存策略和离线优先架构"
+          },
+          "importance": "recommended",
+          "tags": ["offline", "cache", "sync"]
+        }
+      ]
+    }
+  ]
+}

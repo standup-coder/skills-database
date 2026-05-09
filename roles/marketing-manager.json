@@ -1,0 +1,65 @@
+{
+  "$schema": "../schema/role-v1.json",
+  "id": "marketing-manager",
+  "type": "role",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Marketing Manager",
+    "nameZh": "市场经理",
+    "description": "制定市场策略、内容营销、品牌推广获取潜在客户",
+    "descriptionZh": "制定市场策略、内容营销、品牌推广获取潜在客户",
+    "author": "skills4coder-team",
+    "tags": ["marketing", "content", "seo", "brand", "growth-marketing"],
+    "level": "mid"
+  },
+
+  "jd": {
+    "summary": "制定并执行市场策略，通过内容、SEO、社群获取和转化客户",
+    "summaryZh": "制定并执行市场策略，通过内容、SEO、社群获取和转化客户",
+
+    "responsibilities": [
+      "制定市场策略和年度计划",
+      "管理内容营销（博客、文档、视频）",
+      "执行 SEO 优化和数据分析",
+      "运营社群和开发者社区",
+      "管理市场预算和渠道效果追踪"
+    ],
+    "responsibilitiesZh": [
+      "制定市场策略和年度计划",
+      "管理内容营销（博客、文档、视频）",
+      "执行 SEO 优化和数据分析",
+      "运营社群和开发者社区",
+      "管理市场预算和渠道效果追踪"
+    ],
+
+    "requirements": {
+      "experience": "3+ years",
+      "coreSkills": ["Content Strategy", "SEO", "Social Media", "Analytics", "Community Building"]
+    }
+  },
+
+  "capabilities": {
+    "mainSkills": [
+      "content-marketing",
+      "seo-optimization",
+      "community-management",
+      "analytics",
+      "brand-strategy"
+    ],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call"
+    ]
+  },
+
+  "context": {
+    "techStack": {
+      "seo": ["Ahrefs", "SEMrush", "Google Search Console"],
+      "analytics": ["Google Analytics", "Mixpanel"],
+      "content": ["WordPress", "Ghost", "Notion"],
+      "social": ["Twitter", "LinkedIn", "Discord"]
+    }
+  }
+}

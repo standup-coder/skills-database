@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "growth-engineer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Intermediate Growth Engineer Skills",
+      "zh": "中级增长工程师技能"
+    },
+    "description": {
+      "en": "Advanced skills for growth engineers with 2-3 years experience",
+      "zh": "2-3 年经验增长工程师的进阶技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "advanced-experimentation",
+      "name": {
+        "en": "Advanced Experimentation",
+        "zh": "高级实验"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Sophisticated testing methodologies",
+        "zh": "复杂的测试方法论"
+      },
+      "items": [
+        {
+          "id": "multivariate-testing",
+          "name": {
+            "en": "Multivariate Testing",
+            "zh": "多变量测试"
+          },
+          "description": {
+            "en": "Testing multiple variables simultaneously",
+            "zh": "同时测试多个变量"
+          },
+          "importance": "required",
+          "tags": ["mvt", "experimentation", "testing"]
+        },
+        {
+          "id": "sequential-testing",
+          "name": {
+            "en": "Sequential Testing",
+            "zh": "序贯测试"
+          },
+          "description": {
+            "en": "Multi-armed bandit and adaptive experiments",
+            "zh": "多臂老虎机和自适应实验"
+          },
+          "importance": "recommended",
+          "tags": ["sequential", "bandit", "adaptive"]
+        },
+        {
+          "id": "causal-inference",
+          "name": {
+            "en": "Causal Inference",
+            "zh": "因果推断"
+          },
+          "description": {
+            "en": "Difference in differences, propensity scoring",
+            "zh": "双重差分、倾向评分"
+          },
+          "importance": "recommended",
+          "tags": ["causal", "inference", "statistics"]
+        }
+      ]
+    },
+    {
+      "id": "growth-automation",
+      "name": {
+        "en": "Growth Automation",
+        "zh": "增长自动化"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Automating growth workflows",
+        "zh": "自动化增长工作流"
+      },
+      "items": [
+        {
+          "id": "marketing-automation",
+          "name": {
+            "en": "Marketing Automation",
+            "zh": "营销自动化"
+          },
+          "description": {
+            "en": "Email drip, lead nurturing, scoring",
+            "zh": "邮件滴灌、潜在客户培育、评分"
+          },
+          "importance": "required",
+          "tags": ["automation", "email", "marketing"]
+        },
+        {
+          "id": "trigger-campaigns",
+          "name": {
+            "en": "Trigger-based Campaigns",
+            "zh": "触发式活动"
+          },
+          "description": {
+            "en": "Behavior-based automated messaging",
+            "zh": "基于行为的自动化消息"
+          },
+          "importance": "required",
+          "tags": ["trigger", "automation", "campaigns"]
+        },
+        {
+          "id": "personalization",
+          "name": {
+            "en": "Personalization Engines",
+            "zh": "个性化引擎"
+          },
+          "description": {
+            "en": "Dynamic content based on user data",
+            "zh": "基于用户数据的动态内容"
+          },
+          "importance": "recommended",
+          "tags": ["personalization", "dynamic", "content"]
+        }
+      ]
+    },
+    {
+      "id": "channel-growth",
+      "name": {
+        "en": "Channel Growth",
+        "zh": "渠道增长"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Growing specific acquisition channels",
+        "zh": "增长特定获客渠道"
+      },
+      "items": [
+        {
+          "id": "seo-fundamentals",
+          "name": {
+            "en": "SEO Fundamentals",
+            "zh": "SEO 基础"
+          },
+          "description": {
+            "en": "On-page SEO, keyword research, technical SEO",
+            "zh": "页面 SEO、关键词研究、技术 SEO"
+          },
+          "importance": "required",
+          "tags": ["seo", "organic", "search"]
+        },
+        {
+          "id": "content-growth",
+          "name": {
+            "en": "Content Growth Strategies",
+            "zh": "内容增长策略"
+          },
+          "description": {
+            "en": "Viral content, content marketing at scale",
+            "zh": "病毒式内容、大规模内容营销"
+          },
+          "importance": "required",
+          "tags": ["content", "viral", "marketing"]
+        },
+        {
+          "id": "referral-systems",
+          "name": {
+            "en": "Referral Systems",
+            "zh": "推荐系统"
+          },
+          "description": {
+            "en": "Building viral loops and referral programs",
+            "zh": "构建病毒式循环和推荐计划"
+          },
+          "importance": "recommended",
+          "tags": ["referral", "viral", "growth"]
+        }
+      ]
+    }
+  ]
+}

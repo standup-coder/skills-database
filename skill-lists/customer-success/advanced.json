@@ -1,0 +1,151 @@
+{
+  "version": "1.0.0",
+  "role": "customer-success",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Advanced Customer Success Skills",
+      "zh": "高级客户成功技能"
+    },
+    "description": {
+      "en": "Expert skills for senior customer success managers",
+      "zh": "资深客户成功经理的专业技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "customer-success-strategy",
+      "name": {
+        "en": "Customer Success Strategy",
+        "zh": "客户成功战略"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Developing comprehensive CS strategies",
+        "zh": "制定综合 CS 战略"
+      },
+      "items": [
+        {
+          "id": "cs-program-design",
+          "name": {
+            "en": "CS Program Design",
+            "zh": "CS 计划设计"
+          },
+          "description": {
+            "en": "Building scalable CS programs and playbooks",
+            "zh": "构建可扩展的 CS 计划和剧本"
+          },
+          "importance": "required",
+          "tags": ["program", "playbooks", "scale"]
+        },
+        {
+          "id": "customer-advocacy",
+          "name": {
+            "en": "Customer Advocacy",
+            "zh": "客户倡导"
+          },
+          "description": {
+            "en": "Building customer champions and advocates",
+            "zh": "培养客户支持者和倡导者"
+          },
+          "importance": "required",
+          "tags": ["advocacy", "champions", "referrals"]
+        },
+        {
+          "id": " renewal-management",
+          "name": {
+            "en": "Renewal Management",
+            "zh": "续约管理"
+          },
+          "description": {
+            "en": "Managing complex renewal negotiations",
+            "zh": "管理复杂的续约谈判"
+          },
+          "importance": "required",
+          "tags": ["renewal", "negotiation", "contracts"]
+        }
+      ]
+    },
+    {
+      "id": "customer-insights-advanced",
+      "name": {
+        "en": "Customer Insights Advanced",
+        "zh": "高级客户洞察"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Deep customer analysis and action",
+        "zh": "深度客户分析和行动"
+      },
+      "items": [
+        {
+          "id": "customer-health-ai",
+          "name": {
+            "en": "AI-powered Health Prediction",
+            "zh": "AI 健康预测"
+          },
+          "description": {
+            "en": "Using ML to predict customer health scores",
+            "zh": "使用 ML 预测客户健康评分"
+          },
+          "importance": "recommended",
+          "tags": ["ai", "health", "ml"]
+        },
+        {
+          "id": "sentiment-analysis",
+          "name": {
+            "en": "Sentiment Analysis",
+            "zh": "情感分析"
+          },
+          "description": {
+            "en": "Analyzing customer sentiment from multiple sources",
+            "zh": "从多个来源分析客户情感"
+          },
+          "importance": "recommended",
+          "tags": ["sentiment", "analysis", "nlp"]
+        }
+      ]
+    },
+    {
+      "id": "cs-leadership",
+      "name": {
+        "en": "CS Leadership",
+        "zh": "CS 领导力"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Leading customer success teams",
+        "zh": "领导客户成功团队"
+      },
+      "items": [
+        {
+          "id": "cs-metrics",
+          "name": {
+            "en": "CS Metrics and Reporting",
+            "zh": "CS 指标和报告"
+          },
+          "description": {
+            "en": "Defining and tracking CS KPIs",
+            "zh": "定义和跟踪 CS KPI"
+          },
+          "importance": "required",
+          "tags": ["metrics", "kpis", "reporting"]
+        },
+        {
+          "id": "team-management",
+          "name": {
+            "en": "CS Team Management",
+            "zh": "CS 团队管理"
+          },
+          "description": {
+            "en": "Managing and scaling CS teams",
+            "zh": "管理和扩展 CS 团队"
+          },
+          "importance": "required",
+          "tags": ["team", "management", "scaling"]
+        }
+      ]
+    }
+  ]
+}

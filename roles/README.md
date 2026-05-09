@@ -22,6 +22,22 @@ Role 定义了一个岗位的能力边界、职责范围和技能要求。它是
 }
 ```
 
+## 完整生命周期覆盖
+
+```
+创意 → 客户 → 产品 → 发布 → 运维 → 销售 → 商业化 → 运营
+```
+
+| 阶段 | 角色 |
+|------|------|
+| 创意 | cto, product-manager |
+| 客户 | customer-success, marketing-manager |
+| 产品 | senior-frontend-dev, backend-developer, ui-ux-designer, mobile-developer |
+| 发布 | devops-engineer, backend-architect |
+| 运维 | sre-engineer, security-engineer |
+| 销售/商业化 | growth-engineer, marketing-manager |
+| 运营 | data-engineer, customer-success |
+
 ## 现有 Roles
 
 | Role ID | 名称 | 级别 | 描述 |
@@ -33,6 +49,14 @@ Role 定义了一个岗位的能力边界、职责范围和技能要求。它是
 | product-manager | 产品经理 | Senior | 需求分析、PRD 编写 |
 | devops-engineer | DevOps 工程师 | Mid | CI/CD、容器、IaC、多云运维 |
 | sre-engineer | SRE 工程师 | Senior | 可靠性工程、监控、故障响应 |
+| ui-ux-designer | UI/UX 设计师 | Mid | 视觉设计、交互体验、用户研究 |
+| data-engineer | 数据工程师 | Mid | 数据管道、ETL、数据仓库 |
+| security-engineer | 安全工程师 | Senior | 安全架构、漏洞检测、合规 |
+| cto | 技术负责人 | Senior | 技术战略、技术选型、架构决策 |
+| mobile-developer | 移动开发工程师 | Mid | iOS/Android、跨平台开发 |
+| growth-engineer | 增长工程师 | Mid | A/B 测试、漏斗分析、增长自动化 |
+| customer-success | 客户成功经理 | Mid | Onboarding、留存、客户支持 |
+| marketing-manager | 市场经理 | Mid | 内容营销、SEO、社群运营 |
 
 ## 创建新 Role
 

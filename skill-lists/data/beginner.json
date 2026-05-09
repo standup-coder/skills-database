@@ -1,0 +1,190 @@
+{
+  "version": "1.0.0",
+  "role": "data-engineer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Beginner Data Engineer Skills",
+      "zh": "初级数据工程师技能"
+    },
+    "description": {
+      "en": "Essential skills for data engineers starting their journey",
+      "zh": "数据工程师入门必备技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "sql-fundamentals",
+      "name": {
+        "en": "SQL Fundamentals",
+        "zh": "SQL 基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Core SQL for data querying and manipulation",
+        "zh": "核心 SQL 数据查询和操作"
+      },
+      "items": [
+        {
+          "id": "select-queries",
+          "name": {
+            "en": "SELECT Queries",
+            "zh": "SELECT 查询"
+          },
+          "description": {
+            "en": "Writing basic SELECT statements with filtering and sorting",
+            "zh": "编写带过滤和排序的基础 SELECT 语句"
+          },
+          "importance": "required",
+          "tags": ["sql", "query", "database"]
+        },
+        {
+          "id": "joins",
+          "name": {
+            "en": "Joins",
+            "zh": "连接"
+          },
+          "description": {
+            "en": "Combining data from multiple tables with INNER, LEFT, RIGHT joins",
+            "zh": "使用 INNER、LEFT、RIGHT join 组合多表数据"
+          },
+          "importance": "required",
+          "tags": ["sql", "joins", "database"]
+        },
+        {
+          "id": "aggregations",
+          "name": {
+            "en": "Aggregations and Grouping",
+            "zh": "聚合和分组"
+          },
+          "description": {
+            "en": "Using COUNT, SUM, AVG, GROUP BY, HAVING",
+            "zh": "使用 COUNT、SUM、AVG、GROUP BY、HAVING"
+          },
+          "importance": "required",
+          "tags": ["sql", "aggregation", "analytics"]
+        },
+        {
+          "id": "subqueries",
+          "name": {
+            "en": "Subqueries",
+            "zh": "子查询"
+          },
+          "description": {
+            "en": "Writing nested queries for complex data retrieval",
+            "zh": "编写嵌套查询以进行复杂数据检索"
+          },
+          "importance": "recommended",
+          "tags": ["sql", "subquery", "advanced"]
+        }
+      ]
+    },
+    {
+      "id": "python-basics",
+      "name": {
+        "en": "Python for Data",
+        "zh": "数据 Python"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Python basics for data processing",
+        "zh": "数据处理 Python 基础"
+      },
+      "items": [
+        {
+          "id": "pandas-basics",
+          "name": {
+            "en": "Pandas Basics",
+            "zh": "Pandas 基础"
+          },
+          "description": {
+            "en": "DataFrames, Series, reading/writing data",
+            "zh": "DataFrame、Series、数据读写"
+          },
+          "importance": "required",
+          "tags": ["python", "pandas", "dataframes"]
+        },
+        {
+          "id": "data-cleaning",
+          "name": {
+            "en": "Data Cleaning",
+            "zh": "数据清洗"
+          },
+          "description": {
+            "en": "Handling missing values, duplicates, type conversions",
+            "zh": "处理缺失值、重复值、类型转换"
+          },
+          "importance": "required",
+          "tags": ["python", "cleaning", "quality"]
+        },
+        {
+          "id": "numpy-basics",
+          "name": {
+            "en": "NumPy Basics",
+            "zh": "NumPy 基础"
+          },
+          "description": {
+            "en": "Arrays, operations, and basic computations",
+            "zh": "数组、运算和基础计算"
+          },
+          "importance": "recommended",
+          "tags": ["python", "numpy", "arrays"]
+        }
+      ]
+    },
+    {
+      "id": "data-pipelines-intro",
+      "name": {
+        "en": "Data Pipeline Basics",
+        "zh": "数据管道基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Introduction to data pipeline concepts",
+        "zh": "数据管道概念入门"
+      },
+      "items": [
+        {
+          "id": "etl-concepts",
+          "name": {
+            "en": "ETL Concepts",
+            "zh": "ETL 概念"
+          },
+          "description": {
+            "en": "Understanding Extract, Transform, Load patterns",
+            "zh": "理解 Extract、Transform、Load 模式"
+          },
+          "importance": "required",
+          "tags": ["etl", "pipeline", "concepts"]
+        },
+        {
+          "id": "data-formats",
+          "name": {
+            "en": "Data Formats",
+            "zh": "数据格式"
+          },
+          "description": {
+            "en": "CSV, JSON, Parquet, Avro file handling",
+            "zh": "CSV、JSON、Parquet、Avro 文件处理"
+          },
+          "importance": "required",
+          "tags": ["etl", "formats", "storage"]
+        },
+        {
+          "id": "orchestration-basics",
+          "name": {
+            "en": "Orchestration Basics",
+            "zh": "编排基础"
+          },
+          "description": {
+            "en": "Scheduling and monitoring data workflows",
+            "zh": "调度和监控数据工作流"
+          },
+          "importance": "recommended",
+          "tags": ["orchestration", "scheduling", "workflow"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "security-engineer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Advanced Security Engineer Skills",
+      "zh": "高级安全工程师技能"
+    },
+    "description": {
+      "en": "Expert skills for senior security engineers",
+      "zh": "资深安全工程师的专业技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "security-strategy",
+      "name": {
+        "en": "Security Strategy",
+        "zh": "安全策略"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Developing security programs",
+        "zh": "制定安全计划"
+      },
+      "items": [
+        {
+          "id": "security-program",
+          "name": {
+            "en": "Security Program Development",
+            "zh": "安全计划制定"
+          },
+          "description": {
+            "en": "Building comprehensive security strategies",
+            "zh": "构建全面的安全策略"
+          },
+          "importance": "required",
+          "tags": ["strategy", "program", "governance"]
+        },
+        {
+          "id": "risk-management",
+          "name": {
+            "en": "Security Risk Management",
+            "zh": "安全风险管理"
+          },
+          "description": {
+            "en": "Risk assessment, mitigation, and acceptance",
+            "zh": "风险评估、缓解和接受"
+          },
+          "importance": "required",
+          "tags": ["risk", "management", "assessment"]
+        },
+        {
+          "id": "compliance-frameworks",
+          "name": {
+            "en": "Compliance Frameworks",
+            "zh": "合规框架"
+          },
+          "description": {
+            "en": "SOC2, GDPR, HIPAA, ISO27001",
+            "zh": "SOC2、GDPR、HIPAA、ISO27001"
+          },
+          "importance": "required",
+          "tags": ["compliance", "soc2", "gdpr"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-threat",
+      "name": {
+        "en": "Advanced Threat Analysis",
+        "zh": "高级威胁分析"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Understanding sophisticated attacks",
+        "zh": "理解复杂攻击"
+      },
+      "items": [
+        {
+          "id": "apt-analysis",
+          "name": {
+            "en": "APT Analysis",
+            "zh": "APT 分析"
+          },
+          "description": {
+            "en": "Advanced Persistent Threat identification",
+            "zh": "高级持续性威胁识别"
+          },
+          "importance": "recommended",
+          "tags": ["apt", "threat", "advanced"]
+        },
+        {
+          "id": "malware-analysis",
+          "name": {
+            "en": "Malware Analysis",
+            "zh": "恶意软件分析"
+          },
+          "description": {
+            "en": "Reverse engineering and analysis",
+            "zh": "逆向工程和分析"
+          },
+          "importance": "recommended",
+          "tags": ["malware", "reverse", "analysis"]
+        },
+        {
+          "id": "threat-intelligence",
+          "name": {
+            "en": "Threat Intelligence",
+            "zh": "威胁情报"
+          },
+          "description": {
+            "en": "收集、分析和利用威胁情报",
+            "zh": "Collecting, analyzing, and leveraging threat intelligence"
+          },
+          "importance": "required",
+          "tags": ["threat-intel", "intelligence", "analysis"]
+        }
+      ]
+    },
+    {
+      "id": "security-automation",
+      "name": {
+        "en": "Security Automation",
+        "zh": "安全自动化"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Automating security operations",
+        "zh": "自动化安全运营"
+      },
+      "items": [
+        {
+          "id": "siem",
+          "name": {
+            "en": "SIEM Implementation",
+            "zh": "SIEM 实施"
+          },
+          "description": {
+            "en": "Splunk, Elastic, log aggregation and analysis",
+            "zh": "Splunk、Elastic 日志聚合和分析"
+          },
+          "importance": "required",
+          "tags": ["siem", "logging", "monitoring"]
+        },
+        {
+          "id": "security-orchestration",
+          "name": {
+            "en": "Security Orchestration",
+            "zh": "安全编排"
+          },
+          "description": {
+            "en": "SOAR platforms and automation playbooks",
+            "zh": "SOAR 平台和自动化剧本"
+          },
+          "importance": "recommended",
+          "tags": ["soar", "automation", "orchestration"]
+        },
+        {
+          "id": "devsecops",
+          "name": {
+            "en": "DevSecOps",
+            "zh": "DevSecOps"
+          },
+          "description": {
+            "en": "Integrating security in CI/CD pipelines",
+            "zh": "在 CI/CD 管道中集成安全"
+          },
+          "importance": "required",
+          "tags": ["devsecops", "cicd", "automation"]
+        }
+      ]
+    }
+  ]
+}

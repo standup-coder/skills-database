@@ -1,0 +1,66 @@
+{
+  "$schema": "../schema/role-v1.json",
+  "id": "data-engineer",
+  "type": "role",
+  "version": "1.0.0",
+
+  "metadata": {
+    "name": "Data Engineer",
+    "nameZh": "数据工程师",
+    "description": "负责数据管道建设、ETL 开发、数据仓库设计",
+    "descriptionZh": "负责数据管道建设、ETL 开发、数据仓库设计",
+    "author": "skills4coder-team",
+    "tags": ["data", "etl", "pipeline", "warehouse", "analytics"],
+    "level": "mid"
+  },
+
+  "jd": {
+    "summary": "构建可靠的数据管道和基础设施，支持数据分析决策",
+    "summaryZh": "构建可靠的数据管道和基础设施，支持数据分析决策",
+
+    "responsibilities": [
+      "设计和实现数据管道和 ETL 流程",
+      "构建和维护数据仓库",
+      "确保数据质量和完整性",
+      "优化数据处理性能",
+      "支持数据分析团队的数据需求"
+    ],
+    "responsibilitiesZh": [
+      "设计和实现数据管道和 ETL 流程",
+      "构建和维护数据仓库",
+      "确保数据质量和完整性",
+      "优化数据处理性能",
+      "支持数据分析团队的数据需求"
+    ],
+
+    "requirements": {
+      "experience": "3+ years",
+      "coreSkills": ["SQL", "Python", "Data Pipelines", "ETL", "Data Warehousing"]
+    }
+  },
+
+  "capabilities": {
+    "mainSkills": [
+      "data-pipeline",
+      "etl-development",
+      "sql-optimization",
+      "data-quality",
+      "warehouse-design"
+    ],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "database-query",
+      "api-call"
+    ]
+  },
+
+  "context": {
+    "techStack": {
+      "languages": ["Python", "SQL", "Scala"],
+      "pipeline": ["Airflow", "dbt", "Spark"],
+      "warehouse": ["BigQuery", "Snowflake", "Redshift"],
+      "storage": ["GCS", "S3"]
+    }
+  }
+}

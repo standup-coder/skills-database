@@ -132,6 +132,129 @@
       flex: 1; overflow-y: auto; padding: 0.35rem 0;
     }
 
+    .skill-builder-section {
+      border-top: 1px solid var(--border);
+      padding: 0.75rem;
+      background: var(--bg-subtle);
+    }
+    .skill-builder-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .skill-builder-title {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--text-secondary); text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .skill-builder-list {
+      max-height: 200px; overflow-y: auto;
+    }
+    .skill-builder-list::-webkit-scrollbar { width: 4px; }
+    .skill-builder-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* Skill Builder Modal */
+    .skill-builder-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); z-index: 100;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .skill-builder-modal.show { display: flex; }
+    .skill-builder-panel {
+      background: var(--bg); border-radius: 12px;
+      width: 90%; max-width: 700px; max-height: 90vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      animation: slideUp 0.2s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .skill-builder-panel-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .skill-builder-panel-title { font-size: 1rem; font-weight: 600; }
+    .skill-builder-panel-close {
+      width: 28px; height: 28px; border: none;
+      background: var(--bg-muted); border-radius: 6px;
+      cursor: pointer; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .skill-builder-panel-close:hover { background: var(--border-hover); }
+    .skill-builder-panel-body {
+      flex: 1; overflow-y: auto; padding: 1.25rem;
+    }
+    .skill-builder-panel-body::-webkit-scrollbar { width: 6px; }
+    .skill-builder-panel-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .skill-builder-panel-footer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: flex-end; gap: 0.5rem;
+    }
+
+    .sb-field { margin-bottom: 1rem; }
+    .sb-field label {
+      display: block; font-size: 0.7rem; font-weight: 600;
+      color: var(--text-secondary); margin-bottom: 0.35rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .sb-field input[type="text"] {
+      width: 100%; padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: 0.85rem; background: var(--bg);
+    }
+    .sb-field input[type="text"]:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .sb-field input[type="text"].sb-name-input {
+      font-size: 1.1rem; font-weight: 600;
+      padding: 0.75rem 1rem;
+    }
+    .sb-field textarea {
+      width: 100%; padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: 0.8rem; font-family: var(--font-mono);
+      resize: vertical; min-height: 60px; background: var(--bg);
+    }
+    .sb-field textarea:focus { outline: none; border-color: var(--accent); }
+    .sb-section-title {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .sb-section-title::before {
+      content: ''; width: 3px; height: 12px;
+      background: var(--accent); border-radius: 2px;
+    }
+
+    /* Tags input */
+    .sb-tags-input {
+      display: flex; flex-wrap: wrap; gap: 0.3rem;
+      padding: 0.4rem; border: 1px solid var(--border);
+      border-radius: 7px; background: var(--bg);
+      min-height: 42px; align-items: center;
+    }
+    .sb-tags-input:focus-within { border-color: var(--accent); }
+    .sb-tag {
+      display: flex; align-items: center; gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      background: var(--accent-light); color: var(--accent);
+      border-radius: 4px; font-size: 0.7rem; font-weight: 500;
+    }
+    .sb-tag-remove {
+      cursor: pointer; opacity: 0.7; font-size: 0.7rem;
+    }
+    .sb-tag-remove:hover { opacity: 1; }
+    .sb-tags-input input {
+      border: none; background: transparent;
+      font-size: 0.75rem; padding: 0.2rem;
+      min-width: 80px; flex: 1;
+    }
+    .sb-tags-input input:focus { outline: none; }
+
     .tree-section { margin-bottom: 0.15rem; }
 
     .tree-section-header {
@@ -199,6 +322,112 @@
     .tree-item-actions { display: flex; gap: 1px; opacity: 0; transition: opacity 0.15s ease; }
     .tree-item:hover .tree-item-actions { opacity: 1; }
     .tree-item-actions .icon-btn { width: 20px; height: 20px; font-size: 0.65rem; }
+
+    /* Skill Builder */
+    .skill-builder-tab {
+      padding: 0.5rem 1rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .skill-builder-btn {
+      width: 100%; padding: 0.5rem;
+      background: var(--text); color: white;
+      border: none; border-radius: 7px;
+      font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      gap: 0.4rem; transition: all 0.15s ease;
+    }
+    .skill-builder-btn:hover { background: #2a2a3e; transform: translateY(-1px); }
+    .skill-builder-btn svg { width: 14px; height: 14px; }
+
+    .skill-list-item {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem; cursor: pointer;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-radius: 6px; transition: all 0.15s ease;
+    }
+    .skill-list-item:hover { background: var(--bg-muted); }
+    .skill-list-item.active { background: var(--accent-light); color: var(--accent-hover); }
+    .skill-list-item .skill-icon {
+      width: 18px; height: 18px; border-radius: 4px;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.55rem; font-weight: 700;
+    }
+    .skill-list-item .skill-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .skill-list-item .skill-steps { font-size: 0.6rem; color: var(--text-muted); }
+    .skill-list-item .skill-actions { display: flex; gap: 2px; opacity: 0; }
+    .skill-list-item:hover .skill-actions { opacity: 1; }
+
+    /* Prompt Step */
+    .prompt-step {
+      background: var(--bg-subtle); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .prompt-step-header {
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;
+    }
+    .prompt-step-num {
+      font-family: var(--font-mono); font-size: 0.6rem;
+      background: var(--text); color: white;
+      width: 18px; height: 18px; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prompt-step textarea {
+      width: 100%; min-height: 80px;
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.6rem; font-size: 0.8rem; font-family: var(--font-mono);
+      resize: vertical; background: var(--bg);
+    }
+    .prompt-step textarea:focus { outline: none; border-color: var(--accent); }
+    .prompt-step-type {
+      display: flex; gap: 0.5rem; margin-top: 0.5rem;
+    }
+    .prompt-step-type label {
+      font-size: 0.65rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 0.25rem; cursor: pointer;
+    }
+    .prompt-step-type input[type="radio"] { accent-color: var(--accent); }
+    .prompt-step-remove {
+      position: absolute; top: 0.5rem; right: 0.5rem;
+      width: 20px; height: 20px; border: none;
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 0.8rem;
+    }
+    .prompt-step-remove:hover { color: var(--danger); }
+
+    .add-step-btn {
+      width: 100%; padding: 0.6rem;
+      border: 1px dashed var(--border); border-radius: 8px;
+      background: transparent; color: var(--text-muted);
+      font-size: 0.75rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.4rem; transition: all 0.15s ease;
+    }
+    .add-step-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Skill Generator Preview */
+    .skill-preview {
+      background: #1a1a2e; color: #a8dadc;
+      border-radius: 8px; padding: 1rem; margin-top: 1rem;
+      font-family: var(--font-mono); font-size: 0.7rem;
+      max-height: 300px; overflow-y: auto;
+      white-space: pre-wrap; line-height: 1.6;
+    }
+    .skill-preview-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.75rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(168,218,220,0.2);
+    }
+    .skill-preview-title { font-weight: 600; color: #f1faee; }
+    .skill-preview-copy {
+      background: rgba(168,218,220,0.2); border: none;
+      color: #a8dadc; padding: 0.3rem 0.6rem;
+      border-radius: 4px; cursor: pointer; font-size: 0.65rem;
+    }
+    .skill-preview-copy:hover { background: rgba(168,218,220,0.3); }
 
     /* Main Content */
     .main-content { flex: 1; margin-left: var(--sidebar-width); min-height: 100vh; }
@@ -478,16 +707,69 @@
         <div class="sidebar-actions">
           <button class="icon-btn" onclick="exportData()" title="导出">↓</button>
           <button class="icon-btn" onclick="importData()" title="导入">↑</button>
+          <button class="icon-btn" onclick="openSkillBuilder()" title="Skills 生成器" style="background:var(--accent-light);color:var(--accent)">⚡</button>
         </div>
       </div>
       <div id="person-card"></div>
       <div class="sidebar-tree" id="sidebar-tree"></div>
+      <div class="skill-builder-section">
+        <div class="skill-builder-header">
+          <span class="skill-builder-title">⚡ 自定义 Skills</span>
+          <button class="icon-btn" onclick="openSkillBuilder()" title="新建 Skill" style="font-size:0.7rem">+</button>
+        </div>
+        <div class="skill-builder-list" id="skill-builder-list"></div>
+      </div>
     </aside>
     <main class="main-content" id="main-content"></main>
   </div>
   <div class="modal-overlay" id="modal-overlay"><div class="modal" id="modal"></div></div>
   <div class="toast-container" id="toast-container"></div>
   <input type="file" id="import-input" accept=".json" style="display:none" onchange="handleImport(event)">
+
+  <!-- Skill Builder Modal -->
+  <div class="skill-builder-modal" id="skill-builder-modal">
+    <div class="skill-builder-panel">
+      <div class="skill-builder-panel-header">
+        <span class="skill-builder-panel-title" id="sb-panel-title">⚡ 创建 Skill</span>
+        <button class="skill-builder-panel-close" onclick="closeSkillBuilder()">✕</button>
+      </div>
+      <div class="skill-builder-panel-body">
+        <div class="sb-field">
+          <label>Skill 名称</label>
+          <input type="text" id="sb-skill-name" class="sb-name-input" placeholder="例如：代码审查、数据分析...">
+        </div>
+        <div class="sb-field">
+          <label>描述</label>
+          <textarea id="sb-skill-desc" placeholder="简要描述这个 Skill 的用途..."></textarea>
+        </div>
+        <div class="sb-field">
+          <label>分类</label>
+          <input type="text" id="sb-skill-category" placeholder="例如：development, operations, product...">
+        </div>
+        <div class="sb-field">
+          <label>标签</label>
+          <div class="sb-tags-input" id="sb-tags-container">
+            <input type="text" id="sb-tags-input" placeholder="输入标签后按回车添加">
+          </div>
+        </div>
+        <div class="sb-section-title">Prompt 步骤</div>
+        <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:0.75rem">输入任务执行过程中的多个 Prompt，逐步引导 AI 完成复杂任务。每个步骤可以是"LLM 推理"或"格式化输出"。</p>
+        <div id="sb-steps-container"></div>
+        <button class="add-step-btn" onclick="addPromptStep()">+ 添加步骤</button>
+        <div class="skill-preview" id="sb-preview" style="display:none">
+          <div class="skill-preview-header">
+            <span class="skill-preview-title">生成的 Skill JSON</span>
+            <button class="skill-preview-copy" onclick="copySkillJson()">复制</button>
+          </div>
+          <div id="sb-preview-content"></div>
+        </div>
+      </div>
+      <div class="skill-builder-panel-footer">
+        <button class="btn" onclick="closeSkillBuilder()">取消</button>
+        <button class="btn btn-primary" onclick="saveSkillBuilder()">保存 Skill</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // ===== PROJECT DATA (from roles/, skills/, atomic-skills/) =====
@@ -537,22 +819,566 @@
         },
         {
           id: 'sre-engineer', name: 'SRE 工程师', nameEn: 'SRE Engineer',
-          desc: '负责系统可靠性、可观测性、故障响应与性能优化', level: 'senior',
-          mainSkills: ['sre-engineer','prometheus-monitoring','grafana-dashboard','logging-observability','incident-runbook','cost-optimization','platform-healthcheck','k8s-security','k8s-troubleshooting','terraform-plan-review','security-scan','log-parser','service-health-check','system-watchdog','docker-container-management','k8s-deployment-review','ci-pipeline-setup','monitoring-stack-setup','incident-diagnosis','security-audit','log-analysis'],
+          desc: '保障生产系统的高可用性、可观测性与快速恢复能力。定义 SLI/SLO/Error Budget，搭建监控告警体系，主导故障排查与事后复盘，推动自动化以减少重复劳动',
+          level: 'senior',
+          mainSkills: ['sre-fundamentals','prometheus-monitoring','grafana-dashboard','logging-observability','incident-response','incident-runbook','oncall-management','slo-management','cost-optimization','platform-healthcheck','k8s-security','k8s-troubleshooting','security-scan','log-parser','service-health-check','system-watchdog','docker-container-management','k8s-deployment-review','terraform-plan-review','ci-pipeline-setup','monitoring-stack-setup','incident-diagnosis','security-audit','log-analysis'],
           atomicSkills: ['read-file','write-file','run-shell-command','http-health-check','parse-json-log','docker-exec','validate-k8s-manifest','api-call'],
-          techStack: ['Docker','Kubernetes','Prometheus','Grafana','Terraform']
+          techStack: ['Docker','Kubernetes','Helm','Prometheus','Grafana','Loki','Jaeger','Terraform','Pulumi','PagerDuty','OpsGenie','AWS','Azure','GCP'],
+          responsibilities: ['定义和追踪 SLI/SLO/Error Budget','搭建和维护监控告警体系','主导故障排查与事后复盘','推动自动化以减少重复劳动','容量规划与性能优化','变更管理与发布安全'],
+          requirements: { experience: '4+ years', coreSkills: ['Kubernetes','Prometheus','Grafana','Terraform','Incident Management'] }
         }
       ],
       skills: [
-        { id: 'code-review', name: '代码审查', nameEn: 'Code Review', desc: '全面审查代码质量、安全性、性能和可维护性', category: 'development', steps: ['read-file','analyze-code','analyze-code','analyze-code','llm','transform'] },
-        { id: 'docker-container-management', name: 'Docker 容器管理', nameEn: 'Docker Container Management', desc: '管理 Docker 容器生命周期：查看状态、执行命令、收集日志', category: 'operations', steps: ['run-shell-command','docker-exec','run-shell-command','transform'] },
-        { id: 'incident-diagnosis', name: '故障诊断', nameEn: 'Incident Diagnosis', desc: '结合日志、指标和容器状态进行故障根因分析', category: 'operations', steps: ['http-health-check','read-file','parse-json-log','run-shell-command','llm','transform'] },
-        { id: 'k8s-deployment-review', name: 'K8s 部署审查', nameEn: 'K8s Deployment Review', desc: '审查 Kubernetes Deployment YAML 的配置正确性、安全性与最佳实践', category: 'operations', steps: ['read-file','validate-k8s-manifest','llm','llm','transform'] },
-        { id: 'log-analysis', name: '日志分析', nameEn: 'Log Analysis', desc: '分析应用日志，定位异常模式并生成摘要报告', category: 'operations', steps: ['read-file','parse-json-log','llm','transform'] },
-        { id: 'monitoring-stack-setup', name: '监控栈搭建', nameEn: 'Monitoring Stack Setup', desc: '生成 Prometheus + Grafana 监控栈的配置与告警规则', category: 'operations', steps: ['http-health-check','llm','transform'] },
-        { id: 'security-audit', name: '安全审计', nameEn: 'Security Audit', desc: '对配置文件、代码和云资源进行安全扫描与合规检查', category: 'operations', steps: ['run-shell-command','run-shell-command','llm','transform'] },
-        { id: 'terraform-plan-review', name: 'Terraform Plan 审查', nameEn: 'Terraform Plan Review', desc: '分析 Terraform Plan 的风险、成本影响与策略合规性', category: 'operations', steps: ['read-file','parse-json-log','llm','transform'] },
-        { id: 'ci-pipeline-setup', name: 'CI 流水线搭建', nameEn: 'CI Pipeline Setup', desc: '为项目生成 GitHub Actions 等 CI/CD 流水线配置', category: 'operations', steps: ['run-shell-command','llm','transform'] }
+        // === SRE Core Skills (with knowledge points) ===
+        { id: 'sre-fundamentals', name: 'SRE 基础理论', nameEn: 'SRE Fundamentals', desc: 'SRE 核心理念：可靠性工程、Error Budget、Toil 消除、SRE 生命周期', category: 'sre-core',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-sre-sli', name: 'SLI（服务等级指标）', desc: '衡量服务可靠性的量化指标，如可用性、延迟、吞吐量、错误率' },
+            { id: 'kp-sre-slo', name: 'SLO（服务等级目标）', desc: 'SLI 的目标值，如 99.9% 可用性、P99 延迟 < 200ms' },
+            { id: 'kp-sre-sla', name: 'SLA（服务等级协议）', desc: '面向客户的正式承诺，具有法律效力的可靠性保障' },
+            { id: 'kp-sre-error-budget', name: 'Error Budget（错误预算）', desc: '1 - SLO 的剩余空间，用于平衡可靠性与创新速度' },
+            { id: 'kp-sre-toil', name: 'Toil（运维杂务）', desc: '手工、重复、可自动化的运维工作，SRE 目标是将其控制在 50% 以下' },
+            { id: 'kp-sre-blameless', name: '无指责文化', desc: '故障复盘聚焦系统缺陷而非个人错误，鼓励透明报告' }
+          ]
+        },
+        { id: 'prometheus-monitoring', name: 'Prometheus 监控', nameEn: 'Prometheus Monitoring', desc: '基于 Prometheus 的指标采集、PromQL 查询、告警规则与联邦集群', category: 'observability',
+          steps: ['http-health-check','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-prom-metrics', name: '四种指标类型', desc: 'Counter（计数器）、Gauge（仪表盘）、Histogram（直方图）、Summary（摘要）' },
+            { id: 'kp-prom-promql', name: 'PromQL 查询', desc: 'rate()、histogram_quantile()、by()、on() 等核心函数和操作符' },
+            { id: 'kp-prom-alerting', name: '告警规则', desc: 'AlertManager 路由、分组、抑制、静默规则配置' },
+            { id: 'kp-prom-scrape', name: '服务发现与采集', desc: 'static_configs、kubernetes_sd_configs、relabel_configs 配置' },
+            { id: 'kp-prom-federation', name: '联邦与高可用', desc: 'Prometheus 联邦集群、Thanos/Cortex 长期存储方案' },
+            { id: 'kp-prom-recording', name: 'Recording Rules', desc: '预计算高频查询，降低 Dashboard 和 Alert 的实时计算压力' }
+          ]
+        },
+        { id: 'grafana-dashboard', name: 'Grafana 仪表板', nameEn: 'Grafana Dashboard', desc: '设计可视化仪表板、变量模板、告警通道与权限管理', category: 'observability',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-grafana-panel', name: '面板类型与配置', desc: 'Time Series、Stat、Table、Heatmap、Logs 面板的使用场景' },
+            { id: 'kp-grafana-variables', name: '模板变量', desc: 'datasource、query、interval 变量实现多环境多服务复用' },
+            { id: 'kp-grafana-alerting', name: '统一告警', desc: 'Grafana Alert Rules、Contact Points、Notification Policies' },
+            { id: 'kp-grafana-provisioning', name: '配置即代码', desc: '通过 YAML provisioning 自动管理 Dashboard、DataSource、Alert Rule' },
+            { id: 'kp-grafana-plugins', name: '插件生态', desc: 'Loki/Tempo/Jaeger 数据源插件、自定义面板插件' }
+          ]
+        },
+        { id: 'logging-observability', name: '日志与可观测性', nameEn: 'Logging & Observability', desc: '结构化日志、ELK/Loki 日志栈、分布式追踪、三大支柱体系', category: 'observability',
+          steps: ['parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-obs-pillars', name: '可观测性三大支柱', desc: 'Metrics（指标）、Logs（日志）、Traces（追踪）的协同分析' },
+            { id: 'kp-obs-structured', name: '结构化日志', desc: 'JSON 日志格式、contextual logging、trace_id 传播' },
+            { id: 'kp-obs-loki', name: 'Loki 日志聚合', desc: 'LogQL 查询、标签索引策略、与 Grafana 集成' },
+            { id: 'kp-obs-elk', name: 'ELK Stack', desc: 'Elasticsearch + Logstash + Kibana 全文搜索日志方案' },
+            { id: 'kp-obs-tracing', name: '分布式追踪', desc: 'OpenTelemetry、Jaeger、Trace/Span 模型、跨服务调用链分析' },
+            { id: 'kp-obs-correlation', name: '指标-日志-追踪关联', desc: '通过 trace_id、labels 将三大支柱数据关联分析' }
+          ]
+        },
+        { id: 'incident-response', name: '故障响应', nameEn: 'Incident Response', desc: '故障生命周期管理：检测→响应→止血→恢复→复盘', category: 'incident',
+          steps: ['http-health-check','parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ir-severity', name: '故障等级分类', desc: 'SEV1-SEV4 分级标准，不同级别的响应时效和升级路径' },
+            { id: 'kp-ir-triage', name: '故障分诊', desc: '快速判断影响范围、确定 severity、组建响应团队' },
+            { id: 'kp-ir-mitigation', name: '止血策略', desc: '回滚、降级、限流、熔断等快速恢复手段' },
+            { id: 'kp-ir-communication', name: '故障沟通', desc: 'Status Page 更新、内部通知模板、Stakeholder 沟通节奏' },
+            { id: 'kp-ir-postmortem', name: '事后复盘', desc: 'Timeline 重建、Root Cause 分析、Action Item 跟踪、无指责文化' },
+            { id: 'kp-ir-game-day', name: '故障演练', desc: 'GameDay / Chaos Engineering 主动发现系统薄弱环节' }
+          ]
+        },
+        { id: 'incident-runbook', name: '故障操作手册', nameEn: 'Incident Runbook', desc: '编写和维护标准化的故障处理流程与操作手册', category: 'incident',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-rb-structure', name: 'Runbook 结构', desc: '故障现象→排查步骤→止血操作→恢复验证→升级条件的标准模板' },
+            { id: 'kp-rb-automation', name: '自动化 Runbook', desc: '将手动步骤转化为自动化脚本、SOAR 集成' },
+            { id: 'kp-rb-maintenance', name: 'Runbook 维护', desc: '定期评审、演练验证、版本管理的持续更新机制' }
+          ]
+        },
+        { id: 'oncall-management', name: '值班管理', nameEn: 'Oncall Management', desc: '设计合理的值班轮转、升级机制和 oncall 生活平衡', category: 'incident',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-oc-rotation', name: '轮转设计', desc: 'Primary/Secondary 轮值、Follow-the-Sun 跨时区、轮转周期' },
+            { id: 'kp-oc-escalation', name: '升级路径', desc: 'L1→L2→L3 升级条件、Manager escalation 触发条件' },
+            { id: 'kp-oc-tooling', name: '值班工具', desc: 'PagerDuty/OpsGenie 配置、告警降噪、自动确认与路由' },
+            { id: 'kp-oc-wellbeing', name: '值班健康', desc: 'Alert fatigue 控制、compensation 机制、避免 burnout' }
+          ]
+        },
+        { id: 'slo-management', name: 'SLO 管理', nameEn: 'SLO Management', desc: 'SLI 定义、SLO 制定、Error Budget 策略与数据驱动决策', category: 'sre-core',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-slo-defining', name: 'SLO 制定流程', desc: '用户旅程识别→SLI 选择→目标设定→利益相关方对齐' },
+            { id: 'kp-slo-windows', name: '滚动窗口', desc: '30天/7天滚动窗口 vs 日历窗口，Error Budget 燃尽率' },
+            { id: 'kp-slo-burnrate', name: '燃尽率告警', desc: '短期/长期燃尽率多窗口告警策略，减少 false positive' },
+            { id: 'kp-slo-review', name: 'SLO 评审', desc: '季度 SLO Review、调整策略、产品与技术对齐' }
+          ]
+        },
+        { id: 'cost-optimization', name: '成本优化', nameEn: 'Cost Optimization', desc: '云资源成本分析、Right-sizing、Reserved Instance、FinOps 实践', category: 'platform',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-cost-rightsizing', name: '资源 Right-sizing', desc: '基于实际利用率调整实例规格、消除过度配置' },
+            { id: 'kp-cost-ri', name: '预留实例与 Savings Plan', desc: 'RI/SP 购买策略、覆盖率追踪、灵活性和节省率分析' },
+            { id: 'kp-cost-spot', name: 'Spot/Preemptible 实例', desc: '无状态工作负载使用 Spot 实例、处理中断的策略' },
+            { id: 'kp-cost-tagging', name: '标签与分摊', desc: 'Cost Center 标签策略、Showback/Chargeback 模型' },
+            { id: 'kp-cost-monitoring', name: '成本监控', desc: '日/周成本异常检测、预算告警、成本趋势预测' }
+          ]
+        },
+        { id: 'platform-healthcheck', name: '平台健康巡检', nameEn: 'Platform Health Check', desc: '定期全面检查平台各组件健康状态、容量与合规性', category: 'platform',
+          steps: ['http-health-check','run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ph-components', name: '组件检查清单', desc: 'ETCD、API Server、Node、PV、Network Policy 等关键组件检查项' },
+            { id: 'kp-ph-capacity', name: '容量审查', desc: 'CPU/Memory/Storage 趋势分析、资源碎片率、扩容建议' },
+            { id: 'kp-ph-compliance', name: '合规检查', desc: 'CIS Benchmark、Pod Security Standard、Network Policy 合规' },
+            { id: 'kp-ph-automation', name: '自动化巡检', desc: 'CronJob 定期执行、结果归档、异常自动升级' }
+          ]
+        },
+        { id: 'k8s-security', name: 'K8s 安全加固', nameEn: 'Kubernetes Security Hardening', desc: 'Pod Security、RBAC、Network Policy、Secrets 管理、安全基线', category: 'security',
+          steps: ['validate-k8s-manifest','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-k8s-pss', name: 'Pod Security Standards', desc: 'Privileged/Baseline/Restricted 三个安全级别及 Enforcement' },
+            { id: 'kp-k8s-rbac', name: 'RBAC 最小权限', desc: 'Role/ClusterRole 绑定原则、ServiceAccount 权限控制' },
+            { id: 'kp-k8s-netpol', name: 'Network Policy', desc: '默认拒绝、命名空间隔离、允许列表策略' },
+            { id: 'kp-k8s-secrets', name: 'Secrets 管理', desc: 'Sealed Secrets / Vault 集成、Secret 加密轮转、避免明文' },
+            { id: 'kp-k8s-scan', name: '镜像安全扫描', desc: 'Trivy/Clair 镜像漏洞扫描、镜像签名与准入控制' },
+            { id: 'kp-k8s-audit', name: '审计日志', desc: 'K8s Audit Policy 配置、敏感操作追踪、合规报告' }
+          ]
+        },
+        { id: 'k8s-troubleshooting', name: 'K8s 故障排查', nameEn: 'Kubernetes Troubleshooting', desc: 'Pod/Service/Node 级别故障的系统性排查方法论', category: 'operations',
+          steps: ['run-shell-command','docker-exec','parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-kt-pod', name: 'Pod 排查', desc: 'CrashLoopBackOff、ImagePullBackOff、OOMKilled 等常见状态' },
+            { id: 'kp-kt-network', name: 'Service/Ingress 排查', desc: 'DNS 解析、Endpoint 关联、Ingress 路由、iptables/IPVS' },
+            { id: 'kp-kt-node', name: 'Node 排查', desc: 'NotReady、DiskPressure、MemoryPressure、PIDPressure 诊断' },
+            { id: 'kp-kt-storage', name: '存储排查', desc: 'PVC Pending、PV 绑定失败、StorageClass、CSI 驱动问题' },
+            { id: 'kp-kt-etcd', name: 'ETCD 排查', desc: 'Leader 选举、磁盘延迟、数据压缩、备份恢复' },
+            { id: 'kp-kt-tools', name: '诊断工具', desc: 'kubectl describe/logs/exec、crictl、nsenter、eBPF 工具' }
+          ]
+        },
+        { id: 'security-scan', name: '安全扫描', nameEn: 'Security Scanning', desc: '代码漏洞扫描、依赖检查、密钥泄露检测', category: 'security',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ss-sast', name: '静态代码扫描', desc: 'SonarQube/Semgrep/CodeQL 代码安全规则与自定义检查' },
+            { id: 'kp-ss-dependency', name: '依赖漏洞检查', desc: 'npm audit / Snyk / Trivy 依赖树漏洞扫描与自动升级' },
+            { id: 'kp-ss-secrets', name: '密钥泄露检测', desc: 'git-secrets / detect-secrets / TruffleHog 防止密钥入库' },
+            { id: 'kp-ss-container', name: '容器镜像扫描', desc: 'Trivy / Grype 镜像层漏洞扫描与 CIS Benchmark 检查' },
+            { id: 'kp-ss-iac', name: 'IaC 安全扫描', desc: 'tfsec / checkov / kics Terraform/K8s 配置安全审计' }
+          ]
+        },
+        { id: 'log-parser', name: '日志解析器', nameEn: 'Log Parser', desc: '多格式日志解析、过滤、聚合与结构化转换', category: 'observability',
+          steps: ['read-file','parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-lp-formats', name: '日志格式识别', desc: 'JSON、nginx combined、apache、syslog、自定义格式的解析策略' },
+            { id: 'kp-lp-filter', name: '过滤与聚合', desc: '基于 level/service/trace_id 过滤，时间窗口聚合统计' },
+            { id: 'kp-lp-pattern', name: '模式识别', desc: '异常模式检测、错误聚类、频率分析' }
+          ]
+        },
+        { id: 'service-health-check', name: '服务健康检查', nameEn: 'Service Health Check', desc: 'HTTP/TCP/gRPC 健康探测、就绪/存活探针设计', category: 'reliability',
+          steps: ['http-health-check','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-hc-types', name: '探针类型', desc: 'Liveness（存活）、Readiness（就绪）、Startup（启动）探针' },
+            { id: 'kp-hc-design', name: '探针设计原则', desc: '轻量级、快速响应、避免级联故障、合理的超时和阈值' },
+            { id: 'kp-hc-deep', name: '深度健康检查', desc: '依赖连通性验证、数据库连接池状态、缓存可用性' },
+            { id: 'kp-hc-synthetic', name: '合成监控', desc: '端到端流量模拟、关键路径定时验证' }
+          ]
+        },
+        { id: 'system-watchdog', name: '系统看门狗', nameEn: 'System Watchdog', desc: '核心系统组件的心跳监控、异常检测与自动恢复', category: 'reliability',
+          steps: ['run-shell-command','http-health-check','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-wd-heartbeat', name: '心跳机制', desc: '进程/服务定时心跳上报、超时检测与告警' },
+            { id: 'kp-wd-autorecover', name: '自动恢复', desc: '进程重启、容器重启策略、自愈脚本触发' },
+            { id: 'kp-wd-circuit', name: '熔断器', desc: '连续失败阈值、半开状态、自动恢复的熔断模式' }
+          ]
+        },
+        // === Existing project skills ===
+        { id: 'docker-container-management', name: 'Docker 容器管理', nameEn: 'Docker Container Management', desc: '管理 Docker 容器生命周期：查看状态、执行命令、收集日志', category: 'operations', steps: ['run-shell-command','docker-exec','run-shell-command','transform'],
+          knowledgePoints: [
+            { id: 'kp-docker-status', name: '容器状态检查', desc: 'docker ps/inspect、容器健康状态、资源使用率监控' },
+            { id: 'kp-docker-exec', name: '容器内执行', desc: 'docker exec 调试、文件系统检查、环境变量确认' },
+            { id: 'kp-docker-logs', name: '容器日志收集', desc: 'docker logs、日志驱动配置、日志轮转策略' },
+            { id: 'kp-docker-cleanup', name: '资源清理', desc: 'dangling image 清理、volume 清理、build cache 管理' }
+          ]
+        },
+        { id: 'k8s-deployment-review', name: 'K8s 部署审查', nameEn: 'K8s Deployment Review', desc: '审查 Kubernetes Deployment YAML 的配置正确性、安全性与最佳实践', category: 'operations', steps: ['read-file','validate-k8s-manifest','llm','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-k8dr-resources', name: '资源限制审查', desc: 'requests/limits 设置、QoS 等级（Guaranteed/Burstable/BestEffort）' },
+            { id: 'kp-k8dr-probes', name: '探针配置', desc: 'Liveness/Readiness/Startup 探针参数合理性' },
+            { id: 'kp-k8dr-strategy', name: '更新策略', desc: 'RollingUpdate maxSurge/maxUnavailable、BlueGreen/Canary 策略' },
+            { id: 'kp-k8dr-pdb', name: 'PodDisruptionBudget', desc: 'minAvailable/maxUnavailable 设置、滚动更新保护' },
+            { id: 'kp-k8dr-security', name: '安全上下文', desc: 'securityContext、runAsNonRoot、readOnlyRootFilesystem、drop capabilities' }
+          ]
+        },
+        { id: 'terraform-plan-review', name: 'Terraform Plan 审查', nameEn: 'Terraform Plan Review', desc: '分析 Terraform Plan 的风险、成本影响与策略合规性', category: 'operations', steps: ['read-file','parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-tfr-risk', name: '变更风险评估', desc: 'destroy/recreate 操作识别、force-new 检测、不可逆变更标记' },
+            { id: 'kp-tfr-cost', name: '成本影响分析', desc: '资源规格变更、数据传输成本、预留实例利用率变化' },
+            { id: 'kp-tfr-compliance', name: '合规检查', desc: '标签策略、加密要求、网络隔离规则满足度' },
+            { id: 'kp-tfr-state', name: 'State 安全', desc: 'State locking、远程 Backend、敏感信息加密存储' }
+          ]
+        },
+        { id: 'ci-pipeline-setup', name: 'CI 流水线搭建', nameEn: 'CI Pipeline Setup', desc: '为项目生成 GitHub Actions 等 CI/CD 流水线配置', category: 'operations', steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ci-stages', name: '流水线阶段设计', desc: 'lint→test→build→scan→deploy 各阶段职责与质量门禁' },
+            { id: 'kp-ci-matrix', name: '矩阵构建', desc: '多版本/多平台并行构建策略、条件执行' },
+            { id: 'kp-ci-security', name: '安全集成', desc: '依赖漏洞扫描、镜像签名、密钥管理的 CI 集成' },
+            { id: 'kp-ci-artifacts', name: '产物管理', desc: '版本化构建产物、镜像 Tag 策略、Release 自动化' }
+          ]
+        },
+        { id: 'monitoring-stack-setup', name: '监控栈搭建', nameEn: 'Monitoring Stack Setup', desc: '生成 Prometheus + Grafana 监控栈的配置与告警规则', category: 'operations', steps: ['http-health-check','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-mss-compose', name: 'Docker Compose 部署', desc: 'Prometheus/Grafana/AlertManager 容器编排与持久化配置' },
+            { id: 'kp-mss-alerts', name: '告警规则设计', desc: 'CPU、内存、延迟、错误率黄金指标告警规则' },
+            { id: 'kp-mss-dashboard', name: '仪表板模板', desc: '节点、容器、应用三层仪表板设计' },
+            { id: 'kp-mss-ha', name: '高可用部署', desc: 'Prometheus HA、Thanos Sidecar/Receive、Grafana 负载均衡' }
+          ]
+        },
+        { id: 'incident-diagnosis', name: '故障诊断', nameEn: 'Incident Diagnosis', desc: '结合日志、指标和容器状态进行故障根因分析', category: 'operations', steps: ['http-health-check','read-file','parse-json-log','run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-id-health', name: '健康探测', desc: 'HTTP 状态码、响应时间、证书过期检查' },
+            { id: 'kp-id-log', name: '日志根因定位', desc: 'ERROR 日志过滤、异常模式识别、时间线重建' },
+            { id: 'kp-id-container', name: '容器状态分析', desc: 'OOMKilled、CrashLoop、ImagePull 故障的容器级诊断' },
+            { id: 'kp-id-rca', name: '根因分析方法', desc: '5 Whys、Fishbone、Timeline Analysis 等根因分析技术' }
+          ]
+        },
+        { id: 'security-audit', name: '安全审计', nameEn: 'Security Audit', desc: '对配置文件、代码和云资源进行安全扫描与合规检查', category: 'operations', steps: ['run-shell-command','run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-sa-scope', name: '审计范围', desc: 'K8s 配置、Terraform 代码、Dockerfile、依赖文件的全面扫描' },
+            { id: 'kp-sa-secrets', name: '密钥泄露检测', desc: 'password/secret/token/api_key 硬编码扫描' },
+            { id: 'kp-sa-scoring', name: '风险评分', desc: 'critical/high/medium/low 分级、CWE 映射、修复优先级' },
+            { id: 'kp-sa-remediation', name: '修复建议', desc: '针对性的安全加固建议与最佳实践代码示例' }
+          ]
+        },
+        { id: 'log-analysis', name: '日志分析', nameEn: 'Log Analysis', desc: '分析应用日志，定位异常模式并生成摘要报告', category: 'operations', steps: ['read-file','parse-json-log','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-la-pattern', name: '异常模式识别', desc: '错误聚类、频率突增检测、未知异常发现' },
+            { id: 'kp-la-timeline', name: '时间线重建', desc: '按时间排序关键事件、故障起始点定位' },
+            { id: 'kp-la-query', name: '自然语言查询', desc: '用自然语言描述查询意图，AI 辅助日志搜索' },
+            { id: 'kp-la-report', name: '分析报告', desc: '摘要、异常列表、建议的标准化报告格式' }
+          ]
+        },
+        // === DevOps Skills ===
+        { id: 'docker-essentials', name: 'Docker 基础', nameEn: 'Docker Essentials', desc: 'Docker 核心概念、镜像构建、容器运行、网络与存储', category: 'devops',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-de-image', name: '镜像构建', desc: 'Dockerfile 编写、多阶段构建、镜像层缓存优化、基础镜像选择' },
+            { id: 'kp-de-container', name: '容器生命周期', desc: 'run/start/stop/rm、前台/后台模式、信号处理与优雅退出' },
+            { id: 'kp-de-network', name: 'Docker 网络', desc: 'bridge/host/overlay 网络、端口映射、容器间 DNS 通信' },
+            { id: 'kp-de-volume', name: '数据卷与存储', desc: 'volume/bind mount/tmpfs、数据持久化、多容器共享存储' },
+            { id: 'kp-de-registry', name: '镜像仓库', desc: 'Docker Hub/私有 Registry、镜像 Tag 策略、镜像扫描与签名' },
+            { id: 'kp-de-compose', name: 'Docker Compose', desc: '多服务编排、环境变量注入、健康检查、依赖启动顺序' }
+          ]
+        },
+        { id: 'kubernetes-basics', name: 'Kubernetes 基础', nameEn: 'Kubernetes Basics', desc: 'K8s 核心对象、Pod/Deployment/Service/ConfigMap、kubectl 操作', category: 'devops',
+          steps: ['run-shell-command','validate-k8s-manifest','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-kb-pod', name: 'Pod 模型', desc: 'Pod 生命周期、Init Container、Sidecar 模式、资源限制' },
+            { id: 'kp-kb-workload', name: '工作负载控制器', desc: 'Deployment/StatefulSet/DaemonSet/Job/CronJob 适用场景' },
+            { id: 'kp-kb-service', name: 'Service 与发现', desc: 'ClusterIP/NodePort/LoadBalancer/Headless、DNS 解析' },
+            { id: 'kp-kb-config', name: '配置管理', desc: 'ConfigMap、Secret、环境变量、Volume 挂载配置' },
+            { id: 'kp-kb-kubectl', name: 'kubectl 实操', desc: 'get/describe/logs/exec/apply/rollout 常用命令与输出解读' },
+            { id: 'kp-kb-helm', name: 'Helm 包管理', desc: 'Chart 结构、values.yaml 覆盖、Repository 管理、Release 管理' }
+          ]
+        },
+        { id: 'docker-to-k8s', name: 'Docker 到 K8s 迁移', nameEn: 'Docker to Kubernetes Migration', desc: '从 Docker Compose 迁移到 Kubernetes 的策略与实践', category: 'devops',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-d2k-compose', name: 'Compose 转换', desc: 'docker-compose.yaml 到 K8s manifests 的映射关系与工具' },
+            { id: 'kp-d2k-stateful', name: '有状态服务迁移', desc: '数据库/缓存的 StatefulSet 迁移策略、PV/PVC 数据迁移' },
+            { id: 'kp-d2k-cicd', name: 'CI/CD 适配', desc: '构建流水线从 Docker 到 K8s 的部署脚本改造' }
+          ]
+        },
+        { id: 'terraform-basics', name: 'Terraform 基础', nameEn: 'Terraform Basics', desc: 'IaC 核心理念、HCL 语法、Provider/Resource/Module、状态管理', category: 'devops',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-tb-hcl', name: 'HCL 语法', desc: 'Resource/Data Source/Variable/Output/Local 的声明式配置语法' },
+            { id: 'kp-tb-state', name: '状态管理', desc: 'Remote Backend（S3/GCS）、State Locking、状态隔离策略' },
+            { id: 'kp-tb-module', name: 'Module 复用', desc: '模块抽象、输入输出接口、Terraform Registry 公共模块' },
+            { id: 'kp-tb-workspace', name: 'Workspace 多环境', desc: 'dev/staging/prod 环境隔离、变量覆盖策略' },
+            { id: 'kp-tb-import', name: '存量资源导入', desc: 'terraform import 已有资源、代码对齐、增量 IaC 化' }
+          ]
+        },
+        { id: 'ansible-automation', name: 'Ansible 自动化', nameEn: 'Ansible Automation', desc: 'Playbook 编写、Role 组织、Inventory 管理、配置自动化', category: 'devops',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-aa-playbook', name: 'Playbook 编写', desc: 'Task/Handler/Variable/Template、YAML 语法、执行策略' },
+            { id: 'kp-aa-role', name: 'Role 组织', desc: '标准目录结构、Galaxy 共享、依赖管理' },
+            { id: 'kp-aa-inventory', name: 'Inventory 管理', desc: '静态/动态 Inventory、分组策略、连接参数' },
+            { id: 'kp-aa-idempotent', name: '幂等性', desc: '确保重复执行结果一致、changed 状态判断、when 条件控制' }
+          ]
+        },
+        { id: 'github-actions', name: 'GitHub Actions', nameEn: 'GitHub Actions', desc: 'Workflow 配置、Action 市场、自托管 Runner、Secrets 管理', category: 'devops',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ga-workflow', name: 'Workflow 配置', desc: 'on push/pull_request 触发、Job/Step/Action 编排' },
+            { id: 'kp-ga-matrix', name: '矩阵构建', desc: '多 OS/多版本并行、include/exclude 过滤' },
+            { id: 'kp-ga-secrets', name: 'Secrets 管理', desc: 'Repository/Organization/Environment 级密钥、OIDC 认证' },
+            { id: 'kp-ga-runner', name: 'Runner 管理', desc: 'GitHub-hosted vs Self-hosted、标签路由、自动扩缩' },
+            { id: 'kp-ga-reusable', name: '可复用 Workflow', desc: 'workflow_call、参数化模板、组织级标准化流水线' }
+          ]
+        },
+        { id: 'gitops-workflow', name: 'GitOps 工作流', nameEn: 'GitOps Workflow', desc: 'ArgoCD/Flux 声明式部署、Git 驱动的持续交付', category: 'devops',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-go-principles', name: 'GitOps 原则', desc: '声明式、版本控制、自动拉取、持续协调' },
+            { id: 'kp-go-argocd', name: 'ArgoCD 实操', desc: 'Application/Project/AppSet、Sync Policy、Multi-cluster' },
+            { id: 'kp-go-flux', name: 'Flux 实操', desc: 'Kustomization/HelmRelease/GitRepository 资源、Reconciliation' },
+            { id: 'kp-go-drift', name: '配置漂移检测', desc: '实际状态 vs 期望状态的 Diff 检测与自动修复' }
+          ]
+        },
+        { id: 'secrets-management', name: '密钥管理', nameEn: 'Secrets Management', desc: 'Vault/KMS 密钥生命周期、轮转策略、零信任密钥分发', category: 'devops',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-sm-vault', name: 'HashiCorp Vault', desc: 'Secret Engine、Policy、动态密钥、PKI 后端' },
+            { id: 'kp-sm-kms', name: '云 KMS', desc: 'AWS KMS/Azure Key Vault/GCP KMS 密钥管理与加密' },
+            { id: 'kp-sm-rotation', name: '密钥轮转', desc: '自动轮转策略、无中断更新、审计日志' },
+            { id: 'kp-sm-injection', name: '密钥注入', desc: 'Sidecar 注入、CSI Driver、Init Container 模式' }
+          ]
+        },
+        { id: 'config-validator', name: '配置校验器', nameEn: 'Config Validator', desc: 'YAML/JSON Schema 校验、策略引擎（OPA/Kyverno）、配置合规', category: 'devops',
+          steps: ['read-file','validate-k8s-manifest','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-cv-schema', name: 'Schema 校验', desc: 'JSON Schema / Cue / OpenAPI 校验 Kubernetes 资源' },
+            { id: 'kp-cv-opa', name: 'OPA/Gatekeeper', desc: 'Rego 策略编写、Constraint Template、审计模式' },
+            { id: 'kp-cv-kyverno', name: 'Kyverno', desc: 'Kubernetes 原生策略引擎、Mutate/Validate/Generate' },
+            { id: 'kp-cv-scorecard', name: '配置评分', desc: 'Polaris / kube-score 配置最佳实践评分' }
+          ]
+        },
+        { id: 'aws-cli-basics', name: 'AWS CLI 基础', nameEn: 'AWS CLI Basics', desc: 'AWS 命令行操作、EC2/S3/IAM/VPC 核心服务', category: 'cloud',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-aws-ec2', name: 'EC2 实例管理', desc: '实例类型选择、启动模板、Auto Scaling、Spot Fleet' },
+            { id: 'kp-aws-s3', name: 'S3 存储', desc: 'Bucket 策略、生命周期规则、版本控制、静态网站' },
+            { id: 'kp-aws-iam', name: 'IAM 权限', desc: 'Role/Policy/Instance Profile、最小权限原则、STS 临时凭证' },
+            { id: 'kp-aws-vpc', name: 'VPC 网络', desc: 'Subnet/Security Group/NAT Gateway/VPC Endpoint' },
+            { id: 'kp-aws-eks', name: 'EKS 容器服务', desc: 'EKS Cluster 创建、Node Group、IRSA、Fargate Profile' }
+          ]
+        },
+        { id: 'azure-cli-basics', name: 'Azure CLI 基础', nameEn: 'Azure CLI Basics', desc: 'Azure 命令行操作、VM/Storage/AKS 核心服务', category: 'cloud',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-az-vm', name: 'VM 管理', desc: '虚拟机创建、可用性集、Scale Set、磁盘管理' },
+            { id: 'kp-az-aks', name: 'AKS 容器服务', desc: 'AKS Cluster、Node Pool、AAD Pod Identity' },
+            { id: 'kp-az-storage', name: '存储服务', desc: 'Blob Storage、Managed Disk、File Share' },
+            { id: 'kp-az-monitor', name: 'Azure Monitor', desc: 'Log Analytics、Application Insights、Alert Rules' }
+          ]
+        },
+        { id: 'tencent-cloud-lighthouse', name: '腾讯云轻量应用', nameEn: 'Tencent Cloud Lighthouse', desc: '轻量服务器管理、快照备份、防火墙与域名解析', category: 'cloud',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-tcl-instance', name: '实例管理', desc: '创建、规格选择、系统镜像与应用镜像' },
+            { id: 'kp-tcl-firewall', name: '防火墙规则', desc: '入站/出站规则、端口放行、IP 白名单' },
+            { id: 'kp-tcl-snapshot', name: '快照与备份', desc: '定期快照策略、自定义镜像、数据恢复' },
+            { id: 'kp-tcl-domain', name: '域名与 DNS', desc: 'DNSPod 解析、SSL 证书、CDN 加速' }
+          ]
+        },
+        { id: 'cloudflare-manager', name: 'Cloudflare 管理', nameEn: 'Cloudflare Management', desc: 'DNS 管理、CDN 缓存、WAF 规则、SSL/TLS 配置', category: 'cloud',
+          steps: ['api-call','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-cf-dns', name: 'DNS 管理', desc: 'Record 类型、Proxy 模式、DNSSEC、CNAME Flattening' },
+            { id: 'kp-cf-cache', name: 'CDN 缓存策略', desc: 'Cache Rules、Page Rules、缓存键自定义、Purge 策略' },
+            { id: 'kp-cf-waf', name: 'WAF 防火墙', desc: 'Managed Rules、自定义规则、Rate Limiting、Bot Management' },
+            { id: 'kp-cf-ssl', name: 'SSL/TLS', desc: 'Full Strict 模式、Origin Pull Certificate、最小 TLS 版本' },
+            { id: 'kp-cf-workers', name: 'Cloudflare Workers', desc: 'Edge Function、KV 存储、Durable Objects' }
+          ]
+        },
+        // === Backend Skills ===
+        { id: 'system-design', name: '系统设计', nameEn: 'System Design', desc: '高可用/高并发系统架构设计、分布式理论、容量规划', category: 'architecture',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-sd-cap', name: 'CAP 定理', desc: '一致性/可用性/分区容忍性权衡、最终一致性 vs 强一致性' },
+            { id: 'kp-sd-ha', name: '高可用设计', desc: '冗余、故障隔离、熔断降级、多活架构' },
+            { id: 'kp-sd-scaling', name: '水平扩展', desc: '无状态设计、分片策略、读写分离、连接池管理' },
+            { id: 'kp-sd-cache', name: '缓存策略', desc: '多级缓存、缓存穿透/击穿/雪崩、一致性 Hash' },
+            { id: 'kp-sd-mq', name: '消息队列', desc: '异步解耦、削峰填谷、幂等消费、消息顺序保证' },
+            { id: 'kp-sd-microservice', name: '微服务拆分', desc: '限界上下文、服务治理、API Gateway、服务网格' }
+          ]
+        },
+        { id: 'database-design', name: '数据库设计', nameEn: 'Database Design', desc: '关系型/NoSQL 数据建模、索引优化、分库分表、数据迁移', category: 'backend',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-dd-modeling', name: '数据建模', desc: 'ER 模型、范式与反范式、领域驱动数据设计' },
+            { id: 'kp-dd-index', name: '索引优化', desc: 'B+Tree 索引、复合索引、覆盖索引、执行计划分析' },
+            { id: 'kp-dd-sharding', name: '分库分表', desc: '水平拆分、垂直拆分、Sharding 策略、分布式 ID' },
+            { id: 'kp-dd-nosql', name: 'NoSQL 选型', desc: 'Redis 缓存、MongoDB 文档、ES 搜索、时序数据库' },
+            { id: 'kp-dd-migration', name: '数据迁移', desc: '双写策略、增量同步、数据校验、回滚方案' }
+          ]
+        },
+        { id: 'api-design', name: 'API 设计', nameEn: 'API Design', desc: 'RESTful/GraphQL API 设计、版本管理、接口文档、向后兼容', category: 'backend',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ad-rest', name: 'RESTful 设计', desc: '资源命名、HTTP 方法语义、状态码规范、HATEOAS' },
+            { id: 'kp-ad-graphql', name: 'GraphQL 设计', desc: 'Schema 定义、Resolver、N+1 问题、Fragment' },
+            { id: 'kp-ad-versioning', name: '版本管理', desc: 'URL/Header/Query 版本策略、向后兼容、废弃流程' },
+            { id: 'kp-ad-docs', name: '接口文档', desc: 'OpenAPI/Swagger 规范、自动化文档生成、示例与 Mock' },
+            { id: 'kp-ad-security', name: 'API 安全', desc: '认证授权（JWT/OAuth2）、Rate Limiting、输入校验、CORS' }
+          ]
+        },
+        { id: 'generate-deployment-guide', name: '部署指南生成', nameEn: 'Deployment Guide Generation', desc: '为项目生成标准化部署文档、运维手册和故障排查指南', category: 'architecture',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-gdg-checklist', name: '部署检查清单', desc: '前置依赖、配置检查、健康验证、回滚条件' },
+            { id: 'kp-gdg-runbook', name: '运维手册', desc: '日常巡检、故障处理、扩缩容操作 SOP' },
+            { id: 'kp-gdg-dr', name: '灾难恢复', desc: 'RTO/RPO 定义、备份策略、恢复演练' }
+          ]
+        },
+        { id: 'api-development', name: 'API 开发', nameEn: 'API Development', desc: '后端 API 实现、中间件、错误处理、参数校验、性能优化', category: 'backend',
+          steps: ['read-file','write-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ap-framework', name: '框架选型', desc: 'Express/Fastify/NestJS/Koa 对比与选择' },
+            { id: 'kp-ap-middleware', name: '中间件设计', desc: '认证/日志/限流/CORS 中间件链、洋葱模型' },
+            { id: 'kp-ap-error', name: '错误处理', desc: '统一错误码、错误链传递、结构化错误响应' },
+            { id: 'kp-ap-validation', name: '参数校验', desc: 'Zod/Joi/Class-validator 输入验证、类型安全' },
+            { id: 'kp-ap-perf', name: 'API 性能', desc: '连接池、N+1 查询、响应压缩、ETag 缓存' }
+          ]
+        },
+        { id: 'authentication', name: '认证与授权', nameEn: 'Authentication & Authorization', desc: 'JWT/OAuth2/RBAC/ABAC 认证授权体系设计', category: 'backend',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-auth-jwt', name: 'JWT Token', desc: 'Access/Refresh Token、Token 轮转、黑名单机制' },
+            { id: 'kp-auth-oauth2', name: 'OAuth2.0', desc: '授权码模式、PKCE、Client Credentials、SSO 集成' },
+            { id: 'kp-auth-rbac', name: 'RBAC/ABAC', desc: '角色权限模型、属性权限模型、权限继承' },
+            { id: 'kp-auth-session', name: 'Session 管理', desc: '分布式 Session、Redis 存储、并发控制' },
+            { id: 'kp-auth-mfa', name: '多因素认证', desc: 'TOTP、SMS、WebAuthn/FIDO2、无密码认证' }
+          ]
+        },
+        { id: 'testing', name: '后端测试', nameEn: 'Backend Testing', desc: '单元测试、集成测试、E2E 测试、测试覆盖率与策略', category: 'backend',
+          steps: ['run-tests','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-test-unit', name: '单元测试', desc: 'Jest/Vitest、Mock/Stub、测试隔离、边界条件' },
+            { id: 'kp-test-integration', name: '集成测试', desc: '数据库测试、API 测试、Test Container、事务回滚' },
+            { id: 'kp-test-e2e', name: 'E2E 测试', desc: 'Supertest、全链路测试、环境隔离、数据准备' },
+            { id: 'kp-test-coverage', name: '覆盖率策略', desc: 'Istanbul/C8、覆盖率阈值、分支覆盖、增量覆盖' },
+            { id: 'kp-test-tdd', name: 'TDD/BDD', desc: '测试驱动开发流程、Given-When-Then、Red-Green-Refactor' }
+          ]
+        },
+        // === Frontend Skills ===
+        { id: 'frontend-architecture-design', name: '前端架构设计', nameEn: 'Frontend Architecture', desc: '前端项目架构、模块化、构建优化、技术选型', category: 'frontend',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-fa-monorepo', name: 'Monorepo 管理', desc: 'Turborepo/Nx/Lerna 工作空间、包依赖管理、构建缓存' },
+            { id: 'kp-fa-module', name: '模块化设计', desc: 'Feature-based 架构、Domain-driven 目录结构、依赖注入' },
+            { id: 'kp-fa-build', name: '构建优化', desc: 'Vite/Webpack 配置、代码分割、Tree Shaking、持久化缓存' },
+            { id: 'kp-fa-ssr', name: 'SSR/SSG', desc: 'Next.js/Nuxt.js 服务端渲染、静态生成、ISR 增量更新' },
+            { id: 'kp-fa-microfrontend', name: '微前端', desc: 'Module Federation、qiankun、沙箱隔离、样式隔离' }
+          ]
+        },
+        { id: 'performance-optimization', name: '前端性能优化', nameEn: 'Frontend Performance', desc: 'Core Web Vitals、加载优化、渲染优化、运行时性能', category: 'frontend',
+          steps: ['analyze-code','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-fp-cwv', name: 'Core Web Vitals', desc: 'LCP/FID/CLS 指标优化、性能预算、实时监控' },
+            { id: 'kp-fp-loading', name: '加载优化', desc: '资源预加载、懒加载、HTTP/2 Push、CDN 策略' },
+            { id: 'kp-fp-rendering', name: '渲染优化', desc: '虚拟列表、减少重排重绘、GPU 加速、requestIdleCallback' },
+            { id: 'kp-fp-bundle', name: '包体积优化', desc: 'Bundle 分析、动态 import、按需加载、依赖瘦身' },
+            { id: 'kp-fp-memory', name: '内存优化', desc: '内存泄漏检测、WeakRef/WeakMap、GC 友好代码' }
+          ]
+        },
+        { id: 'component-design', name: '组件设计', nameEn: 'Component Design', desc: '组件抽象、复合组件模式、Headless 组件、设计系统集成', category: 'frontend',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-cd-pattern', name: '组件模式', desc: 'HOC/Render Props/Hooks/Compound Components 设计模式' },
+            { id: 'kp-cd-headless', name: 'Headless 组件', desc: '逻辑与 UI 分离、可组合性、a11y 友好、Radix UI 模式' },
+            { id: 'kp-cd-design-system', name: '设计系统', desc: 'Token 体系、主题切换、文档自动化、版本管理' },
+            { id: 'kp-cd-a11y', name: '无障碍访问', desc: 'ARIA 属性、键盘导航、屏幕阅读器、色觉适配' }
+          ]
+        },
+        { id: 'state-management', name: '状态管理', nameEn: 'State Management', desc: 'React/Vue 状态管理、服务端状态、状态机', category: 'frontend',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-sm-local', name: '本地状态', desc: 'useState/useReducer、响应式原理、状态提升' },
+            { id: 'kp-sm-global', name: '全局状态', desc: 'Zustand/Jotai/Redux Toolkit、Selector 优化、中间件' },
+            { id: 'kp-sm-server', name: '服务端状态', desc: 'TanStack Query/SWR、缓存失效、乐观更新、无限滚动' },
+            { id: 'kp-sm-fsm', name: '状态机', desc: 'XState/Robot、有限状态机、复杂流程编排' }
+          ]
+        },
+        { id: 'testing-strategy', name: '前端测试策略', nameEn: 'Frontend Testing Strategy', desc: 'Testing Trophy、组件测试、E2E、Visual Regression', category: 'frontend',
+          steps: ['run-tests','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ts-trophy', name: '测试奖杯模型', desc: 'Static→Unit→Integration→E2E 各层投入比例' },
+            { id: 'kp-ts-component', name: '组件测试', desc: 'Testing Library、用户行为驱动、Mock 策略' },
+            { id: 'kp-ts-visual', name: '视觉回归测试', desc: 'Storybook/Chromatic/Percy、快照对比、像素差异' },
+            { id: 'kp-ts-e2e', name: 'E2E 测试', desc: 'Playwright/Cypress、Page Object、并行执行、Flaky 治理' }
+          ]
+        },
+        // === QA Skills ===
+        { id: 'write-unit-tests', name: '单元测试编写', nameEn: 'Write Unit Tests', desc: '测试用例设计、边界条件、Mock/Stub、覆盖率', category: 'qa',
+          steps: ['read-file','run-tests','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-wut-design', name: '用例设计', desc: '等价类划分、边界值分析、决策表、正交实验法' },
+            { id: 'kp-wut-mock', name: 'Mock/Stub', desc: '函数 Mock、模块 Mock、时间 Mock、环境 Mock' },
+            { id: 'kp-wut-coverage', name: '覆盖率分析', desc: '行覆盖/分支覆盖/函数覆盖、未覆盖路径分析' },
+            { id: 'kp-wut-snapshot', name: '快照测试', desc: 'Jest Snapshot、组件输出快照、更新策略' }
+          ]
+        },
+        { id: 'write-e2e-tests', name: 'E2E 测试编写', nameEn: 'Write E2E Tests', desc: 'Playwright/Cypress 端到端测试、Page Object 模式、CI 集成', category: 'qa',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-wet-playwright', name: 'Playwright', desc: 'Browser Context、Locator 策略、网络拦截、Trace Viewer' },
+            { id: 'kp-wet-pom', name: 'Page Object 模式', desc: '页面抽象、操作封装、数据驱动测试' },
+            { id: 'kp-wet-ci', name: 'CI 集成', desc: '并行执行、Retry 策略、Artifact 上传、报告生成' },
+            { id: 'kp-wet-api', name: 'API E2E', desc: 'API 链路测试、数据准备与清理、Contract Testing' }
+          ]
+        },
+        { id: 'performance-testing', name: '性能测试', nameEn: 'Performance Testing', desc: '负载测试、压力测试、稳定性测试、性能基准与瓶颈分析', category: 'qa',
+          steps: ['run-shell-command','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-pt-load', name: '负载测试', desc: 'k6/Artillery/JMeter、渐进加压、吞吐量/延迟/错误率' },
+            { id: 'kp-pt-stress', name: '压力测试', desc: '极限容量、破点探测、资源瓶颈定位' },
+            { id: 'kp-pt-stability', name: '稳定性测试', desc: '长时间运行、内存泄漏检测、资源耗尽场景' },
+            { id: 'kp-pt-frontend', name: '前端性能测试', desc: 'Lighthouse CI、WebPageTest、Core Web Vitals 自动化' }
+          ]
+        },
+        { id: 'test-strategy', name: '测试策略制定', nameEn: 'Test Strategy', desc: '测试金字塔、质量门禁、测试左移、持续测试', category: 'qa',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ts-pyramid', name: '测试金字塔', desc: '单元/集成/E2E 层级比例、ROI 导向的测试投入' },
+            { id: 'kp-ts-gate', name: '质量门禁', desc: 'PR 检查清单、覆盖率阈值、性能回归阈值、安全扫描' },
+            { id: 'kp-ts-shiftleft', name: '测试左移', desc: '需求阶段测试设计、代码评审中的测试思维、TDD' },
+            { id: 'kp-ts-continuous', name: '持续测试', desc: 'CI 中全链路测试、测试环境管理、Feature Flag 测试' }
+          ]
+        },
+        // === PM Skills ===
+        { id: 'write-prd', name: '编写 PRD', nameEn: 'Write PRD', desc: '产品需求文档结构、用户故事、功能规格、优先级排序', category: 'product',
+          steps: ['read-file','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-wp-structure', name: 'PRD 结构', desc: '背景/目标/用户故事/功能列表/非功能需求/上线标准' },
+            { id: 'kp-wp-userstory', name: '用户故事', desc: 'As a...I want...So that...、验收标准、Story Point' },
+            { id: 'kp-wp-priority', name: '优先级排序', desc: 'MoSCoW/RICE/Kano 模型、业务价值 vs 技术复杂度' },
+            { id: 'kp-wp-nfr', name: '非功能需求', desc: '性能/安全/可用性/兼容性要求量化' },
+            { id: 'kp-wp-metrics', name: '效果度量', desc: '北极星指标、A/B Test 设计、上线后数据验证' }
+          ]
+        },
+        { id: 'user-research', name: '用户研究', nameEn: 'User Research', desc: '用户访谈、问卷设计、可用性测试、用户画像', category: 'product',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ur-interview', name: '用户访谈', desc: '半结构化访谈、5 Whys、痛点挖掘、录音整理' },
+            { id: 'kp-ur-survey', name: '问卷设计', desc: '李克特量表、样本量计算、偏差控制、结果分析' },
+            { id: 'kp-ur-usability', name: '可用性测试', desc: '任务设计、SUS 量表、眼动追踪、远程测试' },
+            { id: 'kp-ur-persona', name: '用户画像', desc: '人口统计、行为模式、需求痛点、使用场景' }
+          ]
+        },
+        { id: 'competitive-analysis', name: '竞品分析', nameEn: 'Competitive Analysis', desc: '竞品识别、功能对比、SWOT 分析、差异化策略', category: 'product',
+          steps: ['api-call','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-ca-identify', name: '竞品识别', desc: '直接/间接/替代竞品分层、市场份额分析' },
+            { id: 'kp-ca-feature', name: '功能对比矩阵', desc: 'Feature Map、体验评分、Gaps 分析' },
+            { id: 'kp-ca-swot', name: 'SWOT 分析', desc: '优势/劣势/机会/威胁四维度系统分析' },
+            { id: 'kp-ca-positioning', name: '差异化定位', desc: '价值主张画布、独特卖点、竞争壁垒' }
+          ]
+        },
+        { id: 'roadmap-design', name: '路线图设计', nameEn: 'Roadmap Design', desc: '产品路线图规划、里程碑、OKR 对齐、迭代节奏', category: 'product',
+          steps: ['llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-rd-timeline', name: '时间线规划', desc: '季度/月度规划、Now-Next-Later 框架、里程碑设置' },
+            { id: 'kp-rd-okr', name: 'OKR 对齐', desc: 'Objective/Key Results、产品目标与公司战略联动' },
+            { id: 'kp-rd-iteration', name: '迭代节奏', desc: 'Sprint/kanban 选择、版本规划、Feature Flag 分阶段发布' },
+            { id: 'kp-rd-stakeholder', name: '利益相关方管理', desc: '期望管理、优先级沟通、跨团队依赖协调' }
+          ]
+        },
+        // === Shared Skills ===
+        { id: 'code-review', name: '代码审查', nameEn: 'Code Review', desc: '全面审查代码质量、安全性、性能和可维护性', category: 'development', steps: ['read-file','analyze-code','analyze-code','analyze-code','llm','transform'],
+          knowledgePoints: [
+            { id: 'kp-cr-checklist', name: '审查清单', desc: '命名/逻辑/边界/安全/性能/可读性六维检查' },
+            { id: 'kp-cr-pattern', name: '设计模式审查', desc: 'SOLID 原则、DRY/KISS、过度设计识别' },
+            { id: 'kp-cr-security', name: '安全审查', desc: '注入/XSS/CSRF/越权检查、敏感数据处理' },
+            { id: 'kp-cr-culture', name: 'Review 文化', desc: '建设性反馈、知识分享、Review 节奏与效率' }
+          ]
+        }
       ],
       atomics: [
         { id: 'read-file', name: '读取文件', nameEn: 'Read File', desc: '读取指定路径的文件内容', category: 'filesystem' },
@@ -586,6 +1412,19 @@
 
     // ===== DATA =====
     function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 6); }
+
+    // Skill Builder Data
+    let customSkills = loadCustomSkills();
+    let sbSelectedSkillId = null;
+
+    function loadCustomSkills() {
+      try {
+        const raw = localStorage.getItem('s4c-custom-skills');
+        if (raw) { const skills = JSON.parse(raw); if (Array.isArray(skills)) return skills; }
+      } catch(e) {}
+      return [];
+    }
+    function saveCustomSkills() { localStorage.setItem('s4c-custom-skills', JSON.stringify(customSkills)); }
 
     function getDefaultData() {
       return {
@@ -1092,6 +1931,12 @@
       if (!pr) { selectedPath = { type: 'person' }; render(); return; }
       const associated = !!findMyRole(pr.id);
 
+      // Count knowledge points across all skills
+      const totalKps = pr.mainSkills.reduce((cnt, sid) => {
+        const ps = getSkillById(sid);
+        return cnt + ((ps && ps.knowledgePoints) ? ps.knowledgePoints.length : 0);
+      }, 0);
+
       el.innerHTML = `
         <div class="content-header">
           <div>
@@ -1105,7 +1950,24 @@
           </div>
         </div>
         <div class="content-body">
-          <div class="project-banner"><span class="tag">项目</span> ${esc(pr.desc)} · ${pr.level === 'senior' ? '高级' : '中级'}</div>
+          <div class="project-banner"><span class="tag">项目</span> ${esc(pr.desc)} · ${pr.level === 'senior' ? '高级' : '中级'} · ${pr.mainSkills.length} 技能 · ${pr.atomicSkills.length} 原子 · ${totalKps} 知识点</div>
+
+          ${pr.responsibilities ? `
+          <div class="detail-card full" style="margin-bottom:1rem">
+            <div class="detail-label">岗位职责</div>
+            <ul style="padding-left:1.2rem;font-size:0.82rem;color:var(--text-secondary)">
+              ${pr.responsibilities.map(r => `<li style="margin-bottom:0.25rem">${esc(r)}</li>`).join('')}
+            </ul>
+          </div>` : ''}
+
+          ${pr.requirements ? `
+          <div class="detail-card full" style="margin-bottom:1rem">
+            <div class="detail-label">岗位要求</div>
+            <div style="font-size:0.82rem;color:var(--text-secondary)">
+              <span style="font-weight:500">经验：</span>${esc(pr.requirements.experience || '—')}
+              <span style="margin-left:1rem;font-weight:500">核心技能：</span>${(pr.requirements.coreSkills||[]).join('、')}
+            </div>
+          </div>` : ''}
 
           <div class="detail-grid">
             <div class="detail-card full">
@@ -1120,10 +1982,12 @@
                 ${pr.mainSkills.map(sid => {
                   const ps = getSkillById(sid);
                   const skName = ps ? ps.name : sid;
+                  const kpCount = (ps && ps.knowledgePoints) ? ps.knowledgePoints.length : 0;
                   return `<div class="child-item" onclick="${ps ? `selectProjectSkill('${sid}')` : ''}" style="${!ps ? 'cursor:default' : ''}">
                     <span class="tree-item-icon skill">技</span>
                     <span class="child-name">${esc(skName)}</span>
                     ${ps ? `<span class="child-desc">${esc(ps.desc)}</span>` : `<span class="child-meta">自定义技能</span>`}
+                    ${kpCount > 0 ? `<span class="child-meta">${kpCount} 知识点</span>` : ''}
                   </div>`;
                 }).join('')}
               </div>
@@ -1153,6 +2017,7 @@
 
       // Which roles use this skill?
       const usedByRoles = PROJECT.roles.filter(r => r.mainSkills.includes(ps.id));
+      const kps = ps.knowledgePoints || [];
 
       el.innerHTML = `
         <div class="content-header">
@@ -1162,9 +2027,10 @@
           </div>
         </div>
         <div class="content-body">
-          <div class="project-banner"><span class="tag">项目</span> ${esc(ps.desc)} · ${ps.category}</div>
+          <div class="project-banner"><span class="tag">项目</span> ${esc(ps.desc)} · ${ps.category}${kps.length > 0 ? ` · ${kps.length} 知识点` : ''}</div>
 
           <div class="detail-grid">
+            ${(ps.steps && ps.steps.length > 0) ? `
             <div class="detail-card full">
               <div class="detail-label">工作流步骤 (${(ps.steps||[]).length})</div>
               <div class="children-list">
@@ -1181,7 +2047,19 @@
                   </div>`;
                 }).join('')}
               </div>
-            </div>
+            </div>` : ''}
+            ${kps.length > 0 ? `
+            <div class="detail-card full">
+              <div class="detail-label" style="margin-bottom:0.5rem">知识点 (${kps.length})</div>
+              <div class="children-list">
+                ${kps.map(kp => `
+                  <div class="child-item" style="cursor:default">
+                    <span class="tree-item-icon knowledge">知</span>
+                    <span class="child-name" style="font-weight:500">${esc(kp.name)}</span>
+                    <span class="child-desc" style="max-width:none">${esc(kp.desc)}</span>
+                  </div>`).join('')}
+              </div>
+            </div>` : ''}
             ${usedByRoles.length > 0 ? `
             <div class="detail-card full">
               <div class="detail-label">被以下岗位使用</div>
@@ -1262,10 +2140,14 @@
       const pr = getRoleById(roleId);
       const myRole = { roleId, level: 0, note: '', skills: [] };
 
-      // Auto-associate all skills from project role
+      // Auto-associate all skills from project role + knowledge points
       if (pr) {
         pr.mainSkills.forEach(sid => {
-          myRole.skills.push({ skillId: sid, name: '', level: 0, note: '', knowledgePoints: [] });
+          const ps = getSkillById(sid);
+          const kps = (ps && ps.knowledgePoints) ? ps.knowledgePoints.map(kp => ({
+            kpId: kp.id, name: kp.name, level: 0, note: ''
+          })) : [];
+          myRole.skills.push({ skillId: sid, name: '', level: 0, note: '', knowledgePoints: kps });
         });
         pr.atomicSkills.forEach(aid => {
           if (!myRole.skills.find(s => s.skillId === aid)) {
@@ -1610,8 +2492,233 @@
     }
 
     // ===== INIT =====
+    // Skill Builder
+    let sbSteps = [];
+    let sbTags = [];
+    let sbEditingId = null;
+
+    function openSkillBuilder(skillId) {
+      sbEditingId = skillId || null;
+      const modal = document.getElementById('skill-builder-modal');
+      const titleEl = document.getElementById('sb-panel-title');
+      const nameEl = document.getElementById('sb-skill-name');
+      const descEl = document.getElementById('sb-skill-desc');
+      const catEl = document.getElementById('sb-skill-category');
+      const tagsContainer = document.getElementById('sb-tags-container');
+      const previewEl = document.getElementById('sb-preview');
+
+      if (skillId) {
+        const skill = customSkills.find(s => s.id === skillId);
+        if (!skill) return;
+        titleEl.textContent = '✏️ 编辑 Skill';
+        nameEl.value = skill.name || '';
+        descEl.value = skill.description || '';
+        catEl.value = skill.category || '';
+        sbTags = [...(skill.tags || [])];
+        sbSteps = skill.steps ? skill.steps.map(s => ({ ...s })) : [];
+      } else {
+        titleEl.textContent = '⚡ 创建 Skill';
+        nameEl.value = '';
+        descEl.value = '';
+        catEl.value = '';
+        sbTags = [];
+        sbSteps = [{ id: genId(), type: 'llm', prompt: '' }];
+      }
+
+      renderTagsInput();
+      renderSbSteps();
+      previewEl.style.display = 'none';
+      modal.classList.add('show');
+      nameEl.focus();
+    }
+
+    function closeSkillBuilder() {
+      document.getElementById('skill-builder-modal').classList.remove('show');
+      sbSteps = [];
+      sbTags = [];
+      sbEditingId = null;
+    }
+
+    function renderTagsInput() {
+      const container = document.getElementById('sb-tags-container');
+      const input = document.getElementById('sb-tags-input');
+      container.innerHTML = sbTags.map(tag => `
+        <span class="sb-tag">${esc(tag)}<span class="sb-tag-remove" onclick="removeTag('${esc(tag)}')">✕</span></span>
+      `).join('');
+      container.appendChild(input);
+      input.value = '';
+    }
+
+    function addTag(tag) {
+      tag = tag.trim();
+      if (tag && !sbTags.includes(tag)) {
+        sbTags.push(tag);
+        renderTagsInput();
+      }
+    }
+
+    function removeTag(tag) {
+      sbTags = sbTags.filter(t => t !== tag);
+      renderTagsInput();
+    }
+
+    document.getElementById('sb-tags-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addTag(e.target.value);
+      }
+    });
+
+    function addPromptStep() {
+      sbSteps.push({ id: genId(), type: 'llm', prompt: '' });
+      renderSbSteps();
+    }
+
+    function removePromptStep(stepId) {
+      sbSteps = sbSteps.filter(s => s.id !== stepId);
+      renderSbSteps();
+    }
+
+    function updateStepPrompt(stepId, value) {
+      const step = sbSteps.find(s => s.id === stepId);
+      if (step) step.prompt = value;
+    }
+
+    function updateStepType(stepId, type) {
+      const step = sbSteps.find(s => s.id === stepId);
+      if (step) step.type = type;
+    }
+
+    function moveStep(stepId, direction) {
+      const idx = sbSteps.findIndex(s => s.id === stepId);
+      if (idx < 0) return;
+      const newIdx = direction === 'up' ? idx - 1 : idx + 1;
+      if (newIdx < 0 || newIdx >= sbSteps.length) return;
+      [sbSteps[idx], sbSteps[newIdx]] = [sbSteps[newIdx], sbSteps[idx]];
+      renderSbSteps();
+    }
+
+    function renderSbSteps() {
+      const container = document.getElementById('sb-steps-container');
+      container.innerHTML = sbSteps.map((step, i) => `
+        <div class="prompt-step">
+          <button class="prompt-step-remove" onclick="removePromptStep('${step.id}')">✕</button>
+          <div class="prompt-step-header">
+            <span class="prompt-step-num">${String(i + 1).padStart(2, '0')}</span>
+            <span style="font-size:0.7rem;color:var(--text-muted)">步骤 ${i + 1}</span>
+            <div style="margin-left:auto;display:flex;gap:0.25rem">
+              ${i > 0 ? `<button class="icon-btn" onclick="moveStep('${step.id}','up')" title="上移" style="font-size:0.6rem">↑</button>` : ''}
+              ${i < sbSteps.length - 1 ? `<button class="icon-btn" onclick="moveStep('${step.id}','down')" title="下移" style="font-size:0.6rem">↓</button>` : ''}
+            </div>
+          </div>
+          <div class="prompt-step-type">
+            <label><input type="radio" name="step-type-${step.id}" value="llm" ${step.type === 'llm' ? 'checked' : ''} onchange="updateStepType('${step.id}','llm')"> LLM 推理</label>
+            <label><input type="radio" name="step-type-${step.id}" value="transform" ${step.type === 'transform' ? 'checked' : ''} onchange="updateStepType('${step.id}','transform')"> 格式化输出</label>
+          </div>
+          <textarea placeholder="${step.type === 'transform' ? '输入格式化规则，如：提取代码审查结果并输出结构化 JSON...' : '输入这个步骤的 Prompt，例如：你是一位资深代码审查专家，请分析以下代码的质量、安全性和性能...'}" oninput="updateStepPrompt('${step.id}', this.value)">${esc(step.prompt || '')}</textarea>
+        </div>
+      `).join('');
+    }
+
+    function generateSkillJson() {
+      const name = document.getElementById('sb-skill-name').value.trim();
+      if (!name) { showToast('请输入 Skill 名称'); return null; }
+      if (sbSteps.length === 0 || !sbSteps[0].prompt.trim()) { showToast('请至少添加一个 Prompt 步骤'); return null; }
+
+      const skill = {
+        id: sbEditingId || 'skill-' + genId(),
+        name,
+        description: document.getElementById('sb-skill-desc').value.trim(),
+        category: document.getElementById('sb-skill-category').value.trim() || 'custom',
+        tags: sbTags,
+        steps: sbSteps.map((s, i) => ({
+          order: i + 1,
+          type: s.type,
+          prompt: s.prompt
+        })),
+        createdAt: sbEditingId ? (customSkills.find(cs => cs.id === sbEditingId)?.createdAt || new Date().toISOString()) : new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      return skill;
+    }
+
+    function saveSkillBuilder() {
+      const skill = generateSkillJson();
+      if (!skill) return;
+
+      if (sbEditingId) {
+        const idx = customSkills.findIndex(s => s.id === sbEditingId);
+        if (idx >= 0) customSkills[idx] = skill;
+      } else {
+        customSkills.push(skill);
+      }
+
+      saveCustomSkills();
+      renderSkillBuilderList();
+      closeSkillBuilder();
+      showToast('Skill 已保存');
+    }
+
+    function renderSkillBuilderList() {
+      const list = document.getElementById('skill-builder-list');
+      if (customSkills.length === 0) {
+        list.innerHTML = '<div style="font-size:0.65rem;color:var(--text-muted);padding:0.25rem 0.5rem">暂无自定义 Skills</div>';
+        return;
+      }
+      list.innerHTML = customSkills.map(skill => `
+        <div class="skill-list-item ${sbSelectedSkillId === skill.id ? 'active' : ''}" onclick="openSkillBuilder('${skill.id}')">
+          <span class="skill-icon">⚡</span>
+          <span class="skill-name">${esc(skill.name)}</span>
+          <span class="skill-steps">${skill.steps?.length || 0}步</span>
+          <div class="skill-actions">
+            <button class="icon-btn" onclick="event.stopPropagation();deleteCustomSkill('${skill.id}')" title="删除" style="font-size:0.6rem;color:var(--danger)">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function deleteCustomSkill(skillId) {
+      if (!confirm('确定删除该 Skill？')) return;
+      customSkills = customSkills.filter(s => s.id !== skillId);
+      saveCustomSkills();
+      renderSkillBuilderList();
+      showToast('Skill 已删除');
+    }
+
+    function copySkillJson() {
+      const skill = generateSkillJson();
+      if (!skill) return;
+      const json = JSON.stringify(skill, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        showToast('已复制到剪贴板');
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = json;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('已复制到剪贴板');
+      });
+    }
+
+    // Update preview when inputs change
+    ['sb-skill-name', 'sb-skill-desc', 'sb-skill-category'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', () => {
+        const preview = document.getElementById('sb-preview');
+        const content = document.getElementById('sb-preview-content');
+        const skill = generateSkillJson();
+        if (skill && skill.steps[0]?.prompt) {
+          content.textContent = JSON.stringify(skill, null, 2);
+          preview.style.display = 'block';
+        }
+      });
+    });
+
+    // ===== INIT =====
     selectedPath = { type: 'person' };
     render();
+    renderSkillBuilderList();
   </script>
 </body>
 </html>

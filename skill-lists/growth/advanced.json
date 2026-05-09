@@ -1,0 +1,164 @@
+{
+  "version": "1.0.0",
+  "role": "growth-engineer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Advanced Growth Engineer Skills",
+      "zh": "高级增长工程师技能"
+    },
+    "description": {
+      "en": "Expert skills for senior growth engineers",
+      "zh": "资深增长工程师的专业技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "growth-strategy",
+      "name": {
+        "en": "Growth Strategy",
+        "zh": "增长策略"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Developing comprehensive growth plans",
+        "zh": "制定综合增长计划"
+      },
+      "items": [
+        {
+          "id": "growth-modeling",
+          "name": {
+            "en": "Growth Modeling",
+            "zh": "增长建模"
+          },
+          "description": {
+            "en": "Building quantitative growth models",
+            "zh": "构建定量增长模型"
+          },
+          "importance": "required",
+          "tags": ["modeling", "growth", "quantitative"]
+        },
+        {
+          "id": "north-star-metric",
+          "name": {
+            "en": "North Star Metric",
+            "zh": "北极星指标"
+          },
+          "description": {
+            "en": "Defining and tracking the key metric",
+            "zh": "定义和跟踪关键指标"
+          },
+          "importance": "required",
+          "tags": ["north-star", "metric", "strategy"]
+        },
+        {
+          "id": "growth-roadmap",
+          "name": {
+            "en": "Growth Roadmap",
+            "zh": "增长路线图"
+          },
+          "description": {
+            "en": "Prioritizing experiments by impact",
+            "zh": "按影响力优先排序实验"
+          },
+          "importance": "required",
+          "tags": ["roadmap", "prioritization", "planning"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-attribution",
+      "name": {
+        "en": "Advanced Attribution",
+        "zh": "高级归因"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Understanding multi-touch attribution",
+        "zh": "理解多触点归因"
+      },
+      "items": [
+        {
+          "id": "attribution-modeling",
+          "name": {
+            "en": "Attribution Modeling",
+            "zh": "归因建模"
+          },
+          "description": {
+            "en": "First touch, last touch, linear, data-driven",
+            "zh": "首次触达、末次触达、线性、数据驱动"
+          },
+          "importance": "required",
+          "tags": ["attribution", "modeling", "multi-touch"]
+        },
+        {
+          "id": "ltv-prediction",
+          "name": {
+            "en": "LTV Prediction",
+            "zh": "LTV 预测"
+          },
+          "description": {
+            "en": "Predicting customer lifetime value",
+            "zh": "预测客户生命周期价值"
+          },
+          "importance": "required",
+          "tags": ["ltv", "prediction", "ml"]
+        },
+        {
+          "id": "media-mix",
+          "name": {
+            "en": "Media Mix Modeling",
+            "zh": "媒体组合建模"
+          },
+          "description": {
+            "en": "Optimizing budget across channels",
+            "zh": "跨渠道优化预算"
+          },
+          "importance": "recommended",
+          "tags": ["mmm", "budget", "optimization"]
+        }
+      ]
+    },
+    {
+      "id": "platform-scale",
+      "name": {
+        "en": "Platform Scaling",
+        "zh": "平台扩展"
+      },
+      "level": "advanced",
+      "description": {
+        "en": "Scaling growth systems to millions",
+        "zh": "将增长系统扩展到数百万"
+      },
+      "items": [
+        {
+          "id": "data-infrastructure",
+          "name": {
+            "en": "Growth Data Infrastructure",
+            "zh": "增长数据基础设施"
+          },
+          "description": {
+            "en": "Event tracking, pipelines, analytics at scale",
+            "zh": "事件跟踪、管道、大规模分析"
+          },
+          "importance": "required",
+          "tags": ["infrastructure", "data", "scale"]
+        },
+        {
+          "id": "feature-flagging",
+          "name": {
+            "en": "Feature Flagging Systems",
+            "zh": "功能标记系统"
+          },
+          "description": {
+            "en": "Gradual rollouts, A/B at scale",
+            "zh": "逐步发布、大规模 A/B 测试"
+          },
+          "importance": "required",
+          "tags": ["feature-flags", "rollout", "testing"]
+        }
+      ]
+    }
+  ]
+}

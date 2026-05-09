@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "customer-success",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Intermediate Customer Success Skills",
+      "zh": "中级客户成功技能"
+    },
+    "description": {
+      "en": "Advanced skills for customer success managers with 2-3 years experience",
+      "zh": "2-3 年经验客户成功经理的进阶技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "retention-strategies",
+      "name": {
+        "en": "Retention Strategies",
+        "zh": "留存策略"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Customer retention and expansion",
+        "zh": "客户留存和扩展"
+      },
+      "items": [
+        {
+          "id": "churn-prevention",
+          "name": {
+            "en": "Churn Prevention",
+            "zh": "流失预防"
+          },
+          "description": {
+            "en": "Proactive strategies to prevent customer churn",
+            "zh": "预防客户流失的主动策略"
+          },
+          "importance": "required",
+          "tags": ["churn", "prevention", "retention"]
+        },
+        {
+          "id": "expansion-revenue",
+          "name": {
+            "en": "Expansion Revenue",
+            "zh": "扩展收入"
+          },
+          "description": {
+            "en": "Upsell, cross-sell, and account growth",
+            "zh": "追加销售、交叉销售和账户增长"
+          },
+          "importance": "required",
+          "tags": ["expansion", "upsell", "growth"]
+        },
+        {
+          "id": "success-plans",
+          "name": {
+            "en": "Customer Success Plans",
+            "zh": "客户成功计划"
+          },
+          "description": {
+            "en": "Creating strategic customer success plans",
+            "zh": "创建战略性客户成功计划"
+          },
+          "importance": "required",
+          "tags": ["success-plans", "strategy", "accounts"]
+        }
+      ]
+    },
+    {
+      "id": "customer-insights",
+      "name": {
+        "en": "Customer Insights",
+        "zh": "客户洞察"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Gathering and acting on customer feedback",
+        "zh": "收集和执行客户反馈"
+      },
+      "items": [
+        {
+          "id": "feedback-loop",
+          "name": {
+            "en": "Feedback Loop Creation",
+            "zh": "反馈循环创建"
+          },
+          "description": {
+            "en": "Building systematic feedback collection",
+            "zh": "构建系统性反馈收集"
+          },
+          "importance": "required",
+          "tags": ["feedback", "loop", "insights"]
+        },
+        {
+          "id": "nps-analysis",
+          "name": {
+            "en": "NPS Analysis",
+            "zh": "NPS 分析"
+          },
+          "description": {
+            "en": "Net Promoter Score tracking and analysis",
+            "zh": "净推荐值跟踪和分析"
+          },
+          "importance": "required",
+          "tags": ["nps", "feedback", "metrics"]
+        },
+        {
+          "id": "product-advocacy",
+          "name": {
+            "en": "Product Advocacy",
+            "zh": "产品倡导"
+          },
+          "description": {
+            "en": "Translating customer needs to product feedback",
+            "zh": "将客户需求转化为产品反馈"
+          },
+          "importance": "required",
+          "tags": ["advocacy", "product", "feedback"]
+        }
+      ]
+    },
+    {
+      "id": "customer-qbr",
+      "name": {
+        "en": "Customer QBR",
+        "zh": "客户 QBR"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Quarterly business reviews",
+        "zh": "季度业务回顾"
+      },
+      "items": [
+        {
+          "id": "qbr-preparation",
+          "name": {
+            "en": "QBR Preparation",
+            "zh": "QBR 准备"
+          },
+          "description": {
+            "en": "Preparing comprehensive QBR presentations",
+            "zh": "准备综合性 QBR 演示"
+          },
+          "importance": "required",
+          "tags": ["qbr", "preparation", "presentation"]
+        },
+        {
+          "id": "business-metrics",
+          "name": {
+            "en": "Business Metrics Review",
+            "zh": "业务指标回顾"
+          },
+          "description": {
+            "en": "Reviewing ROI and business outcomes",
+            "zh": "回顾 ROI 和业务成果"
+          },
+          "importance": "required",
+          "tags": ["metrics", "roi", "business"]
+        },
+        {
+          "id": "strategic-roadmap",
+          "name": {
+            "en": "Strategic Roadmap Alignment",
+            "zh": "战略路线图对齐"
+          },
+          "description": {
+            "en": "Aligning customer goals with product roadmap",
+            "zh": "将客户目标与产品路线图对齐"
+          },
+          "importance": "recommended",
+          "tags": ["roadmap", "alignment", "strategy"]
+        }
+      ]
+    }
+  ]
+}

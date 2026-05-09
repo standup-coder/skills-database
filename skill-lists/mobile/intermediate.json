@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "mobile-developer",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Intermediate Mobile Developer Skills",
+      "zh": "中级移动开发工程师技能"
+    },
+    "description": {
+      "en": "Advanced skills for mobile developers with 2-3 years experience",
+      "zh": "2-3 年经验移动开发工程师的进阶技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "performance-optimization",
+      "name": {
+        "en": "Performance Optimization",
+        "zh": "性能优化"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Optimizing mobile app performance",
+        "zh": "优化移动应用性能"
+      },
+      "items": [
+        {
+          "id": "memory-management",
+          "name": {
+            "en": "Memory Management",
+            "zh": "内存管理"
+          },
+          "description": {
+            "en": "Leaks, profiling, memory optimization",
+            "zh": "泄漏、性能分析、内存优化"
+          },
+          "importance": "required",
+          "tags": ["memory", "performance", "profiling"]
+        },
+        {
+          "id": "battery-optimization",
+          "name": {
+            "en": "Battery Optimization",
+            "zh": "电池优化"
+          },
+          "description": {
+            "en": "Background tasks, push notifications efficiency",
+            "zh": "后台任务、推送通知效率"
+          },
+          "importance": "required",
+          "tags": ["battery", "background", "notifications"]
+        },
+        {
+          "id": "app-size",
+          "name": {
+            "en": "App Size Optimization",
+            "zh": "应用大小优化"
+          },
+          "description": {
+            "en": "Reducing binary size, dynamic frameworks",
+            "zh": "减小二进制大小、动态框架"
+          },
+          "importance": "recommended",
+          "tags": ["size", "optimization", "binary"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-features",
+      "name": {
+        "en": "Advanced Mobile Features",
+        "zh": "高级移动功能"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Implementing complex mobile features",
+        "zh": "实现复杂移动功能"
+      },
+      "items": [
+        {
+          "id": "push-notifications",
+          "name": {
+            "en": "Push Notifications",
+            "zh": "推送通知"
+          },
+          "description": {
+            "en": "APNs, FCM, rich notifications",
+            "zh": "APNs、FCM、 富媒体通知"
+          },
+          "importance": "required",
+          "tags": ["push", "notifications", "apns"]
+        },
+        {
+          "id": "location-services",
+          "name": {
+            "en": "Location Services",
+            "zh": "位置服务"
+          },
+          "description": {
+            "en": "GPS, geofencing, location tracking",
+            "zh": "GPS、地理围栏、位置跟踪"
+          },
+          "importance": "recommended",
+          "tags": ["location", "gps", "geofencing"]
+        },
+        {
+          "id": "camera-media",
+          "name": {
+            "en": "Camera and Media",
+            "zh": "相机和媒体"
+          },
+          "description": {
+            "en": "Camera, photo library, video recording",
+            "zh": "相机、照片库、视频录制"
+          },
+          "importance": "recommended",
+          "tags": ["camera", "media", "video"]
+        }
+      ]
+    },
+    {
+      "id": "mobile-architecture",
+      "name": {
+        "en": "Mobile Architecture",
+        "zh": "移动架构"
+      },
+      "level": "intermediate",
+      "description": {
+        "en": "Architecture patterns for mobile",
+        "zh": "移动架构模式"
+      },
+      "items": [
+        {
+          "id": "mvvm",
+          "name": {
+            "en": "MVVM",
+            "zh": "MVVM"
+          },
+          "description": {
+            "en": "Model-View-ViewModel architecture",
+            "zh": "Model-View-ViewModel 架构"
+          },
+          "importance": "required",
+          "tags": ["mvvm", "architecture", "pattern"]
+        },
+        {
+          "id": "dependency-injection",
+          "name": {
+            "en": "Dependency Injection",
+            "zh": "依赖注入"
+          },
+          "description": {
+            "en": "Dagger, Hilt, Swinject",
+            "zh": "Dagger、Hilt、Swinject"
+          },
+          "importance": "required",
+          "tags": ["di", "injection", "patterns"]
+        },
+        {
+          "id": "state-management",
+          "name": {
+            "en": "State Management",
+            "zh": "状态管理"
+          },
+          "description": {
+            "en": "Redux, MobX, or platform-specific state management",
+            "zh": "Redux、MobX 或平台特定状态管理"
+          },
+          "importance": "required",
+          "tags": ["state", "redux", "mobx"]
+        }
+      ]
+    }
+  ]
+}

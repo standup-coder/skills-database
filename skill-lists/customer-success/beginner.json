@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "role": "customer-success",
+  "specialization": "general",
+  "metadata": {
+    "title": {
+      "en": "Beginner Customer Success Skills",
+      "zh": "初级客户成功技能"
+    },
+    "description": {
+      "en": "Essential skills for customer success managers starting their journey",
+      "zh": "客户成功经理入门必备技能"
+    },
+    "lastUpdated": "2026-05-09"
+  },
+  "skills": [
+    {
+      "id": "customer-onboarding",
+      "name": {
+        "en": "Customer Onboarding",
+        "zh": "客户入门"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Guiding customers through initial setup",
+        "zh": "引导客户完成初始设置"
+      },
+      "items": [
+        {
+          "id": "onboarding-plans",
+          "name": {
+            "en": "Onboarding Plans",
+            "zh": "入门计划"
+          },
+          "description": {
+            "en": "Creating structured onboarding journeys",
+            "zh": "创建结构化的入门旅程"
+          },
+          "importance": "required",
+          "tags": ["onboarding", "journey", "setup"]
+        },
+        {
+          "id": "kickoff-meetings",
+          "name": {
+            "en": "Kickoff Meetings",
+            "zh": "启动会议"
+          },
+          "description": {
+            "en": "Running effective customer kickoff sessions",
+            "zh": "运行有效的客户启动会议"
+          },
+          "importance": "required",
+          "tags": ["kickoff", "meetings", "discovery"]
+        },
+        {
+          "id": "training-delivery",
+          "name": {
+            "en": "Training Delivery",
+            "zh": "培训交付"
+          },
+          "description": {
+            "en": "Delivering product training to customers",
+            "zh": "向客户提供产品培训"
+          },
+          "importance": "required",
+          "tags": ["training", "education", "customers"]
+        }
+      ]
+    },
+    {
+      "id": "customer-communication",
+      "name": {
+        "en": "Customer Communication",
+        "zh": "客户沟通"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Effective customer communication",
+        "zh": "有效的客户沟通"
+      },
+      "items": [
+        {
+          "id": "email-communication",
+          "name": {
+            "en": "Email Communication",
+            "zh": "邮件沟通"
+          },
+          "description": {
+            "en": "Professional email writing and management",
+            "zh": "专业邮件写作和管理"
+          },
+          "importance": "required",
+          "tags": ["email", "communication", "writing"]
+        },
+        {
+          "id": "stakeholder-management",
+          "name": {
+            "en": "Stakeholder Management",
+            "zh": "利益相关者管理"
+          },
+          "description": {
+            "en": "Managing multiple customer stakeholders",
+            "zh": "管理多个客户利益相关者"
+          },
+          "importance": "required",
+          "tags": ["stakeholders", "management", "relationships"]
+        },
+        {
+          "id": "conflict-resolution",
+          "name": {
+            "en": "Conflict Resolution",
+            "zh": "冲突解决"
+          },
+          "description": {
+            "en": "Handling customer complaints and issues",
+            "zh": "处理客户投诉和问题"
+          },
+          "importance": "recommended",
+          "tags": ["conflict", "resolution", "complaints"]
+        }
+      ]
+    },
+    {
+      "id": "health-monitoring",
+      "name": {
+        "en": "Customer Health Monitoring",
+        "zh": "客户健康度监控"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Tracking customer health metrics",
+        "zh": "跟踪客户健康度指标"
+      },
+      "items": [
+        {
+          "id": "health-scores",
+          "name": {
+            "en": "Health Scores",
+            "zh": "健康评分"
+          },
+          "description": {
+            "en": "Defining and tracking customer health metrics",
+            "zh": "定义和跟踪客户健康度指标"
+          },
+          "importance": "required",
+          "tags": ["health", "scores", "metrics"]
+        },
+        {
+          "id": "usage-analysis",
+          "name": {
+            "en": "Usage Analysis",
+            "zh": "使用分析"
+          },
+          "description": {
+            "en": "Analyzing product usage patterns",
+            "zh": "分析产品使用模式"
+          },
+          "importance": "required",
+          "tags": ["usage", "analytics", "adoption"]
+        },
+        {
+          "id": "churn-signals",
+          "name": {
+            "en": "Churn Signal Detection",
+            "zh": "流失信号检测"
+          },
+          "description": {
+            "en": "Identifying early warning signs of churn",
+            "zh": "识别流失的早期警告信号"
+          },
+          "importance": "required",
+          "tags": ["churn", "signals", "retention"]
+        }
+      ]
+    }
+  ]
+}
