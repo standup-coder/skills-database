@@ -1,0 +1,376 @@
+{
+  "version": "1.0.0",
+  "role": "cloud-security-engineer",
+  "specialization": "cloud-security",
+  "metadata": {
+    "title": {
+      "en": "Beginner Cloud Security Engineer Skills",
+      "zh": "初级云安全工程师技能"
+    },
+    "description": {
+      "en": "Essential cloud security skills for engineers starting their cloud security journey",
+      "zh": "云安全工程师入门必备技能"
+    },
+    "lastUpdated": "2026-05-10"
+  },
+  "skills": [
+    {
+      "id": "cloud-security-fundamentals",
+      "name": {
+        "en": "Cloud Security Fundamentals",
+        "zh": "云安全基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Core cloud security concepts and shared responsibility model",
+        "zh": "核心云安全概念与共担责任模型"
+      },
+      "items": [
+        {
+          "id": "shared-responsibility-model",
+          "name": {
+            "en": "Shared Responsibility Model",
+            "zh": "共担责任模型"
+          },
+          "description": {
+            "en": "Understanding security responsibilities between cloud provider and customer across IaaS, PaaS, SaaS",
+            "zh": "理解云厂商与客户在 IaaS、PaaS、SaaS 模式下的安全责任划分"
+          },
+          "importance": "required",
+          "tags": ["fundamentals", "shared-responsibility", "cloud"]
+        },
+        {
+          "id": "cloud-security-principles",
+          "name": {
+            "en": "Cloud Security Principles",
+            "zh": "云安全原则"
+          },
+          "description": {
+            "en": "Defense in depth, least privilege, separation of duties in cloud environments",
+            "zh": "云环境中的纵深防御、最小权限、职责分离原则"
+          },
+          "importance": "required",
+          "tags": ["fundamentals", "defense-in-depth", "least-privilege"]
+        },
+        {
+          "id": "cloud-threat-landscape",
+          "name": {
+            "en": "Cloud Threat Landscape",
+            "zh": "云威胁全景"
+          },
+          "description": {
+            "en": "Common cloud attacks: misconfiguration, credential exposure, data leakage, cryptojacking",
+            "zh": "常见云攻击：错误配置、凭据泄露、数据泄漏、加密劫持"
+          },
+          "importance": "required",
+          "tags": ["threats", "attacks", "cloud"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-iam-basics",
+      "name": {
+        "en": "Cloud IAM Basics",
+        "zh": "云 IAM 基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Identity and Access Management fundamentals for cloud platforms",
+        "zh": "云平台身份与访问管理基础"
+      },
+      "items": [
+        {
+          "id": "iam-core-concepts",
+          "name": {
+            "en": "IAM Core Concepts",
+            "zh": "IAM 核心概念"
+          },
+          "description": {
+            "en": "Users, groups, roles, policies, service accounts across AWS IAM / Azure AD / GCP IAM",
+            "zh": "跨 AWS IAM / Azure AD / GCP IAM 的用户、组、角色、策略、服务账户"
+          },
+          "importance": "required",
+          "tags": ["iam", "identity", "aws", "azure", "gcp"]
+        },
+        {
+          "id": "least-privilege-iam",
+          "name": {
+            "en": "Least Privilege IAM",
+            "zh": "最小权限 IAM"
+          },
+          "description": {
+            "en": "Writing scoped IAM policies, avoiding wildcards, principle of least privilege",
+            "zh": "编写限定范围的 IAM 策略、避免通配符、最小权限原则"
+          },
+          "importance": "required",
+          "tags": ["iam", "least-privilege", "policy"]
+        },
+        {
+          "id": "mfa-and-credential-management",
+          "name": {
+            "en": "MFA & Credential Management",
+            "zh": "MFA 与凭据管理"
+          },
+          "description": {
+            "en": "Enforcing MFA, managing access keys, rotating credentials, avoiding hardcoded secrets",
+            "zh": "强制 MFA、管理访问密钥、轮换凭据、避免硬编码密钥"
+          },
+          "importance": "required",
+          "tags": ["mfa", "credentials", "secrets", "rotation"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-network-security-basics",
+      "name": {
+        "en": "Cloud Network Security Basics",
+        "zh": "云网络安全基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Virtual network isolation and access control in the cloud",
+        "zh": "云中虚拟网络隔离与访问控制"
+      },
+      "items": [
+        {
+          "id": "vpc-security-groups",
+          "name": {
+            "en": "VPC & Security Groups",
+            "zh": "VPC 与安全组"
+          },
+          "description": {
+            "en": "Virtual Private Cloud design, security group rules, NACLs, subnet isolation",
+            "zh": "VPC 设计、安全组规则、网络 ACL、子网隔离"
+          },
+          "importance": "required",
+          "tags": ["vpc", "security-groups", "nacl", "network"]
+        },
+        {
+          "id": "cloud-firewall-waf",
+          "name": {
+            "en": "Cloud Firewall & WAF Basics",
+            "zh": "云防火墙与 WAF 基础"
+          },
+          "description": {
+            "en": "AWS WAF, Azure WAF, Cloudflare WAF rule configuration and common attack prevention",
+            "zh": "AWS WAF、Azure WAF、Cloudflare WAF 规则配置与常见攻击防护"
+          },
+          "importance": "required",
+          "tags": ["waf", "firewall", "cloudflare", "aws"]
+        },
+        {
+          "id": "cloud-dns-security",
+          "name": {
+            "en": "Cloud DNS Security",
+            "zh": "云 DNS 安全"
+          },
+          "description": {
+            "en": "DNS security, Route53 / Cloud DNS security configurations, DNSSEC",
+            "zh": "DNS 安全、Route53 / Cloud DNS 安全配置、DNSSEC"
+          },
+          "importance": "recommended",
+          "tags": ["dns", "dnssec", "route53"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-data-protection-basics",
+      "name": {
+        "en": "Cloud Data Protection Basics",
+        "zh": "云数据保护基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Encryption, key management, and data classification in the cloud",
+        "zh": "云中加密、密钥管理与数据分类"
+      },
+      "items": [
+        {
+          "id": "cloud-encryption",
+          "name": {
+            "en": "Cloud Encryption",
+            "zh": "云加密"
+          },
+          "description": {
+            "en": "At-rest and in-transit encryption: SSE, CSE, TLS, KMS integration",
+            "zh": "静态与传输加密：SSE、CSE、TLS、KMS 集成"
+          },
+          "importance": "required",
+          "tags": ["encryption", "kms", "tls", "data-protection"]
+        },
+        {
+          "id": "key-management",
+          "name": {
+            "en": "Key Management",
+            "zh": "密钥管理"
+          },
+          "description": {
+            "en": "AWS KMS, Azure Key Vault, GCP KMS: key rotation, CMK management, envelope encryption",
+            "zh": "AWS KMS、Azure Key Vault、GCP KMS：密钥轮换、CMK 管理、信封加密"
+          },
+          "importance": "required",
+          "tags": ["kms", "key-vault", "cmk", "encryption"]
+        },
+        {
+          "id": "storage-security",
+          "name": {
+            "en": "Cloud Storage Security",
+            "zh": "云存储安全"
+          },
+          "description": {
+            "en": "S3 bucket policies, Azure Blob ACLs, preventing public access, versioning, MFA delete",
+            "zh": "S3 存储桶策略、Azure Blob ACL、防止公开访问、版本控制、MFA 删除"
+          },
+          "importance": "required",
+          "tags": ["s3", "storage", "bucket-policy", "public-access"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-logging-monitoring-basics",
+      "name": {
+        "en": "Cloud Logging & Monitoring Basics",
+        "zh": "云日志与监控基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Essential security logging, monitoring, and alerting in cloud platforms",
+        "zh": "云平台安全日志、监控与告警基础"
+      },
+      "items": [
+        {
+          "id": "cloud-audit-logging",
+          "name": {
+            "en": "Cloud Audit Logging",
+            "zh": "云审计日志"
+          },
+          "description": {
+            "en": "AWS CloudTrail, Azure Activity Log, GCP Audit Logs: enabling, configuring, and basic analysis",
+            "zh": "AWS CloudTrail、Azure Activity Log、GCP Audit Logs：启用、配置与基础分析"
+          },
+          "importance": "required",
+          "tags": ["cloudtrail", "audit-log", "monitoring", "compliance"]
+        },
+        {
+          "id": "cloud-security-alerting",
+          "name": {
+            "en": "Cloud Security Alerting",
+            "zh": "云安全告警"
+          },
+          "description": {
+            "en": "CloudWatch Alarms, Azure Alerts, basic security event notification and escalation",
+            "zh": "CloudWatch Alarms、Azure Alerts、基础安全事件通知与升级"
+          },
+          "importance": "required",
+          "tags": ["alerting", "cloudwatch", "notifications", "monitoring"]
+        },
+        {
+          "id": "vpc-flow-logs",
+          "name": {
+            "en": "VPC Flow Logs",
+            "zh": "VPC 流日志"
+          },
+          "description": {
+            "en": "Enabling and analyzing VPC flow logs for network security monitoring",
+            "zh": "启用并分析 VPC 流日志进行网络安全监控"
+          },
+          "importance": "recommended",
+          "tags": ["vpc", "flow-logs", "network", "monitoring"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-compute-security-basics",
+      "name": {
+        "en": "Cloud Compute Security Basics",
+        "zh": "云计算资源安全基础"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Securing virtual machines, auto-scaling groups, and launch configurations",
+        "zh": "保护虚拟机、自动伸缩组和启动配置的安全"
+      },
+      "items": [
+        {
+          "id": "vm-hardening-basics",
+          "name": {
+            "en": "VM Hardening",
+            "zh": "虚拟机加固"
+          },
+          "description": {
+            "en": "AMI/image hardening, IMDSv2 enforcement, SSH key management, patch management",
+            "zh": "AMI/镜像加固、IMDSv2 强制执行、SSH 密钥管理、补丁管理"
+          },
+          "importance": "required",
+          "tags": ["vm", "hardening", "imdsv2", "ssh", "patch"]
+        },
+        {
+          "id": "cloud-metadata-service",
+          "name": {
+            "en": "Cloud Metadata Service Security",
+            "zh": "云元数据服务安全"
+          },
+          "description": {
+            "en": "IMDSv1 vs IMDSv2, SSRF protection, metadata service attack vectors",
+            "zh": "IMDSv1 与 IMDSv2、SSRF 防护、元数据服务攻击向量"
+          },
+          "importance": "required",
+          "tags": ["metadata", "imdsv2", "ssrf", "ec2"]
+        }
+      ]
+    },
+    {
+      "id": "cloud-security-tools",
+      "name": {
+        "en": "Cloud Security Tools",
+        "zh": "云安全工具"
+      },
+      "level": "beginner",
+      "description": {
+        "en": "Essential security scanning and monitoring tools for cloud environments",
+        "zh": "云环境必备安全扫描与监控工具"
+      },
+      "items": [
+        {
+          "id": "iac-security-scanning",
+          "name": {
+            "en": "IaC Security Scanning",
+            "zh": "IaC 安全扫描"
+          },
+          "description": {
+            "en": "Checkov, tfsec, Terrascan for scanning Terraform and CloudFormation templates",
+            "zh": "使用 Checkov、tfsec、Terrascan 扫描 Terraform 和 CloudFormation 模板"
+          },
+          "importance": "required",
+          "tags": ["checkov", "tfsec", "iac", "scanning"]
+        },
+        {
+          "id": "container-image-scanning",
+          "name": {
+            "en": "Container Image Scanning",
+            "zh": "容器镜像扫描"
+          },
+          "description": {
+            "en": "Trivy, Snyk Container for scanning Docker images for CVEs and misconfigurations",
+            "zh": "使用 Trivy、Snyk Container 扫描 Docker 镜像的 CVE 和错误配置"
+          },
+          "importance": "required",
+          "tags": ["trivy", "snyk", "container", "scanning"]
+        },
+        {
+          "id": "secret-detection",
+          "name": {
+            "en": "Secret Detection",
+            "zh": "密钥检测"
+          },
+          "description": {
+            "en": "git-secrets, TruffleHog, Gitleaks for detecting leaked credentials in code repositories",
+            "zh": "使用 git-secrets、TruffleHog、Gitleaks 检测代码仓库中的泄露凭据"
+          },
+          "importance": "required",
+          "tags": ["secrets", "detection", "trufflehog", "gitleaks"]
+        }
+      ]
+    }
+  ]
+}

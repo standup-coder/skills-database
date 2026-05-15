@@ -17,7 +17,8 @@
     "test": "vitest",
     "lint": "eslint . --ext .ts,.js",
     "validate-roles": "node scripts/validate-roles.js",
-    "validate-skills": "node scripts/validate-skills.js"
+    "validate-skills": "node scripts/validate-skills.js",
+    "webui": "bash start.sh"
   },
   "repository": {
     "type": "git",
