@@ -73,24 +73,18 @@ start_server() {
   fi
 
   log_ok "Using port: $PORT"
-  log_info "Serving: $WEBUI_DIR"
 
-  if command -v python3 >/dev/null 2>&1; then
-    log_info "Backend: python3 http.server"
-    python3 -m http.server "$PORT" --directory "$WEBUI_DIR" > "$LOG_FILE" 2>&1 &
-    SERVER_PID=$!
-  elif command -v python >/dev/null 2>&1; then
-    log_info "Backend: python http.server"
-    python -m http.server "$PORT" --directory "$WEBUI_DIR" > "$LOG_FILE" 2>&1 &
-    SERVER_PID=$!
-  elif command -v npx >/dev/null 2>&1; then
-    log_info "Backend: npx serve"
-    npx serve "$WEBUI_DIR" -l "$PORT" --no-clipboard > "$LOG_FILE" 2>&1 &
-    SERVER_PID=$!
-  else
-    log_error "No HTTP server available. Install python3 or Node.js/npm."
-    exit 1
+  if [ ! -f "$ROOT_DIR/data/skills4coder.db" ]; then
+    log_info "Seeding database..."
+    node "$ROOT_DIR/server/seed.js" 2>> "$LOG_FILE" || {
+      log_error "Database seeding failed. Check $LOG_FILE"
+      exit 1
+    }
   fi
+
+  log_info "Backend: Node.js + SQLite (Express API)"
+  WEBUI_PORT="$PORT" node "$ROOT_DIR/server/index.js" > "$LOG_FILE" 2>&1 &
+  SERVER_PID=$!
 
   echo "$SERVER_PID" > "$PID_FILE"
 
