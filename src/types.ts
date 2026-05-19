@@ -134,6 +134,7 @@ export interface AtomicSkill {
 
 // Agent 配置
 export interface AgentConfig {
+  name?: string;
   role: Role;
   llm?: string;
   tools?: any[];

@@ -2,6 +2,7 @@
  * 原子技能类
  */
 
+import { readFileSync } from 'fs';
 import type { AtomicSkill as AtomicSkillType } from './types.js';
 
 export class AtomicSkill {
@@ -12,8 +13,7 @@ export class AtomicSkill {
   }
 
   static fromJSON(path: string): AtomicSkill {
-    const fs = require('fs');
-    const content = fs.readFileSync(path, 'utf-8');
+    const content = readFileSync(path, 'utf-8');
     const data = JSON.parse(content) as AtomicSkillType;
     return new AtomicSkill(data);
   }
@@ -60,8 +60,19 @@ export class AtomicSkill {
     // 检查路径限制
     if (constraints.blockedPaths && input.path) {
       for (const blocked of constraints.blockedPaths) {
-        if (input.path.includes(blocked.replace('**/', ''))) {
-          throw new Error(`Path ${input.path} is blocked`);
+        // Handle **/ glob patterns
+        const normalized = blocked.replace(/\*\*/g, '');
+        if (normalized.startsWith('/')) {
+          // Absolute path pattern
+          const matchPart = normalized.replace(/\/$/, '');
+          if (input.path.startsWith(matchPart) || input.path.includes(matchPart)) {
+            throw new Error(`Path ${input.path} is blocked`);
+          }
+        } else {
+          // Partial path match
+          if (input.path.includes(blocked.replace('**/', ''))) {
+            throw new Error(`Path ${input.path} is blocked`);
+          }
         }
       }
     }

@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "run-tests",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Run Tests",
+    "nameZh": "运行测试",
+    "description": "Execute test suite and report results",
+    "descriptionZh": "执行测试套件并报告结果",
+    "author": "skills4coder-team",
+    "tags": [
+      "test",
+      "run",
+      "atomic"
+    ],
+    "category": "testing"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "run_tests"
+  },
+  "errors": {}
+}

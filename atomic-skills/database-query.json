@@ -1,0 +1,41 @@
+{
+  "id": "database-query",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "database-query",
+    "nameZh": "数据库查询",
+    "description": "Execute a database query and return results",
+    "descriptionZh": "执行数据库查询并返回结果",
+    "author": "skills4coder",
+    "tags": ["database", "query", "atomic"],
+    "category": "database"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "required": ["query"],
+      "properties": {
+        "query": { "type": "string", "description": "SQL query to execute" },
+        "connection": { "type": "string", "description": "Connection string or identifier" }
+      }
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "rows": { "type": "array" },
+        "affected": { "type": "number" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "executeQuery"
+  },
+  "constraints": {
+    "permissions": ["database"],
+    "blockedPaths": ["**/DROP DATABASE", "**/DELETE FROM users"]
+  }
+}

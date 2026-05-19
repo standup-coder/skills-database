@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "write-prd",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Write Prd",
+    "nameZh": "write-prd",
+    "description": "Skill: write-prd",
+    "descriptionZh": "write-prd",
+    "author": "skills4coder-team",
+    "tags": [
+      "write"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "write_prd"
+  },
+  "errors": {}
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "kubernetes-basics",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Kubernetes Basics",
+    "nameZh": "kubernetes-basics",
+    "description": "Skill: kubernetes-basics",
+    "descriptionZh": "kubernetes-basics",
+    "author": "skills4coder-team",
+    "tags": [
+      "kubernetes"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "kubernetes_basics"
+  },
+  "errors": {}
+}

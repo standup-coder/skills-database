@@ -2,10 +2,11 @@
  * Team 类 - 多 Agent 协作团队
  */
 
-import type { TeamConfig, TeamMemberConfig, WorkflowConfig, WorkflowStepConfig } from './types.js';
-import { Agent } from './agent.js';
-import { Role } from './role.js';
 import { EventEmitter } from 'events';
+import { Agent } from './agent.js';
+import type { TeamConfig } from './types.js';
+import { Workflow } from './workflow.js';
+import { topologicalSort, resolveTemplate } from './utils.js';
 
 export interface TeamExecutionResult {
   success: boolean;
@@ -39,9 +40,7 @@ export class Team extends EventEmitter {
         tools: []
       });
       
-      // 保存 Agent 名称
-      (agent as any).name = member.name || agentId;
-      
+      // Agent 名称已在构造函数中设置
       this.agents.set(agentId, agent);
     }
   }
@@ -75,10 +74,10 @@ export class Team extends EventEmitter {
     }
 
     // 简化的协作流程
-    for (const [agentId, agent] of this.agents) {
+    for (const [agentId, _agent] of this.agents) {
       this.emit('agent:start', { agent: agentId });
       
-      const result = await (agent as any).use(params.task, {
+      const result = await _agent.use(params.task, {
         requirements: params.requirements,
         deliverables: params.deliverables
       });
@@ -103,7 +102,7 @@ export class Team extends EventEmitter {
     const totalSteps = workflow.steps.length;
 
     // 拓扑排序：根据依赖关系排序步骤
-    const sortedSteps = this.topologicalSort(workflow.steps);
+    const sortedSteps = topologicalSort(workflow.steps);
 
     for (const step of sortedSteps) {
       this.emit('step:start', { step, agent: step.agent });
@@ -118,10 +117,10 @@ export class Team extends EventEmitter {
         }
 
         // 解析输入（支持模板语法）
-        const inputs = this.resolveInputs(step.input, outputs);
+        const inputs = resolveTemplate(step.input, { steps: outputs });
 
         // 执行步骤
-        const result = await (agent as any).use(step.skill, inputs);
+        const result = await agent.use(step.skill, inputs);
 
         outputs.push({
           step: step.id,
@@ -133,14 +132,14 @@ export class Team extends EventEmitter {
 
         this.emit('step:complete', { 
           step, 
-          agent: (agent as any).name,
+          agent: agent.name,
           duration: Date.now() - startTime 
         });
 
       } catch (error) {
         this.emit('step:error', { step, agent: step.agent, error });
         
-        if (workflow.config.strategy?.failFast) {
+        if (workflow.strategy?.failFast) {
           throw error;
         }
       }
@@ -168,85 +167,7 @@ export class Team extends EventEmitter {
       throw new Error(`Agent ${agentId} not found`);
     }
     
-    return (agent as any).use(skill, context);
+    return agent.use(skill, context);
   }
 
-  /**
-   * 拓扑排序
-   */
-  private topologicalSort(steps: WorkflowStepConfig[]): WorkflowStepConfig[] {
-    const visited = new Set<string>();
-    const result: WorkflowStepConfig[] = [];
-    const stepMap = new Map(steps.map(s => [s.id, s]));
-
-    const visit = (step: WorkflowStepConfig) => {
-      if (visited.has(step.id)) return;
-      visited.add(step.id);
-
-      // 先访问依赖
-      if (step.dependsOn) {
-        for (const depId of step.dependsOn) {
-          const dep = stepMap.get(depId);
-          if (dep) visit(dep);
-        }
-      }
-
-      result.push(step);
-    };
-
-    for (const step of steps) {
-      visit(step);
-    }
-
-    return result;
-  }
-
-  /**
-   * 解析输入模板
-   */
-  private resolveInputs(input: any, outputs: any[]): any {
-    if (typeof input === 'string' && input.startsWith('{{') && input.endsWith('}}')) {
-      // 解析模板 {{steps.stepId.output}}
-      const path = input.slice(2, -2).split('.');
-      // 简化的解析逻辑
-      return input;
-    }
-    
-    if (Array.isArray(input)) {
-      return input.map(i => this.resolveInputs(i, outputs));
-    }
-    
-    if (typeof input === 'object') {
-      const resolved: any = {};
-      for (const [key, value] of Object.entries(input)) {
-        resolved[key] = this.resolveInputs(value, outputs);
-      }
-      return resolved;
-    }
-    
-    return input;
-  }
-}
-
-/**
- * Workflow 类
- */
-export class Workflow extends EventEmitter {
-  config: WorkflowConfig;
-  steps: WorkflowStepConfig[];
-
-  constructor(config: WorkflowConfig) {
-    super();
-    this.config = config;
-    this.steps = config.steps;
-  }
-
-  async execute(context: any): Promise<any> {
-    this.emit('workflow:start', { name: this.config.name });
-    
-    // 实际执行逻辑在 Team.executeWorkflow 中
-    
-    this.emit('workflow:end', { name: this.config.name });
-    return { success: true };
-  }
 }

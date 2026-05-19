@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "test-strategy",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Test Strategy",
+    "nameZh": "test-strategy",
+    "description": "Skill: test-strategy",
+    "descriptionZh": "test-strategy",
+    "author": "skills4coder-team",
+    "tags": [
+      "test"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "test_strategy"
+  },
+  "errors": {}
+}

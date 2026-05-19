@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "incident-response",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Incident Response",
+    "nameZh": "incident-response",
+    "description": "Skill: incident-response",
+    "descriptionZh": "incident-response",
+    "author": "skills4coder-team",
+    "tags": [
+      "incident"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "incident_response"
+  },
+  "errors": {}
+}

@@ -85,3 +85,11 @@ dist
 data/*.db
 data/*.db-wal
 data/*.db-shm
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Skills tracker local data
+.skills-tracker/

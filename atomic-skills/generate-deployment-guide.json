@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "generate-deployment-guide",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Generate Deployment Guide",
+    "nameZh": "generate-deployment-guide",
+    "description": "Skill: generate-deployment-guide",
+    "descriptionZh": "generate-deployment-guide",
+    "author": "skills4coder-team",
+    "tags": [
+      "generate"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "generate_deployment_guide"
+  },
+  "errors": {}
+}

@@ -1,0 +1,71 @@
+{
+  "id": "testing",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Testing",
+    "nameZh": "测试",
+    "description": "Comprehensive testing strategy and implementation",
+    "descriptionZh": "综合测试策略和实施",
+    "author": "skills4coder-team",
+    "tags": [
+      "testing",
+      "qa",
+      "unit-tests",
+      "e2e"
+    ],
+    "category": "quality"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Comprehensive testing strategy and implementation",
+    "steps": [
+      {
+        "id": "design-tests",
+        "name": "Design Test Strategy",
+        "nameZh": "设计测试策略",
+        "type": "llm",
+        "input": {},
+        "output": "test_plan"
+      },
+      {
+        "id": "write-unit-tests",
+        "name": "Write Unit Tests",
+        "nameZh": "编写单元测试",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "tests/unit/{{input.file}}",
+          "content": "{{steps.design-tests.output}}"
+        },
+        "output": "files",
+        "dependsOn": [
+          "design-tests"
+        ]
+      },
+      {
+        "id": "run-tests",
+        "name": "Run Tests",
+        "nameZh": "运行测试",
+        "atomicSkill": "run-tests",
+        "input": {},
+        "output": "results",
+        "dependsOn": [
+          "write-unit-tests"
+        ]
+      }
+    ]
+  }
+}

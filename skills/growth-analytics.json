@@ -1,0 +1,74 @@
+{
+  "id": "growth-analytics",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Growth Analytics",
+    "nameZh": "增长分析",
+    "description": "A/B testing, funnel analysis and cohort analysis",
+    "descriptionZh": "A/B测试、漏斗分析和队列分析",
+    "author": "skills4coder-team",
+    "tags": [
+      "growth",
+      "analytics",
+      "ab-test",
+      "funnel"
+    ],
+    "category": "growth"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "A/B testing, funnel analysis and cohort analysis",
+    "steps": [
+      {
+        "id": "design-experiment",
+        "name": "Design Experiment",
+        "nameZh": "设计实验",
+        "type": "llm",
+        "input": {},
+        "output": "experiment"
+      },
+      {
+        "id": "implement-tracking",
+        "name": "Implement Tracking",
+        "nameZh": "实现追踪",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "analytics/events.js",
+          "content": "{{steps.design-experiment.output}}"
+        },
+        "output": "tracking_code",
+        "dependsOn": [
+          "design-experiment"
+        ]
+      },
+      {
+        "id": "setup-dashboard",
+        "name": "Setup Dashboard",
+        "nameZh": "设置仪表板",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "analytics/dashboard.json",
+          "content": "{{steps.design-experiment.output}}"
+        },
+        "output": "dashboard",
+        "dependsOn": [
+          "design-experiment"
+        ]
+      }
+    ]
+  }
+}

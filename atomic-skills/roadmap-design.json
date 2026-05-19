@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "roadmap-design",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Roadmap Design",
+    "nameZh": "roadmap-design",
+    "description": "Skill: roadmap-design",
+    "descriptionZh": "roadmap-design",
+    "author": "skills4coder-team",
+    "tags": [
+      "roadmap"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "roadmap_design"
+  },
+  "errors": {}
+}

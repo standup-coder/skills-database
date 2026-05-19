@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "data-pipeline",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Data Pipeline",
+    "nameZh": "data-pipeline",
+    "description": "Skill: data-pipeline",
+    "descriptionZh": "data-pipeline",
+    "author": "skills4coder-team",
+    "tags": [
+      "data"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "data_pipeline"
+  },
+  "errors": {}
+}

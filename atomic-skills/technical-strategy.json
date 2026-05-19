@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "technical-strategy",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Technical Strategy",
+    "nameZh": "technical-strategy",
+    "description": "Skill: technical-strategy",
+    "descriptionZh": "technical-strategy",
+    "author": "skills4coder-team",
+    "tags": [
+      "technical"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "technical_strategy"
+  },
+  "errors": {}
+}

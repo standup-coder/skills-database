@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "pipeline-security-automation",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Pipeline Security Automation",
+    "nameZh": "pipeline-security-automation",
+    "description": "Skill: pipeline-security-automation",
+    "descriptionZh": "pipeline-security-automation",
+    "author": "skills4coder-team",
+    "tags": [
+      "pipeline"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "pipeline_security_automation"
+  },
+  "errors": {}
+}

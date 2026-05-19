@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "vpc-security-groups",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Vpc Security Groups",
+    "nameZh": "vpc-security-groups",
+    "description": "Skill: vpc-security-groups",
+    "descriptionZh": "vpc-security-groups",
+    "author": "skills4coder-team",
+    "tags": [
+      "vpc"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "vpc_security_groups"
+  },
+  "errors": {}
+}

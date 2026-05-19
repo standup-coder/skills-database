@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "write-comment",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Write Comment",
+    "nameZh": "写注释",
+    "description": "Add or update code comments",
+    "descriptionZh": "添加或更新代码注释",
+    "author": "skills4coder-team",
+    "tags": [
+      "comment",
+      "doc",
+      "atomic"
+    ],
+    "category": "documentation"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "write_comment"
+  },
+  "errors": {}
+}

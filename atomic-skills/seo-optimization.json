@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "seo-optimization",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Seo Optimization",
+    "nameZh": "seo-optimization",
+    "description": "Skill: seo-optimization",
+    "descriptionZh": "seo-optimization",
+    "author": "skills4coder-team",
+    "tags": [
+      "seo"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "seo_optimization"
+  },
+  "errors": {}
+}

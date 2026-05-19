@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cloud-ir-playbook",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cloud Ir Playbook",
+    "nameZh": "cloud-ir-playbook",
+    "description": "Skill: cloud-ir-playbook",
+    "descriptionZh": "cloud-ir-playbook",
+    "author": "skills4coder-team",
+    "tags": [
+      "cloud"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cloud_ir_playbook"
+  },
+  "errors": {}
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "zero-trust-cloud",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Zero Trust Cloud",
+    "nameZh": "zero-trust-cloud",
+    "description": "Skill: zero-trust-cloud",
+    "descriptionZh": "zero-trust-cloud",
+    "author": "skills4coder-team",
+    "tags": [
+      "zero"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "zero_trust_cloud"
+  },
+  "errors": {}
+}

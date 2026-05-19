@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "system-watchdog",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "System Watchdog",
+    "nameZh": "system-watchdog",
+    "description": "Skill: system-watchdog",
+    "descriptionZh": "system-watchdog",
+    "author": "skills4coder-team",
+    "tags": [
+      "system"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "system_watchdog"
+  },
+  "errors": {}
+}

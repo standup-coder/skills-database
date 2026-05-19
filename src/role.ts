@@ -2,8 +2,8 @@
  * Role 管理类
  */
 
+import { readFileSync, writeFileSync } from 'fs';
 import type { Role as RoleType } from './types.js';
-import { readFileSync } from 'fs';
 
 export class Role {
   private data: RoleType;
@@ -68,7 +68,6 @@ export class Role {
   }
 
   save(path: string): void {
-    const fs = require('fs');
-    fs.writeFileSync(path, this.toJSON());
+    writeFileSync(path, this.toJSON());
   }
 }

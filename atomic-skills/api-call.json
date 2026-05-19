@@ -1,0 +1,40 @@
+{
+  "id": "api-call",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "api-call",
+    "nameZh": "API调用",
+    "description": "Make an HTTP API request and return the response",
+    "descriptionZh": "发起HTTP API请求并返回响应",
+    "author": "skills4coder",
+    "tags": ["api", "http", "atomic"],
+    "category": "network"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "required": ["url", "method"],
+      "properties": {
+        "url": { "type": "string", "description": "API endpoint URL" },
+        "method": { "type": "string", "enum": ["GET", "POST", "PUT", "DELETE", "PATCH"] },
+        "headers": { "type": "object", "description": "HTTP headers" },
+        "body": { "type": "object", "description": "Request body" }
+      }
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "number" },
+        "data": { "type": "any" },
+        "headers": { "type": "object" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "httpRequest"
+  }
+}

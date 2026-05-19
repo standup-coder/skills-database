@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "user-research",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "User Research",
+    "nameZh": "user-research",
+    "description": "Skill: user-research",
+    "descriptionZh": "user-research",
+    "author": "skills4coder-team",
+    "tags": [
+      "user"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "user_research"
+  },
+  "errors": {}
+}

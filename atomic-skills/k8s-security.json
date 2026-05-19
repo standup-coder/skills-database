@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "k8s-security",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "K8s Security",
+    "nameZh": "k8s-security",
+    "description": "Skill: k8s-security",
+    "descriptionZh": "k8s-security",
+    "author": "skills4coder-team",
+    "tags": [
+      "k8s"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "k8s_security"
+  },
+  "errors": {}
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "health-monitoring",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Health Monitoring",
+    "nameZh": "health-monitoring",
+    "description": "Skill: health-monitoring",
+    "descriptionZh": "health-monitoring",
+    "author": "skills4coder-team",
+    "tags": [
+      "health"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "health_monitoring"
+  },
+  "errors": {}
+}

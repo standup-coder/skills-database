@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "iam-core-concepts",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Iam Core Concepts",
+    "nameZh": "iam-core-concepts",
+    "description": "Skill: iam-core-concepts",
+    "descriptionZh": "iam-core-concepts",
+    "author": "skills4coder-team",
+    "tags": [
+      "iam"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "iam_core_concepts"
+  },
+  "errors": {}
+}

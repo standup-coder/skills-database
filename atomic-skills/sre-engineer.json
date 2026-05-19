@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "sre-engineer",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Sre Engineer",
+    "nameZh": "sre-engineer",
+    "description": "Skill: sre-engineer",
+    "descriptionZh": "sre-engineer",
+    "author": "skills4coder-team",
+    "tags": [
+      "sre"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "sre_engineer"
+  },
+  "errors": {}
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "log-parser",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Log Parser",
+    "nameZh": "日志解析",
+    "description": "Parse and analyze log files",
+    "descriptionZh": "解析和分析日志文件",
+    "author": "skills4coder-team",
+    "tags": [
+      "log",
+      "parse",
+      "atomic"
+    ],
+    "category": "logging"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "log_parser"
+  },
+  "errors": {}
+}

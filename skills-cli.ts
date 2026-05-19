@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
-import { join, dirname } from 'path';
 import { homedir } from 'os';
+import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -138,7 +138,7 @@ function printDistillReport(roles: RoleProfile[], mySkills: Skill[]) {
   console.log(title);
   console.log(styles.gray + '─'.repeat(56) + styles.reset);
 
-  const mySkillNames = new Set(mySkills.map(s => s.name.toLowerCase()));
+  const _mySkillNames = new Set(mySkills.map(s => s.name.toLowerCase()));
 
   const allCapabilities = new Set<string>();
   const skillToRoles = new Map<string, string[]>();
@@ -226,7 +226,7 @@ function printDistillReport(roles: RoleProfile[], mySkills: Skill[]) {
   console.log('\n');
 }
 
-function printBox(lines: string[], opts: { border?: string; padding?: number; width?: number } = {}) {
+function _printBox(lines: string[], opts: { border?: string; padding?: number; width?: number } = {}) {
   const { border = '─', padding = 1, width = 80 } = opts;
   const pad = ' '.repeat(padding);
   console.log(`┌${border.repeat(width - 2)}┐`);
@@ -279,7 +279,7 @@ function printDashboard(mySkills: Skill[], projectSkills: { name: string; type: 
   console.log(projectTitle);
   console.log(styles.gray + '  ' + '─'.repeat(46) + styles.reset);
 
-  const typeLabels: Record<string, string> = { role: '角色', skill: '技能', atomic: '原子' };
+  const _typeLabels: Record<string, string> = { role: '角色', skill: '技能', atomic: '原子' };
   const typeColors: Record<string, string> = { role: styles.magenta, skill: styles.blue, atomic: styles.green };
 
   const allItems = [...roles.map(s => ({ ...s, label: '角色' })), ...skills.map(s => ({ ...s, label: '技能' })), ...atomics.map(s => ({ ...s, label: '原子' }))];

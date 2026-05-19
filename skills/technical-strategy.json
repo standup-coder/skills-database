@@ -1,0 +1,69 @@
+{
+  "id": "technical-strategy",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Technical Strategy",
+    "nameZh": "技术战略",
+    "description": "Technical strategy and roadmap planning",
+    "descriptionZh": "技术战略和路线图规划",
+    "author": "skills4coder-team",
+    "tags": [
+      "strategy",
+      "roadmap",
+      "planning"
+    ],
+    "category": "cto"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Technical strategy and roadmap planning",
+    "steps": [
+      {
+        "id": "analyze-landscape",
+        "name": "Analyze Landscape",
+        "nameZh": "分析环境",
+        "type": "llm",
+        "input": {},
+        "output": "landscape"
+      },
+      {
+        "id": "create-strategy",
+        "name": "Create Strategy",
+        "nameZh": "制定战略",
+        "type": "llm",
+        "input": {
+          "landscape": "{{steps.analyze-landscape.output}}"
+        },
+        "output": "strategy"
+      },
+      {
+        "id": "write-roadmap",
+        "name": "Write Roadmap",
+        "nameZh": "编写路线图",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "roadmap.md",
+          "content": "{{steps.create-strategy.output}}"
+        },
+        "output": "roadmap",
+        "dependsOn": [
+          "create-strategy"
+        ]
+      }
+    ]
+  }
+}

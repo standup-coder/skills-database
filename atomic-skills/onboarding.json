@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "onboarding",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Onboarding",
+    "nameZh": "onboarding",
+    "description": "Skill: onboarding",
+    "descriptionZh": "onboarding",
+    "author": "skills4coder-team",
+    "tags": [
+      "onboarding"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "onboarding"
+  },
+  "errors": {}
+}

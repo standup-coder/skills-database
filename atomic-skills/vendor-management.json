@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "vendor-management",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Vendor Management",
+    "nameZh": "vendor-management",
+    "description": "Skill: vendor-management",
+    "descriptionZh": "vendor-management",
+    "author": "skills4coder-team",
+    "tags": [
+      "vendor"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "vendor_management"
+  },
+  "errors": {}
+}

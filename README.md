@@ -146,19 +146,24 @@
 **需求**: 需要一个专业的前端开发者 Agent 来审查 PR
 
 ```javascript
+import { Agent, Role } from 'skills4coder';
+
+// 加载角色定义
+const role = Role.fromJSON('./roles/senior-frontend-dev.json');
+
 // 创建专业 Agent
-const frontendDev = new Agent({
-  role: 'senior-frontend-dev',
-  context: {
-    project: 'my-react-app',
-    techStack: ['React', 'TypeScript']
-  }
+const agent = new Agent({
+  name: 'FrontendReviewer',
+  role,
+  llm: 'gpt-4'
 });
 
-// 执行专业任务
-await frontendDev.execute('code-review', {
+// 执行专业技能
+const result = await agent.use('code-review', {
   filePath: 'src/components/Button.tsx'
 });
+
+console.log(result);
 ```
 
 ### 场景 2: 多 Agent 协作完成项目
@@ -166,38 +171,41 @@ await frontendDev.execute('code-review', {
 **需求**: 开发一个新功能，需要前后端协作
 
 ```javascript
-// 定义协作流程
-const project = new Project({
-  name: 'User Authentication Feature',
-  workflow: [
-    { 
-      agent: { role: 'product-manager' },
-      task: 'write-prd',
-      output: 'PRD.md'
-    },
-    {
-      agent: { role: 'backend-architect' },
-      task: 'design-api',
-      input: 'PRD.md',
-      output: 'api-spec.yaml'
-    },
-    {
-      agent: { role: 'senior-frontend-dev' },
-      task: 'implement-ui',
-      input: ['PRD.md', 'api-spec.yaml'],
-      output: 'frontend-code/'
-    },
-    {
-      agent: { role: 'qa-automation' },
-      task: 'write-e2e-tests',
-      input: ['PRD.md', 'api-spec.yaml'],
-      output: 'e2e-tests/'
-    }
+import { Team, Role, Workflow } from 'skills4coder';
+
+// 加载角色
+const pmRole = Role.fromJSON('./roles/product-manager.json');
+const beRole = Role.fromJSON('./roles/backend-architect.json');
+const feRole = Role.fromJSON('./roles/senior-frontend-dev.json');
+const qaRole = Role.fromJSON('./roles/qa-automation.json');
+
+// 创建团队
+const team = new Team({
+  name: 'Feature Development Team',
+  members: [
+    { role: pmRole, name: 'PM', lead: true },
+    { role: beRole, name: 'Backend' },
+    { role: feRole, name: 'Frontend' },
+    { role: qaRole, name: 'QA' }
   ]
 });
 
-// 执行项目
-await project.run();
+// 定义工作流
+const workflow = new Workflow({
+  name: 'User Authentication Feature',
+  description: '实现用户认证功能',
+  steps: [
+    { id: 'prd', name: 'Write PRD', agent: 'PM', skill: 'write-prd', input: {} },
+    { id: 'api', name: 'Design API', agent: 'Backend', skill: 'api-design', input: {}, dependsOn: ['prd'] },
+    { id: 'ui', name: 'Implement UI', agent: 'Frontend', skill: 'implement-ui', input: {}, dependsOn: ['api'] },
+    { id: 'test', name: 'Write Tests', agent: 'QA', skill: 'write-e2e-tests', input: {}, dependsOn: ['api', 'ui'] }
+  ],
+  strategy: { failFast: false }
+});
+
+// 执行工作流
+const result = await team.executeWorkflow(workflow);
+console.log(`Completed ${result.completedSteps}/${result.totalSteps} steps`);
 ```
 
 ### 场景 3: Agent 动态调用不同岗位
@@ -205,23 +213,33 @@ await project.run();
 **需求**: 系统出现异常，需要多领域专家诊断
 
 ```javascript
-const incidentResponse = new Workflow({
-  name: 'Production Incident Response',
-  steps: async (context) => {
-    // SRE 先进行初步诊断
-    const sreReport = await context.callAgent('sre-engineer', 'diagnose', {
-      logs: context.logs,
-      metrics: context.metrics
-    });
-    
-    // 根据诊断结果调用不同专家
-    if (sreReport.category === 'database') {
-      return await context.callAgent('dba', 'optimize-query', sreReport);
-    } else if (sreReport.category === 'frontend') {
-      return await context.callAgent('senior-frontend-dev', 'fix-performance', sreReport);
-    }
-  }
+import { Team, Role } from 'skills4coder';
+
+const sreRole = Role.fromJSON('./roles/sre-engineer.json');
+const dbaRole = Role.fromJSON('./roles/dba.json');
+const feRole = Role.fromJSON('./roles/senior-frontend-dev.json');
+
+const team = new Team({
+  name: 'Incident Response Team',
+  members: [
+    { role: sreRole, name: 'sre-engineer', lead: true },
+    { role: dbaRole, name: 'dba' },
+    { role: feRole, name: 'senior-frontend-dev' }
+  ]
 });
+
+// SRE 先诊断
+const sreReport = await team.callAgent('sre-engineer', 'diagnose', {
+  logs: context.logs,
+  metrics: context.metrics
+});
+
+// 根据诊断结果调用不同专家
+if (sreReport.category === 'database') {
+  await team.callAgent('dba', 'optimize-query', sreReport);
+} else if (sreReport.category === 'frontend') {
+  await team.callAgent('senior-frontend-dev', 'fix-performance', sreReport);
+}
 ```
 
 ---
@@ -241,12 +259,26 @@ yarn add skills4coder
 ```javascript
 import { Role } from 'skills4coder';
 
-const backendDev = new Role({
+const backendDev = Role.fromObject({
   id: 'backend-developer',
-  name: 'Backend Developer',
-  jd: '负责 API 开发、数据库设计、服务维护',
-  mainSkills: ['api-design', 'database-design', 'code-review'],
-  atomicSkills: ['read-file', 'write-code', 'run-tests', 'git-operations']
+  type: 'role',
+  version: '1.0.0',
+  metadata: {
+    name: 'Backend Developer',
+    description: '负责 API 开发、数据库设计、服务维护',
+    author: 'you',
+    tags: ['backend'],
+    level: 'senior'
+  },
+  jd: {
+    summary: '设计和实现高可用后端服务',
+    responsibilities: ['API 开发', '数据库设计', '代码审查'],
+    requirements: { experience: '5+ years' }
+  },
+  capabilities: {
+    mainSkills: ['api-design', 'database-design', 'code-review'],
+    atomicSkills: ['read-file', 'write-code', 'run-tests']
+  }
 });
 ```
 
@@ -349,14 +381,22 @@ Skills4Coder 原生支持 MCP，可以直接调用：
 
 ### SkillHub / Claw Hub
 
-可以直接导入和使用第三方技能：
+可以加载和查询项目中的技能定义：
 ```javascript
-import { SkillHubAdapter } from 'skills4coder';
+import { SkillHubAdapter } from 'skills4coder/orchestration/skillhub-adapter';
 
-const adapter = new SkillHubAdapter({ apiKey: 'xxx' });
-const externalSkill = await adapter.importSkill('tencent/code-review-v2');
+const adapter = new SkillHubAdapter();
+adapter.initialize();
 
-agent.addSkill(externalSkill);
+// 查询所有技能
+const allSkills = adapter.getAllSkills();
+console.log(`Loaded ${allSkills.length} skills`);
+
+// 按角色获取可用技能
+const roleSkills = adapter.getRoleSkills('senior-frontend-dev');
+
+// 检查角色技能缺失
+const { resolved, missing } = adapter.resolveRoleSkills('senior-frontend-dev');
 ```
 
 ---

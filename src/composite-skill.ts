@@ -2,6 +2,7 @@
  * 复合技能类
  */
 
+import { readFileSync } from 'fs';
 import type { CompositeSkill as CompositeSkillType, WorkflowStep } from './types.js';
 
 export class CompositeSkill {
@@ -12,8 +13,7 @@ export class CompositeSkill {
   }
 
   static fromJSON(path: string): CompositeSkill {
-    const fs = require('fs');
-    const content = fs.readFileSync(path, 'utf-8');
+    const content = readFileSync(path, 'utf-8');
     const data = JSON.parse(content) as CompositeSkillType;
     return new CompositeSkill(data);
   }

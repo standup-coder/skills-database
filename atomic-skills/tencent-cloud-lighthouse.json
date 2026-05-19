@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "tencent-cloud-lighthouse",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Tencent Cloud Lighthouse",
+    "nameZh": "tencent-cloud-lighthouse",
+    "description": "Skill: tencent-cloud-lighthouse",
+    "descriptionZh": "tencent-cloud-lighthouse",
+    "author": "skills4coder-team",
+    "tags": [
+      "tencent"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "tencent_cloud_lighthouse"
+  },
+  "errors": {}
+}

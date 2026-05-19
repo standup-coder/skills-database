@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "growth-automation",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Growth Automation",
+    "nameZh": "growth-automation",
+    "description": "Skill: growth-automation",
+    "descriptionZh": "growth-automation",
+    "author": "skills4coder-team",
+    "tags": [
+      "growth"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "growth_automation"
+  },
+  "errors": {}
+}

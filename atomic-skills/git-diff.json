@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "git-diff",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Git Diff",
+    "nameZh": "Git差异",
+    "description": "Show changes between commits or working tree",
+    "descriptionZh": "显示提交或工作树之间的变更",
+    "author": "skills4coder-team",
+    "tags": [
+      "git",
+      "diff",
+      "vcs"
+    ],
+    "category": "vcs"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "git_diff"
+  },
+  "errors": {}
+}

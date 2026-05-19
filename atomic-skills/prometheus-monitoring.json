@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "prometheus-monitoring",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Prometheus Monitoring",
+    "nameZh": "prometheus-monitoring",
+    "description": "Skill: prometheus-monitoring",
+    "descriptionZh": "prometheus-monitoring",
+    "author": "skills4coder-team",
+    "tags": [
+      "prometheus"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "prometheus_monitoring"
+  },
+  "errors": {}
+}

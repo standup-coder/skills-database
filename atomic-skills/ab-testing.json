@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "ab-testing",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Ab Testing",
+    "nameZh": "ab-testing",
+    "description": "Skill: ab-testing",
+    "descriptionZh": "ab-testing",
+    "author": "skills4coder-team",
+    "tags": [
+      "ab"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "ab_testing"
+  },
+  "errors": {}
+}

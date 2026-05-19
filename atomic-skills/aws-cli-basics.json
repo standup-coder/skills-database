@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "aws-cli-basics",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Aws Cli Basics",
+    "nameZh": "aws-cli-basics",
+    "description": "Skill: aws-cli-basics",
+    "descriptionZh": "aws-cli-basics",
+    "author": "skills4coder-team",
+    "tags": [
+      "aws"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "aws_cli_basics"
+  },
+  "errors": {}
+}

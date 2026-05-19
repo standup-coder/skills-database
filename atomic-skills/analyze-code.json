@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "analyze-code",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Analyze Code",
+    "nameZh": "代码分析",
+    "description": "Static analysis of code for issues",
+    "descriptionZh": "静态分析代码问题",
+    "author": "skills4coder-team",
+    "tags": [
+      "analysis",
+      "code",
+      "atomic"
+    ],
+    "category": "analysis"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "analyze_code"
+  },
+  "errors": {}
+}

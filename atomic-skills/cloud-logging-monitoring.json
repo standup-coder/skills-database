@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cloud-logging-monitoring",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cloud Logging Monitoring",
+    "nameZh": "cloud-logging-monitoring",
+    "description": "Skill: cloud-logging-monitoring",
+    "descriptionZh": "cloud-logging-monitoring",
+    "author": "skills4coder-team",
+    "tags": [
+      "cloud"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cloud_logging_monitoring"
+  },
+  "errors": {}
+}

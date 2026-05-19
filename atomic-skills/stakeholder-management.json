@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "stakeholder-management",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Stakeholder Management",
+    "nameZh": "stakeholder-management",
+    "description": "Skill: stakeholder-management",
+    "descriptionZh": "stakeholder-management",
+    "author": "skills4coder-team",
+    "tags": [
+      "stakeholder"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "stakeholder_management"
+  },
+  "errors": {}
+}

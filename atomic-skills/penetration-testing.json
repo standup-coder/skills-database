@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "penetration-testing",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Penetration Testing",
+    "nameZh": "penetration-testing",
+    "description": "Skill: penetration-testing",
+    "descriptionZh": "penetration-testing",
+    "author": "skills4coder-team",
+    "tags": [
+      "penetration"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "penetration_testing"
+  },
+  "errors": {}
+}

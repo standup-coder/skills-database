@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "data-classification-dlp",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Data Classification Dlp",
+    "nameZh": "data-classification-dlp",
+    "description": "Skill: data-classification-dlp",
+    "descriptionZh": "data-classification-dlp",
+    "author": "skills4coder-team",
+    "tags": [
+      "data"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "data_classification_dlp"
+  },
+  "errors": {}
+}

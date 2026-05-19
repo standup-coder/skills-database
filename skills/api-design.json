@@ -1,0 +1,68 @@
+{
+  "id": "api-design",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "API Design",
+    "nameZh": "API设计",
+    "description": "Design RESTful APIs with OpenAPI specs",
+    "descriptionZh": "设计RESTful API和OpenAPI规范",
+    "author": "skills4coder-team",
+    "tags": [
+      "api",
+      "rest",
+      "openapi"
+    ],
+    "category": "development"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Design RESTful APIs with OpenAPI specs",
+    "steps": [
+      {
+        "id": "analyze-requirements",
+        "name": "Analyze Requirements",
+        "nameZh": "需求分析",
+        "type": "llm",
+        "input": {},
+        "output": "requirements"
+      },
+      {
+        "id": "design-spec",
+        "name": "Design API Spec",
+        "nameZh": "设计API规范",
+        "type": "llm",
+        "input": {
+          "requirements": "{{steps.analyze-requirements.output}}"
+        },
+        "output": "openapi_spec"
+      },
+      {
+        "id": "validate-spec",
+        "name": "Validate Spec",
+        "nameZh": "校验规范",
+        "atomicSkill": "api-request",
+        "input": {
+          "spec": "{{steps.design-spec.output}}"
+        },
+        "output": "validation_result",
+        "dependsOn": [
+          "design-spec"
+        ]
+      }
+    ]
+  }
+}

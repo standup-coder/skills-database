@@ -1,0 +1,74 @@
+{
+  "id": "monitoring-setup",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Monitoring Setup",
+    "nameZh": "监控设置",
+    "description": "Set up Prometheus, Grafana and logging observability",
+    "descriptionZh": "配置Prometheus、Grafana和日志可观测性",
+    "author": "skills4coder-team",
+    "tags": [
+      "monitoring",
+      "prometheus",
+      "grafana",
+      "observability"
+    ],
+    "category": "ops"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Set up Prometheus, Grafana and logging observability",
+    "steps": [
+      {
+        "id": "plan-monitoring",
+        "name": "Plan Monitoring",
+        "nameZh": "规划监控",
+        "type": "llm",
+        "input": {},
+        "output": "plan"
+      },
+      {
+        "id": "setup-prometheus",
+        "name": "Setup Prometheus",
+        "nameZh": "配置Prometheus",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "prometheus.yml",
+          "content": "{{steps.plan-monitoring.output}}"
+        },
+        "output": "config",
+        "dependsOn": [
+          "plan-monitoring"
+        ]
+      },
+      {
+        "id": "setup-grafana",
+        "name": "Setup Grafana",
+        "nameZh": "配置Grafana",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "grafana/dashboard.json",
+          "content": "{{steps.plan-monitoring.output}}"
+        },
+        "output": "dashboard",
+        "dependsOn": [
+          "plan-monitoring"
+        ]
+      }
+    ]
+  }
+}

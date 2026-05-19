@@ -1,0 +1,74 @@
+{
+  "id": "container-orchestration",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Container Orchestration",
+    "nameZh": "容器编排",
+    "description": "Docker and Kubernetes deployment workflows",
+    "descriptionZh": "Docker和Kubernetes部署工作流",
+    "author": "skills4coder-team",
+    "tags": [
+      "docker",
+      "kubernetes",
+      "k8s",
+      "containers"
+    ],
+    "category": "devops"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Docker and Kubernetes deployment workflows",
+    "steps": [
+      {
+        "id": "analyze-app",
+        "name": "Analyze Application",
+        "nameZh": "分析应用",
+        "type": "llm",
+        "input": {},
+        "output": "app_spec"
+      },
+      {
+        "id": "create-dockerfile",
+        "name": "Create Dockerfile",
+        "nameZh": "创建Dockerfile",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "Dockerfile",
+          "content": "{{steps.analyze-app.output}}"
+        },
+        "output": "dockerfile",
+        "dependsOn": [
+          "analyze-app"
+        ]
+      },
+      {
+        "id": "create-k8s-manifests",
+        "name": "Create K8s Manifests",
+        "nameZh": "创建K8s清单",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "k8s/",
+          "content": "{{steps.analyze-app.output}}"
+        },
+        "output": "manifests",
+        "dependsOn": [
+          "analyze-app"
+        ]
+      }
+    ]
+  }
+}

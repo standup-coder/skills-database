@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "multi-cloud-security",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Multi Cloud Security",
+    "nameZh": "multi-cloud-security",
+    "description": "Skill: multi-cloud-security",
+    "descriptionZh": "multi-cloud-security",
+    "author": "skills4coder-team",
+    "tags": [
+      "multi"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "multi_cloud_security"
+  },
+  "errors": {}
+}

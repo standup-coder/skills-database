@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "frontend-architecture-design",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Frontend Architecture Design",
+    "nameZh": "frontend-architecture-design",
+    "description": "Skill: frontend-architecture-design",
+    "descriptionZh": "frontend-architecture-design",
+    "author": "skills4coder-team",
+    "tags": [
+      "frontend"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "frontend_architecture_design"
+  },
+  "errors": {}
+}

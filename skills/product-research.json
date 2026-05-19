@@ -1,0 +1,69 @@
+{
+  "id": "product-research",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Product Research",
+    "nameZh": "产品研究",
+    "description": "User research, competitive analysis and PRD writing",
+    "descriptionZh": "用户研究、竞品分析和PRD编写",
+    "author": "skills4coder-team",
+    "tags": [
+      "product",
+      "research",
+      "prd",
+      "competitive"
+    ],
+    "category": "product"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "User research, competitive analysis and PRD writing",
+    "steps": [
+      {
+        "id": "user-research",
+        "name": "User Research",
+        "nameZh": "用户研究",
+        "type": "llm",
+        "input": {},
+        "output": "user_insights"
+      },
+      {
+        "id": "competitive-analysis",
+        "name": "Competitive Analysis",
+        "nameZh": "竞品分析",
+        "type": "llm",
+        "input": {},
+        "output": "competitive_insights"
+      },
+      {
+        "id": "write-prd",
+        "name": "Write PRD",
+        "nameZh": "编写PRD",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "docs/prd.md",
+          "content": {}
+        },
+        "output": "prd",
+        "dependsOn": [
+          "user-research",
+          "competitive-analysis"
+        ]
+      }
+    ]
+  }
+}

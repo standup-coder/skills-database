@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "identity-federation",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Identity Federation",
+    "nameZh": "identity-federation",
+    "description": "Skill: identity-federation",
+    "descriptionZh": "identity-federation",
+    "author": "skills4coder-team",
+    "tags": [
+      "identity"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "identity_federation"
+  },
+  "errors": {}
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "security-architecture",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Security Architecture",
+    "nameZh": "security-architecture",
+    "description": "Skill: security-architecture",
+    "descriptionZh": "security-architecture",
+    "author": "skills4coder-team",
+    "tags": [
+      "security"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "security_architecture"
+  },
+  "errors": {}
+}

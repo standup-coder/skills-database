@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "config-validator",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Config Validator",
+    "nameZh": "config-validator",
+    "description": "Skill: config-validator",
+    "descriptionZh": "config-validator",
+    "author": "skills4coder-team",
+    "tags": [
+      "config"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "config_validator"
+  },
+  "errors": {}
+}

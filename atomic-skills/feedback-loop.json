@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "feedback-loop",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Feedback Loop",
+    "nameZh": "feedback-loop",
+    "description": "Skill: feedback-loop",
+    "descriptionZh": "feedback-loop",
+    "author": "skills4coder-team",
+    "tags": [
+      "feedback"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "feedback_loop"
+  },
+  "errors": {}
+}

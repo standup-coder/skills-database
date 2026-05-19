@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "privileged-access-management",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Privileged Access Management",
+    "nameZh": "privileged-access-management",
+    "description": "Skill: privileged-access-management",
+    "descriptionZh": "privileged-access-management",
+    "author": "skills4coder-team",
+    "tags": [
+      "privileged"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "privileged_access_management"
+  },
+  "errors": {}
+}

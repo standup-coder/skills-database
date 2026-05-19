@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "api-request",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "API Request",
+    "nameZh": "API请求",
+    "description": "Make an HTTP API request",
+    "descriptionZh": "发起HTTP API请求",
+    "author": "skills4coder-team",
+    "tags": [
+      "http",
+      "api",
+      "atomic"
+    ],
+    "category": "network"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "api_request"
+  },
+  "errors": {}
+}

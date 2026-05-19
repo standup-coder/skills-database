@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cloudflare-manager",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cloudflare Manager",
+    "nameZh": "cloudflare-manager",
+    "description": "Skill: cloudflare-manager",
+    "descriptionZh": "cloudflare-manager",
+    "author": "skills4coder-team",
+    "tags": [
+      "cloudflare"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cloudflare_manager"
+  },
+  "errors": {}
+}

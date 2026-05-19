@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cohort-analysis",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cohort Analysis",
+    "nameZh": "cohort-analysis",
+    "description": "Skill: cohort-analysis",
+    "descriptionZh": "cohort-analysis",
+    "author": "skills4coder-team",
+    "tags": [
+      "cohort"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cohort_analysis"
+  },
+  "errors": {}
+}

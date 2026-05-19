@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "performance-testing",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Performance Testing",
+    "nameZh": "performance-testing",
+    "description": "Skill: performance-testing",
+    "descriptionZh": "performance-testing",
+    "author": "skills4coder-team",
+    "tags": [
+      "performance"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "performance_testing"
+  },
+  "errors": {}
+}

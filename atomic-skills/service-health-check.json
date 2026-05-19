@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "service-health-check",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Service Health Check",
+    "nameZh": "service-health-check",
+    "description": "Skill: service-health-check",
+    "descriptionZh": "service-health-check",
+    "author": "skills4coder-team",
+    "tags": [
+      "service"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "service_health_check"
+  },
+  "errors": {}
+}

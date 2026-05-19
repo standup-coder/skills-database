@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cspm-tools",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cspm Tools",
+    "nameZh": "cspm-tools",
+    "description": "Skill: cspm-tools",
+    "descriptionZh": "cspm-tools",
+    "author": "skills4coder-team",
+    "tags": [
+      "cspm"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cspm_tools"
+  },
+  "errors": {}
+}

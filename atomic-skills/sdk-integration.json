@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "sdk-integration",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Sdk Integration",
+    "nameZh": "sdk-integration",
+    "description": "Skill: sdk-integration",
+    "descriptionZh": "sdk-integration",
+    "author": "skills4coder-team",
+    "tags": [
+      "sdk"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "sdk_integration"
+  },
+  "errors": {}
+}

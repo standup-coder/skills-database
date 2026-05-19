@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "ansible-automation",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Ansible Automation",
+    "nameZh": "ansible-automation",
+    "description": "Skill: ansible-automation",
+    "descriptionZh": "ansible-automation",
+    "author": "skills4coder-team",
+    "tags": [
+      "ansible"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "ansible_automation"
+  },
+  "errors": {}
+}

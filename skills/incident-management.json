@@ -1,0 +1,74 @@
+{
+  "id": "incident-management",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Incident Management",
+    "nameZh": "事件管理",
+    "description": "Incident response runbooks and cloud IR playbooks",
+    "descriptionZh": "事件响应手册和云IR剧本",
+    "author": "skills4coder-team",
+    "tags": [
+      "incident",
+      "response",
+      "runbook",
+      "on-call"
+    ],
+    "category": "ops"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Incident response runbooks and cloud IR playbooks",
+    "steps": [
+      {
+        "id": "analyze-incident",
+        "name": "Analyze Incident",
+        "nameZh": "分析事件",
+        "type": "llm",
+        "input": {},
+        "output": "analysis"
+      },
+      {
+        "id": "create-runbook",
+        "name": "Create Runbook",
+        "nameZh": "创建手册",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "runbooks/{{input.incident_type}}.md",
+          "content": "{{steps.analyze-incident.output}}"
+        },
+        "output": "runbook",
+        "dependsOn": [
+          "analyze-incident"
+        ]
+      },
+      {
+        "id": "setup-alerting",
+        "name": "Setup Alerting",
+        "nameZh": "设置告警",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "alerts/incident.yaml",
+          "content": "{{steps.analyze-incident.output}}"
+        },
+        "output": "alert",
+        "dependsOn": [
+          "analyze-incident"
+        ]
+      }
+    ]
+  }
+}

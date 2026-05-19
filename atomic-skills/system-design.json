@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "system-design",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "System Design",
+    "nameZh": "system-design",
+    "description": "Skill: system-design",
+    "descriptionZh": "system-design",
+    "author": "skills4coder-team",
+    "tags": [
+      "system"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "system_design"
+  },
+  "errors": {}
+}

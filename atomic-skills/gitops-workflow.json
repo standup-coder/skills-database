@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "gitops-workflow",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Gitops Workflow",
+    "nameZh": "gitops-workflow",
+    "description": "Skill: gitops-workflow",
+    "descriptionZh": "gitops-workflow",
+    "author": "skills4coder-team",
+    "tags": [
+      "gitops"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "gitops_workflow"
+  },
+  "errors": {}
+}

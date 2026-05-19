@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "analytics",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Analytics",
+    "nameZh": "analytics",
+    "description": "Skill: analytics",
+    "descriptionZh": "analytics",
+    "author": "skills4coder-team",
+    "tags": [
+      "analytics"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "analytics"
+  },
+  "errors": {}
+}

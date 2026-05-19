@@ -1,0 +1,69 @@
+{
+  "id": "database-design",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Database Design",
+    "nameZh": "数据库设计",
+    "description": "Design database schemas and SQL queries",
+    "descriptionZh": "设计数据库Schema和SQL查询",
+    "author": "skills4coder-team",
+    "tags": [
+      "database",
+      "sql",
+      "schema"
+    ],
+    "category": "data"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "workflow": {
+    "description": "Design database schemas and SQL queries",
+    "steps": [
+      {
+        "id": "analyze-data-model",
+        "name": "Analyze Data Model",
+        "nameZh": "分析数据模型",
+        "type": "llm",
+        "input": {},
+        "output": "data_model"
+      },
+      {
+        "id": "design-schema",
+        "name": "Design Schema",
+        "nameZh": "设计Schema",
+        "type": "llm",
+        "input": {
+          "model": "{{steps.analyze-data-model.output}}"
+        },
+        "output": "schema"
+      },
+      {
+        "id": "write-migrations",
+        "name": "Write Migrations",
+        "nameZh": "编写迁移",
+        "atomicSkill": "write-file",
+        "input": {
+          "path": "migrations/001_schema.sql",
+          "content": "{{steps.design-schema.output}}"
+        },
+        "output": "file",
+        "dependsOn": [
+          "design-schema"
+        ]
+      }
+    ]
+  }
+}

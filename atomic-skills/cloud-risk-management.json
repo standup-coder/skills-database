@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cloud-risk-management",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cloud Risk Management",
+    "nameZh": "cloud-risk-management",
+    "description": "Skill: cloud-risk-management",
+    "descriptionZh": "cloud-risk-management",
+    "author": "skills4coder-team",
+    "tags": [
+      "cloud"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cloud_risk_management"
+  },
+  "errors": {}
+}

@@ -10,6 +10,7 @@ export { Team } from './team.js';
 export { Workflow } from './workflow.js';
 export { CompositeSkill } from './composite-skill.js';
 export { AtomicSkill } from './atomic-skill.js';
+export { topologicalSort, resolveTemplate, getValueByPath } from './utils.js';
 
 // Types
 export * from './types.js';

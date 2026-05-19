@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "run-linter",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Run Linter",
+    "nameZh": "运行检查",
+    "description": "Run code linter and report issues",
+    "descriptionZh": "运行代码检查器",
+    "author": "skills4coder-team",
+    "tags": [
+      "lint",
+      "check",
+      "atomic"
+    ],
+    "category": "linting"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "run_linter"
+  },
+  "errors": {}
+}

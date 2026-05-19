@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "azure-cli-basics",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Azure Cli Basics",
+    "nameZh": "azure-cli-basics",
+    "description": "Skill: azure-cli-basics",
+    "descriptionZh": "azure-cli-basics",
+    "author": "skills4coder-team",
+    "tags": [
+      "azure"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "azure_cli_basics"
+  },
+  "errors": {}
+}

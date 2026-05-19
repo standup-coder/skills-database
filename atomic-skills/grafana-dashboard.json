@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "grafana-dashboard",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Grafana Dashboard",
+    "nameZh": "grafana-dashboard",
+    "description": "Skill: grafana-dashboard",
+    "descriptionZh": "grafana-dashboard",
+    "author": "skills4coder-team",
+    "tags": [
+      "grafana"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "grafana_dashboard"
+  },
+  "errors": {}
+}

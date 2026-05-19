@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "interaction-design",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Interaction Design",
+    "nameZh": "interaction-design",
+    "description": "Skill: interaction-design",
+    "descriptionZh": "interaction-design",
+    "author": "skills4coder-team",
+    "tags": [
+      "interaction"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "interaction_design"
+  },
+  "errors": {}
+}

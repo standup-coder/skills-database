@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "ios-development",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Ios Development",
+    "nameZh": "ios-development",
+    "description": "Skill: ios-development",
+    "descriptionZh": "ios-development",
+    "author": "skills4coder-team",
+    "tags": [
+      "ios"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "ios_development"
+  },
+  "errors": {}
+}

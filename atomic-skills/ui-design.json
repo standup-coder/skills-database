@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "ui-design",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Ui Design",
+    "nameZh": "ui-design",
+    "description": "Skill: ui-design",
+    "descriptionZh": "ui-design",
+    "author": "skills4coder-team",
+    "tags": [
+      "ui"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "ui_design"
+  },
+  "errors": {}
+}

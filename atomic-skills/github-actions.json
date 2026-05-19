@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "github-actions",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Github Actions",
+    "nameZh": "github-actions",
+    "description": "Skill: github-actions",
+    "descriptionZh": "github-actions",
+    "author": "skills4coder-team",
+    "tags": [
+      "github"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "github_actions"
+  },
+  "errors": {}
+}

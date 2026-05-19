@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "compliance-as-code",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Compliance As Code",
+    "nameZh": "compliance-as-code",
+    "description": "Skill: compliance-as-code",
+    "descriptionZh": "compliance-as-code",
+    "author": "skills4coder-team",
+    "tags": [
+      "compliance"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "compliance_as_code"
+  },
+  "errors": {}
+}

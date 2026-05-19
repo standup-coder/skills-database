@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "cross-account-security",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cross Account Security",
+    "nameZh": "cross-account-security",
+    "description": "Skill: cross-account-security",
+    "descriptionZh": "cross-account-security",
+    "author": "skills4coder-team",
+    "tags": [
+      "cross"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "cross_account_security"
+  },
+  "errors": {}
+}

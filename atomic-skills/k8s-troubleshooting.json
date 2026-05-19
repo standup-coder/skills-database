@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "k8s-troubleshooting",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "K8s Troubleshooting",
+    "nameZh": "k8s-troubleshooting",
+    "description": "Skill: k8s-troubleshooting",
+    "descriptionZh": "k8s-troubleshooting",
+    "author": "skills4coder-team",
+    "tags": [
+      "k8s"
+    ],
+    "category": "atomic"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "k8s_troubleshooting"
+  },
+  "errors": {}
+}

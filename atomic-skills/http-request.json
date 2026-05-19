@@ -1,0 +1,39 @@
+{
+  "id": "http-request",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "http-request",
+    "nameZh": "HTTP请求",
+    "description": "Make an HTTP request to a specified endpoint",
+    "descriptionZh": "向指定端点发起HTTP请求",
+    "author": "skills4coder",
+    "tags": ["http", "request", "atomic"],
+    "category": "network"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": { "type": "string" },
+        "method": { "type": "string", "enum": ["GET", "POST", "PUT", "DELETE"], "default": "GET" },
+        "headers": { "type": "object" },
+        "body": { "type": "object" }
+      }
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "number" },
+        "body": { "type": "any" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "httpRequest"
+  }
+}
