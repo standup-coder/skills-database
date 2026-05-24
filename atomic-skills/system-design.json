@@ -2,35 +2,93 @@
   "$schema": "../schema/atomic-skill-v1.json",
   "id": "system-design",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
     "name": "System Design",
-    "nameZh": "system-design",
-    "description": "Skill: system-design",
-    "descriptionZh": "system-design",
+    "nameZh": "系统设计",
+    "description": "Translate product requirements into a coherent end-to-end system design with capacity, data, and failure modeling.",
+    "descriptionZh": "把产品需求转化为端到端的系统设计，覆盖容量估算、数据建模、失败模式与演进路径。",
     "author": "skills4coder-team",
-    "tags": [
-      "system"
-    ],
-    "category": "atomic"
+    "tags": ["system-design", "scalability", "capacity-planning", "distributed-systems"],
+    "category": "architecture"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "scenario": { "type": "string", "description": "业务场景（如：设计 IM、订单系统）" },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "dau": { "type": "number" },
+            "qps": { "type": "number" },
+            "dataSize": { "type": "string" }
+          }
+        },
+        "slo": { "type": "object", "description": "可用性 / 延迟 / 一致性 SLO" }
+      },
+      "required": ["scenario"]
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "highLevelDiagram": { "type": "string" },
+        "componentBreakdown": { "type": "array" },
+        "dataModel": { "type": "string" },
+        "capacityEstimation": { "type": "object" },
+        "failureModes": { "type": "array" },
+        "evolutionPath": { "type": "string" }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "system_design"
   },
-  "errors": {}
+  "constraints": {
+    "permissions": ["read", "write"]
+  },
+  "errors": {
+    "MISSING_SLO": { "code": "SYS_001", "message": "缺少 SLO 输入，无法做容量与一致性取舍", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "系统设计是从模糊需求到可执行蓝图的能力，关键是估算、抽象与失败思维。",
+    "keyPoints": [
+      "需求澄清：功能 + 非功能 + 规模（永远先反问，再设计）",
+      "容量估算：QPS、存储、带宽、连接数 — Back-of-the-envelope 是基本功",
+      "数据模型先于服务设计：错的数据模型无法用代码修复",
+      "一致性模型选择：strong / read-your-writes / eventual，对应不同业务可接受度",
+      "失败思维：每个组件假设会挂，问'谁是 SPOF'与'数据如何恢复'",
+      "演进路径：MVP → 垂直拆分 → 水平扩展 → 多活，分阶段不要一步到位",
+      "经典模式：缓存、消息队列、读写分离、CQRS、事件驱动、Saga"
+    ],
+    "bestPractices": [
+      "用 4 步法答系统设计：澄清 → 估算 → 高层设计 → 深度细化",
+      "画图先画数据流而非组件框，箭头方向 = 调用 / 数据流向",
+      "在白板/文档中显式列出权衡（latency vs consistency vs cost）",
+      "为每个外部依赖设计降级 / 熔断 / 重试 / 隔离",
+      "把容量数字写进文档：'订单 5000 QPS、单条 2KB → 10 MB/s 写入'"
+    ],
+    "antiPatterns": [
+      "上来就画微服务架构图，未做需求澄清和估算",
+      "把 NoSQL 当万能药，不分析读写模式",
+      "忽略冷启动 / 缓存击穿 / 重试风暴的失败链",
+      "'最终一致性'当万灵丹，业务要求强一致也用 eventual",
+      "把所有同步调用改异步，监控和补偿没跟上"
+    ],
+    "resources": [
+      { "title": "System Design Interview Vol 1 & 2 (Alex Xu)", "url": "https://www.systeminterview.com/", "type": "book" },
+      { "title": "Designing Data-Intensive Applications", "url": "https://dataintensive.net/", "type": "book" },
+      { "title": "ByteByteGo Newsletter", "url": "https://bytebytego.com/", "type": "article" },
+      { "title": "High Scalability Blog", "url": "http://highscalability.com/", "type": "article" },
+      { "title": "Google SRE Book", "url": "https://sre.google/sre-book/table-of-contents/", "type": "book" }
+    ],
+    "maturityLevels": {
+      "junior": "能复述常见模式并在引导下完成单业务场景设计",
+      "mid": "能独立主导中等规模系统设计评审，做出量化估算与权衡",
+      "senior": "能驾驭多团队、多区域、千万级 DAU 的系统设计，建立公司级模式库"
+    }
+  }
 }

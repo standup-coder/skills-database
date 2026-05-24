@@ -1,0 +1,99 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "agent-orchestration-design",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Agent Orchestration Design",
+    "nameZh": "Agent 编排设计",
+    "description": "Design a multi-agent orchestration with role decomposition, tool registry, memory and tracing",
+    "descriptionZh": "设计多 Agent 编排：角色拆解 → 工具注册 → 记忆与状态 → 控制流 → 评测与追踪",
+    "author": "skills4coder-team",
+    "tags": ["agent", "orchestration", "tool-use", "multi-agent", "ai"],
+    "category": "ai"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "objective": { "type": "string" },
+        "topology": { "type": "string", "enum": ["single", "supervisor", "swarm", "graph"] },
+        "availableTools": { "type": "array", "items": { "type": "object" } },
+        "memoryStrategy": { "type": "string", "enum": ["none", "scratchpad", "summary", "vector", "hybrid"] }
+      },
+      "required": ["objective", "topology"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "agentRoles": { "type": "array" },
+        "toolRegistry": { "type": "object" },
+        "controlFlow": { "type": "object" },
+        "memoryDesign": { "type": "object" },
+        "evaluationHarness": { "type": "object" },
+        "tracingPlan": { "type": "object" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "Agent 编排五步法",
+    "steps": [
+      {
+        "id": "roles",
+        "name": "角色拆解",
+        "nameZh": "角色拆解",
+        "type": "llm",
+        "input": { "objective": "{{input.objective}}", "topology": "{{input.topology}}" },
+        "output": "agentRoles"
+      },
+      {
+        "id": "tools",
+        "name": "工具注册与契约",
+        "nameZh": "工具注册与契约",
+        "atomicSkill": "tool-use-design",
+        "input": { "agents": "{{steps.roles.output}}", "tools": "{{input.availableTools}}" },
+        "output": "toolRegistry",
+        "dependsOn": ["roles"]
+      },
+      {
+        "id": "control",
+        "name": "控制流编排",
+        "nameZh": "控制流编排",
+        "atomicSkill": "agent-orchestration",
+        "input": { "agents": "{{steps.roles.output}}", "topology": "{{input.topology}}" },
+        "output": "controlFlow",
+        "dependsOn": ["roles"]
+      },
+      {
+        "id": "memory",
+        "name": "记忆与状态",
+        "nameZh": "记忆与状态",
+        "type": "transform",
+        "input": { "strategy": "{{input.memoryStrategy}}", "agents": "{{steps.roles.output}}" },
+        "output": "memoryDesign",
+        "dependsOn": ["roles"]
+      },
+      {
+        "id": "eval-harness",
+        "name": "评测 Harness",
+        "nameZh": "评测 Harness",
+        "atomicSkill": "llm-evaluation",
+        "input": { "objective": "{{input.objective}}", "control": "{{steps.control.output}}" },
+        "output": "evaluationHarness",
+        "dependsOn": ["control"]
+      },
+      {
+        "id": "tracing",
+        "name": "追踪与可观测",
+        "nameZh": "追踪与可观测",
+        "atomicSkill": "distributed-tracing",
+        "input": { "control": "{{steps.control.output}}", "tools": "{{steps.tools.output}}" },
+        "output": "tracingPlan",
+        "dependsOn": ["control", "tools"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}

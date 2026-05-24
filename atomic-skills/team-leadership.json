@@ -5,32 +5,115 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Team Leadership",
-    "nameZh": "team-leadership",
-    "description": "Skill: team-leadership",
-    "descriptionZh": "team-leadership",
+    "nameZh": "团队领导力",
+    "description": "Lead engineering teams covering hiring, growth, performance, and culture.",
+    "descriptionZh": "领导工程团队：招聘 / 成长 / 绩效 / 文化。",
     "author": "skills4coder-team",
     "tags": [
-      "team"
+      "leadership",
+      "management",
+      "engineering-manager",
+      "culture",
+      "people"
     ],
-    "category": "atomic"
+    "category": "leadership"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "team"
+      ],
+      "properties": {
+        "team": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "forming",
+            "storming",
+            "norming",
+            "performing"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "teamHealth": {
+          "type": "object"
+        },
+        "growthPlan": {
+          "type": "array"
+        },
+        "hiringPlan": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "team_leadership"
   },
-  "errors": {}
+  "errors": {
+    "LOW_PSYCH_SAFETY": {
+      "code": "TL_001",
+      "message": "心理安全度过低，团队不敢提问题",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Manager 的 KPI 是团队的产出与成长，不是自己的代码量；把 1:1、招聘、绩效做扎实，剩下 80% 时间该做\"上下游对齐\"。",
+    "keyPoints": [
+      "1:1 是 manager 最重要的 30 分钟",
+      "feedback 越及时越廉价",
+      "招聘错一个 = 三个月损失",
+      "psychological safety > 短期效率",
+      "career ladder 显式化"
+    ],
+    "bestPractices": [
+      "weekly 1:1 永不取消",
+      "SBI 反馈模型（Situation-Behavior-Impact）",
+      "招聘走 structured interview",
+      "绩效与晋升脱钩到日常 feedback"
+    ],
+    "antiPatterns": [
+      "1:1 变成 status update",
+      "只在年度 review 给 feedback",
+      "招聘\"culture fit\" 实际是同质化",
+      "manager 抢做技术活逃避管理"
+    ],
+    "resources": [
+      {
+        "title": "The Manager's Path",
+        "url": "https://www.oreilly.com/library/view/the-managers-path/9781491973882/",
+        "type": "book"
+      },
+      {
+        "title": "Resilient Management",
+        "url": "https://resilient-management.com/",
+        "type": "book"
+      },
+      {
+        "title": "Lara Hogan blog",
+        "url": "https://larahogan.me/blog/",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能管理 3-5 人小组日常",
+      "mid": "能落地招聘 / 1:1 / 绩效闭环",
+      "senior": "能驱动多团队战略与组织文化"
+    }
+  }
 }

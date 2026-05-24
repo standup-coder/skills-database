@@ -91,6 +91,51 @@
           "retryable": { "type": "boolean" }
         }
       }
+    },
+    "learning": {
+      "type": "object",
+      "description": "岗位技能学习辅助信息（面向贡献者/学习者，不影响运行时调用）",
+      "properties": {
+        "summary": { "type": "string", "description": "一句话讲清该技能价值" },
+        "summaryZh": { "type": "string" },
+        "keyPoints": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "关键学习要点（考察维度/评判点）"
+        },
+        "bestPractices": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "最佳实践"
+        },
+        "antiPatterns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "反模式 / 常见陷阱"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "url"],
+            "properties": {
+              "title": { "type": "string" },
+              "url": { "type": "string" },
+              "type": { "enum": ["book", "doc", "article", "video", "course", "tool"] }
+            }
+          },
+          "description": "延伸学习资源"
+        },
+        "maturityLevels": {
+          "type": "object",
+          "description": "能力分级描述",
+          "properties": {
+            "junior": { "type": "string" },
+            "mid": { "type": "string" },
+            "senior": { "type": "string" }
+          }
+        }
+      }
     }
   }
 }

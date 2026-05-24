@@ -1,0 +1,90 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "data-pipeline-build",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Data Pipeline Build",
+    "nameZh": "数据管道构建",
+    "description": "Build a production-grade ELT/ETL pipeline with schema contracts, lineage and monitoring",
+    "descriptionZh": "以契约和血缘为核心搭建生产级数据管道：从源接入、转换、装载到调度、监控与回放",
+    "author": "skills4coder-team",
+    "tags": ["data-pipeline", "etl", "elt", "lineage", "data-engineering"],
+    "category": "data"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "sources": { "type": "array", "items": { "type": "object" }, "description": "源系统列表" },
+        "sinks": { "type": "array", "items": { "type": "object" } },
+        "slaMinutes": { "type": "integer", "description": "端到端时延 SLA" },
+        "engine": { "type": "string", "enum": ["airflow", "dagster", "prefect", "spark", "flink"] }
+      },
+      "required": ["sources", "sinks"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "dagDefinition": { "type": "string" },
+        "schemaContracts": { "type": "array" },
+        "lineageGraph": { "type": "object" },
+        "monitoringDashboard": { "type": "string" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "数据管道从需求到投产的标准流程",
+    "steps": [
+      {
+        "id": "contracts",
+        "name": "Schema 契约定义",
+        "nameZh": "Schema 契约定义",
+        "atomicSkill": "data-quality",
+        "input": { "sources": "{{input.sources}}", "sinks": "{{input.sinks}}" },
+        "output": "schemaContracts"
+      },
+      {
+        "id": "etl-design",
+        "name": "ETL 转换设计",
+        "nameZh": "ETL 转换设计",
+        "atomicSkill": "etl-development",
+        "input": { "contracts": "{{steps.contracts.output}}", "engine": "{{input.engine}}" },
+        "output": "transformLogic",
+        "dependsOn": ["contracts"]
+      },
+      {
+        "id": "dag",
+        "name": "DAG 编排",
+        "nameZh": "DAG 编排",
+        "atomicSkill": "data-pipeline",
+        "input": { "logic": "{{steps.etl-design.output}}", "engine": "{{input.engine}}", "sla": "{{input.slaMinutes}}" },
+        "output": "dagDefinition",
+        "dependsOn": ["etl-design"]
+      },
+      {
+        "id": "lineage",
+        "name": "血缘与文档",
+        "nameZh": "血缘与文档",
+        "type": "transform",
+        "input": { "dag": "{{steps.dag.output}}", "contracts": "{{steps.contracts.output}}" },
+        "output": "lineageGraph",
+        "dependsOn": ["dag"]
+      },
+      {
+        "id": "monitor",
+        "name": "监控与告警",
+        "nameZh": "监控与告警",
+        "atomicSkill": "grafana-dashboard",
+        "input": { "dag": "{{steps.dag.output}}", "sla": "{{input.slaMinutes}}" },
+        "output": "monitoringDashboard",
+        "dependsOn": ["dag"]
+      }
+    ]
+  },
+  "errorHandling": {
+    "strategy": "stop"
+  }
+}

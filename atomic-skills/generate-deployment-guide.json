@@ -5,32 +5,114 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Generate Deployment Guide",
-    "nameZh": "generate-deployment-guide",
-    "description": "Skill: generate-deployment-guide",
-    "descriptionZh": "generate-deployment-guide",
+    "nameZh": "生成部署指南",
+    "description": "Generate a runnable deployment guide from project metadata covering env, build, deploy, rollback.",
+    "descriptionZh": "基于项目元数据生成可执行的部署指南：环境 / 构建 / 部署 / 回滚。",
     "author": "skills4coder-team",
     "tags": [
-      "generate"
+      "ops",
+      "docs",
+      "deployment",
+      "runbook",
+      "sop"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "repo"
+      ],
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "env": {
+          "type": "string",
+          "enum": [
+            "dev",
+            "staging",
+            "prod"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "guide": {
+          "type": "string"
+        },
+        "prerequisites": {
+          "type": "array"
+        },
+        "rollback": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "generate_deployment_guide"
   },
-  "errors": {}
+  "errors": {
+    "MISSING_PIPELINE": {
+      "code": "DG_001",
+      "message": "未找到部署 pipeline 元数据",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "部署指南不是给人读的小说，是给 oncall 在凌晨 3 点能照着复制粘贴的脚本；越精炼越好。",
+    "keyPoints": [
+      "prereq / build / deploy / verify / rollback 五段式",
+      "每步带具体命令而非\"运行 CI\"",
+      "失败回滚必须显式可执行",
+      "环境差异表格化",
+      "与 runbook 链接互相引用"
+    ],
+    "bestPractices": [
+      "指南放 repo 内随代码 PR 更新",
+      "screenshot 用极简风格不放过期 UI",
+      "把指南做成 markdown lint 化",
+      "与告警 runbook 链接"
+    ],
+    "antiPatterns": [
+      "\"按 CI 部署即可\"一句话糊过去",
+      "指南散在 wiki 跟代码不同步",
+      "没有 rollback 段",
+      "步骤含义不清需上下文猜"
+    ],
+    "resources": [
+      {
+        "title": "Google SRE Book: Postmortem",
+        "url": "https://sre.google/sre-book/postmortem-culture/",
+        "type": "book"
+      },
+      {
+        "title": "GitOps deployment patterns",
+        "url": "https://www.weave.works/technologies/gitops/",
+        "type": "article"
+      },
+      {
+        "title": "Diátaxis docs framework",
+        "url": "https://diataxis.fr/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写单服务部署文档",
+      "mid": "能模板化跨服务指南并随代码维护",
+      "senior": "能驱动组织级 deployment runbook 与 SOP"
+    }
+  }
 }

@@ -4,33 +4,114 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "K8s Security",
-    "nameZh": "k8s-security",
-    "description": "Skill: k8s-security",
-    "descriptionZh": "k8s-security",
+    "name": "Kubernetes Security",
+    "nameZh": "K8s 集群安全",
+    "description": "End-to-end Kubernetes cluster hardening: control plane, network, workload, and supply chain.",
+    "descriptionZh": "K8s 集群端到端加固：控制面 / 网络 / 工作负载 / 供应链。",
     "author": "skills4coder-team",
     "tags": [
-      "k8s"
+      "kubernetes",
+      "security",
+      "hardening",
+      "network-policy",
+      "pss"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "cluster"
+      ],
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string",
+          "enum": [
+            "baseline",
+            "restricted"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "findings": {
+          "type": "array"
+        },
+        "hardeningChecklist": {
+          "type": "array"
+        },
+        "networkPolicies": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "k8s_security"
   },
-  "errors": {}
+  "errors": {
+    "KUBE_BENCH_FAILED": {
+      "code": "K8S_001",
+      "message": "kube-bench 执行失败",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "K8s 安全是分层加固：control plane / node / network / workload / supply chain 每一层都有最小动作集，缺一环都会被打穿。",
+    "keyPoints": [
+      "Pod Security Standards（baseline / restricted）替代 PSP",
+      "NetworkPolicy 默认 deny-all",
+      "kube-bench 跑 CIS Benchmark",
+      "admission control（OPA / Kyverno）拦截违规",
+      "镜像签名（Cosign）+ admission 验证"
+    ],
+    "bestPractices": [
+      "namespace 级 PSS = restricted",
+      "CNI 选支持 NetworkPolicy 的（Calico / Cilium）",
+      "关闭 anonymous-auth、自动挂载 SA",
+      "开启 audit log 并集中存储"
+    ],
+    "antiPatterns": [
+      "namespace 不分级，所有 workload 平铺",
+      "NetworkPolicy 只在生产开",
+      "control plane 不打补丁",
+      "镜像 latest tag 上生产"
+    ],
+    "resources": [
+      {
+        "title": "Pod Security Standards",
+        "url": "https://kubernetes.io/docs/concepts/security/pod-security-standards/",
+        "type": "doc"
+      },
+      {
+        "title": "kube-bench",
+        "url": "https://github.com/aquasecurity/kube-bench",
+        "type": "doc"
+      },
+      {
+        "title": "Kyverno",
+        "url": "https://kyverno.io/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跑 kube-bench 与 PSS",
+      "mid": "能落地 NetworkPolicy + admission 治理",
+      "senior": "能驱动组织级 K8s 安全 baseline 与供应链安全"
+    }
+  }
 }

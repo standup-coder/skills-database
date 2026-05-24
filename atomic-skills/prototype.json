@@ -5,32 +5,118 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Prototype",
-    "nameZh": "prototype",
-    "description": "Skill: prototype",
-    "descriptionZh": "prototype",
+    "nameZh": "原型设计",
+    "description": "Build prototypes at varying fidelity to validate ideas before engineering investment.",
+    "descriptionZh": "在投入工程实现前，用不同保真度原型验证创意。",
     "author": "skills4coder-team",
     "tags": [
-      "prototype"
+      "design",
+      "prototype",
+      "figma",
+      "usability",
+      "validation"
     ],
-    "category": "atomic"
+    "category": "design"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "idea"
+      ],
+      "properties": {
+        "idea": {
+          "type": "string"
+        },
+        "fidelity": {
+          "type": "string",
+          "enum": [
+            "paper",
+            "low",
+            "mid",
+            "high"
+          ]
+        },
+        "audience": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "artifact": {
+          "type": "string"
+        },
+        "testPlan": {
+          "type": "object"
+        },
+        "decisions": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "prototype"
   },
-  "errors": {}
+  "errors": {
+    "OVERSPEC": {
+      "code": "PR_001",
+      "message": "保真度过高陷入实现细节",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "原型的价值是\"以小成本拒绝坏想法\"；选错保真度等于在错误问题上投精力。",
+    "keyPoints": [
+      "fidelity 与决策成本匹配",
+      "一次只验证 1-2 个假设",
+      "让用户用，别让用户看",
+      "paper > Figma > coded 渐进",
+      "失败原型也是产出"
+    ],
+    "bestPractices": [
+      "5 用户法则做 usability test",
+      "Figma + Maze / UserTesting 做远程测试",
+      "记录决策日志（decided / parked / killed）",
+      "高保真前先低保真过一轮"
+    ],
+    "antiPatterns": [
+      "一上来就高保真",
+      "只给 stakeholder 看不让用户用",
+      "原型当成最终设计",
+      "同一原型反复打磨不验证"
+    ],
+    "resources": [
+      {
+        "title": "IDEO Prototyping",
+        "url": "https://www.ideo.com/journal/prototyping",
+        "type": "article"
+      },
+      {
+        "title": "Maze",
+        "url": "https://maze.co/",
+        "type": "doc"
+      },
+      {
+        "title": "Sprint by Jake Knapp",
+        "url": "https://www.thesprintbook.com/",
+        "type": "book"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能做 mid-fi Figma 原型",
+      "mid": "能选 fidelity 与跑 usability test",
+      "senior": "能驱动组织级 prototype-driven 决策文化"
+    }
+  }
 }

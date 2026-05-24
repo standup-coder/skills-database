@@ -1,0 +1,98 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "llm-app-development",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "LLM App Development",
+    "nameZh": "LLM 应用开发",
+    "description": "Build a production-grade LLM application with prompt design, RAG, evaluation and guardrails",
+    "descriptionZh": "面向生产环境构建 LLM 应用：用例 → Prompt → RAG → 评测 → 安全护栏 → 上线",
+    "author": "skills4coder-team",
+    "tags": ["llm", "rag", "prompt-engineering", "evaluation", "guardrails"],
+    "category": "ai"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "useCase": { "type": "string" },
+        "knowledgeSources": { "type": "array", "items": { "type": "object" } },
+        "model": { "type": "string" },
+        "qualityBar": { "type": "object" }
+      },
+      "required": ["useCase", "model"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "promptLibrary": { "type": "object" },
+        "ragIndex": { "type": "object" },
+        "evaluationReport": { "type": "object" },
+        "guardrailPolicy": { "type": "object" },
+        "deploymentPlan": { "type": "object" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "LLM 应用从用例到上线的端到端流程",
+    "steps": [
+      {
+        "id": "scope",
+        "name": "用例与质量门槛对齐",
+        "nameZh": "用例与质量门槛对齐",
+        "type": "llm",
+        "input": { "useCase": "{{input.useCase}}", "qualityBar": "{{input.qualityBar}}" },
+        "output": "scopeDoc"
+      },
+      {
+        "id": "prompt",
+        "name": "Prompt 设计",
+        "nameZh": "Prompt 设计",
+        "atomicSkill": "prompt-engineering",
+        "input": { "useCase": "{{input.useCase}}", "model": "{{input.model}}" },
+        "output": "promptLibrary",
+        "dependsOn": ["scope"]
+      },
+      {
+        "id": "rag",
+        "name": "RAG 链路",
+        "nameZh": "RAG 链路",
+        "atomicSkill": "rag-pipeline",
+        "input": { "sources": "{{input.knowledgeSources}}", "model": "{{input.model}}" },
+        "output": "ragIndex",
+        "dependsOn": ["scope"]
+      },
+      {
+        "id": "eval",
+        "name": "离线评测",
+        "nameZh": "离线评测",
+        "atomicSkill": "llm-evaluation",
+        "input": { "prompts": "{{steps.prompt.output}}", "rag": "{{steps.rag.output}}" },
+        "output": "evaluationReport",
+        "dependsOn": ["prompt", "rag"]
+      },
+      {
+        "id": "guardrails",
+        "name": "安全护栏",
+        "nameZh": "安全护栏",
+        "type": "llm",
+        "input": { "useCase": "{{input.useCase}}", "evaluation": "{{steps.eval.output}}" },
+        "output": "guardrailPolicy",
+        "dependsOn": ["eval"]
+      },
+      {
+        "id": "deploy",
+        "name": "上线计划",
+        "nameZh": "上线计划",
+        "type": "transform",
+        "input": { "all": "{{steps}}" },
+        "output": "deploymentPlan",
+        "dependsOn": ["guardrails"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}

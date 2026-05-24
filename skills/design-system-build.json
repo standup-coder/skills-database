@@ -1,0 +1,92 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "design-system-build",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Design System Build",
+    "nameZh": "设计系统构建",
+    "description": "Build a multi-brand, token-driven design system with components, docs and governance",
+    "descriptionZh": "以 Design Token 为核心搭建可治理的设计系统：从基础变量、组件库到文档与版本治理",
+    "author": "skills4coder-team",
+    "tags": ["design-system", "tokens", "component-library", "ui-ux", "governance"],
+    "category": "design"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "brandGuide": { "type": "object", "description": "品牌视觉规范（颜色/字体/间距）" },
+        "componentScope": { "type": "array", "items": { "type": "string" }, "description": "首批组件清单" },
+        "platforms": { "type": "array", "items": { "enum": ["web", "ios", "android", "miniapp"] } },
+        "techStack": { "type": "string", "enum": ["react", "vue", "svelte", "web-components"] }
+      },
+      "required": ["brandGuide", "componentScope"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "tokens": { "type": "object", "description": "Design Tokens（W3C DTCG 格式）" },
+        "componentSpecs": { "type": "array" },
+        "documentation": { "type": "string", "description": "Storybook / Docusaurus 站点" },
+        "governanceModel": { "type": "object" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "设计系统从 0 到 1 全流程：调研 → Token 抽取 → 组件设计 → 实现与文档 → 治理",
+    "steps": [
+      {
+        "id": "audit",
+        "name": "现状审计",
+        "nameZh": "现状审计",
+        "atomicSkill": "user-research",
+        "input": { "scope": "{{input.componentScope}}", "type": "design-audit" },
+        "output": "auditResult"
+      },
+      {
+        "id": "tokens",
+        "name": "Token 抽取",
+        "nameZh": "Token 抽取",
+        "atomicSkill": "design-system",
+        "input": { "brandGuide": "{{input.brandGuide}}", "platforms": "{{input.platforms}}" },
+        "output": "tokensSpec",
+        "dependsOn": ["audit"]
+      },
+      {
+        "id": "components",
+        "name": "组件设计",
+        "nameZh": "组件设计",
+        "atomicSkill": "component-design",
+        "input": { "scope": "{{input.componentScope}}", "tokens": "{{steps.tokens.output}}" },
+        "output": "componentSpecs",
+        "dependsOn": ["tokens"]
+      },
+      {
+        "id": "docs",
+        "name": "文档与示例",
+        "nameZh": "文档与示例",
+        "type": "transform",
+        "input": { "components": "{{steps.components.output}}" },
+        "output": "docsSite",
+        "dependsOn": ["components"]
+      },
+      {
+        "id": "governance",
+        "name": "治理与版本策略",
+        "nameZh": "治理与版本策略",
+        "type": "llm",
+        "input": { "tokens": "{{steps.tokens.output}}", "components": "{{steps.components.output}}" },
+        "prompt": "为该设计系统输出 RFC 流程、SemVer 策略、breaking change 沟通模板",
+        "output": "governanceModel",
+        "dependsOn": ["docs"]
+      }
+    ]
+  },
+  "errorHandling": {
+    "strategy": "continue",
+    "fallback": { "step": "governance", "action": "skip-llm-step" }
+  }
+}

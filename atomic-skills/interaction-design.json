@@ -5,32 +5,112 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Interaction Design",
-    "nameZh": "interaction-design",
-    "description": "Skill: interaction-design",
-    "descriptionZh": "interaction-design",
+    "nameZh": "交互设计",
+    "description": "Design interaction flows, micro-interactions, motion and feedback for product experiences.",
+    "descriptionZh": "产品体验中的交互流程 / 微交互 / 动效 / 反馈设计。",
     "author": "skills4coder-team",
     "tags": [
-      "interaction"
+      "design",
+      "interaction",
+      "ux",
+      "motion",
+      "flow"
     ],
-    "category": "atomic"
+    "category": "design"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scenario"
+      ],
+      "properties": {
+        "scenario": {
+          "type": "string"
+        },
+        "goal": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "array"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "flowDiagram": {
+          "type": "string"
+        },
+        "prototype": {
+          "type": "string"
+        },
+        "motionSpec": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "interaction_design"
   },
-  "errors": {}
+  "errors": {
+    "LOOP_DETECTED": {
+      "code": "IX_001",
+      "message": "交互流程存在死循环",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "交互不是把页面连起来，是定义\"系统对用户行为的回应\"；好的交互让用户不需要思考下一步。",
+    "keyPoints": [
+      "每个动作都有反馈（视觉 / 听觉 / 触觉）",
+      "动效是因果不是装饰（200-300ms）",
+      "edge case 优先于 happy path",
+      "减少决策点 > 增加引导",
+      "可逆性 > 二次确认"
+    ],
+    "bestPractices": [
+      "flow 先 happy path 再 error / empty / loading",
+      "Lottie / Rive 做复杂动效",
+      "usability test 5 人足够",
+      "原型保真度按阶段升级（low → mid → high）"
+    ],
+    "antiPatterns": [
+      "动效炫技拖慢操作",
+      "错误信息不可恢复",
+      "同一动作多入口结果不一致",
+      "只做 happy path 上线"
+    ],
+    "resources": [
+      {
+        "title": "About Face",
+        "url": "https://www.cooper.com/journal/2014/8/about-face-the-essentials-of-interaction-design",
+        "type": "book"
+      },
+      {
+        "title": "Material Motion",
+        "url": "https://m3.material.io/styles/motion/overview",
+        "type": "doc"
+      },
+      {
+        "title": "NN/g Articles",
+        "url": "https://www.nngroup.com/articles/",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能画基础流程图",
+      "mid": "能完整覆盖状态 + 动效 spec",
+      "senior": "能驱动产品交互范式与跨端一致性"
+    }
+  }
 }

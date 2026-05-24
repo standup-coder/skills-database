@@ -4,33 +4,125 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Multi Cloud Security",
-    "nameZh": "multi-cloud-security",
-    "description": "Skill: multi-cloud-security",
-    "descriptionZh": "multi-cloud-security",
+    "name": "Multi-Cloud Security",
+    "nameZh": "多云安全",
+    "description": "Design unified security posture across AWS / Azure / GCP avoiding vendor lock-in and gaps.",
+    "descriptionZh": "在 AWS / Azure / GCP 之间设计统一安全态势，避免锁定与盲区。",
     "author": "skills4coder-team",
     "tags": [
-      "multi"
+      "security",
+      "multi-cloud",
+      "governance",
+      "posture",
+      "vendor-neutral"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "clouds"
+      ],
+      "properties": {
+        "clouds": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "aws",
+              "azure",
+              "gcp",
+              "oci",
+              "aliyun"
+            ]
+          }
+        },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "identity",
+            "network",
+            "data",
+            "workload"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "controlMatrix": {
+          "type": "object"
+        },
+        "gaps": {
+          "type": "array"
+        },
+        "unifiedTooling": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "multi_cloud_security"
   },
-  "errors": {}
+  "errors": {
+    "TOOL_FRAGMENTATION": {
+      "code": "MC_001",
+      "message": "工具碎片化，控制点无法对齐",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "多云安全不是把单云方案叠三遍；要先选定 control framework（CSA / NIST），再选跨云工具填齐控制点。",
+    "keyPoints": [
+      "CSA CCM / NIST CSF 做 control framework",
+      "统一 IdP（SSO + SCIM）防身份分裂",
+      "CSPM / CNAPP 类工具替代各家原生",
+      "日志统一到一个 SIEM",
+      "IaC 多云 abstraction（Terraform 模块化）"
+    ],
+    "bestPractices": [
+      "先 control matrix 再选工具",
+      "主云 + 次云模式优于平等多云",
+      "认证 / 网络 / 数据三层各自统一",
+      "事件响应 playbook 跨云一致"
+    ],
+    "antiPatterns": [
+      "每朵云独立 SSO",
+      "多 SIEM 数据分裂",
+      "只用云原生工具被锁定",
+      "没有统一 IaC 出现配置漂移"
+    ],
+    "resources": [
+      {
+        "title": "CSA Cloud Controls Matrix",
+        "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix/",
+        "type": "doc"
+      },
+      {
+        "title": "NIST CSF",
+        "url": "https://www.nist.gov/cyberframework",
+        "type": "doc"
+      },
+      {
+        "title": "Wiz / Orca / Prisma Cloud",
+        "url": "https://www.wiz.io/academy",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能用 CNAPP 工具看多云态势",
+      "mid": "能落地 control matrix + 统一 IdP",
+      "senior": "能驱动组织级多云治理战略"
+    }
+  }
 }

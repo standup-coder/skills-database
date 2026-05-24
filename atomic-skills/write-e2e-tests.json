@@ -4,33 +4,129 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Write E2e Tests",
-    "nameZh": "write-e2e-tests",
-    "description": "Skill: write-e2e-tests",
-    "descriptionZh": "write-e2e-tests",
+    "name": "Write E2E Tests",
+    "nameZh": "编写端到端测试",
+    "description": "Author end-to-end tests covering critical user journeys with focus on stability over coverage.",
+    "descriptionZh": "编写端到端测试，覆盖关键用户旅程，稳定性优先于覆盖率。",
     "author": "skills4coder-team",
     "tags": [
-      "write"
+      "testing",
+      "e2e",
+      "playwright",
+      "cypress",
+      "qa"
     ],
-    "category": "atomic"
+    "category": "testing"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "app"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "framework": {
+          "type": "string",
+          "enum": [
+            "playwright",
+            "cypress",
+            "webdriverio",
+            "puppeteer"
+          ]
+        },
+        "browser": {
+          "type": "string",
+          "enum": [
+            "chromium",
+            "firefox",
+            "webkit"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "specs": {
+          "type": "array"
+        },
+        "fixtures": {
+          "type": "array"
+        },
+        "ciConfig": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "write_e2e_tests"
   },
-  "errors": {}
+  "errors": {
+    "FLAKY_TEST": {
+      "code": "E2E_001",
+      "message": "测试 flaky，需修复或 quarantine",
+      "retryable": true
+    },
+    "ENV_DRIFT": {
+      "code": "E2E_002",
+      "message": "测试环境与生产偏离",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "e2e 的敌人不是 bug 是 flaky；与其追求高覆盖率，不如做 5 条永远绿色的关键路径。",
+    "keyPoints": [
+      "data-testid > CSS selector",
+      "auto-wait > sleep",
+      "fixtures 隔离测试数据",
+      "关键 journey ≤ 10 条 e2e",
+      "失败截图 / 录像 / trace 默认开"
+    ],
+    "bestPractices": [
+      "Playwright 默认开 trace + retry=2",
+      "与 backend mock 解耦或用专用环境",
+      "CI 串行 vs 并行做 sharding",
+      "flaky 自动 quarantine + 24h SLA 修复"
+    ],
+    "antiPatterns": [
+      "测试依赖 sleep(3000)",
+      "一条 e2e 覆盖整个产品",
+      "生产数据库做 e2e",
+      "flaky 测试占用 main 仍合并"
+    ],
+    "resources": [
+      {
+        "title": "Playwright",
+        "url": "https://playwright.dev/",
+        "type": "doc"
+      },
+      {
+        "title": "Cypress Best Practices",
+        "url": "https://docs.cypress.io/guides/references/best-practices",
+        "type": "doc"
+      },
+      {
+        "title": "Test Automation University",
+        "url": "https://testautomationu.applitools.com/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写基础 e2e spec",
+      "mid": "能控 flaky + 设计 fixture",
+      "senior": "能驱动 e2e 战略与质量门禁"
+    }
+  }
 }

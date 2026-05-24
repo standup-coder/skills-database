@@ -5,32 +5,109 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Logging Observability",
-    "nameZh": "logging-observability",
-    "description": "Skill: logging-observability",
-    "descriptionZh": "logging-observability",
+    "nameZh": "日志可观测性",
+    "description": "Design structured logging strategies that integrate with metrics & traces and power debugging at scale.",
+    "descriptionZh": "设计结构化日志策略，与指标 / 链路 trace 协同，支撑大规模调试与审计。",
     "author": "skills4coder-team",
     "tags": [
-      "logging"
+      "observability",
+      "logging",
+      "sre",
+      "troubleshooting",
+      "audit"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "service"
+      ],
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "json",
+            "logfmt"
+          ],
+          "default": "json"
+        },
+        "retentionDays": {
+          "type": "number",
+          "default": 30
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "schemaDoc": {
+          "type": "string"
+        },
+        "ingestionPipeline": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "logging_observability"
   },
-  "errors": {}
+  "errors": {
+    "LOG_VOLUME_EXPLOSION": {
+      "code": "LO_001",
+      "message": "日志量超 SLA 阈值，需采样",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "日志是事后侦查，指标是实时报警，trace 是因果地图。三者必须共享 trace_id 才能闭环。",
+    "keyPoints": [
+      "结构化日志 (JSON / logfmt) 第一守则",
+      "统一字段：timestamp, level, service, trace_id, user_id",
+      "log level 控制谨慎（INFO 之上才进入索引）",
+      "与 OpenTelemetry trace 关联",
+      "审计日志 vs 应用日志要分开 pipeline"
+    ],
+    "bestPractices": [
+      "用 ECS / OTel Logs Data Model 做 schema",
+      "采样高频路径（debug 级 sampling）",
+      "冷热分层：近期 ES，长期 S3 + Athena",
+      "禁止把 PII 写日志，用 hash 或 redact"
+    ],
+    "antiPatterns": [
+      "printf 大法满天飞",
+      "log.info(JSON.stringify(...request))",
+      "日志当 metrics 用，靠 grep 算 QPS",
+      "没有 retention 策略，磁盘永远 90%"
+    ],
+    "resources": [
+      {
+        "title": "OpenTelemetry Logs Data Model",
+        "url": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+        "type": "doc"
+      },
+      {
+        "title": "Elastic Common Schema (ECS)",
+        "url": "https://www.elastic.co/guide/en/ecs/current/index.html",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写结构化日志，区分 level",
+      "mid": "能设计 schema、与 trace 关联、控制日志量",
+      "senior": "能制定组织级日志治理：合规 / 成本 / 审计"
+    }
+  }
 }

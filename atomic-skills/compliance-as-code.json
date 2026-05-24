@@ -4,33 +4,120 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Compliance As Code",
-    "nameZh": "compliance-as-code",
-    "description": "Skill: compliance-as-code",
-    "descriptionZh": "compliance-as-code",
+    "name": "Compliance as Code",
+    "nameZh": "合规即代码",
+    "description": "Express and enforce compliance controls as code (OPA / Rego / Cloud Custodian) with continuous evidence collection.",
+    "descriptionZh": "用代码（OPA / Rego / Cloud Custodian）表达与执行合规控制点，持续收集 evidence。",
     "author": "skills4coder-team",
     "tags": [
-      "compliance"
+      "compliance",
+      "opa",
+      "governance",
+      "automation",
+      "devsecops"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "framework"
+      ],
+      "properties": {
+        "framework": {
+          "enum": [
+            "soc2",
+            "iso27001",
+            "pci-dss",
+            "cis",
+            "custom"
+          ]
+        },
+        "enforcement": {
+          "enum": [
+            "advisory",
+            "mandatory"
+          ],
+          "default": "advisory"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "policies": {
+          "type": "array"
+        },
+        "evidence": {
+          "type": "array"
+        },
+        "violations": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "compliance_as_code"
   },
-  "errors": {}
+  "errors": {
+    "POLICY_DRIFT": {
+      "code": "CAC_001",
+      "message": "运行态资源与策略 drift",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Compliance as Code 把 control 从 PDF 拽进 Git，让 evidence 在 CI 里自然生长。",
+    "keyPoints": [
+      "policy = code = test = evidence",
+      "OPA / Rego 是事实标准",
+      "admission control（Kyverno / Gatekeeper）拦截违规",
+      "Cloud Custodian / Steampipe 巡检云资源",
+      "control mapping 一份多用（SOC2 / ISO 复用）"
+    ],
+    "bestPractices": [
+      "policy 与应用一同 PR review",
+      "advisory → mandatory 渐进推进",
+      "evidence 自动归档（Drata / Vanta API）",
+      "control owner + due date 落到 Jira"
+    ],
+    "antiPatterns": [
+      "policy 写完不跑、不监控漂移",
+      "advisory 永久 advisory，不进入 mandatory",
+      "evidence 仍靠人工截图",
+      "一份 control 写多次没复用"
+    ],
+    "resources": [
+      {
+        "title": "Open Policy Agent",
+        "url": "https://www.openpolicyagent.org/docs/",
+        "type": "doc"
+      },
+      {
+        "title": "Kyverno",
+        "url": "https://kyverno.io/docs/",
+        "type": "doc"
+      },
+      {
+        "title": "Cloud Custodian",
+        "url": "https://cloudcustodian.io/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写简单 OPA 策略与单测",
+      "mid": "能集成 admission / cloud scan / evidence pipeline",
+      "senior": "能把 compliance-as-code 推到组织级，并对齐多个框架"
+    }
+  }
 }

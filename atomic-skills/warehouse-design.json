@@ -4,33 +4,130 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Warehouse Design",
-    "nameZh": "warehouse-design",
-    "description": "Skill: warehouse-design",
-    "descriptionZh": "warehouse-design",
+    "name": "Data Warehouse Design",
+    "nameZh": "数据仓库设计",
+    "description": "Design layered data warehouse with dimensional modeling (Kimball) or Data Vault patterns, covering ODS/DWD/DWS/ADS layers.",
+    "descriptionZh": "基于 Kimball 维度建模或 Data Vault 设计分层数仓（ODS/DWD/DWS/ADS），输出星型 / 雪花 schema 与命名规范。",
     "author": "skills4coder-team",
     "tags": [
-      "warehouse"
+      "data",
+      "warehouse",
+      "kimball",
+      "modeling",
+      "olap"
     ],
-    "category": "atomic"
+    "category": "data"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "businessDomain"
+      ],
+      "properties": {
+        "businessDomain": {
+          "type": "string",
+          "description": "业务域（订单 / 用户 / 财务 ...）"
+        },
+        "pattern": {
+          "enum": [
+            "star",
+            "snowflake",
+            "data-vault",
+            "one-big-table"
+          ],
+          "default": "star"
+        },
+        "sourceSystems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "slaFreshnessHours": {
+          "type": "number",
+          "default": 24
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "factTables": {
+          "type": "array"
+        },
+        "dimensionTables": {
+          "type": "array"
+        },
+        "layerMapping": {
+          "type": "object"
+        },
+        "namingConvention": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "warehouse_design"
   },
-  "errors": {}
+  "errors": {
+    "DOMAIN_AMBIGUOUS": {
+      "code": "DW_001",
+      "message": "业务域边界不清，无法稳定建模",
+      "retryable": false
+    },
+    "GRAIN_INCONSISTENT": {
+      "code": "DW_002",
+      "message": "事实表粒度声明不一致",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "数仓设计的核心不是表多漂亮，而是粒度稳定、口径统一、可追溯。",
+    "keyPoints": [
+      "粒度先行，事实表的 grain 决定一切",
+      "维度建模 vs Data Vault 各有适用",
+      "ODS/DWD/DWS/ADS 分层职责清晰",
+      "SCD Type 2 处理历史变化",
+      "命名规范是治理的开始"
+    ],
+    "bestPractices": [
+      "每张事实表写明 grain 描述",
+      "为每个指标建立口径文档",
+      "使用 dbt 管理血缘与测试",
+      "冷热分层降存储成本"
+    ],
+    "antiPatterns": [
+      "一张大宽表打天下",
+      "事实表混合多种 grain",
+      "维度表频繁删旧记录",
+      "没有命名规范，下游靠猜"
+    ],
+    "resources": [
+      {
+        "title": "Kimball Group: Dimensional Modeling Techniques",
+        "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/",
+        "type": "doc"
+      },
+      {
+        "title": "dbt 文档",
+        "url": "https://docs.getdbt.com/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能按既有规范建表",
+      "mid": "能主导域建模、SCD 设计、命名规范",
+      "senior": "能设计企业级分层数仓、治理体系与成本策略"
+    }
+  }
 }

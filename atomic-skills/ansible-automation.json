@@ -5,32 +5,108 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Ansible Automation",
-    "nameZh": "ansible-automation",
-    "description": "Skill: ansible-automation",
-    "descriptionZh": "ansible-automation",
+    "nameZh": "Ansible 自动化",
+    "description": "Use Ansible playbooks and roles for agentless server configuration, orchestration and compliance enforcement.",
+    "descriptionZh": "用 Ansible playbook / role 实现无 agent 的服务器配置、编排与合规执行。",
     "author": "skills4coder-team",
     "tags": [
-      "ansible"
+      "devops",
+      "ansible",
+      "configuration",
+      "automation",
+      "iac"
     ],
-    "category": "atomic"
+    "category": "devops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "inventory"
+      ],
+      "properties": {
+        "inventory": {
+          "type": "string"
+        },
+        "playbook": {
+          "type": "string"
+        },
+        "checkMode": {
+          "type": "boolean",
+          "default": false
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "changed": {
+          "type": "number"
+        },
+        "failed": {
+          "type": "number"
+        },
+        "report": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "ansible_automation"
   },
-  "errors": {}
+  "errors": {
+    "SSH_UNREACHABLE": {
+      "code": "AN_001",
+      "message": "目标主机 SSH 不可达",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Ansible 的卖点是简单与无 agent，但 playbook 体量一大就成 bash 升级版，模块化是命门。",
+    "keyPoints": [
+      "idempotent 是 Ansible 的灵魂",
+      "role 化 + ansible-galaxy 复用",
+      "--check / --diff 是夜间值班的护身符",
+      "tags 控制执行子集",
+      "Vault 加密 secrets 入库"
+    ],
+    "bestPractices": [
+      "用 molecule 做 role 测试",
+      "CI 中 lint（ansible-lint）+ check 模式",
+      "把 inventory 与 secrets 分离仓库",
+      "用 dynamic inventory 接 cloud provider"
+    ],
+    "antiPatterns": [
+      "shell module 满天飞，破坏幂等",
+      "playbook 巨型单文件无 role",
+      "在 prod 直接 run，无 staging",
+      "secrets 明文写入 vars"
+    ],
+    "resources": [
+      {
+        "title": "Ansible Best Practices",
+        "url": "https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html",
+        "type": "doc"
+      },
+      {
+        "title": "Molecule",
+        "url": "https://molecule.readthedocs.io/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跑现成 playbook",
+      "mid": "能写 role、用 vault、CI 集成",
+      "senior": "能设计跨百台规模的自动化体系并接 IaC / GitOps"
+    }
+  }
 }

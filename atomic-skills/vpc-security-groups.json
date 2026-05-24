@@ -4,33 +4,115 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Vpc Security Groups",
-    "nameZh": "vpc-security-groups",
-    "description": "Skill: vpc-security-groups",
-    "descriptionZh": "vpc-security-groups",
+    "name": "VPC & Security Groups",
+    "nameZh": "VPC 与安全组",
+    "description": "Design VPC topology and security group rules to enforce network segmentation and least-trust.",
+    "descriptionZh": "设计 VPC 拓扑与安全组规则，强制网络分段与最小信任。",
     "author": "skills4coder-team",
     "tags": [
-      "vpc"
+      "security",
+      "vpc",
+      "security-group",
+      "network",
+      "segmentation"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "vpc"
+      ],
+      "properties": {
+        "vpc": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "public",
+            "app",
+            "data"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "subnetMap": {
+          "type": "object"
+        },
+        "sgRules": {
+          "type": "array"
+        },
+        "nacl": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "vpc_security_groups"
   },
-  "errors": {}
+  "errors": {
+    "OPEN_TO_WORLD": {
+      "code": "VPC_001",
+      "message": "安全组对 0.0.0.0/0 开放高危端口",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "安全组是 stateful，NACL 是 stateless，分清楚再设计；不要试图用安全组实现复杂网络策略，那是 NetworkPolicy / firewall 的活。",
+    "keyPoints": [
+      "SG = stateful，NACL = stateless",
+      "public / app / data 三层分段",
+      "SG reference SG > IP allow list",
+      "默认 deny + 最小放行",
+      "跨 VPC 走 PrivateLink / Transit Gateway"
+    ],
+    "bestPractices": [
+      "SG 名称约定 service-tier-direction",
+      "IaC 管理 SG 不手工改",
+      "定期审 unused SG 删除",
+      "高危端口（22/3389）走 bastion / SSM"
+    ],
+    "antiPatterns": [
+      "0.0.0.0/0 + 22/3389 直暴露",
+      "app tier 直连 internet",
+      "一个 SG 复用多服务",
+      "NACL 当 stateful 用配错"
+    ],
+    "resources": [
+      {
+        "title": "AWS VPC Best Practices",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html",
+        "type": "doc"
+      },
+      {
+        "title": "AWS Security Groups vs NACLs",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
+        "type": "doc"
+      },
+      {
+        "title": "AWS Network Firewall",
+        "url": "https://docs.aws.amazon.com/network-firewall/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写基础 SG / NACL",
+      "mid": "能设计三层分段 + IaC 管理",
+      "senior": "能驱动组织级 landing zone 网络架构"
+    }
+  }
 }

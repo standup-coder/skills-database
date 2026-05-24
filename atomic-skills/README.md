@@ -64,6 +64,43 @@
 | validate-k8s-manifest | 校验 K8s 清单 | 使用 kubeval/kubectl 校验 YAML | native |
 | parse-json-log | 解析 JSON 日志 | 解析并过滤结构化日志 | native |
 
+### 7. AI / LLM 链路
+
+| Skill ID | 名称 | 描述 | 实现 |
+|----------|------|------|------|
+| prompt-engineering | Prompt 工程 | 系统化设计、版本化与 A/B 评测 prompt | native |
+| embeddings-design | 嵌入向量设计 | 选模型、维度、归一化与冷启动策略 | native |
+| vector-search | 向量检索 | ANN/HNSW/IVF 检索与混合查询 | native |
+| rag-pipeline | RAG 链路 | chunk → embed → retrieve → rerank → cite | native |
+| llm-evaluation | LLM 评测 | groundedness/faithfulness/cost 离线在线 | native |
+| agent-orchestration | Agent 编排 | supervisor/swarm/graph 多 Agent 控制流 | native |
+| tool-use-design | 工具调用设计 | 工具 schema、降级策略与失败边界 | native |
+| fine-tuning | 模型微调 | SFT/LoRA/RLHF 选型与评测闭环 | native |
+
+### 8. 微服务韧性
+
+| Skill ID | 名称 | 描述 | 实现 |
+|----------|------|------|------|
+| service-mesh | 服务网格 | Istio/Linkerd 流量、安全与可观测 | native |
+| circuit-breaker | 熔断器 | 半开探测、超时与降级策略 | native |
+| idempotency-design | 幂等设计 | 幂等键、去重窗口、幂等存储 | native |
+
+### 9. 可观测性
+
+| Skill ID | 名称 | 描述 | 实现 |
+|----------|------|------|------|
+| distributed-tracing | 分布式追踪 | OpenTelemetry trace/span 与采样策略 | native |
+| slo-error-budget | SLO 与错误预算 | 多窗口 burn rate 告警与冻结策略 | native |
+
+### 10. 测试细分
+
+| Skill ID | 名称 | 描述 | 实现 |
+|----------|------|------|------|
+| contract-testing | 契约测试 | Pact/CDC 流水线与版本兼容 | native |
+| chaos-engineering | 混沌工程 | 假设、爆炸半径、自动回滚的故障注入 | native |
+
+> **2026-05 更新**：补齐 LLM 链路 8 个 + 微服务韧性 3 个 + 可观测 2 个 + 测试细分 2 个，原子技能由 126 → 141；新增项 100% 带 learning 节（含 keyPoints / bestPractices / antiPatterns / resources / maturityLevels）。
+
 ## 原子技能结构
 
 ```json

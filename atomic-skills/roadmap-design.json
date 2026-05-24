@@ -5,32 +5,117 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Roadmap Design",
-    "nameZh": "roadmap-design",
-    "description": "Skill: roadmap-design",
-    "descriptionZh": "roadmap-design",
+    "nameZh": "产品路线图设计",
+    "description": "Design product roadmaps balancing strategy, user value, and engineering capacity.",
+    "descriptionZh": "平衡战略 / 用户价值 / 工程容量来设计产品路线图。",
     "author": "skills4coder-team",
     "tags": [
-      "roadmap"
+      "product",
+      "roadmap",
+      "strategy",
+      "planning",
+      "pm"
     ],
-    "category": "atomic"
+    "category": "product"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "horizon"
+      ],
+      "properties": {
+        "horizon": {
+          "type": "string",
+          "enum": [
+            "quarter",
+            "half",
+            "year"
+          ]
+        },
+        "themes": {
+          "type": "array"
+        },
+        "capacity": {
+          "type": "object"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "roadmap": {
+          "type": "array"
+        },
+        "themes": {
+          "type": "array"
+        },
+        "risks": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "roadmap_design"
   },
-  "errors": {}
+  "errors": {
+    "CAPACITY_OVERFLOW": {
+      "code": "RM_001",
+      "message": "计划项超出工程容量",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Roadmap 不是 feature 列表，是\"问题优先级 + 可信度\"；按 outcome 而非 output 编排，能避免过承诺。",
+    "keyPoints": [
+      "outcome > output（NorthStar metric 驱动）",
+      "Now / Next / Later 替代精确日期",
+      "theme 比单点 feature 稳定",
+      "capacity 留 20-30% buffer",
+      "每季度 review，不锁年度"
+    ],
+    "bestPractices": [
+      "ProductBoard / Productplan / Linear 做工具",
+      "roadmap 公开 → 反馈 → 复盘形成节奏",
+      "与 OKR 双向映射",
+      "风险列在 roadmap 上而非藏起来"
+    ],
+    "antiPatterns": [
+      "把销售承诺直接当 roadmap",
+      "Gantt 精确到天的年计划",
+      "feature factory 思维",
+      "roadmap 不公开内部各 stakeholder 信息差"
+    ],
+    "resources": [
+      {
+        "title": "Product Roadmaps Relaunched",
+        "url": "https://www.amazon.com/Product-Roadmaps-Relaunched-Set-Direction/dp/149197172X",
+        "type": "book"
+      },
+      {
+        "title": "ProductPlan",
+        "url": "https://www.productplan.com/learn/",
+        "type": "doc"
+      },
+      {
+        "title": "Reforge: Roadmap",
+        "url": "https://www.reforge.com/blog/lean-roadmap",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能维护季度 roadmap",
+      "mid": "能 outcome 驱动 + theme 编排",
+      "senior": "能驱动组织级 roadmap 治理与战略对齐"
+    }
+  }
 }

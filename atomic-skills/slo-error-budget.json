@@ -1,0 +1,84 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "slo-error-budget",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "SLO & Error Budget",
+    "nameZh": "SLO 与错误预算",
+    "description": "Define SLIs / SLOs and operate error budgets to balance reliability and feature velocity.",
+    "descriptionZh": "定义 SLI/SLO 并运营错误预算，平衡可靠性与特性迭代速度。",
+    "author": "skills4coder-team",
+    "tags": ["sre", "slo", "sli", "error-budget", "reliability"],
+    "category": "observability"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "service": { "type": "string" },
+        "userJourneys": { "type": "array", "items": { "type": "string" } },
+        "businessTier": { "enum": ["critical", "important", "best-effort"] }
+      },
+      "required": ["service"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "sliDefinitions": { "type": "array", "items": { "type": "object" } },
+        "sloTargets": { "type": "array", "items": { "type": "object" } },
+        "errorBudgetPolicy": { "type": "object" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "slo_error_budget"
+  },
+  "constraints": {
+    "permissions": ["read", "write"]
+  },
+  "errors": {
+    "UNREALISTIC_SLO": { "code": "SLO_001", "message": "SLO 目标不可实现或与历史数据矛盾", "retryable": false },
+    "BUDGET_EXHAUSTED": { "code": "SLO_002", "message": "错误预算已耗尽，需冻结发布", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "100% 可用是错觉：用 SLO 把可靠性定量为预算，超支就停发布，节省就投资速度。",
+    "keyPoints": [
+      "SLI（指标）→ SLO（目标）→ SLA（合同），方向不能反",
+      "SLI 选 user-centric：成功率、延迟 P99，而非主机 CPU",
+      "SLO 必须低于 100%，预算 = 1 - SLO，例如 99.9% 月预算 ≈ 43.2 分钟",
+      "错误预算耗尽 → 发布冻结 + 全员投入可靠性，是组织契约",
+      "多窗口 burn rate 告警比固定阈值更敏锐",
+      "重要 user journey 比单服务 SLO 更有意义（多服务组合）"
+    ],
+    "bestPractices": [
+      "从 1-2 个核心 SLI 开始，逐步扩展，避免指标洪水",
+      "用 28 天滚动窗口而非自然月，减少边界跳变",
+      "SLO 定下来要有 review 周期（季度），随业务调整",
+      "预算耗尽政策写进团队制度，不靠人情豁免",
+      "把 SLO 状态做成 dashboard，全员可见"
+    ],
+    "antiPatterns": [
+      "追求 99.99%+ 但没有对应基础设施投入",
+      "SLI 选错（看主机指标而非用户体验）",
+      "预算耗尽却继续发布，SLO 沦为摆设",
+      "SLO 和 SLA 混淆，把对外承诺当内部目标",
+      "全公司一个 SLO，无视服务分级"
+    ],
+    "resources": [
+      { "title": "Site Reliability Engineering (Google)", "url": "https://sre.google/sre-book/table-of-contents/", "type": "book" },
+      { "title": "The Site Reliability Workbook", "url": "https://sre.google/workbook/table-of-contents/", "type": "book" },
+      { "title": "Implementing SLOs (Alex Hidalgo)", "url": "https://www.oreilly.com/library/view/implementing-service-level/9781492076803/", "type": "book" },
+      { "title": "Multi-window Burn Rate Alerts", "url": "https://sre.google/workbook/alerting-on-slos/", "type": "article" },
+      { "title": "Sloth (SLO generator)", "url": "https://github.com/slok/sloth", "type": "tool" }
+    ],
+    "maturityLevels": {
+      "junior": "理解 SLI/SLO/SLA 区别，能为已有指标定 SLO",
+      "mid": "能设计基于 user journey 的 SLO 与多窗口 burn rate 告警",
+      "senior": "能推动错误预算政策落地，调和业务速度与可靠性"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "fine-tuning",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Fine-Tuning",
+    "nameZh": "模型微调",
+    "description": "Plan and execute LLM fine-tuning: SFT, LoRA, DPO; data curation, training, evaluation.",
+    "descriptionZh": "规划并执行 LLM 微调：SFT / LoRA / DPO；数据治理、训练与评估。",
+    "author": "skills4coder-team",
+    "tags": ["llm", "fine-tuning", "sft", "lora", "dpo"],
+    "category": "ai-llm"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "baseModel": { "type": "string" },
+        "useCase": { "type": "string" },
+        "datasetSize": { "type": "number" },
+        "budget": { "type": "object" }
+      },
+      "required": ["baseModel", "useCase"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "method": { "enum": ["sft", "lora", "qlora", "dpo", "rlhf"] },
+        "datasetPlan": { "type": "object" },
+        "trainingConfig": { "type": "object" },
+        "evalPlan": { "type": "object" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "fine_tuning"
+  },
+  "constraints": {
+    "permissions": ["read", "write"]
+  },
+  "errors": {
+    "INSUFFICIENT_DATA": { "code": "FT_001", "message": "训练数据不足或质量过低", "retryable": false },
+    "CATASTROPHIC_FORGETTING": { "code": "FT_002", "message": "微调后通用能力显著下降", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "微调不是万灵药：先 prompt → 再 RAG → 最后才考虑微调，且微调的代价是通用能力损失。",
+    "keyPoints": [
+      "决策树：能用 prompt 解决就别 RAG，能用 RAG 解决就别微调",
+      "SFT 学风格/格式效果最好，学知识效果差且会幻觉",
+      "LoRA / QLoRA 用极少参数即可适配，性价比远高于全参 SFT",
+      "DPO/RLHF 用于让模型符合偏好，需要成对样本（chosen/rejected）",
+      "数据质量 >> 数据数量：1k 高质量样本胜 100k 低质量",
+      "永远做留出集评估，警惕 catastrophic forgetting"
+    ],
+    "bestPractices": [
+      "微调前先把 prompt+RAG 打到极限，确认天花板",
+      "数据治理：去重、平衡、人工 review，按主题分桶",
+      "用 7B / 13B 小模型先验证方案，再放大到大模型",
+      "训练时同时评估专项任务与通用 benchmark（防忘）",
+      "用 Weights & Biases / MLflow 记录每次实验"
+    ],
+    "antiPatterns": [
+      "为了让模型学新知识而微调，结果还是幻觉",
+      "数据没清洗就训练，把脏数据学进去",
+      "全参微调小数据集，过拟合 + 忘掉通用能力",
+      "不做留出集评估，靠训练 loss 判断质量",
+      "微调成本远高于直接调用大模型 API 也不算账"
+    ],
+    "resources": [
+      { "title": "LoRA (Hu et al.)", "url": "https://arxiv.org/abs/2106.09685", "type": "article" },
+      { "title": "QLoRA (Dettmers et al.)", "url": "https://arxiv.org/abs/2305.14314", "type": "article" },
+      { "title": "DPO (Rafailov et al.)", "url": "https://arxiv.org/abs/2305.18290", "type": "article" },
+      { "title": "Hugging Face PEFT", "url": "https://github.com/huggingface/peft", "type": "tool" },
+      { "title": "Axolotl", "url": "https://github.com/OpenAccess-AI-Collective/axolotl", "type": "tool" }
+    ],
+    "maturityLevels": {
+      "junior": "能用现成脚本对小模型做 SFT/LoRA 微调",
+      "mid": "能做数据治理、超参调优、留出集评估",
+      "senior": "能选择 SFT/DPO/RLHF 方案、平衡专项与通用能力、控制成本"
+    }
+  }
+}

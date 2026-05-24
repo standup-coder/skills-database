@@ -4,33 +4,106 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Azure Cli Basics",
-    "nameZh": "azure-cli-basics",
-    "description": "Skill: azure-cli-basics",
-    "descriptionZh": "azure-cli-basics",
+    "name": "Azure CLI Basics",
+    "nameZh": "Azure CLI 基础",
+    "description": "Use Azure CLI for resource provisioning, querying, scripting and automation across Azure services.",
+    "descriptionZh": "使用 Azure CLI 管理 Azure 资源，支撑脚本化与自动化。",
     "author": "skills4coder-team",
     "tags": [
-      "azure"
+      "azure",
+      "cli",
+      "cloud",
+      "devops",
+      "automation"
     ],
-    "category": "atomic"
+    "category": "devops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "service",
+        "action"
+      ],
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "subscription": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "result": {
+          "type": "object"
+        },
+        "exitCode": {
+          "type": "number"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "azure_cli_basics"
   },
-  "errors": {}
+  "errors": {
+    "AUTH_FAIL": {
+      "code": "AZ_001",
+      "message": "凭据失效或权限不足",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Azure CLI 与 AWS CLI 模式同构，但 RBAC 与 Resource Group 边界是 Azure 独有的概念门槛。",
+    "keyPoints": [
+      "az login + az account set --subscription",
+      "Resource Group 是部署单位与权限边界",
+      "--query 用 JMESPath，--output table 适合 ad-hoc",
+      "Service Principal 替代长期密钥",
+      "az bicep 与 ARM template 配合使用"
+    ],
+    "bestPractices": [
+      "用 Managed Identity 替代凭据",
+      "CLI 命令固化进 scripts 与 CI",
+      "危险操作 --dry-run / what-if",
+      "tag 命名规范便于成本归属"
+    ],
+    "antiPatterns": [
+      "全局 admin 用户日常使用",
+      "把 SP 凭据写入仓库",
+      "订阅 / RG 命名混乱难治理",
+      "命令脚本无版本控制"
+    ],
+    "resources": [
+      {
+        "title": "Azure CLI docs",
+        "url": "https://learn.microsoft.com/en-us/cli/azure/",
+        "type": "doc"
+      },
+      {
+        "title": "Azure RBAC",
+        "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跑常用资源管理命令",
+      "mid": "能用 SP / Managed Identity / 脚本化",
+      "senior": "能制定云资源治理与命名 / RBAC 规范"
+    }
+  }
 }

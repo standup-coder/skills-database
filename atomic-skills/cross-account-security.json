@@ -4,33 +4,120 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Cross Account Security",
-    "nameZh": "cross-account-security",
-    "description": "Skill: cross-account-security",
-    "descriptionZh": "cross-account-security",
+    "name": "Cross-Account Security",
+    "nameZh": "跨账号安全",
+    "description": "Design secure cross-account access and resource sharing using assume-role and SCP guardrails.",
+    "descriptionZh": "基于 assume-role 与 SCP 护栏设计安全的跨账号访问与资源共享。",
     "author": "skills4coder-team",
     "tags": [
-      "cross"
+      "security",
+      "cross-account",
+      "iam",
+      "aws-organizations",
+      "scp"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "source",
+        "target"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string",
+          "enum": [
+            "assume-role",
+            "resource-policy",
+            "ram",
+            "lake-formation"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "trustPolicy": {
+          "type": "object"
+        },
+        "scpPolicy": {
+          "type": "object"
+        },
+        "sharedResources": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "cross_account_security"
   },
-  "errors": {}
+  "errors": {
+    "CONFUSED_DEPUTY": {
+      "code": "CA_001",
+      "message": "存在 confused deputy 风险",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "多账号架构是云安全护栏的\"基石\"；跨账号设计的核心是 trust + condition + SCP 三层叠加，不能只靠 trust policy。",
+    "keyPoints": [
+      "ExternalId 防 confused deputy",
+      "Source IP / VPC condition 进一步约束",
+      "SCP 是组织级\"不可越过\"护栏",
+      "AWS RAM > 资源策略复杂度低",
+      "一切跨账号走 IaC 不手工"
+    ],
+    "bestPractices": [
+      "per-tenant ExternalId 不复用",
+      "SCP 写\"deny *:*\" 例外白名单",
+      "cross-account log 集中到 security account",
+      "定期审 trust policy 漂移"
+    ],
+    "antiPatterns": [
+      "没有 ExternalId 的 trust policy",
+      "SCP 不写靠 IAM 做护栏",
+      "资源策略 Principal *",
+      "日志 / 监控数据散在各业务账号"
+    ],
+    "resources": [
+      {
+        "title": "AWS Cross-Account Best Practices",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+        "type": "doc"
+      },
+      {
+        "title": "AWS Confused Deputy",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html",
+        "type": "doc"
+      },
+      {
+        "title": "AWS Organizations SCP",
+        "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能配置基础 assume-role",
+      "mid": "能设计 SCP + trust 多层护栏",
+      "senior": "能驱动组织级 multi-account landing zone 战略"
+    }
+  }
 }

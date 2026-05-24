@@ -5,32 +5,125 @@
   "version": "1.0.0",
   "metadata": {
     "name": "State Management",
-    "nameZh": "state-management",
-    "description": "Skill: state-management",
-    "descriptionZh": "state-management",
+    "nameZh": "前端状态管理",
+    "description": "Design and implement frontend state management patterns for complex SPAs.",
+    "descriptionZh": "为复杂 SPA 设计与实现前端状态管理模式。",
     "author": "skills4coder-team",
     "tags": [
-      "state"
+      "frontend",
+      "state",
+      "redux",
+      "zustand",
+      "react-query"
     ],
-    "category": "atomic"
+    "category": "frontend"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "app"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "framework": {
+          "type": "string",
+          "enum": [
+            "react",
+            "vue",
+            "svelte",
+            "solid"
+          ]
+        },
+        "pattern": {
+          "type": "string",
+          "enum": [
+            "flux",
+            "atomic",
+            "signal",
+            "server-state"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "storeShape": {
+          "type": "object"
+        },
+        "selectors": {
+          "type": "array"
+        },
+        "sideEffects": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "state_management"
   },
-  "errors": {}
+  "errors": {
+    "STATE_DUPLICATION": {
+      "code": "SM_001",
+      "message": "server state 与 client state 重复",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "前端状态最大的反模式是把 server state 当 client state 管；React Query / SWR 把缓存语义还给数据层之后，全局 store 应该只剩 UI state。",
+    "keyPoints": [
+      "区分 server state / UI state / form state / URL state",
+      "colocate state（最近共享祖先）",
+      "derived state 用 selector 不用 store",
+      "不可变更新（immer）",
+      "memoization 要看依赖稳定性"
+    ],
+    "bestPractices": [
+      "server state → React Query / SWR / RTK Query",
+      "UI state → Zustand / Jotai / Context",
+      "form → React Hook Form / Tanstack Form",
+      "URL → 路由参数",
+      "devtools 永远开"
+    ],
+    "antiPatterns": [
+      "把 API 数据塞 Redux 手动同步",
+      "一切走全局 store 引发 re-render 风暴",
+      "useState 链式 setState 嵌套",
+      "Context 滥用做高频更新"
+    ],
+    "resources": [
+      {
+        "title": "TkDodo blog",
+        "url": "https://tkdodo.eu/blog/",
+        "type": "article"
+      },
+      {
+        "title": "Redux Style Guide",
+        "url": "https://redux.js.org/style-guide/",
+        "type": "doc"
+      },
+      {
+        "title": "Zustand",
+        "url": "https://zustand-demo.pmnd.rs/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能用 useState / Context",
+      "mid": "能选型 server vs client state 并落地",
+      "senior": "能驱动复杂应用状态架构与性能优化"
+    }
+  }
 }

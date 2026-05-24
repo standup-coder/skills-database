@@ -5,32 +5,118 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Storage Security",
-    "nameZh": "storage-security",
-    "description": "Skill: storage-security",
-    "descriptionZh": "storage-security",
+    "nameZh": "存储安全",
+    "description": "Secure cloud storage (S3/Blob/GCS) with encryption, public access blocks, lifecycle and audit.",
+    "descriptionZh": "通过加密 / 公开访问阻断 / 生命周期 / 审计加固云存储（S3 / Blob / GCS）。",
     "author": "skills4coder-team",
     "tags": [
-      "storage"
+      "security",
+      "storage",
+      "s3",
+      "encryption",
+      "lifecycle"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "bucket"
+      ],
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string",
+          "enum": [
+            "s3",
+            "gcs",
+            "azure-blob",
+            "oss"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "findings": {
+          "type": "array"
+        },
+        "encryptionState": {
+          "type": "string"
+        },
+        "publicAccess": {
+          "type": "boolean"
+        },
+        "lifecyclePolicy": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "storage_security"
   },
-  "errors": {}
+  "errors": {
+    "PUBLIC_BUCKET": {
+      "code": "ST_001",
+      "message": "存储桶配置为公开访问",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "90% 云数据泄漏的根因是 storage 配置错误，不是 0day。把\"public block + encryption + lifecycle + access log\"四件事做了能拦下大多数。",
+    "keyPoints": [
+      "Block Public Access 账号级开启",
+      "SSE-KMS 优于 SSE-S3",
+      "pre-signed URL 必须有 TTL",
+      "lifecycle 自动迁移冷数据 / 删除",
+      "access log + Athena 做事后审计"
+    ],
+    "bestPractices": [
+      "IaC 默认所有 bucket 私有",
+      "CSPM 持续扫描 public bucket",
+      "KMS key 与 bucket 一一对应",
+      "object lock 防勒索篡改"
+    ],
+    "antiPatterns": [
+      "\"暂时\" public 后忘了关",
+      "pre-signed URL 给 7 天 TTL",
+      "不开 access log 出事查不到",
+      "lifecycle 不配置成本失控"
+    ],
+    "resources": [
+      {
+        "title": "AWS S3 Security Best Practices",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
+        "type": "doc"
+      },
+      {
+        "title": "GCS Security",
+        "url": "https://cloud.google.com/storage/docs/best-practices",
+        "type": "doc"
+      },
+      {
+        "title": "Azure Blob Security",
+        "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能配置加密与 public block",
+      "mid": "能落地 IaC + CSPM + lifecycle",
+      "senior": "能驱动组织级存储安全 baseline 与勒索防护"
+    }
+  }
 }

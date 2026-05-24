@@ -4,33 +4,123 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Cloud Ir Playbook",
-    "nameZh": "cloud-ir-playbook",
-    "description": "Skill: cloud-ir-playbook",
-    "descriptionZh": "cloud-ir-playbook",
+    "name": "Cloud Incident Response Playbook",
+    "nameZh": "云事件响应 Playbook",
+    "description": "Author and execute cloud-specific incident response playbooks for common scenarios.",
+    "descriptionZh": "为云常见场景撰写并执行事件响应 Playbook。",
     "author": "skills4coder-team",
     "tags": [
-      "cloud"
+      "security",
+      "ir",
+      "playbook",
+      "cloud",
+      "incident"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scenario"
+      ],
+      "properties": {
+        "scenario": {
+          "type": "string",
+          "enum": [
+            "credential-leak",
+            "crypto-mining",
+            "data-exfil",
+            "s3-public",
+            "ransomware",
+            "container-escape"
+          ]
+        },
+        "cloud": {
+          "type": "string",
+          "enum": [
+            "aws",
+            "azure",
+            "gcp"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "playbook": {
+          "type": "string"
+        },
+        "containActions": {
+          "type": "array"
+        },
+        "evidenceList": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "cloud_ir_playbook"
   },
-  "errors": {}
+  "errors": {
+    "ROLE_NOT_PROVISIONED": {
+      "code": "IR_001",
+      "message": "IR 专用 role 未预置",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Playbook 不是事后再写，是事前预演；事件发生那 15 分钟你不会再想着读手册。",
+    "keyPoints": [
+      "contain / eradicate / recover 三段",
+      "IR role + readonly + forensics 预先建好",
+      "snapshot 优于 destroy（forensics）",
+      "通讯通道与正常通道分离",
+      "复盘做 blameless post-mortem"
+    ],
+    "bestPractices": [
+      "每季度跑 tabletop drill",
+      "关键 playbook 自动化（Lambda / Step Functions）",
+      "把 timeline 自动归档",
+      "与法务 / PR 提前定义触发条件"
+    ],
+    "antiPatterns": [
+      "事件中匆忙建 IR role",
+      "直接 terminate 实例丢失证据",
+      "通过日常 IM 通讯泄漏给攻击者",
+      "没有 post-mortem 重复踩坑"
+    ],
+    "resources": [
+      {
+        "title": "NIST SP 800-61",
+        "url": "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final",
+        "type": "doc"
+      },
+      {
+        "title": "AWS IR Guide",
+        "url": "https://docs.aws.amazon.com/security-ir/latest/userguide/welcome.html",
+        "type": "doc"
+      },
+      {
+        "title": "SANS Incident Handler Handbook",
+        "url": "https://www.sans.org/white-papers/33901/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能执行已有 playbook 步骤",
+      "mid": "能撰写场景级 playbook 并演练",
+      "senior": "能驱动组织级 IR 体系与跨部门协同"
+    }
+  }
 }

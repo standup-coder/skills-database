@@ -5,32 +5,132 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Penetration Testing",
-    "nameZh": "penetration-testing",
-    "description": "Skill: penetration-testing",
-    "descriptionZh": "penetration-testing",
+    "nameZh": "渗透测试",
+    "description": "Plan and execute penetration testing engagements covering web, API, cloud and internal networks.",
+    "descriptionZh": "规划与执行渗透测试项目，覆盖 Web / API / 云 / 内网。",
     "author": "skills4coder-team",
     "tags": [
-      "penetration"
+      "security",
+      "pentest",
+      "red-team",
+      "offensive",
+      "audit"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scope"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string",
+          "enum": [
+            "black-box",
+            "grey-box",
+            "white-box"
+          ]
+        },
+        "frameworks": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "owasp",
+              "ptes",
+              "mitre-attack"
+            ]
+          }
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "findings": {
+          "type": "array"
+        },
+        "severity": {
+          "type": "object"
+        },
+        "exploitChain": {
+          "type": "array"
+        },
+        "report": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "penetration_testing"
   },
-  "errors": {}
+  "errors": {
+    "OUT_OF_SCOPE": {
+      "code": "PT_001",
+      "message": "目标超出授权范围",
+      "retryable": false
+    },
+    "LEGAL_BLOCK": {
+      "code": "PT_002",
+      "message": "缺少书面授权",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "渗透不是炫技，是给防守端找具体可修复的漏洞链；没有 ROE（rules of engagement）就不要动手。",
+    "keyPoints": [
+      "ROE / 授权书是底线",
+      "区分 vuln scan vs pentest vs red team",
+      "PTES 七阶段 / OWASP Testing Guide",
+      "攻击链 > 单点漏洞",
+      "报告必须给可执行修复建议"
+    ],
+    "bestPractices": [
+      "Burp / Caido + 自动化扫描组合",
+      "每发现都要 PoC + repro 步骤",
+      "与 blue team 做 purple teaming 复盘",
+      "报告分管理摘要 + 技术明细两层"
+    ],
+    "antiPatterns": [
+      "没授权先扫",
+      "只交一份扫描器导出报告",
+      "只列单点漏洞不组装链",
+      "报告写完就走，不复测"
+    ],
+    "resources": [
+      {
+        "title": "OWASP Testing Guide",
+        "url": "https://owasp.org/www-project-web-security-testing-guide/",
+        "type": "doc"
+      },
+      {
+        "title": "PTES",
+        "url": "http://www.pentest-standard.org/",
+        "type": "doc"
+      },
+      {
+        "title": "MITRE ATT&CK",
+        "url": "https://attack.mitre.org/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能用 Burp / Nmap 做基础测试",
+      "mid": "能独立完成 web / API 渗透并产出报告",
+      "senior": "能驱动 red / purple team 演练并对齐 ATT&CK"
+    }
+  }
 }

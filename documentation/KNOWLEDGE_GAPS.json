@@ -1,0 +1,73 @@
+{
+  "generated": "2026-05-23T18:38:53.542Z",
+  "summary": {
+    "missing.nameZh": 0,
+    "missing.descriptionZh": 0,
+    "missing.constraints": 10,
+    "missing.errors": 12,
+    "unknown.skillRef": 0,
+    "empty.inputSchema": 8,
+    "empty.outputSchema": 8,
+    "missing.learning": 7
+  },
+  "buckets": {
+    "missing.nameZh": [],
+    "missing.descriptionZh": [],
+    "missing.constraints": [
+      "analyze-code",
+      "api-call",
+      "api-request",
+      "git-diff",
+      "http-request",
+      "log-parser",
+      "run-linter",
+      "run-tests",
+      "search-code",
+      "write-comment"
+    ],
+    "missing.errors": [
+      "analyze-code",
+      "api-call",
+      "api-request",
+      "database-query",
+      "git-diff",
+      "http-request",
+      "log-parser",
+      "run-linter",
+      "run-tests",
+      "search-code",
+      "write-comment",
+      "write-file"
+    ],
+    "unknown.skillRef": [],
+    "empty.inputSchema": [
+      "analyze-code",
+      "api-request",
+      "git-diff",
+      "log-parser",
+      "run-linter",
+      "run-tests",
+      "search-code",
+      "write-comment"
+    ],
+    "empty.outputSchema": [
+      "analyze-code",
+      "api-request",
+      "git-diff",
+      "log-parser",
+      "run-linter",
+      "run-tests",
+      "search-code",
+      "write-comment"
+    ],
+    "missing.learning": [
+      "api-request",
+      "git-diff",
+      "http-request",
+      "log-parser",
+      "run-linter",
+      "search-code",
+      "write-comment"
+    ]
+  }
+}

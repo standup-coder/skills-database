@@ -5,32 +5,116 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Health Monitoring",
-    "nameZh": "health-monitoring",
-    "description": "Skill: health-monitoring",
-    "descriptionZh": "health-monitoring",
+    "nameZh": "健康监控",
+    "description": "Set up health monitoring covering process liveness, readiness, dependency health, and synthetic checks for SLO-backed services.",
+    "descriptionZh": "构建覆盖进程存活 / 流量就绪 / 依赖健康 / 合成探测的健康监控体系，支撑 SLO 服务。",
     "author": "skills4coder-team",
     "tags": [
-      "health"
+      "observability",
+      "health",
+      "sre",
+      "monitoring",
+      "slo"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "service"
+      ],
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "probes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "liveness",
+              "readiness",
+              "startup",
+              "synthetic"
+            ]
+          }
+        },
+        "sloTarget": {
+          "type": "number",
+          "description": "可用性目标（如 0.999）"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "dashboards": {
+          "type": "array"
+        },
+        "alerts": {
+          "type": "array"
+        },
+        "runbookUrl": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "health_monitoring"
   },
-  "errors": {}
+  "errors": {
+    "SLO_UNDEFINED": {
+      "code": "HM_001",
+      "message": "服务未定义 SLO，无法配置告警阈值",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "健康监控的目标不是\"能告警\"，而是\"告对警\"：噪声多就等于没监控。",
+    "keyPoints": [
+      "multi-window multi-burn-rate 替代单阈值告警",
+      "symptom-based 告警（用户感知）优先于 cause-based",
+      "黑盒（synthetic）+ 白盒（metrics）双视角",
+      "runbook 必须随告警发出",
+      "依赖健康聚合到 readiness"
+    ],
+    "bestPractices": [
+      "告警分级：page / ticket / silent",
+      "把 SLO 与告警公式直接绑定",
+      "使用 Prometheus AlertManager 路由按团队分发",
+      "每月做告警审计，删冗余"
+    ],
+    "antiPatterns": [
+      "CPU > 80% 就 page，半夜叫醒人",
+      "告警没 runbook，值班人靠猜",
+      "告警全发同一群组，疲劳化",
+      "只监控基础设施不监控业务路径"
+    ],
+    "resources": [
+      {
+        "title": "Google SRE: Alerting on SLOs",
+        "url": "https://sre.google/workbook/alerting-on-slos/",
+        "type": "doc"
+      },
+      {
+        "title": "Prometheus AlertManager",
+        "url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能配基础 liveness / readiness probe",
+      "mid": "能基于 SLO 配 burn-rate 告警、写 runbook",
+      "senior": "能设计组织级监控体系、告警治理与值班规范"
+    }
+  }
 }

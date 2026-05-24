@@ -1,0 +1,89 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "cross-platform-development",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Cross-Platform Development",
+    "nameZh": "跨平台开发",
+    "description": "Architect and deliver a cross-platform mobile/desktop app with shared business logic",
+    "descriptionZh": "以共享核心层为目标设计跨平台应用：选型 → 架构分层 → 平台桥接 → 性能与一致性验证",
+    "author": "skills4coder-team",
+    "tags": ["cross-platform", "react-native", "flutter", "kmm", "mobile"],
+    "category": "mobile"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "framework": { "type": "string", "enum": ["react-native", "flutter", "kmm", "tauri", "electron"] },
+        "platforms": { "type": "array", "items": { "type": "string" } },
+        "sharedLogicScope": { "type": "array", "items": { "type": "string" }, "description": "希望共享的业务领域" }
+      },
+      "required": ["framework", "platforms"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "architecture": { "type": "object" },
+        "bridgingPlan": { "type": "object" },
+        "performanceBudget": { "type": "object" },
+        "consistencyChecklist": { "type": "array" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "跨平台应用的架构设计闭环",
+    "steps": [
+      {
+        "id": "tradeoff",
+        "name": "框架选型权衡",
+        "nameZh": "框架选型权衡",
+        "type": "llm",
+        "input": { "framework": "{{input.framework}}", "platforms": "{{input.platforms}}" },
+        "prompt": "从性能、生态、招聘、长期维护四维评估并输出 ADR",
+        "output": "tradeoffAdr"
+      },
+      {
+        "id": "architecture",
+        "name": "分层架构",
+        "nameZh": "分层架构",
+        "atomicSkill": "cross-platform",
+        "input": { "framework": "{{input.framework}}", "scope": "{{input.sharedLogicScope}}" },
+        "output": "architecture",
+        "dependsOn": ["tradeoff"]
+      },
+      {
+        "id": "bridging",
+        "name": "原生桥接设计",
+        "nameZh": "原生桥接设计",
+        "atomicSkill": "cross-platform",
+        "input": { "architecture": "{{steps.architecture.output}}", "platforms": "{{input.platforms}}" },
+        "output": "bridgingPlan",
+        "dependsOn": ["architecture"]
+      },
+      {
+        "id": "perf-budget",
+        "name": "性能预算",
+        "nameZh": "性能预算",
+        "atomicSkill": "performance-optimization",
+        "input": { "platforms": "{{input.platforms}}" },
+        "output": "performanceBudget",
+        "dependsOn": ["architecture"]
+      },
+      {
+        "id": "consistency",
+        "name": "多端一致性核对",
+        "nameZh": "多端一致性核对",
+        "type": "llm",
+        "input": { "architecture": "{{steps.architecture.output}}", "bridging": "{{steps.bridging.output}}" },
+        "prompt": "输出视觉/交互/数据一致性 checklist，标注必须 vs 可放宽项",
+        "output": "consistencyChecklist",
+        "dependsOn": ["bridging"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "contract-testing",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Contract Testing",
+    "nameZh": "契约测试",
+    "description": "Verify service compatibility via consumer-driven contracts (Pact / Spring Cloud Contract).",
+    "descriptionZh": "通过消费者驱动契约（Pact / Spring Cloud Contract）验证服务间兼容性。",
+    "author": "skills4coder-team",
+    "tags": ["testing", "contract", "microservices", "pact"],
+    "category": "testing"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "consumers": { "type": "array", "items": { "type": "string" } },
+        "providers": { "type": "array", "items": { "type": "string" } },
+        "broker": { "type": "string" }
+      },
+      "required": ["consumers", "providers"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "contracts": { "type": "array", "items": { "type": "object" } },
+        "ciIntegration": { "type": "object" },
+        "canIDeployStrategy": { "type": "object" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "contract_testing"
+  },
+  "constraints": {
+    "permissions": ["read", "write"]
+  },
+  "errors": {
+    "CONTRACT_BROKEN": { "code": "CT_001", "message": "Provider 实现与已发布契约不兼容", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "契约测试在 E2E 与单测之间填空：在不启动整套环境的前提下，确保服务间不会破坏对方。",
+    "keyPoints": [
+      "Consumer-driven：契约由调用方拥有，反映真实用法",
+      "Pact broker 存储契约与版本，支撑 can-i-deploy 决策",
+      "契约测试覆盖结构与示例，不替代功能验证",
+      "适合内部服务间，不适合外部 SDK（外部用 OpenAPI 文档）",
+      "破坏性变更 = 契约变更，需要协商发布顺序",
+      "异步场景用 message contract（Kafka schema）"
+    ],
+    "bestPractices": [
+      "Consumer 先写契约 + 本地测试，CI 推送到 broker",
+      "Provider CI 拉取契约做 verification，失败阻断合入",
+      "用 'can-i-deploy <service> <version>' 把契约绑定到部署",
+      "对契约做版本管理与 deprecation policy",
+      "结合 OpenAPI / GraphQL schema 双重保障"
+    ],
+    "antiPatterns": [
+      "契约写得太宽（任意字段），失去检查意义",
+      "Consumer / Provider 各写一份契约对不上，徒增工作量",
+      "把契约测试用作端到端测试替代品，期望过高",
+      "契约变更不通知下游，破坏兼容性",
+      "broker 没维护，契约老旧不可信"
+    ],
+    "resources": [
+      { "title": "Pact Documentation", "url": "https://docs.pact.io/", "type": "doc" },
+      { "title": "Consumer-Driven Contracts (Martin Fowler)", "url": "https://martinfowler.com/articles/consumerDrivenContracts.html", "type": "article" },
+      { "title": "Spring Cloud Contract", "url": "https://spring.io/projects/spring-cloud-contract", "type": "doc" },
+      { "title": "Pactflow", "url": "https://pactflow.io/", "type": "tool" },
+      { "title": "Schema Registry (Confluent)", "url": "https://docs.confluent.io/platform/current/schema-registry/index.html", "type": "doc" }
+    ],
+    "maturityLevels": {
+      "junior": "能写一个 consumer 端 Pact 测试并发布契约",
+      "mid": "能在 CI 配置 provider verification + can-i-deploy",
+      "senior": "能在大规模微服务体系治理契约版本、破坏性变更与发布顺序"
+    }
+  }
+}

@@ -5,32 +5,122 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Android Development",
-    "nameZh": "android-development",
-    "description": "Skill: android-development",
-    "descriptionZh": "android-development",
+    "nameZh": "Android 开发",
+    "description": "Develop Android apps with Kotlin / Jetpack Compose covering navigation, persistence, networking and platform integration.",
+    "descriptionZh": "基于 Kotlin / Jetpack Compose 开发 Android 应用，覆盖导航 / 持久化 / 网络 / 系统集成。",
     "author": "skills4coder-team",
     "tags": [
-      "android"
+      "mobile",
+      "android",
+      "kotlin",
+      "compose",
+      "jetpack"
     ],
-    "category": "atomic"
+    "category": "mobile"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "feature"
+      ],
+      "properties": {
+        "feature": {
+          "type": "string"
+        },
+        "uiFramework": {
+          "enum": [
+            "compose",
+            "view",
+            "mixed"
+          ],
+          "default": "compose"
+        },
+        "minSdk": {
+          "type": "number",
+          "default": 24
+        },
+        "architecture": {
+          "enum": [
+            "mvvm",
+            "mvi"
+          ],
+          "default": "mvvm"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "kotlinFiles": {
+          "type": "array"
+        },
+        "gradleDelta": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "android_development"
   },
-  "errors": {}
+  "errors": {
+    "PERMISSION_MISSING": {
+      "code": "AD_001",
+      "message": "缺少必要的运行时权限",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Android 的难点在碎片化与权限语义；Compose + Jetpack 改善了一切，但旧代码迁移仍是泥潭。",
+    "keyPoints": [
+      "Compose 是默认选择，仅维护用 View",
+      "StateFlow / Flow 取代 LiveData 长期方向",
+      "ViewModel + UI State 单向数据流",
+      "foreground / background 任务区分",
+      "Scoped Storage / 运行时权限是合规底线"
+    ],
+    "bestPractices": [
+      "Hilt 做 DI、Coroutines 做异步、Room 做本地存储",
+      "Baseline Profile 提冷启动性能",
+      "Espresso + Compose Test 写 UI 测试",
+      "Play Console 灰度 + Pre-launch report"
+    ],
+    "antiPatterns": [
+      "Activity 一锅炖，无 ViewModel",
+      "把所有任务都丢主线程",
+      "ProGuard 规则错配导致线上崩溃",
+      "minSdk 太低无意义维护成本"
+    ],
+    "resources": [
+      {
+        "title": "Android Developer Docs",
+        "url": "https://developer.android.com/",
+        "type": "doc"
+      },
+      {
+        "title": "Jetpack Compose",
+        "url": "https://developer.android.com/jetpack/compose",
+        "type": "doc"
+      },
+      {
+        "title": "Now in Android",
+        "url": "https://github.com/android/nowinandroid",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能开发常规列表 / 表单页面",
+      "mid": "能选架构、写测试、走完发布流程",
+      "senior": "能主导架构、性能调优、合规与隐私治理"
+    }
+  }
 }

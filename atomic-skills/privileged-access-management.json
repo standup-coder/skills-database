@@ -5,32 +5,114 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Privileged Access Management",
-    "nameZh": "privileged-access-management",
-    "description": "Skill: privileged-access-management",
-    "descriptionZh": "privileged-access-management",
+    "nameZh": "特权访问管理",
+    "description": "Design and operate PAM solutions for privileged accounts, secrets and just-in-time access.",
+    "descriptionZh": "为特权账号 / Secret / JIT 访问设计与运营 PAM 体系。",
     "author": "skills4coder-team",
     "tags": [
-      "privileged"
+      "security",
+      "pam",
+      "privileged",
+      "jit",
+      "identity"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scope"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "vault",
+            "jit",
+            "session-recording"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "policy": {
+          "type": "object"
+        },
+        "sessionLogs": {
+          "type": "array"
+        },
+        "accessRequests": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "privileged_access_management"
   },
-  "errors": {}
+  "errors": {
+    "EMERGENCY_ACCESS_USED": {
+      "code": "PAM_001",
+      "message": "触发 break-glass 账户使用",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "PAM 的核心不是把密码锁起来，而是把\"特权\"从常驻变成临时（JIT），从口令变成会话审计。",
+    "keyPoints": [
+      "永久 root → JIT root",
+      "所有特权会话录像与审计",
+      "break-glass 账户必须监控",
+      "Vault / CyberArk / Teleport 选型",
+      "workflow approval（双人原则）"
+    ],
+    "bestPractices": [
+      "SSH 用 short-lived cert 替代 key",
+      "生产数据库走 bastion + session record",
+      "JIT 申请与 ticketing 联动",
+      "定期回看 break-glass 审计"
+    ],
+    "antiPatterns": [
+      "Excel 管理特权口令",
+      "shared root 账号没人负责",
+      "session 录像但没人看",
+      "JIT 永久授权变常驻"
+    ],
+    "resources": [
+      {
+        "title": "HashiCorp Vault",
+        "url": "https://developer.hashicorp.com/vault",
+        "type": "doc"
+      },
+      {
+        "title": "Teleport",
+        "url": "https://goteleport.com/docs/",
+        "type": "doc"
+      },
+      {
+        "title": "NIST PAM",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能用 Vault 管理 secret",
+      "mid": "能落地 JIT + session record 流程",
+      "senior": "能驱动组织级 PAM 与零信任体系"
+    }
+  }
 }

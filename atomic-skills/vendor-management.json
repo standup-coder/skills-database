@@ -5,32 +5,115 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Vendor Management",
-    "nameZh": "vendor-management",
-    "description": "Skill: vendor-management",
-    "descriptionZh": "vendor-management",
+    "nameZh": "供应商管理",
+    "description": "Evaluate, contract, monitor and exit third-party vendors covering SaaS, infra, and services.",
+    "descriptionZh": "评估 / 签约 / 监控 / 退出第三方供应商：SaaS / 基础设施 / 服务。",
     "author": "skills4coder-team",
     "tags": [
-      "vendor"
+      "leadership",
+      "vendor",
+      "procurement",
+      "sla",
+      "governance"
     ],
-    "category": "atomic"
+    "category": "leadership"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "vendor"
+      ],
+      "properties": {
+        "vendor": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "evaluate",
+            "onboard",
+            "monitor",
+            "exit"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "scorecard": {
+          "type": "object"
+        },
+        "sla": {
+          "type": "object"
+        },
+        "exitPlan": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "vendor_management"
   },
-  "errors": {}
+  "errors": {
+    "NO_EXIT_PLAN": {
+      "code": "VM_001",
+      "message": "签约时未约定退出策略",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "供应商管理的失败 80% 不是选错，是签约时没定义\"如何退出\"；data export + 替代方案应在合同附件里。",
+    "keyPoints": [
+      "evaluate（POC + reference）",
+      "contract（SLA + DPA + exit）",
+      "monitor（QBR + scorecard）",
+      "exit（data export + 替代方案）",
+      "SOC2 / ISO 是入门票"
+    ],
+    "bestPractices": [
+      "scorecard 量化 5-10 项",
+      "QBR 季度定期",
+      "critical 供应商必须有 backup",
+      "price review 每年触发"
+    ],
+    "antiPatterns": [
+      "评估只看 demo 不做 POC",
+      "合同没 exit 条款",
+      "critical SaaS 单 vendor 锁定",
+      "不监控就续约"
+    ],
+    "resources": [
+      {
+        "title": "Gartner Vendor Management",
+        "url": "https://www.gartner.com/en/insights/vendor-management",
+        "type": "article"
+      },
+      {
+        "title": "CSA Vendor Risk",
+        "url": "https://cloudsecurityalliance.org/research/topics/third-party-risk-management",
+        "type": "doc"
+      },
+      {
+        "title": "NIST SP 800-161",
+        "url": "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跟单一 vendor onboard",
+      "mid": "能跑 evaluate → contract → monitor 全流程",
+      "senior": "能驱动组织级 vendor governance 与 third-party risk"
+    }
+  }
 }

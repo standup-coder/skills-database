@@ -2,35 +2,90 @@
   "$schema": "../schema/atomic-skill-v1.json",
   "id": "frontend-architecture-design",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
     "name": "Frontend Architecture Design",
-    "nameZh": "frontend-architecture-design",
-    "description": "Skill: frontend-architecture-design",
-    "descriptionZh": "frontend-architecture-design",
+    "nameZh": "前端架构设计",
+    "description": "Design frontend architecture covering rendering, state, routing, build, and team scalability.",
+    "descriptionZh": "为前端项目设计涵盖渲染策略、状态管理、路由、构建与团队协作扩展性的整体架构。",
     "author": "skills4coder-team",
-    "tags": [
-      "frontend"
-    ],
-    "category": "atomic"
+    "tags": ["frontend", "architecture", "spa", "ssr", "module-federation"],
+    "category": "frontend"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "appType": { "enum": ["spa", "ssr", "ssg", "hybrid", "mpa"], "description": "应用形态" },
+        "scale": { "enum": ["small", "medium", "large", "monorepo"] },
+        "teamSize": { "type": "number" },
+        "seoCritical": { "type": "boolean" },
+        "stack": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["appType"]
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "renderingStrategy": { "type": "string" },
+        "stateLayer": { "type": "string" },
+        "routingStrategy": { "type": "string" },
+        "buildSetup": { "type": "string" },
+        "moduleStructure": { "type": "string" },
+        "performanceBudget": { "type": "object" }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "frontend_architecture_design"
   },
-  "errors": {}
+  "constraints": {
+    "permissions": ["read", "write"],
+    "allowedExtensions": [".ts", ".tsx", ".js", ".jsx", ".vue", ".svelte", ".css", ".md"]
+  },
+  "errors": {
+    "INCOMPATIBLE_RENDERING": { "code": "FE_001", "message": "渲染策略与 SEO/性能要求不兼容", "retryable": false },
+    "STATE_OVERENGINEERED": { "code": "FE_002", "message": "状态层方案对业务规模过度复杂", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "前端架构的核心矛盾是\"开发体验 × 用户体验 × 团队协作\"，要按业务规模分阶段选型。",
+    "keyPoints": [
+      "渲染策略：CSR 简单但首屏差；SSR 首屏好但服务器开销大；SSG 性能极好但内容静态；ISR/PPR 折中",
+      "状态管理分级：local state → context → 全局（Redux/Zustand/Jotai）→ 服务端状态（TanStack Query/SWR）",
+      "路由架构：file-based（Next/Nuxt）vs config-based；嵌套布局与 layout group 是关键",
+      "代码分割粒度：route-level + component-level + 第三方库，配 dynamic import",
+      "组件分层：UI 原子 → 业务组件 → 页面 → 布局；禁止跨层引用",
+      "Monorepo 分包策略：apps/* + packages/*，工具如 Turborepo / Nx",
+      "可观测性：Web Vitals、错误监控（Sentry）、用户行为埋点"
+    ],
+    "bestPractices": [
+      "建立 Performance Budget（JS bundle < 200KB gzip、LCP < 2.5s）写进 CI",
+      "用 module-federation / monorepo 解耦多团队协作",
+      "css 隔离方案选定（CSS Modules / Tailwind / CSS-in-JS）并坚持",
+      "服务端状态与客户端状态分离，避免把 fetch 数据塞到全局 store",
+      "采用 type-safe routing + 自动生成的 API client（tRPC / GraphQL Codegen）"
+    ],
+    "antiPatterns": [
+      "全局 store 装一切：服务端缓存数据、UI 状态、路由参数都塞进 Redux",
+      "每个页面都 SSR，即使没 SEO 需求，徒增服务器成本",
+      "状态层选型跟风：业务很小却上 Redux Toolkit + Saga + Reselect 全套",
+      "未做 bundle 分析，第三方库占 60% 体积无人察觉",
+      "组件库从零自研但人力不足，半成品拖累产品"
+    ],
+    "resources": [
+      { "title": "Patterns.dev (Lydia Hallie)", "url": "https://www.patterns.dev/", "type": "doc" },
+      { "title": "Next.js Documentation", "url": "https://nextjs.org/docs", "type": "doc" },
+      { "title": "Building Micro-Frontends (Luca Mezzalira)", "url": "https://www.oreilly.com/library/view/building-micro-frontends/9781492082989/", "type": "book" },
+      { "title": "Web Vitals", "url": "https://web.dev/vitals/", "type": "doc" },
+      { "title": "TanStack Query", "url": "https://tanstack.com/query", "type": "tool" }
+    ],
+    "maturityLevels": {
+      "junior": "能在框架内按规范开发页面，理解组件分层与基础状态管理",
+      "mid": "能主导中型前端项目架构选型、性能预算、CI 防护",
+      "senior": "能设计大型 / 多团队前端架构，建立公司级前端基础设施与规范"
+    }
+  }
 }

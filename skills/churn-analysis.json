@@ -1,0 +1,90 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "churn-analysis",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Churn Analysis",
+    "nameZh": "客户流失分析",
+    "description": "Quantify churn drivers and produce a prioritized retention action plan",
+    "descriptionZh": "量化流失驱动因素并产出优先级化的留存动作计划：定义 → 队列 → 模型 → 干预 → 复盘",
+    "author": "skills4coder-team",
+    "tags": ["churn", "retention", "cohort", "customer-success", "analytics"],
+    "category": "customer-success"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "churnDefinition": { "type": "string", "description": "流失业务定义（订阅取消/连续 30 天不活跃等）" },
+        "lookbackDays": { "type": "integer", "minimum": 30 },
+        "segments": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["churnDefinition"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "churnRate": { "type": "object" },
+        "cohortMatrix": { "type": "object" },
+        "driverModel": { "type": "object" },
+        "interventionPlan": { "type": "array" },
+        "expectedImpact": { "type": "object" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "流失分析五步法",
+    "steps": [
+      {
+        "id": "define",
+        "name": "流失定义对齐",
+        "nameZh": "流失定义对齐",
+        "atomicSkill": "retention",
+        "input": { "definition": "{{input.churnDefinition}}", "lookback": "{{input.lookbackDays}}" },
+        "output": "churnRate"
+      },
+      {
+        "id": "cohort",
+        "name": "队列分析",
+        "nameZh": "队列分析",
+        "atomicSkill": "cohort-analysis",
+        "input": { "definition": "{{steps.define.output}}", "segments": "{{input.segments}}" },
+        "output": "cohortMatrix",
+        "dependsOn": ["define"]
+      },
+      {
+        "id": "drivers",
+        "name": "驱动因素建模",
+        "nameZh": "驱动因素建模",
+        "type": "llm",
+        "input": { "cohort": "{{steps.cohort.output}}" },
+        "prompt": "用特征重要性（如 SHAP）解释流失驱动因素，区分相关与因果，标记可干预特征",
+        "output": "driverModel",
+        "dependsOn": ["cohort"]
+      },
+      {
+        "id": "intervention",
+        "name": "干预动作设计",
+        "nameZh": "干预动作设计",
+        "type": "llm",
+        "input": { "drivers": "{{steps.drivers.output}}" },
+        "prompt": "为 Top-3 驱动因素各设计 1-2 个可 A/B 测试的干预动作，给出预期 lift 与成本",
+        "output": "interventionPlan",
+        "dependsOn": ["drivers"]
+      },
+      {
+        "id": "impact",
+        "name": "影响估算与监控",
+        "nameZh": "影响估算与监控",
+        "atomicSkill": "ab-testing",
+        "input": { "interventions": "{{steps.intervention.output}}" },
+        "output": "expectedImpact",
+        "dependsOn": ["intervention"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}

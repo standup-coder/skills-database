@@ -2,35 +2,87 @@
   "$schema": "../schema/atomic-skill-v1.json",
   "id": "api-development",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
-    "name": "Api Development",
-    "nameZh": "api-development",
-    "description": "Skill: api-development",
-    "descriptionZh": "api-development",
+    "name": "API Development",
+    "nameZh": "API 开发",
+    "description": "Design and implement robust, well-documented HTTP/GraphQL APIs ready for production.",
+    "descriptionZh": "设计并实现可上线的 HTTP / GraphQL API，覆盖契约、错误码、版本、鉴权、限流与文档。",
     "author": "skills4coder-team",
-    "tags": [
-      "api"
-    ],
-    "category": "atomic"
+    "tags": ["api", "rest", "graphql", "backend", "contract"],
+    "category": "backend"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "apiSpec": { "type": "string", "description": "OpenAPI / GraphQL Schema 内容" },
+        "style": { "enum": ["rest", "graphql", "grpc"], "default": "rest" },
+        "auth": { "enum": ["none", "apiKey", "jwt", "oauth2"], "default": "jwt" },
+        "language": { "type": "string", "description": "实现语言（如 node、go、python）" }
+      },
+      "required": ["apiSpec"]
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "code": { "type": "string", "description": "生成的服务端代码（路由 + handler + DTO）" },
+        "docs": { "type": "string", "description": "OpenAPI / API.md 文档" },
+        "tests": { "type": "string", "description": "契约测试与示例" }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "api_development"
   },
-  "errors": {}
+  "constraints": {
+    "permissions": ["read", "write"],
+    "allowedExtensions": [".ts", ".js", ".go", ".py", ".yaml", ".graphql", ".md"]
+  },
+  "errors": {
+    "INVALID_SPEC": { "code": "API_001", "message": "OpenAPI/GraphQL 规范解析失败", "retryable": false },
+    "AUTH_MISCONFIG": { "code": "API_002", "message": "鉴权配置缺失或不一致", "retryable": false },
+    "BREAKING_CHANGE": { "code": "API_003", "message": "检测到对已发布版本的破坏性变更", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "API 是产品的契约，它的稳定性、可观测性和可演进性比性能更重要。",
+    "keyPoints": [
+      "契约先行：OpenAPI / GraphQL SDL 是开发与协作的唯一事实源",
+      "错误码体系：业务码 ≠ HTTP 码，需建立稳定的业务 error code",
+      "版本策略：URL versioning（/v1/）vs Header versioning，需选定并坚持",
+      "幂等性：写操作应支持 Idempotency-Key，避免网络重试导致脏数据",
+      "分页/排序/筛选用统一约定（cursor 优先于 offset）",
+      "可观测性：每个 API 必须输出 trace_id / latency / error_rate",
+      "安全：永远校验输入，永远不信任前端，敏感字段需脱敏"
+    ],
+    "bestPractices": [
+      "使用 OpenAPI 3.1+ 自动生成 client、server stub、文档，单源驱动",
+      "返回 RFC 7807 Problem Details 风格的错误体",
+      "限流要分级：全局 + 用户 + IP，并暴露 X-RateLimit-* 响应头",
+      "为破坏性变更准备 deprecation 周期（公告 + Sunset Header + 监控）",
+      "契约测试（Pact / Schemathesis）保护前后端联调"
+    ],
+    "antiPatterns": [
+      "把所有错误都返回 200 + body.code，让 HTTP 语义失效",
+      "GET 接口带副作用（计数、扣费）",
+      "频繁修改字段名而不走 deprecation 流程",
+      "鉴权粒度只到登录态，未做资源级权限",
+      "把数据库 schema 直接当 API 输出，导致内部模型泄漏"
+    ],
+    "resources": [
+      { "title": "API Design Patterns (JJ Geewax)", "url": "https://www.manning.com/books/api-design-patterns", "type": "book" },
+      { "title": "Google API Design Guide (AIP)", "url": "https://google.aip.dev/", "type": "doc" },
+      { "title": "OpenAPI Specification 3.1", "url": "https://spec.openapis.org/oas/v3.1.0", "type": "doc" },
+      { "title": "GraphQL Best Practices", "url": "https://graphql.org/learn/best-practices/", "type": "doc" },
+      { "title": "Stripe API Reference (业内标杆)", "url": "https://stripe.com/docs/api", "type": "article" }
+    ],
+    "maturityLevels": {
+      "junior": "能按规范实现 CRUD 接口，处理常见错误码与基础鉴权",
+      "mid": "能主导 API 设计评审，建立错误码体系、版本策略与契约测试",
+      "senior": "能制定团队 API 标准、主导跨服务接口治理、设计 SDK 与 deprecation 流程"
+    }
+  }
 }

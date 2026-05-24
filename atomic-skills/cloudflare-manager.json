@@ -5,32 +5,108 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Cloudflare Manager",
-    "nameZh": "cloudflare-manager",
-    "description": "Skill: cloudflare-manager",
-    "descriptionZh": "cloudflare-manager",
+    "nameZh": "Cloudflare 管理",
+    "description": "Manage DNS, CDN, WAF, Workers and Zero Trust on Cloudflare to deliver fast, secure and resilient edge applications.",
+    "descriptionZh": "管理 Cloudflare 上的 DNS / CDN / WAF / Workers / Zero Trust，交付快速安全韧性的边缘应用。",
     "author": "skills4coder-team",
     "tags": [
-      "cloudflare"
+      "cdn",
+      "cloudflare",
+      "edge",
+      "waf",
+      "dns"
     ],
-    "category": "atomic"
+    "category": "devops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "zone"
+      ],
+      "properties": {
+        "zone": {
+          "type": "string"
+        },
+        "feature": {
+          "enum": [
+            "dns",
+            "cdn",
+            "waf",
+            "workers",
+            "zero-trust",
+            "pages"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "ruleId": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "cloudflare_manager"
   },
-  "errors": {}
+  "errors": {
+    "ZONE_NOT_OWNED": {
+      "code": "CF_001",
+      "message": "当前账号无该 zone 权限",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Cloudflare 把网络栈搬到边缘，运维只需专注规则；但规则一爆，全球流量同时受影响。",
+    "keyPoints": [
+      "DNS / CDN / WAF / Workers 是同一个控制面",
+      "WAF 必须先 log only 跑一周再 enforce",
+      "Cache Rules / Page Rules 优先级互通",
+      "Workers 适合 A/B / 鉴权 / 重写，不适合长任务",
+      "Zero Trust 替代 VPN 是趋势"
+    ],
+    "bestPractices": [
+      "Terraform Provider 管理配置",
+      "规则变更分 staging zone",
+      "关键域名启 DNSSEC / Always Use HTTPS / HSTS",
+      "Cloudflare Tunnel 替代公网暴露"
+    ],
+    "antiPatterns": [
+      "直接在 Dashboard 改规则不入 git",
+      "WAF 全开 enforce 误杀业务",
+      "同一个 API token 给所有团队",
+      "Workers 写复杂业务逻辑无回滚"
+    ],
+    "resources": [
+      {
+        "title": "Cloudflare Docs",
+        "url": "https://developers.cloudflare.com/",
+        "type": "doc"
+      },
+      {
+        "title": "Terraform Cloudflare provider",
+        "url": "https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能配 DNS / 基础 cache rule",
+      "mid": "能写 Workers / WAF / IaC 化",
+      "senior": "能设计跨账号 Cloudflare 治理与边缘架构"
+    }
+  }
 }

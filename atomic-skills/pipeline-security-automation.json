@@ -5,32 +5,119 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Pipeline Security Automation",
-    "nameZh": "pipeline-security-automation",
-    "description": "Skill: pipeline-security-automation",
-    "descriptionZh": "pipeline-security-automation",
+    "nameZh": "流水线安全自动化",
+    "description": "Automate security checks in CI/CD pipelines: SAST, SCA, IaC scan, secret detection, and signing.",
+    "descriptionZh": "在 CI/CD pipeline 中自动化安全检查：SAST / SCA / IaC 扫描 / secret 检测 / 镜像签名。",
     "author": "skills4coder-team",
     "tags": [
+      "security",
+      "devsecops",
+      "cicd",
+      "shift-left",
       "pipeline"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "pipeline"
+      ],
+      "properties": {
+        "pipeline": {
+          "type": "string"
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "sast",
+              "sca",
+              "iac-scan",
+              "secret-scan",
+              "image-scan",
+              "signing"
+            ]
+          }
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "gates": {
+          "type": "array"
+        },
+        "findings": {
+          "type": "object"
+        },
+        "signedArtifacts": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "pipeline_security_automation"
   },
-  "errors": {}
+  "errors": {
+    "GATE_BYPASSED": {
+      "code": "PSA_001",
+      "message": "安全 gate 被绕过合并",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "DevSecOps 的本质是\"安全检查与构建并轨\"；速度与安全只能靠工具自动化解决，不能靠纪律。",
+    "keyPoints": [
+      "shift-left 多层（pre-commit / PR / merge / build）",
+      "gate 分 advisory vs blocking",
+      "severity 阈值 + KEV 名单 release gate",
+      "SBOM + signing（Cosign / SLSA）",
+      "把误报治理也自动化"
+    ],
+    "bestPractices": [
+      "pre-commit hook 跑 secret + lint",
+      "PR 跑 SAST + IaC + SCA",
+      "release 必须 signed + provenance",
+      "失败 gate 必须有 escalation 流程"
+    ],
+    "antiPatterns": [
+      "gate 太严直接 disable",
+      "一切 advisory 永远不 block",
+      "安全工具结果不接 ticket 流",
+      "只扫 main 不扫 PR"
+    ],
+    "resources": [
+      {
+        "title": "OWASP DevSecOps",
+        "url": "https://owasp.org/www-project-devsecops-guideline/",
+        "type": "doc"
+      },
+      {
+        "title": "SLSA Framework",
+        "url": "https://slsa.dev/",
+        "type": "doc"
+      },
+      {
+        "title": "Sigstore Cosign",
+        "url": "https://docs.sigstore.dev/cosign/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能在 CI 接入单类安全扫描",
+      "mid": "能搭多层 gate + signing + provenance",
+      "senior": "能驱动组织级 DevSecOps 战略与 supply chain 治理"
+    }
+  }
 }

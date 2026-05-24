@@ -1,0 +1,93 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "user-research-process",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "User Research Process",
+    "nameZh": "用户研究流程",
+    "description": "Run an end-to-end qualitative + quantitative user research cycle and produce actionable insights",
+    "descriptionZh": "以决策为导向运作一次完整的用户研究：目标对齐 → 招募 → 访谈/问卷 → 编码分析 → 洞察输出",
+    "author": "skills4coder-team",
+    "tags": ["user-research", "ux", "interview", "survey", "insight"],
+    "category": "design"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "researchQuestion": { "type": "string", "description": "驱动研究的核心问题" },
+        "targetSegment": { "type": "object" },
+        "method": { "type": "string", "enum": ["interview", "survey", "diary", "usability-test", "mixed"] },
+        "sampleSize": { "type": "integer", "minimum": 5 }
+      },
+      "required": ["researchQuestion", "method"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "researchPlan": { "type": "object" },
+        "rawData": { "type": "array" },
+        "themes": { "type": "array", "items": { "type": "string" } },
+        "insightReport": { "type": "string" },
+        "recommendations": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "workflow": {
+    "description": "决策导向的用户研究闭环",
+    "steps": [
+      {
+        "id": "plan",
+        "name": "研究计划制定",
+        "nameZh": "研究计划制定",
+        "atomicSkill": "user-research",
+        "input": { "question": "{{input.researchQuestion}}", "method": "{{input.method}}" },
+        "output": "researchPlan"
+      },
+      {
+        "id": "recruit",
+        "name": "招募与排期",
+        "nameZh": "招募与排期",
+        "type": "transform",
+        "input": { "segment": "{{input.targetSegment}}", "size": "{{input.sampleSize}}" },
+        "output": "recruitList",
+        "dependsOn": ["plan"]
+      },
+      {
+        "id": "fieldwork",
+        "name": "执行调研",
+        "nameZh": "执行调研",
+        "atomicSkill": "user-research",
+        "input": { "plan": "{{steps.plan.output}}", "participants": "{{steps.recruit.output}}" },
+        "output": "rawData",
+        "dependsOn": ["recruit"]
+      },
+      {
+        "id": "coding",
+        "name": "编码与主题归纳",
+        "nameZh": "编码与主题归纳",
+        "type": "llm",
+        "input": { "rawData": "{{steps.fieldwork.output}}" },
+        "prompt": "对原始访谈/问卷数据做开放编码 → 轴心编码，输出 5-7 个主题与典型语录",
+        "output": "themes",
+        "dependsOn": ["fieldwork"]
+      },
+      {
+        "id": "insight",
+        "name": "洞察与建议",
+        "nameZh": "洞察与建议",
+        "type": "llm",
+        "input": { "themes": "{{steps.coding.output}}", "question": "{{input.researchQuestion}}" },
+        "prompt": "把主题转译为产品/设计可执行的洞察与优先级建议（含证据与置信度）",
+        "output": "insightReport",
+        "dependsOn": ["coding"]
+      }
+    ]
+  },
+  "errorHandling": {
+    "strategy": "continue"
+  }
+}

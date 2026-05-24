@@ -4,33 +4,121 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Onboarding",
-    "nameZh": "onboarding",
-    "description": "Skill: onboarding",
-    "descriptionZh": "onboarding",
+    "name": "Customer Onboarding",
+    "nameZh": "客户引导",
+    "description": "Design and execute a structured onboarding journey to drive customer time-to-first-value and reduce early churn.",
+    "descriptionZh": "设计结构化的客户引导流程，缩短首价值时间（TTFV），降低早期流失。",
     "author": "skills4coder-team",
     "tags": [
-      "onboarding"
+      "customer-success",
+      "onboarding",
+      "activation",
+      "ttfv",
+      "lifecycle"
     ],
-    "category": "atomic"
+    "category": "customer-success"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "segment"
+      ],
+      "properties": {
+        "segment": {
+          "type": "string",
+          "description": "客户分层（SMB / Mid / Enterprise）"
+        },
+        "milestones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "kickoffMode": {
+          "enum": [
+            "self-serve",
+            "high-touch",
+            "hybrid"
+          ],
+          "default": "self-serve"
+        },
+        "durationDays": {
+          "type": "number",
+          "default": 30
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "playbook": {
+          "type": "string"
+        },
+        "ttfvDays": {
+          "type": "number"
+        },
+        "healthScoreInitial": {
+          "type": "number"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "onboarding"
   },
-  "errors": {}
+  "errors": {
+    "MILESTONE_VAGUE": {
+      "code": "ON_001",
+      "message": "里程碑未量化，无法判断完成",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "客户引导决定 12 个月续约率：首价值时间（TTFV）每缩短 1 天，留存提升肉眼可见。",
+    "keyPoints": [
+      "北极星：TTFV / Activation rate",
+      "里程碑必须可量化、有反馈",
+      "产品引导（PLG）与人工引导（high-touch）按 ARR 分层",
+      "健康分早期信号 > 等到流失再救",
+      "onboarding 是产品的一部分，不是 CSM 的私事"
+    ],
+    "bestPractices": [
+      "kickoff 30 分钟内确认成功标准",
+      "产品内引导 + 邮件序列双通道",
+      "每个 milestone 完成自动 check-in",
+      "把 onboarding 数据接入产品分析"
+    ],
+    "antiPatterns": [
+      "一份 PDF 发完算 onboarding",
+      "里程碑只有时间没有内容",
+      "客户卡住无人发现，30 天后才发现没用",
+      "CSM 与 PM 隔离，引导 ≠ 产品改进闭环"
+    ],
+    "resources": [
+      {
+        "title": "Wes Bush: Product-Led Growth",
+        "url": "https://productled.com/blog",
+        "type": "doc"
+      },
+      {
+        "title": "Gainsight: Customer Onboarding Best Practices",
+        "url": "https://www.gainsight.com/customer-onboarding/",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跑标准 onboarding playbook",
+      "mid": "能按客户分层设计 TTFV / 里程碑 / 健康分",
+      "senior": "能驱动 onboarding 与产品 / CRM / 增长闭环"
+    }
+  }
 }

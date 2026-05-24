@@ -5,32 +5,130 @@
   "version": "1.0.0",
   "metadata": {
     "name": "User Research",
-    "nameZh": "user-research",
-    "description": "Skill: user-research",
-    "descriptionZh": "user-research",
+    "nameZh": "用户研究",
+    "description": "Conduct user research activities (interviews, surveys, usability tests) and synthesize insights into actionable findings.",
+    "descriptionZh": "设计与执行用户访谈 / 问卷 / 可用性测试，沉淀为可行动洞察与设计输入。",
     "author": "skills4coder-team",
     "tags": [
-      "user"
+      "ux",
+      "research",
+      "user",
+      "discovery",
+      "insight"
     ],
-    "category": "atomic"
+    "category": "design"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "method",
+        "objective"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "interview",
+            "survey",
+            "usability-test",
+            "diary-study",
+            "card-sorting"
+          ]
+        },
+        "objective": {
+          "type": "string",
+          "description": "研究目标与决策场景"
+        },
+        "sampleSize": {
+          "type": "number",
+          "default": 8
+        },
+        "personas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "insights": {
+          "type": "array"
+        },
+        "recommendations": {
+          "type": "array"
+        },
+        "evidence": {
+          "type": "array"
+        },
+        "report": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "user_research"
   },
-  "errors": {}
+  "errors": {
+    "LOW_SAMPLE": {
+      "code": "UR_001",
+      "message": "样本量不足，结论可信度低",
+      "retryable": false
+    },
+    "BIAS_RISK": {
+      "code": "UR_002",
+      "message": "存在引导性问题或选择性偏差",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "用户研究的价值不在数据多寡，而在能不能驱动一个真实的产品决策。",
+    "keyPoints": [
+      "先定决策场景，再选方法",
+      "定性挖洞察，定量验规模",
+      "8 人访谈可发现 80% 可用性问题",
+      "区分用户说的 vs 用户做的",
+      "研究输出必须有 next action"
+    ],
+    "bestPractices": [
+      "每轮研究都有 hypothesis 与 kill criteria",
+      "原始素材（录音 / 笔记）归档可回放",
+      "与 PM/设计 共听访谈，避免转述失真",
+      "JTBD 框架捕捉动机"
+    ],
+    "antiPatterns": [
+      "做完研究只产出\"用户喜欢…\"",
+      "问引导性问题",
+      "把 NPS 当唯一指标",
+      "小样本就推全局结论"
+    ],
+    "resources": [
+      {
+        "title": "NN/g UX Research Methods",
+        "url": "https://www.nngroup.com/articles/which-ux-research-methods/",
+        "type": "article"
+      },
+      {
+        "title": "JTBD framework",
+        "url": "https://jtbd.info/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能执行访谈与可用性测试",
+      "mid": "能选方法、控偏差、写洞察报告",
+      "senior": "能搭研究体系、与产品决策闭环"
+    }
+  }
 }

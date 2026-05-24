@@ -5,32 +5,110 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Cost Optimization",
-    "nameZh": "cost-optimization",
-    "description": "Skill: cost-optimization",
-    "descriptionZh": "cost-optimization",
+    "nameZh": "成本优化",
+    "description": "Continuously optimize cloud / infra cost through right-sizing, commitments, autoscaling, and waste cleanup.",
+    "descriptionZh": "通过 right-sizing / 长期合约 / 弹性伸缩 / 废弃资源清理持续优化云与基础设施成本。",
     "author": "skills4coder-team",
     "tags": [
-      "cost"
+      "ops",
+      "finops",
+      "cost",
+      "cloud",
+      "optimization"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scope"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "lookbackDays": {
+          "type": "number",
+          "default": 30
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "savings": {
+          "type": "number"
+        },
+        "recommendations": {
+          "type": "array"
+        },
+        "wasteList": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "cost_optimization"
   },
-  "errors": {}
+  "errors": {
+    "OBSERVATION_TOO_SHORT": {
+      "code": "CO_001",
+      "message": "观察期不足，优化建议不可信",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "FinOps 的核心是把成本可视化到 owner，然后用工程力量优化；按部门分账后浪费下降 30% 是常态。",
+    "keyPoints": [
+      "cost = unit cost × usage × rate",
+      "tag 治理是分账前提",
+      "commitment（RI / Savings Plan）vs spot vs on-demand",
+      "autoscaling > over-provisioning",
+      "废弃资源（unattached EBS / orphan IP）每月扫"
+    ],
+    "bestPractices": [
+      "tagging policy 强制执行",
+      "每月 cost review 与 owner 对齐",
+      "showback → chargeback 渐进",
+      "spot 用于 stateless 与批处理"
+    ],
+    "antiPatterns": [
+      "集中成本看板没人看",
+      "RI 买完未利用率",
+      "autoscaling 只伸不缩",
+      "只看 invoice 不看单位经济模型"
+    ],
+    "resources": [
+      {
+        "title": "FinOps Foundation",
+        "url": "https://www.finops.org/",
+        "type": "doc"
+      },
+      {
+        "title": "AWS Cost Explorer",
+        "url": "https://docs.aws.amazon.com/cost-management/",
+        "type": "doc"
+      },
+      {
+        "title": "GCP Billing Reports",
+        "url": "https://cloud.google.com/billing/docs/reports",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能跑 cost report 找 top spend",
+      "mid": "能落地 tagging + 长期合约 + autoscaling",
+      "senior": "能驱动组织级 FinOps 文化与 unit economics 治理"
+    }
+  }
 }

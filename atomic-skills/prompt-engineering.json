@@ -1,0 +1,88 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "prompt-engineering",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Prompt Engineering",
+    "nameZh": "提示工程",
+    "description": "Design, structure and iterate prompts to elicit reliable, grounded LLM behavior.",
+    "descriptionZh": "设计、组织并迭代提示词，引导大语言模型产生可靠、有依据的行为。",
+    "author": "skills4coder-team",
+    "tags": ["llm", "prompt", "ai", "context-engineering"],
+    "category": "ai-llm"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "task": { "type": "string", "description": "需要 LLM 完成的任务描述" },
+        "examples": { "type": "array", "items": { "type": "object" }, "description": "few-shot 示例" },
+        "constraints": { "type": "array", "items": { "type": "string" }, "description": "硬约束（输出格式、禁用词等）" },
+        "model": { "type": "string", "description": "目标模型（用于选择 prompt 风格）" }
+      },
+      "required": ["task"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "systemPrompt": { "type": "string" },
+        "userPromptTemplate": { "type": "string" },
+        "fewShot": { "type": "array", "items": { "type": "object" } },
+        "rationale": { "type": "string", "description": "为什么这样设计" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "prompt_engineering"
+  },
+  "constraints": {
+    "permissions": ["read"],
+    "blockedPaths": []
+  },
+  "errors": {
+    "AMBIGUOUS_TASK": { "code": "PE_001", "message": "任务描述不足以推导出可执行 prompt", "retryable": false },
+    "MODEL_MISMATCH": { "code": "PE_002", "message": "Prompt 风格与目标模型能力不匹配", "retryable": true }
+  },
+  "learning": {
+    "summaryZh": "提示工程的本质是把模糊任务翻译成模型可执行的明确上下文，关键在结构、约束与示例三件套。",
+    "keyPoints": [
+      "区分 system / user / assistant 三类消息的不同作用",
+      "结构化输出优先用 JSON Schema / function calling，而非靠正则解析自由文本",
+      "Few-shot 示例的多样性比数量更重要（覆盖正反例与边界）",
+      "Chain-of-Thought 适合复杂推理但会增加 token，对简单任务反而引入噪声",
+      "把任务拆步骤（task decomposition）通常优于让模型一步出结果",
+      "上下文窗口有限：相关信息要放在头部或尾部（lost in the middle 现象）",
+      "对模型行为做 grounding，强制引用提供的上下文而非自由发挥"
+    ],
+    "bestPractices": [
+      "先写评估集再写 prompt，让 prompt 演化由数据驱动",
+      "用 XML/Markdown 标签明确分块（<context>, <task>, <constraints>）",
+      "明确告知失败行为：找不到信息时输出 'I don't know' 而非编造",
+      "对模型版本做 pin，prompt 的稳定性依赖模型快照",
+      "把 prompt 视为代码：纳入版本控制、code review 与 diff 比对"
+    ],
+    "antiPatterns": [
+      "把所有信息塞给 system prompt 致使长度失控",
+      "依赖自由文本解析输出（应改用 structured output）",
+      "用一个超长 prompt 解决所有任务，不做拆分",
+      "Few-shot 示例风格不一致，模型学到错误模板",
+      "不写评估集，靠手感调 prompt"
+    ],
+    "resources": [
+      { "title": "OpenAI Prompt Engineering Guide", "url": "https://platform.openai.com/docs/guides/prompt-engineering", "type": "doc" },
+      { "title": "Anthropic Prompt Library", "url": "https://docs.anthropic.com/en/prompt-library/library", "type": "doc" },
+      { "title": "Prompt Engineering Guide (DAIR.AI)", "url": "https://www.promptingguide.ai/", "type": "doc" },
+      { "title": "Lost in the Middle (Liu et al.)", "url": "https://arxiv.org/abs/2307.03172", "type": "article" },
+      { "title": "DSPy", "url": "https://github.com/stanfordnlp/dspy", "type": "tool" }
+    ],
+    "maturityLevels": {
+      "junior": "能照搬模板写 prompt，理解 system/user 区别",
+      "mid": "能根据任务设计结构化输出与 few-shot，配合评估集迭代",
+      "senior": "能用 DSPy/programmatic prompt 做自动化优化，建立 prompt 治理与回归"
+    }
+  }
+}

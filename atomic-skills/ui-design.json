@@ -4,33 +4,119 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Ui Design",
-    "nameZh": "ui-design",
-    "description": "Skill: ui-design",
-    "descriptionZh": "ui-design",
+    "name": "UI Design",
+    "nameZh": "UI 设计",
+    "description": "Visual interface design covering layout, typography, color, components and accessibility.",
+    "descriptionZh": "视觉界面设计：布局 / 字体 / 配色 / 组件 / 可访问性。",
     "author": "skills4coder-team",
     "tags": [
-      "ui"
+      "design",
+      "ui",
+      "visual",
+      "layout",
+      "a11y"
     ],
-    "category": "atomic"
+    "category": "design"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scope"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "enum": [
+            "web",
+            "ios",
+            "android",
+            "desktop"
+          ]
+        },
+        "designSystem": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "mockups": {
+          "type": "array"
+        },
+        "tokens": {
+          "type": "object"
+        },
+        "a11yReport": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "ui_design"
   },
-  "errors": {}
+  "errors": {
+    "CONTRAST_FAIL": {
+      "code": "UI_001",
+      "message": "对比度低于 WCAG AA",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "UI 设计 80% 是约束游戏：栅格、间距、字阶、色阶、组件状态——把这五件事钉死，剩下 20% 是品牌与情感。",
+    "keyPoints": [
+      "8pt grid + 4pt baseline",
+      "type scale 用模度系数（1.125 / 1.25）",
+      "色阶要看对比度而非主观",
+      "state 完整性：default/hover/active/focus/disabled",
+      "token > 直接写 hex"
+    ],
+    "bestPractices": [
+      "Figma 变量 / token 对接 design system",
+      "组件先建状态矩阵再画",
+      "a11y 用 Stark / Contrast 插件做 lint",
+      "与前端共享 token 文件"
+    ],
+    "antiPatterns": [
+      "\"差不多就行\" 的 4px / 6px 混用",
+      "颜色靠美感不查对比度",
+      "只画 default 不画 disabled",
+      "同一组件多版本散落"
+    ],
+    "resources": [
+      {
+        "title": "Refactoring UI",
+        "url": "https://www.refactoringui.com/",
+        "type": "book"
+      },
+      {
+        "title": "Material 3",
+        "url": "https://m3.material.io/",
+        "type": "doc"
+      },
+      {
+        "title": "Apple HIG",
+        "url": "https://developer.apple.com/design/human-interface-guidelines/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能复用组件画页面",
+      "mid": "能建 token 与状态矩阵",
+      "senior": "能驱动 design system 与 a11y baseline"
+    }
+  }
 }

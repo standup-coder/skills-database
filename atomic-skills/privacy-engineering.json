@@ -5,32 +5,117 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Privacy Engineering",
-    "nameZh": "privacy-engineering",
-    "description": "Skill: privacy-engineering",
-    "descriptionZh": "privacy-engineering",
+    "nameZh": "隐私工程",
+    "description": "Embed privacy by design into systems: data minimization, consent, retention, and DSR fulfillment.",
+    "descriptionZh": "把\"隐私 by design\"嵌入系统：数据最小化 / 同意管理 / 留存 / DSR 履行。",
     "author": "skills4coder-team",
     "tags": [
-      "privacy"
+      "privacy",
+      "gdpr",
+      "engineering",
+      "consent",
+      "dsr"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "system"
+      ],
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "jurisdictions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "gdpr",
+              "ccpa",
+              "pipl",
+              "lgpd"
+            ]
+          }
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "dataInventory": {
+          "type": "array"
+        },
+        "consentFlow": {
+          "type": "object"
+        },
+        "dsrRunbook": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "privacy_engineering"
   },
-  "errors": {}
+  "errors": {
+    "NO_LAWFUL_BASIS": {
+      "code": "PE_001",
+      "message": "处理无合法依据",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "隐私不是合规部门的事，是工程默认实践。\"data minimization + retention + DSR API\"是隐私工程三件套。",
+    "keyPoints": [
+      "lawful basis 先于 collection",
+      "data inventory + lineage",
+      "DSR（access / delete / export）走自动化",
+      "consent 是状态而非一次性",
+      "pseudonymization > anonymization 易实现"
+    ],
+    "bestPractices": [
+      "每新事件先做 PIA / DPIA",
+      "retention 写进 schema 注释 + TTL",
+      "把 DSR 做成内部 API 给客服调用",
+      "consent log 不可篡改"
+    ],
+    "antiPatterns": [
+      "DSR 全靠人工 SQL",
+      "consent 状态散落多个系统",
+      "\"反正用得到\" 收集后没人删",
+      "把隐私当法务工作不写进 sprint"
+    ],
+    "resources": [
+      {
+        "title": "GDPR.eu",
+        "url": "https://gdpr.eu/",
+        "type": "doc"
+      },
+      {
+        "title": "NIST Privacy Framework",
+        "url": "https://www.nist.gov/privacy-framework",
+        "type": "doc"
+      },
+      {
+        "title": "Privacy by Design",
+        "url": "https://www.ipc.on.ca/wp-content/uploads/Resources/7foundationalprinciples.pdf",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能实现 consent 与 retention 控制",
+      "mid": "能搭 DSR 自动化 + data inventory",
+      "senior": "能驱动组织级 privacy by design 与 DPIA 文化"
+    }
+  }
 }

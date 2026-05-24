@@ -4,33 +4,120 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Sql Optimization",
-    "nameZh": "sql-optimization",
-    "description": "Skill: sql-optimization",
-    "descriptionZh": "sql-optimization",
+    "name": "SQL Optimization",
+    "nameZh": "SQL 优化",
+    "description": "Analyze and optimize slow SQL queries through plans, indexes, rewrites, and schema tuning.",
+    "descriptionZh": "通过执行计划 / 索引 / 改写 / schema 优化分析与加速慢 SQL。",
     "author": "skills4coder-team",
     "tags": [
-      "sql"
+      "database",
+      "sql",
+      "optimization",
+      "index",
+      "performance"
     ],
-    "category": "atomic"
+    "category": "database"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "sql"
+      ],
+      "properties": {
+        "sql": {
+          "type": "string"
+        },
+        "engine": {
+          "type": "string",
+          "enum": [
+            "postgres",
+            "mysql",
+            "sqlserver",
+            "oracle",
+            "clickhouse"
+          ]
+        },
+        "plan": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "recommendations": {
+          "type": "array"
+        },
+        "rewrittenSql": {
+          "type": "string"
+        },
+        "expectedSpeedup": {
+          "type": "number"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "sql_optimization"
   },
-  "errors": {}
+  "errors": {
+    "PLAN_UNAVAILABLE": {
+      "code": "SQL_001",
+      "message": "无法获取执行计划",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "SQL 优化先看 plan 再看 schema 再看 index；不看 plan 就改 SQL 等于盲调。",
+    "keyPoints": [
+      "EXPLAIN ANALYZE > EXPLAIN",
+      "covering index 大幅减少 IO",
+      "sargable 表达式可走索引",
+      "N+1 是 ORM 头号杀手",
+      "partition / 分库分表是最后手段"
+    ],
+    "bestPractices": [
+      "慢 SQL 监控 + 自动捕获",
+      "index 加之前先 hypopg 模拟",
+      "改写复杂 SQL 用 CTE 提升可读",
+      "每次 schema 变更跑 EXPLAIN diff"
+    ],
+    "antiPatterns": [
+      "\"加 index 解千愁\"加爆 IO",
+      "SELECT * 在大宽表",
+      "ORM 把 N+1 隐藏",
+      "函数包裹列导致索引失效"
+    ],
+    "resources": [
+      {
+        "title": "Use The Index, Luke!",
+        "url": "https://use-the-index-luke.com/",
+        "type": "doc"
+      },
+      {
+        "title": "PostgreSQL EXPLAIN",
+        "url": "https://www.postgresql.org/docs/current/using-explain.html",
+        "type": "doc"
+      },
+      {
+        "title": "High Performance MySQL",
+        "url": "https://www.oreilly.com/library/view/high-performance-mysql/9781492080503/",
+        "type": "book"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能读 EXPLAIN 加索引",
+      "mid": "能改写 SQL + schema tuning",
+      "senior": "能驱动数据库性能体系与 query governance"
+    }
+  }
 }

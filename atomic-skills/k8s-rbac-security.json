@@ -4,33 +4,120 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "K8s Rbac Security",
-    "nameZh": "k8s-rbac-security",
-    "description": "Skill: k8s-rbac-security",
-    "descriptionZh": "k8s-rbac-security",
+    "name": "Kubernetes RBAC Security",
+    "nameZh": "K8s RBAC 安全",
+    "description": "Design and audit Kubernetes RBAC policies to enforce least privilege.",
+    "descriptionZh": "设计与审计 K8s RBAC 策略，强制最小权限。",
     "author": "skills4coder-team",
     "tags": [
-      "k8s"
+      "kubernetes",
+      "rbac",
+      "least-privilege",
+      "authorization",
+      "security"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "cluster"
+      ],
+      "properties": {
+        "cluster": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "auditMode": {
+          "type": "string",
+          "enum": [
+            "static",
+            "live"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "roles": {
+          "type": "array"
+        },
+        "bindings": {
+          "type": "array"
+        },
+        "overprivileged": {
+          "type": "array"
+        },
+        "recommendations": {
+          "type": "array"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "k8s_rbac_security"
   },
-  "errors": {}
+  "errors": {
+    "AUDIT_LOG_DISABLED": {
+      "code": "RBAC_001",
+      "message": "Audit log 未开启，无法做 live 审计",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "K8s RBAC 写起来容易，写对很难；80% 集群存在 cluster-admin 滥用，最小权限要靠工具持续审计而非人脑。",
+    "keyPoints": [
+      "Role vs ClusterRole 默认选 Role",
+      "聚合 ClusterRole 用于复用",
+      "wildcard verbs / resources 是反模式",
+      "ServiceAccount 一对一绑定 Role",
+      "审计要看 audit log + RBAC 引用图"
+    ],
+    "bestPractices": [
+      "用 audit2rbac 从日志生成最小 RBAC",
+      "rakkess / kubectl-who-can 做 RBAC 可视化",
+      "禁用默认 ServiceAccount auto-mount",
+      "PR 模板要求列出新增权限"
+    ],
+    "antiPatterns": [
+      "给应用 cluster-admin 图省事",
+      "\"verbs: [*]\" 出现在生产",
+      "一个 SA 多 namespace 复用",
+      "RoleBinding 漂移与代码不一致"
+    ],
+    "resources": [
+      {
+        "title": "K8s RBAC docs",
+        "url": "https://kubernetes.io/docs/reference/access-authn-authz/rbac/",
+        "type": "doc"
+      },
+      {
+        "title": "audit2rbac",
+        "url": "https://github.com/liggitt/audit2rbac",
+        "type": "doc"
+      },
+      {
+        "title": "rakkess",
+        "url": "https://github.com/corneliusweig/rakkess",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能写基础 Role / RoleBinding",
+      "mid": "能审计与收敛过宽权限",
+      "senior": "能驱动 RBAC 治理与最小权限文化"
+    }
+  }
 }

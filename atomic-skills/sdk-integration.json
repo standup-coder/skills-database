@@ -4,33 +4,122 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Sdk Integration",
-    "nameZh": "sdk-integration",
-    "description": "Skill: sdk-integration",
-    "descriptionZh": "sdk-integration",
+    "name": "SDK Integration",
+    "nameZh": "SDK 集成",
+    "description": "Integrate third-party SDKs into mobile / backend apps with version pinning, abstraction and observability.",
+    "descriptionZh": "将第三方 SDK 集成到移动 / 后端应用，含版本固定 / 抽象层 / 可观测。",
     "author": "skills4coder-team",
     "tags": [
-      "sdk"
+      "mobile",
+      "backend",
+      "sdk",
+      "integration",
+      "dependency"
     ],
-    "category": "atomic"
+    "category": "engineering"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "sdk",
+        "platform"
+      ],
+      "properties": {
+        "sdk": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "enum": [
+            "ios",
+            "android",
+            "web",
+            "node",
+            "java",
+            "python"
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "integrationCode": {
+          "type": "string"
+        },
+        "abstraction": {
+          "type": "string"
+        },
+        "telemetry": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "sdk_integration"
   },
-  "errors": {}
+  "errors": {
+    "VERSION_CONFLICT": {
+      "code": "SDK_001",
+      "message": "SDK 版本与现有依赖冲突",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "SDK 是别人的代码跑在你的进程里；锁版本、抽接口、加 telemetry 这三件事不做，迟早被它的 bug 拖下水。",
+    "keyPoints": [
+      "永远 pin 精确版本不要 ^/~",
+      "在 SDK 之上做 thin wrapper",
+      "init 要异步 + 失败降级",
+      "crash / latency / error 接 APM",
+      "法务 + 隐私 + license 提前 review"
+    ],
+    "bestPractices": [
+      "每升级走 PR + e2e 验证",
+      "A/B test 灰度新 SDK",
+      "把 SDK key 入 secret",
+      "SDK 失败不能影响主流程"
+    ],
+    "antiPatterns": [
+      "SDK 抢主线程引发 ANR",
+      "版本号 latest / floating",
+      "没抽象 wrapper 直接散播 SDK 类",
+      "不监控 SDK 性能"
+    ],
+    "resources": [
+      {
+        "title": "OWASP Mobile Top 10",
+        "url": "https://owasp.org/www-project-mobile-top-10/",
+        "type": "doc"
+      },
+      {
+        "title": "Google: 12-factor SDK design",
+        "url": "https://12factor.net/",
+        "type": "doc"
+      },
+      {
+        "title": "Semantic Versioning",
+        "url": "https://semver.org/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能完成 SDK 基本接入",
+      "mid": "能抽象 wrapper + telemetry + 异步 init",
+      "senior": "能驱动 SDK 治理与第三方依赖战略"
+    }
+  }
 }

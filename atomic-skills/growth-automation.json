@@ -5,32 +5,130 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Growth Automation",
-    "nameZh": "growth-automation",
-    "description": "Skill: growth-automation",
-    "descriptionZh": "growth-automation",
+    "nameZh": "增长自动化",
+    "description": "Automate user lifecycle journeys (welcome / activation / re-engagement / churn-save) via triggers, segments and channels.",
+    "descriptionZh": "基于触发器 / 分群 / 多通道，自动化运营用户全生命周期（欢迎 / 激活 / 召回 / 挽留）。",
     "author": "skills4coder-team",
     "tags": [
-      "growth"
+      "growth",
+      "automation",
+      "crm",
+      "lifecycle",
+      "marketing"
     ],
-    "category": "atomic"
+    "category": "growth"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "journey"
+      ],
+      "properties": {
+        "journey": {
+          "enum": [
+            "welcome",
+            "activation",
+            "reengagement",
+            "churn-save",
+            "cross-sell"
+          ]
+        },
+        "triggers": {
+          "type": "array"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "email",
+              "push",
+              "sms",
+              "in-app"
+            ]
+          }
+        },
+        "controlGroup": {
+          "type": "boolean",
+          "default": true
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "automationId": {
+          "type": "string"
+        },
+        "expectedLift": {
+          "type": "number"
+        },
+        "abtestPlan": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "growth_automation"
   },
-  "errors": {}
+  "errors": {
+    "NO_CONTROL": {
+      "code": "GA_001",
+      "message": "未保留对照组，无法度量增量",
+      "retryable": false
+    },
+    "OVER_MESSAGING": {
+      "code": "GA_002",
+      "message": "触达频率超过用户疲劳阈值",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "增长自动化的杀手不是策略不够，而是消息疲劳与对照组缺失让 ROI 永远算不清。",
+    "keyPoints": [
+      "每个 journey 必须有控制组",
+      "渠道 + 频次 + 时段建立全局疲劳上限",
+      "触发器与目标对齐，避免无关推送",
+      "关注 long-term 指标而非首点击率",
+      "自动化不能取代洞察，只能放大洞察"
+    ],
+    "bestPractices": [
+      "先 A/B 验证增量再上线全量",
+      "unsubscribe / 偏好中心是合规底线",
+      "与 lifecycle stage 强绑定，不重复触达",
+      "journey 自动化与 CRM 打分联动"
+    ],
+    "antiPatterns": [
+      "全量推送一律算\"自动化\"",
+      "没有对照组，无法度量增量",
+      "渠道各自为战，用户被多次打扰",
+      "触发器漂移而无人监控"
+    ],
+    "resources": [
+      {
+        "title": "Reforge Growth Series",
+        "url": "https://www.reforge.com/programs/growth-series",
+        "type": "doc"
+      },
+      {
+        "title": "Braze Lifecycle Guide",
+        "url": "https://www.braze.com/resources/articles/best-practices-customer-lifecycle-marketing",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能搭单一 journey 跑通触发",
+      "mid": "能 A/B + 控制组度量增量、设疲劳上限",
+      "senior": "能搭组织级增长自动化框架与归因体系"
+    }
+  }
 }

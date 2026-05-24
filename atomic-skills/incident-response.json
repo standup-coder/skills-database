@@ -5,32 +5,115 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Incident Response",
-    "nameZh": "incident-response",
-    "description": "Skill: incident-response",
-    "descriptionZh": "incident-response",
+    "nameZh": "事件响应",
+    "description": "Respond to production incidents covering detection, triage, communication, mitigation, and postmortem.",
+    "descriptionZh": "响应生产事件：检测 / 分诊 / 沟通 / 缓解 / 复盘。",
     "author": "skills4coder-team",
     "tags": [
-      "incident"
+      "ops",
+      "incident",
+      "oncall",
+      "sre",
+      "postmortem"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "alert"
+      ],
+      "properties": {
+        "alert": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "sev1",
+            "sev2",
+            "sev3",
+            "sev4"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "timeline": {
+          "type": "array"
+        },
+        "mitigation": {
+          "type": "string"
+        },
+        "postmortem": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "incident_response"
   },
-  "errors": {}
+  "errors": {
+    "COMMS_DELAY": {
+      "code": "IR_001",
+      "message": "事件沟通通道延迟",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Incident response 的核心是\"先减损后查因\"；oncall 的任务是把客户痛苦降下去，复盘的任务是别再发生。",
+    "keyPoints": [
+      "IC（incident commander）单点决策",
+      "mitigate > root-cause（事件中）",
+      "comms / ops / scribe 角色分离",
+      "severity 决定升级路径",
+      "blameless postmortem 文化"
+    ],
+    "bestPractices": [
+      "runbook + alert 链接互绑",
+      "sev1 触发自动 conf bridge",
+      "every postmortem with action items + owner",
+      "每月 chaos drill 演练"
+    ],
+    "antiPatterns": [
+      "事件中找 root cause 优先于 mitigate",
+      "oncall 无 runbook 全靠脑",
+      "postmortem 找替罪羊",
+      "同类事件反复发生但不归因"
+    ],
+    "resources": [
+      {
+        "title": "Google SRE Book: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/",
+        "type": "book"
+      },
+      {
+        "title": "PagerDuty Response",
+        "url": "https://response.pagerduty.com/",
+        "type": "doc"
+      },
+      {
+        "title": "Incident.io blog",
+        "url": "https://incident.io/blog",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能按 runbook 处理 sev3/4",
+      "mid": "能担任 IC 处理 sev1/2 并写 postmortem",
+      "senior": "能驱动组织级 IR 文化与跨部门协同"
+    }
+  }
 }

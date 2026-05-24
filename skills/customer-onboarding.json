@@ -1,0 +1,100 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "customer-onboarding",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Customer Onboarding",
+    "nameZh": "客户上手流程",
+    "description": "Design and execute a customer onboarding journey to reach Time-to-Value within target SLA",
+    "descriptionZh": "围绕 Time-to-Value 设计并落地客户上手旅程：分段 → 旅程图 → 自动化 → 健康分 → 复盘",
+    "author": "skills4coder-team",
+    "tags": ["customer-success", "onboarding", "ttv", "playbook", "growth"],
+    "category": "customer-success"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "segment": { "type": "string", "enum": ["self-serve", "smb", "mid-market", "enterprise"] },
+        "ttvTargetDays": { "type": "integer", "minimum": 1 },
+        "productSurface": { "type": "array", "items": { "type": "string" } },
+        "successCriteria": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["segment", "ttvTargetDays"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "journeyMap": { "type": "object" },
+        "playbook": { "type": "string" },
+        "automationFlows": { "type": "array" },
+        "healthScoreModel": { "type": "object" },
+        "qbrTemplate": { "type": "string" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "Onboarding 旅程设计 → Playbook → 自动化 → 健康分 → 阶段复盘",
+    "steps": [
+      {
+        "id": "segment",
+        "name": "客户分段",
+        "nameZh": "客户分段",
+        "atomicSkill": "onboarding",
+        "input": { "segment": "{{input.segment}}", "criteria": "{{input.successCriteria}}" },
+        "output": "segmentSpec"
+      },
+      {
+        "id": "journey",
+        "name": "旅程地图",
+        "nameZh": "旅程地图",
+        "atomicSkill": "onboarding",
+        "input": { "segment": "{{steps.segment.output}}", "ttv": "{{input.ttvTargetDays}}" },
+        "output": "journeyMap",
+        "dependsOn": ["segment"]
+      },
+      {
+        "id": "playbook",
+        "name": "Playbook 编写",
+        "nameZh": "Playbook 编写",
+        "type": "llm",
+        "input": { "journey": "{{steps.journey.output}}", "surface": "{{input.productSurface}}" },
+        "prompt": "为每个阶段输出触发条件、CSM 动作、客户动作、产出物的 playbook",
+        "output": "playbook",
+        "dependsOn": ["journey"]
+      },
+      {
+        "id": "automation",
+        "name": "自动化 Flow",
+        "nameZh": "自动化 Flow",
+        "atomicSkill": "growth-automation",
+        "input": { "playbook": "{{steps.playbook.output}}" },
+        "output": "automationFlows",
+        "dependsOn": ["playbook"]
+      },
+      {
+        "id": "health",
+        "name": "健康分模型",
+        "nameZh": "健康分模型",
+        "atomicSkill": "feedback-loop",
+        "input": { "criteria": "{{input.successCriteria}}" },
+        "output": "healthScoreModel",
+        "dependsOn": ["journey"]
+      },
+      {
+        "id": "qbr",
+        "name": "阶段性复盘 / QBR 模板",
+        "nameZh": "阶段性复盘 / QBR 模板",
+        "type": "llm",
+        "input": { "health": "{{steps.health.output}}", "journey": "{{steps.journey.output}}" },
+        "prompt": "输出 30/60/90 天 QBR 模板，含数据看板与续约预警",
+        "output": "qbrTemplate",
+        "dependsOn": ["health"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}

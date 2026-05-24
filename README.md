@@ -1,11 +1,50 @@
 # Skills4Coder
 
-> **岗位即 Skills 集合，Agent 专业分工协作**
+> **高质量岗位技能知识库，Agent 专业分工协作**
 
-一个面向 AI Agent 时代的技能编排框架。将传统岗位（JD）拆解为可组合、可复用的技能单元，让 AI Agent 能够像专业团队一样协作完成复杂任务。
+Skills4Coder 首先是一份**可机器消费的岗位技能知识资产**——
+**22 个角色 × 42 个复合技能 × 141 个原子技能（112 个高价值原子已完成学习字段升级）**，全部由 JSON Schema 严格约束，中英双语描述。
+配套的 Agent 编排 SDK 与 LLM 辅助扩充工具，是知识库的下游消费方。
+
+```
+知识库（核心）   →   schema 校验 / 成熟度报表   →   编排 SDK / LLM 辅助扩充（辅助）
+```
 
 ## 🌐 Languages
 - [English](README.md) | [中文](README_zh.md)
+
+## 知识库一览（实测）
+
+| 资产 | 数量 | 成熟度 | 校验命令 |
+|------|------|--------|----------|
+| 岗位（roles/） | 22 | 99/100 | `npm run validate-roles` |
+| 复合技能（skills/） | 42 | 96/100 | `npm run validate-skills` |
+| 原子技能（atomic-skills/） | 141 | 98/100† | `npm run validate-skills` |
+| **整体** | **205** | **97/100** | — |
+
+> 量化口径：必填合规 50% + 丰富度 40%（双语/tags/input/output/constraints/errors）+ learning 字段 10% 加分。详见 [docs/contribute/knowledge-base.md](./docs/contribute/knowledge-base.md)。
+>
+> † 其中 23 个高价值原子技能已示范级填充（8 个架构与测试基本盘 + 15 个 2026-05 新增的 LLM 链路与韧性/可观测/测试细分），含双语、完整 schema、constraints、errors 与丰富的 `learning` 节（keyPoints / bestPractices / antiPatterns / resources / maturityLevels），可作贡献参考；剩余为骨架条目，可查 [KNOWLEDGE_GAPS.json](./documentation/KNOWLEDGE_GAPS.json) 按优先级补全。
+>
+> ✅ **2026-05 第四轮质量提升**：岗位 16→22（+6 P0 缺口岗位：AI/ML、Platform、Engineering Manager、Fullstack、Data Scientist、Technical Writer）；复合 28→42（+14 零复合岗位与横向治理）；原子 126→141（+15 LLM/韧性/可观测）。详见 [COVERAGE_GAP_REPORT.md](./documentation/COVERAGE_GAP_REPORT.md) 与 [REASSESSMENT_FIX_LOG.md](./documentation/REASSESSMENT_FIX_LOG.md)。
+
+## 快速消费知识资产
+
+```bash
+# 1. 校验完整性与质量
+npm run validate-roles
+npm run validate-skills            # 人类可读
+npm run validate-skills -- --json  # CI 友好
+
+# 2. 直接读取 JSON 资产
+cat roles/senior-frontend-dev.json
+cat skills/code-review.json
+cat atomic-skills/read-file.json
+
+# 3. 通过 SDK 加载（参考实现）
+import { Role } from 'skills4coder';
+const role = Role.fromJSON('./roles/senior-frontend-dev.json');
+```
 
 ---
 

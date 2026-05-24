@@ -4,33 +4,113 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "K8s Troubleshooting",
-    "nameZh": "k8s-troubleshooting",
-    "description": "Skill: k8s-troubleshooting",
-    "descriptionZh": "k8s-troubleshooting",
+    "name": "Kubernetes Troubleshooting",
+    "nameZh": "K8s 故障排查",
+    "description": "Diagnose Kubernetes issues across pods, services, networking, storage, and control plane.",
+    "descriptionZh": "排查 K8s 在 pod / service / 网络 / 存储 / 控制面层的故障。",
     "author": "skills4coder-team",
     "tags": [
-      "k8s"
+      "kubernetes",
+      "troubleshooting",
+      "debug",
+      "oncall",
+      "ops"
     ],
-    "category": "atomic"
+    "category": "ops"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "symptom"
+      ],
+      "properties": {
+        "symptom": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "rootCause": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array"
+        },
+        "remediation": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "k8s_troubleshooting"
   },
-  "errors": {}
+  "errors": {
+    "LOG_INSUFFICIENT": {
+      "code": "KT_001",
+      "message": "日志保留不足以诊断",
+      "retryable": true
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "K8s 故障 80% 落在 4 类：镜像 / 资源 / 网络 / probe；先按这 4 类做 bisect 比直接读 etcd 快十倍。",
+    "keyPoints": [
+      "kubectl describe + events 第一步",
+      "CrashLoopBackOff 看 logs --previous",
+      "pending pod 看 scheduler events",
+      "DNS 问题先 nslookup 再看 CoreDNS",
+      "OOMKilled 看 limits"
+    ],
+    "bestPractices": [
+      "stern / k9s 做多 pod 日志聚合",
+      "ephemeral debug container 上线",
+      "cluster-level audit log 集中存",
+      "kube-state-metrics + Prometheus 看趋势"
+    ],
+    "antiPatterns": [
+      "一上来 kubectl exec 改 pod",
+      "不看 events 只看 logs",
+      "一遇问题 restart pod",
+      "limits 不设导致互相挤"
+    ],
+    "resources": [
+      {
+        "title": "K8s Troubleshooting docs",
+        "url": "https://kubernetes.io/docs/tasks/debug/",
+        "type": "doc"
+      },
+      {
+        "title": "k9s",
+        "url": "https://k9scli.io/",
+        "type": "doc"
+      },
+      {
+        "title": "Stern",
+        "url": "https://github.com/stern/stern",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能 describe / logs 排查单 pod",
+      "mid": "能跨 namespace / 网络 / DNS 多维诊断",
+      "senior": "能驱动 K8s 平台稳定性与诊断工具体系"
+    }
+  }
 }

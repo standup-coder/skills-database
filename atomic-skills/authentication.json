@@ -5,32 +5,135 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Authentication",
-    "nameZh": "authentication",
-    "description": "Skill: authentication",
-    "descriptionZh": "authentication",
+    "nameZh": "身份认证",
+    "description": "Implement authentication flows covering password, OAuth2/OIDC, JWT, session, and multi-factor scenarios.",
+    "descriptionZh": "实现身份认证流程，覆盖密码、OAuth2/OIDC、JWT、Session 与多因子等场景。",
     "author": "skills4coder-team",
     "tags": [
-      "authentication"
+      "security",
+      "authentication",
+      "oauth",
+      "jwt",
+      "identity"
     ],
-    "category": "atomic"
+    "category": "security"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "method"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "password",
+            "oauth2",
+            "oidc",
+            "magic-link",
+            "passkey",
+            "saml"
+          ]
+        },
+        "mfaRequired": {
+          "type": "boolean",
+          "default": false
+        },
+        "sessionType": {
+          "enum": [
+            "cookie",
+            "jwt",
+            "opaque-token"
+          ],
+          "default": "cookie"
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "tokens": {
+          "type": "object"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "type": "string"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "authentication"
   },
-  "errors": {}
+  "errors": {
+    "INVALID_CREDENTIAL": {
+      "code": "AUTH_001",
+      "message": "凭据无效或过期",
+      "retryable": false
+    },
+    "MFA_REQUIRED": {
+      "code": "AUTH_002",
+      "message": "需进行多因子验证",
+      "retryable": true
+    },
+    "ACCOUNT_LOCKED": {
+      "code": "AUTH_003",
+      "message": "账户已被锁定",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "Authentication 是安全的第一道闸：自己造比用 IdP 风险高十倍，能委托就别自研。",
+    "keyPoints": [
+      "密码哈希用 Argon2id / bcrypt，禁用 MD5/SHA1",
+      "JWT 慎用：默认过期 ≤ 15min + refresh token 轮换",
+      "OIDC > OAuth2，标准化 id_token 验证",
+      "passkey / WebAuthn 是钓鱼免疫的未来",
+      "session 存储优先选 server-side（Redis）"
+    ],
+    "bestPractices": [
+      "登录失败次数限速 + 验证码 + 账户锁定",
+      "凭据传输强制 HTTPS + Secure / HttpOnly / SameSite cookie",
+      "集成 IdP（Auth0 / Clerk / Cognito）替代自研",
+      "审计登录、登出、密码重置等关键事件"
+    ],
+    "antiPatterns": [
+      "明文 / 可逆加密保存密码",
+      "JWT 写敏感信息且永不过期",
+      "同时支持太多第三方 IdP 但不做 SSO 整合",
+      "把 session token 放 localStorage 暴露给 XSS"
+    ],
+    "resources": [
+      {
+        "title": "OWASP Authentication Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+        "type": "doc"
+      },
+      {
+        "title": "OAuth 2.0 Security Best Current Practice",
+        "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-security-topics/",
+        "type": "doc"
+      },
+      {
+        "title": "WebAuthn Guide",
+        "url": "https://webauthn.guide/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能集成 OAuth2 / OIDC 完成登录",
+      "mid": "能设计 session / token 体系、MFA、限速",
+      "senior": "能制定企业级身份架构：SSO / passkey / 风险引擎"
+    }
+  }
 }

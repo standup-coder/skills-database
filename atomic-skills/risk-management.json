@@ -5,32 +5,116 @@
   "version": "1.0.0",
   "metadata": {
     "name": "Risk Management",
-    "nameZh": "risk-management",
-    "description": "Skill: risk-management",
-    "descriptionZh": "risk-management",
+    "nameZh": "风险管理",
+    "description": "General risk management framework: identify, analyze, treat and monitor risks across engineering, vendor and project domains.",
+    "descriptionZh": "通用风险管理框架：识别 / 分析 / 处置 / 监控工程、供应商与项目风险。",
     "author": "skills4coder-team",
     "tags": [
-      "risk"
+      "leadership",
+      "risk",
+      "governance",
+      "project",
+      "process"
     ],
-    "category": "atomic"
+    "category": "leadership"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "required": [
+        "scope"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "engineering",
+            "project",
+            "vendor",
+            "security",
+            "compliance"
+          ]
+        }
+      }
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "riskRegister": {
+          "type": "array"
+        },
+        "treatments": {
+          "type": "array"
+        },
+        "residualRisk": {
+          "type": "object"
+        }
+      }
     }
   },
   "implementation": {
     "type": "native",
     "function": "risk_management"
   },
-  "errors": {}
+  "errors": {
+    "OWNER_MISSING": {
+      "code": "RM_001",
+      "message": "风险无 owner",
+      "retryable": false
+    }
+  },
+  "constraints": {
+    "permissions": [
+      "read"
+    ]
+  },
+  "learning": {
+    "summaryZh": "风险管理的关键不是消灭风险，是把\"未知的不确定\"变成\"已知的取舍\"；reside risk 必须有 owner 签字才算闭环。",
+    "keyPoints": [
+      "risk = likelihood × impact",
+      "4 种处置（accept / mitigate / transfer / avoid）",
+      "inherent vs residual 一定区分",
+      "risk register 持续更新",
+      "red flag 早升级"
+    ],
+    "bestPractices": [
+      "每 initiative 一份风险登记",
+      "高 residual risk 走 exec 评审",
+      "与 OKR / roadmap 绑定",
+      "定期复盘风险预测准确度"
+    ],
+    "antiPatterns": [
+      "一份 risk register 写完锁柜",
+      "所有风险都 mitigate 不分优先级",
+      "owner 写「TBD」永远不落实",
+      "只盯技术风险忽视组织 / 供应商风险"
+    ],
+    "resources": [
+      {
+        "title": "PMBOK Risk Management",
+        "url": "https://www.pmi.org/pmbok-guide-standards",
+        "type": "doc"
+      },
+      {
+        "title": "NIST Risk Management",
+        "url": "https://csrc.nist.gov/projects/risk-management",
+        "type": "doc"
+      },
+      {
+        "title": "HBR: Managing Risks",
+        "url": "https://hbr.org/2012/06/managing-risks-a-new-framework",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能识别 / 登记项目风险",
+      "mid": "能跑 treatment 决策与 owner 闭环",
+      "senior": "能驱动组织级 risk governance 与高管对齐"
+    }
+  }
 }

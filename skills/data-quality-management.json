@@ -1,0 +1,88 @@
+{
+  "$schema": "../schema/composite-skill-v1.json",
+  "id": "data-quality-management",
+  "type": "composite-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Data Quality Management",
+    "nameZh": "数据质量治理",
+    "description": "Operate continuous data quality with profiling, expectations, SLAs and incident workflow",
+    "descriptionZh": "以剖析→预期→SLA→事件四步法持续治理数据质量，闭环故障与回放",
+    "author": "skills4coder-team",
+    "tags": ["data-quality", "great-expectations", "data-contract", "data-sla", "data"],
+    "category": "data"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "dataset": { "type": "string", "description": "目标数据集/表名" },
+        "criticalColumns": { "type": "array", "items": { "type": "string" } },
+        "slaTarget": { "type": "object", "description": "freshness/completeness/accuracy SLA" }
+      },
+      "required": ["dataset"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "profile": { "type": "object" },
+        "expectations": { "type": "array" },
+        "qualityScore": { "type": "number" },
+        "incidentRunbook": { "type": "string" }
+      }
+    }
+  },
+  "workflow": {
+    "description": "数据质量从剖析到事件响应的闭环",
+    "steps": [
+      {
+        "id": "profile",
+        "name": "数据剖析",
+        "nameZh": "数据剖析",
+        "atomicSkill": "data-quality",
+        "input": { "dataset": "{{input.dataset}}", "type": "profile" },
+        "output": "profile"
+      },
+      {
+        "id": "expectations",
+        "name": "质量预期定义",
+        "nameZh": "质量预期定义",
+        "atomicSkill": "data-quality",
+        "input": { "profile": "{{steps.profile.output}}", "columns": "{{input.criticalColumns}}" },
+        "output": "expectations",
+        "dependsOn": ["profile"]
+      },
+      {
+        "id": "sla",
+        "name": "SLA 与告警",
+        "nameZh": "SLA 与告警",
+        "type": "transform",
+        "input": { "expectations": "{{steps.expectations.output}}", "sla": "{{input.slaTarget}}" },
+        "output": "slaPolicy",
+        "dependsOn": ["expectations"]
+      },
+      {
+        "id": "score",
+        "name": "质量评分",
+        "nameZh": "质量评分",
+        "type": "transform",
+        "input": { "expectations": "{{steps.expectations.output}}", "profile": "{{steps.profile.output}}" },
+        "output": "qualityScore",
+        "dependsOn": ["expectations"]
+      },
+      {
+        "id": "runbook",
+        "name": "事件响应 Runbook",
+        "nameZh": "事件响应 Runbook",
+        "type": "llm",
+        "input": { "sla": "{{steps.sla.output}}", "expectations": "{{steps.expectations.output}}" },
+        "prompt": "为常见数据质量故障（漂移/延迟/缺失）输出 detection→triage→fix→postmortem 的 runbook",
+        "output": "incidentRunbook",
+        "dependsOn": ["sla"]
+      }
+    ]
+  },
+  "errorHandling": { "strategy": "continue" }
+}
