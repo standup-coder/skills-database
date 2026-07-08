@@ -3,21 +3,24 @@
   "id": "mobile-developer",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Mobile Developer",
     "nameZh": "移动开发工程师",
     "description": "负责 iOS/Android 原生或跨平台移动应用开发",
     "descriptionZh": "负责 iOS/Android 原生或跨平台移动应用开发",
     "author": "skills4coder-team",
-    "tags": ["mobile", "ios", "android", "react-native", "flutter"],
+    "tags": [
+      "mobile",
+      "ios",
+      "android",
+      "react-native",
+      "flutter"
+    ],
     "level": "mid"
   },
-
   "jd": {
     "summary": "开发高质量的移动应用，确保性能、稳定性、用户体验",
     "summaryZh": "开发高质量的移动应用，确保性能、稳定性、用户体验",
-
     "responsibilities": [
       "开发 iOS/Android 原生或跨平台应用",
       "实现 UI 组件和交互功能",
@@ -32,34 +35,47 @@
       "集成第三方 SDK 和 API",
       "编写移动端测试和自动化脚本"
     ],
-
     "requirements": {
       "experience": "3+ years",
-      "coreSkills": ["Swift/Kotlin", "React Native/Flutter", "Mobile Architecture", "API Integration"]
+      "coreSkills": [
+        "Swift/Kotlin",
+        "React Native/Flutter",
+        "Mobile Architecture",
+        "API Integration"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call",
+      "run-tests",
       "ios-development",
       "android-development",
       "cross-platform",
       "performance-optimization",
       "sdk-integration"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "api-call",
-      "run-tests"
     ]
   },
-
   "context": {
     "techStack": {
-      "native": ["Swift", "Kotlin", "SwiftUI", "Jetpack Compose"],
-      "crossPlatform": ["React Native", "Flutter"],
-      "tooling": ["Xcode", "Android Studio", "Fastlane"]
+      "native": [
+        "Swift",
+        "Kotlin",
+        "SwiftUI",
+        "Jetpack Compose"
+      ],
+      "crossPlatform": [
+        "React Native",
+        "Flutter"
+      ],
+      "tooling": [
+        "Xcode",
+        "Android Studio",
+        "Fastlane"
+      ]
     }
   }
 }

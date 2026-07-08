@@ -357,29 +357,29 @@ node feature-development.js
 
 ## 项目结构
 
+根目录以**语料库为主**，所有代码（SDK + Web 栈）统一收拢在 `app/`，编译产物 `dist/` 留根供 npm 发布消费。
+
 ```
 skills4coder/
-├── README.md                    # 本文件
-├── AGENTS.md                    # Agent 开发完整指南
-├── roles/                       # 岗位定义 (JD)
-│   ├── senior-frontend-dev.json
-│   ├── backend-architect.json
-│   └── qa-automation.json
-├── skills/                      # 复合技能
-│   ├── code-review.json
-│   ├── api-design.json
-│   └── database-design.json
-├── atomic-skills/               # 原子技能
-│   ├── read-file.json
-│   ├── write-code.json
-│   └── run-tests.json
-├── orchestration/               # 编排运行时
-│   ├── agent-runtime/           # Agent 执行引擎
-│   ├── mcp-server/              # MCP 协议支持
-│   └── skillhub-adapter/        # SkillHub 适配器
-└── examples/                    # 使用示例
-    ├── single-agent-task/
-    └── multi-agent-project/
+├── roles/                       # 语料库 · 岗位定义 (JD)
+├── skills/                      # 语料库 · 复合技能
+├── atomic-skills/               # 语料库 · 原子技能
+├── schema/                      # 语料库 · JSON Schema 约束
+├── skill-lists/                 # 语料库 · 岗位能力清单
+├── data/                        # 语料派生数据 (seed-data, SQLite, enriched)
+├── dist/                        # 编译产物 (npm 发布入口，留根)
+├── scripts/                     # 语料校验/扩充工具
+├── docs/                        # VitePress 文档站
+├── examples/                    # 使用示例
+├── app/                         # 代码入口（SDK + Web）
+│   ├── src/                     #   SDK 核心库 (Agent/Role/Team/Workflow)
+│   ├── orchestration/           #   编排运行时 (agent-runtime / mcp-server / skillhub-adapter)
+│   ├── server/                  #   Web API (Express + SQLite)
+│   ├── webui/                   #   Web UI (静态页)
+│   ├── skills-cli.ts            #   能力追踪 CLI
+│   └── start.sh                 #   Web 服务启停脚本
+├── package.json
+└── tsconfig.json
 ```
 
 ---

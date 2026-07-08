@@ -3,21 +3,23 @@
   "id": "product-manager",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Product Manager",
     "nameZh": "产品经理",
     "description": "负责需求分析、产品规划和 PRD 编写",
     "descriptionZh": "负责需求分析、产品规划和 PRD 编写",
     "author": "skills4coder-team",
-    "tags": ["product", "pm", "requirements", "prd"],
+    "tags": [
+      "product",
+      "pm",
+      "requirements",
+      "prd"
+    ],
     "level": "senior"
   },
-
   "jd": {
     "summary": "分析用户需求，制定产品方案，输出高质量 PRD",
     "summaryZh": "分析用户需求，制定产品方案，输出高质量 PRD",
-
     "responsibilities": [
       "收集和分析用户需求",
       "编写产品需求文档（PRD）",
@@ -30,30 +32,36 @@
       "制定产品路线图",
       "协调跨团队沟通"
     ],
-
     "requirements": {
       "experience": "3+ years",
-      "coreSkills": ["Requirement Analysis", "User Research", "PRD Writing", "Roadmap Planning"]
+      "coreSkills": [
+        "Requirement Analysis",
+        "User Research",
+        "PRD Writing",
+        "Roadmap Planning"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call",
       "write-prd",
       "user-research",
       "competitive-analysis",
       "roadmap-design"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "api-call"
     ]
   },
-
   "context": {
     "techStack": {
-      "tools": ["Notion", "Figma", "Jira", "Confluence"]
+      "tools": [
+        "Notion",
+        "Figma",
+        "Jira",
+        "Confluence"
+      ]
     }
   }
 }

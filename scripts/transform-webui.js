@@ -3,7 +3,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const htmlPath = join(__dirname, '..', 'webui', 'index.html');
+const htmlPath = join(__dirname, '..', 'app', 'webui', 'index.html');
 
 const html = fs.readFileSync(htmlPath, 'utf-8');
 const lines = html.split('\n');

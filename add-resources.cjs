@@ -1,5 +1,6 @@
 const fs = require('fs');
-const html = fs.readFileSync('/Users/allengaller/Documents/GitHub/standup-coder/skills4coder/webui/index.html', 'utf8');
+const path = require('path');
+const html = fs.readFileSync(path.join(__dirname, 'app', 'webui', 'index.html'), 'utf8');
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 let js = scriptMatch[1];
 

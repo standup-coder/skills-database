@@ -3,21 +3,24 @@
   "id": "ui-ux-designer",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "UI/UX Designer",
     "nameZh": "UI/UX 设计师",
     "description": "负责产品视觉设计、交互体验、用户研究",
     "descriptionZh": "负责产品视觉设计、交互体验、用户研究",
     "author": "skills4coder-team",
-    "tags": ["design", "ui", "ux", "figma", "prototype"],
+    "tags": [
+      "design",
+      "ui",
+      "ux",
+      "figma",
+      "prototype"
+    ],
     "level": "mid"
   },
-
   "jd": {
     "summary": "设计直观、美观的用户界面，优化用户体验",
     "summaryZh": "设计直观、美观的用户界面，优化用户体验",
-
     "responsibilities": [
       "创建 UI 设计和视觉规范",
       "设计交互流程和原型",
@@ -32,33 +35,45 @@
       "维护设计系统和组件库",
       "与开发团队协作确保设计实现"
     ],
-
     "requirements": {
       "experience": "3+ years",
-      "coreSkills": ["Figma", "Prototyping", "Design Systems", "User Research", "Visual Design"]
+      "coreSkills": [
+        "Figma",
+        "Prototyping",
+        "Design Systems",
+        "User Research",
+        "Visual Design"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call",
       "ui-design",
       "interaction-design",
       "user-research",
       "design-system",
       "prototype"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "api-call"
     ]
   },
-
   "context": {
     "techStack": {
-      "design": ["Figma", "Sketch", "Adobe XD"],
-      "prototype": ["Principle", "Framer"],
-      "assets": ["Illustrator", "Photoshop"]
+      "design": [
+        "Figma",
+        "Sketch",
+        "Adobe XD"
+      ],
+      "prototype": [
+        "Principle",
+        "Framer"
+      ],
+      "assets": [
+        "Illustrator",
+        "Photoshop"
+      ]
     }
   }
 }

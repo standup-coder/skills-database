@@ -3,21 +3,24 @@
   "id": "growth-engineer",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Growth Engineer",
     "nameZh": "增长工程师",
     "description": "通过数据驱动、实验迭代实现用户和收入增长",
     "descriptionZh": "通过数据驱动、实验迭代实现用户和收入增长",
     "author": "skills4coder-team",
-    "tags": ["growth", "experimentation", "ab-testing", "analytics", "funnel"],
+    "tags": [
+      "growth",
+      "experimentation",
+      "ab-testing",
+      "analytics",
+      "funnel"
+    ],
     "level": "mid"
   },
-
   "jd": {
     "summary": "通过 A/B 测试、漏斗分析、自动化工具驱动用户和收入增长",
     "summaryZh": "通过 A/B 测试、漏斗分析、自动化工具驱动用户和收入增长",
-
     "responsibilities": [
       "设计和执行 A/B 测试实验",
       "分析用户行为和转化漏斗",
@@ -32,35 +35,52 @@
       "优化获客、激活、留存、变现关键指标",
       "建立数据基础设施支持增长决策"
     ],
-
     "requirements": {
       "experience": "3+ years",
-      "coreSkills": ["A/B Testing", "Funnel Analysis", "SQL", "Growth Automation", "JavaScript"]
+      "coreSkills": [
+        "A/B Testing",
+        "Funnel Analysis",
+        "SQL",
+        "Growth Automation",
+        "JavaScript"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "database-query",
+      "api-call",
       "ab-testing",
       "funnel-analysis",
       "growth-automation",
       "analytics",
       "cohort-analysis"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "database-query",
-      "api-call"
     ]
   },
-
   "context": {
     "techStack": {
-      "analytics": ["Amplitude", "Mixpanel", "PostHog"],
-      "abTesting": ["Optimizely", "LaunchDarkly"],
-      "automation": ["Zapier", "Segment", "Braze"],
-      "languages": ["JavaScript", "Python", "SQL"]
+      "analytics": [
+        "Amplitude",
+        "Mixpanel",
+        "PostHog"
+      ],
+      "abTesting": [
+        "Optimizely",
+        "LaunchDarkly"
+      ],
+      "automation": [
+        "Zapier",
+        "Segment",
+        "Braze"
+      ],
+      "languages": [
+        "JavaScript",
+        "Python",
+        "SQL"
+      ]
     }
   }
 }

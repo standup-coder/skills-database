@@ -3,21 +3,25 @@
   "id": "cloud-security-engineer",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Cloud Security Engineer",
     "nameZh": "云安全工程师",
     "description": "负责云平台安全架构、云资源合规、IAM 策略、数据保护与云原生安全",
     "descriptionZh": "负责云平台安全架构、云资源合规、IAM 策略、数据保护与云原生安全",
     "author": "skills4coder-team",
-    "tags": ["cloud-security", "iam", "compliance", "cspm", "devsecops", "zero-trust"],
+    "tags": [
+      "cloud-security",
+      "iam",
+      "compliance",
+      "cspm",
+      "devsecops",
+      "zero-trust"
+    ],
     "level": "senior"
   },
-
   "jd": {
     "summary": "设计并实施云安全策略，保障多云环境下的基础设施、数据和应用安全",
     "summaryZh": "设计并实施云安全策略，保障多云环境下的基础设施、数据和应用安全",
-
     "responsibilities": [
       "设计和评审云安全架构（VPC、安全组、WAF、零信任）",
       "管理云 IAM 策略、权限最小化和身份联邦",
@@ -36,7 +40,6 @@
       "云安全事件响应与威胁检测",
       "推动 DevSecOps 在云环境的落地"
     ],
-
     "requirements": {
       "experience": "5+ years",
       "coreSkills": [
@@ -49,7 +52,6 @@
       ]
     }
   },
-
   "capabilities": {
     "mainSkills": [
       "cloud-security-assessment",
@@ -57,6 +59,22 @@
       "iam-policy-review",
       "cloud-infrastructure-hardening",
       "cloud-incident-response",
+      "security-audit",
+      "log-analysis",
+      "terraform-plan-review",
+      "k8s-deployment-review",
+      "docker-container-management",
+      "monitoring-stack-setup"
+    ],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "run-shell-command",
+      "docker-exec",
+      "validate-k8s-manifest",
+      "http-health-check",
+      "parse-json-log",
+      "api-call",
       "shared-responsibility-model",
       "iam-core-concepts",
       "least-privilege-iam",
@@ -85,34 +103,51 @@
       "data-classification-dlp",
       "privacy-engineering",
       "cloud-ir-playbook",
-      "cloud-risk-management",
-      "security-audit",
-      "log-analysis",
-      "terraform-plan-review",
-      "k8s-deployment-review",
-      "docker-container-management",
-      "monitoring-stack-setup"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "run-shell-command",
-      "docker-exec",
-      "validate-k8s-manifest",
-      "http-health-check",
-      "parse-json-log",
-      "api-call"
+      "cloud-risk-management"
     ]
   },
-
   "context": {
     "techStack": {
-      "cloud": ["AWS", "Azure", "GCP", "Tencent Cloud"],
-      "iam": ["AWS IAM", "Azure AD", "GCP IAM", "Okta", "Keycloak"],
-      "security": ["Checkov", "Trivy", "Falco", "OPA", "HashiCorp Vault"],
-      "compliance": ["CIS Benchmarks", "SOC2", "GDPR", "HIPAA", "ISO27001", "PCI-DSS"],
-      "monitoring": ["AWS CloudTrail", "Azure Monitor", "GCP Security Command Center", "Splunk"],
-      "container": ["Docker", "Kubernetes", "Helm", "Istio"]
+      "cloud": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Tencent Cloud"
+      ],
+      "iam": [
+        "AWS IAM",
+        "Azure AD",
+        "GCP IAM",
+        "Okta",
+        "Keycloak"
+      ],
+      "security": [
+        "Checkov",
+        "Trivy",
+        "Falco",
+        "OPA",
+        "HashiCorp Vault"
+      ],
+      "compliance": [
+        "CIS Benchmarks",
+        "SOC2",
+        "GDPR",
+        "HIPAA",
+        "ISO27001",
+        "PCI-DSS"
+      ],
+      "monitoring": [
+        "AWS CloudTrail",
+        "Azure Monitor",
+        "GCP Security Command Center",
+        "Splunk"
+      ],
+      "container": [
+        "Docker",
+        "Kubernetes",
+        "Helm",
+        "Istio"
+      ]
     }
   }
 }

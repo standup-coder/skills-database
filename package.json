@@ -18,11 +18,11 @@
     "lint": "eslint . --ext .ts,.js",
     "validate-roles": "node scripts/validate-roles.js",
     "validate-skills": "node scripts/validate-skills.js",
-    "webui": "bash start.sh",
-    "seed": "node server/seed.js",
-    "enrich": "node server/enrich-template.mjs",
-    "enrich:llm": "node server/enrich-kps.mjs",
-    "server": "node server/index.js"
+    "webui": "bash app/start.sh",
+    "seed": "node app/server/seed.js",
+    "enrich": "node app/server/enrich-template.mjs",
+    "enrich:llm": "node app/server/enrich-kps.mjs",
+    "server": "node app/server/index.js"
   },
   "repository": {
     "type": "git",

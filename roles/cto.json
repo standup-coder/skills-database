@@ -3,21 +3,24 @@
   "id": "cto",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "CTO / Technical Lead",
     "nameZh": "技术负责人",
     "description": "负责技术战略、技术选型、技术架构决策",
     "descriptionZh": "负责技术战略、技术选型、技术架构决策",
     "author": "skills4coder-team",
-    "tags": ["cto", "technical-lead", "strategy", "architecture", "management"],
+    "tags": [
+      "cto",
+      "technical-lead",
+      "strategy",
+      "architecture",
+      "management"
+    ],
     "level": "senior"
   },
-
   "jd": {
     "summary": "制定技术方向，确保技术决策与业务目标一致，引领技术团队成长",
     "summaryZh": "制定技术方向，确保技术决策与业务目标一致，引领技术团队成长",
-
     "responsibilities": [
       "制定技术战略和路线图",
       "做技术选型和技术架构决策",
@@ -32,32 +35,44 @@
       "协调跨团队技术合作",
       "培养技术人才和团队建设"
     ],
-
     "requirements": {
       "experience": "10+ years",
-      "coreSkills": ["System Design", "Technical Strategy", "Team Leadership", "Architecture", "Decision Making"]
+      "coreSkills": [
+        "System Design",
+        "Technical Strategy",
+        "Team Leadership",
+        "Architecture",
+        "Decision Making"
+      ]
     }
   },
-
   "capabilities": {
     "mainSkills": [
       "technical-strategy",
-      "architecture-design",
-      "risk-management",
-      "team-leadership",
-      "vendor-management"
+      "architecture-design"
     ],
     "atomicSkills": [
       "read-file",
       "write-file",
-      "api-call"
+      "api-call",
+      "risk-management",
+      "team-leadership",
+      "vendor-management"
     ]
   },
-
   "context": {
     "techStack": {
-      "domains": ["Cloud Architecture", "Microservices", "DevOps", "Security"],
-      "management": ["OKR", "RACI", "Technical Debt Management"]
+      "domains": [
+        "Cloud Architecture",
+        "Microservices",
+        "DevOps",
+        "Security"
+      ],
+      "management": [
+        "OKR",
+        "RACI",
+        "Technical Debt Management"
+      ]
     }
   }
 }

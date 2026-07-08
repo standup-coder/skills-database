@@ -3,21 +3,24 @@
   "id": "customer-success",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Customer Success Manager",
     "nameZh": "客户成功经理",
     "description": "确保客户达成预期目标，提升留存和满意度",
     "descriptionZh": "确保客户达成预期目标，提升留存和满意度",
     "author": "skills4coder-team",
-    "tags": ["customer-success", "support", "retention", "onboarding", "cs"],
+    "tags": [
+      "customer-success",
+      "support",
+      "retention",
+      "onboarding",
+      "cs"
+    ],
     "level": "mid"
   },
-
   "jd": {
     "summary": "管理客户生命周期，推动用户 onboarding、留存续费、价值实现",
     "summaryZh": "管理客户生命周期，推动用户 onboarding、留存续费、价值实现",
-
     "responsibilities": [
       "引导新客户完成 onboarding",
       "监控客户健康度和使用情况",
@@ -32,33 +35,46 @@
       "收集客户反馈推动产品改进",
       "管理客户关系和定期业务回顾"
     ],
-
     "requirements": {
       "experience": "3+ years",
-      "coreSkills": ["Customer Onboarding", "Retention", "Communication", "Analytics", "Empathy"]
+      "coreSkills": [
+        "Customer Onboarding",
+        "Retention",
+        "Communication",
+        "Analytics",
+        "Empathy"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call",
       "onboarding",
       "health-monitoring",
       "retention",
       "feedback-loop",
       "stakeholder-management"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "api-call"
     ]
   },
-
   "context": {
     "techStack": {
-      "csm": ["Intercom", "Zendesk", "Crisp"],
-      "analytics": ["Mixpanel", "Amplitude", "Gainsight"],
-      "documentation": ["Notion", "Confluence"]
+      "csm": [
+        "Intercom",
+        "Zendesk",
+        "Crisp"
+      ],
+      "analytics": [
+        "Mixpanel",
+        "Amplitude",
+        "Gainsight"
+      ],
+      "documentation": [
+        "Notion",
+        "Confluence"
+      ]
     }
   }
 }

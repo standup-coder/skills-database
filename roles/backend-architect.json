@@ -3,21 +3,23 @@
   "id": "backend-architect",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Backend Architect",
     "nameZh": "后端架构师",
     "description": "负责系统架构设计、技术选型和代码审查",
     "descriptionZh": "负责系统架构设计、技术选型和代码审查",
     "author": "skills4coder-team",
-    "tags": ["backend", "architecture", "system-design", "api"],
+    "tags": [
+      "backend",
+      "architecture",
+      "system-design",
+      "api"
+    ],
     "level": "senior"
   },
-
   "jd": {
     "summary": "设计高可用、可扩展的后端系统架构",
     "summaryZh": "设计高可用、可扩展的后端系统架构",
-
     "responsibilities": [
       "设计系统整体架构",
       "制定技术选型方案",
@@ -30,36 +32,56 @@
       "设计 RESTful/GraphQL API",
       "审查代码质量和架构合规性"
     ],
-
     "requirements": {
       "experience": "5+ years",
-      "coreSkills": ["System Design", "Microservices", "Database Design", "API Design", "Cloud Architecture"]
+      "coreSkills": [
+        "System Design",
+        "Microservices",
+        "Database Design",
+        "API Design",
+        "Cloud Architecture"
+      ]
     }
   },
-
   "capabilities": {
     "mainSkills": [
-      "system-design",
       "database-design",
       "api-design",
-      "code-review",
-      "generate-deployment-guide"
+      "code-review"
     ],
     "atomicSkills": [
       "read-file",
       "write-file",
       "run-tests",
       "database-query",
-      "api-request"
+      "api-request",
+      "system-design",
+      "generate-deployment-guide"
     ]
   },
-
   "context": {
     "techStack": {
-      "runtime": ["Node.js", "Go", "Java"],
-      "framework": ["Express", "NestJS", "Spring Boot"],
-      "database": ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
-      "messaging": ["Kafka", "RabbitMQ", "NATS"]
+      "runtime": [
+        "Node.js",
+        "Go",
+        "Java"
+      ],
+      "framework": [
+        "Express",
+        "NestJS",
+        "Spring Boot"
+      ],
+      "database": [
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "messaging": [
+        "Kafka",
+        "RabbitMQ",
+        "NATS"
+      ]
     }
   }
 }

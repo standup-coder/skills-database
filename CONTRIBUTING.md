@@ -21,15 +21,17 @@ npm test
 ## Project Structure
 
 ```
-src/
-├── orchestration/    # Core orchestration engine
-├── roles/            # Role definitions (JSON)
-├── skills/           # Skill definitions (JSON)
-├── atomic-skills/    # Atomic skill building blocks (JSON)
-├── server/           # Server/API layer
-├── cli/              # CLI entry point
-└── web/              # Web UI
-docs/                 # Documentation
+roles/  skills/  atomic-skills/   # 语料库（JSON 资产，根目录主体）
+schema/  skill-lists/  data/      # 语料约束 / 清单 / 派生数据
+app/                            # 所有代码（SDK + Web）
+├── src/                        #   SDK 核心库
+├── orchestration/              #   编排运行时 (agent-runtime / mcp-server / skillhub-adapter)
+├── server/                     #   Web API 层
+├── webui/                      #   Web UI
+├── skills-cli.ts               #   CLI 入口
+└── start.sh                    #   Web 服务启停
+dist/                           # 编译产物（npm 发布入口，留根）
+docs/                           # 文档
 ```
 
 ## Development Workflow
@@ -96,7 +98,7 @@ npm test -- --watch # watch mode
 
 ## Adding a New Orchestration Module
 
-1. Create your module in `src/orchestration/`.
+1. Create your module in `app/orchestration/`.
 2. Export a public API surface with clear TypeScript types.
 3. Wire it into the orchestration engine entry point.
 4. Add unit and integration tests.

@@ -92,14 +92,20 @@ function validateRole(filePath) {
     if (!Array.isArray(role.capabilities.mainSkills)) errors.push('capabilities.mainSkills must be array');
     if (!Array.isArray(role.capabilities.atomicSkills)) errors.push('capabilities.atomicSkills must be array');
 
-    // mainSkills 允许引用 composite 或 atomic（现有数据中两者混用）
+    // 严格类型一致性：mainSkills 只能引用 composite，atomicSkills 只能引用 atomic
     for (const s of role.capabilities.mainSkills || []) {
-      if (!knownComposite.has(s) && !knownAtomic.has(s)) {
+      if (knownAtomic.has(s)) {
+        errors.push(`mainSkills references atomic skill (must be composite): ${s}`);
+      } else if (!knownComposite.has(s)) {
         warnings.push(`mainSkills reference not found: ${s}`);
       }
     }
     for (const s of role.capabilities.atomicSkills || []) {
-      if (!knownAtomic.has(s)) warnings.push(`atomicSkills reference not found: ${s}`);
+      if (knownComposite.has(s)) {
+        errors.push(`atomicSkills references composite skill (must be atomic): ${s}`);
+      } else if (!knownAtomic.has(s)) {
+        warnings.push(`atomicSkills reference not found: ${s}`);
+      }
     }
   }
 

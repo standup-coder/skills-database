@@ -3,21 +3,23 @@
   "id": "qa-automation",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "QA Automation Engineer",
     "nameZh": "自动化测试工程师",
     "description": "负责测试策略、自动化框架搭建和测试用例编写",
     "descriptionZh": "负责测试策略、自动化框架搭建和测试用例编写",
     "author": "skills4coder-team",
-    "tags": ["qa", "testing", "automation", "e2e"],
+    "tags": [
+      "qa",
+      "testing",
+      "automation",
+      "e2e"
+    ],
     "level": "mid"
   },
-
   "jd": {
     "summary": "构建自动化测试体系，保障软件交付质量",
     "summaryZh": "构建自动化测试体系，保障软件交付质量",
-
     "responsibilities": [
       "制定测试策略和计划",
       "编写单元测试、集成测试和端到端测试",
@@ -30,32 +32,42 @@
       "搭建和维护自动化测试框架",
       "分析测试结果并推动缺陷修复"
     ],
-
     "requirements": {
       "experience": "2-4 years",
-      "coreSkills": ["Test Automation", "Selenium/Playwright", "CI/CD Integration", "Performance Testing"]
+      "coreSkills": [
+        "Test Automation",
+        "Selenium/Playwright",
+        "CI/CD Integration",
+        "Performance Testing"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
-      "write-unit-tests",
-      "write-e2e-tests",
-      "performance-testing",
-      "test-strategy"
-    ],
+    "mainSkills": [],
     "atomicSkills": [
       "read-file",
       "write-file",
       "run-tests",
-      "http-request"
+      "http-request",
+      "write-unit-tests",
+      "write-e2e-tests",
+      "performance-testing",
+      "test-strategy"
     ]
   },
-
   "context": {
     "techStack": {
-      "frameworks": ["Jest", "Cypress", "Playwright", "Mocha"],
-      "tools": ["GitHub Actions", "Docker", "Selenium Grid"]
+      "frameworks": [
+        "Jest",
+        "Cypress",
+        "Playwright",
+        "Mocha"
+      ],
+      "tools": [
+        "GitHub Actions",
+        "Docker",
+        "Selenium Grid"
+      ]
     }
   }
 }

@@ -3,21 +3,23 @@
   "id": "security-engineer",
   "type": "role",
   "version": "1.0.0",
-
   "metadata": {
     "name": "Security Engineer",
     "nameZh": "安全工程师",
     "description": "负责安全架构设计、漏洞检测、安全合规",
     "descriptionZh": "负责安全架构设计、漏洞检测、安全合规",
     "author": "skills4coder-team",
-    "tags": ["security", "vulnerability", "compliance", "infosec"],
+    "tags": [
+      "security",
+      "vulnerability",
+      "compliance",
+      "infosec"
+    ],
     "level": "senior"
   },
-
   "jd": {
     "summary": "保障系统安全，识别和修复安全漏洞，推动安全最佳实践",
     "summaryZh": "保障系统安全，识别和修复安全漏洞，推动安全最佳实践",
-
     "responsibilities": [
       "设计安全架构和评审安全设计",
       "进行漏洞检测和渗透测试",
@@ -32,33 +34,47 @@
       "确保合规要求（SOC2, GDPR 等）",
       "推动安全文化建设"
     ],
-
     "requirements": {
       "experience": "5+ years",
-      "coreSkills": ["Security Architecture", "Penetration Testing", "OWASP", "Compliance", "SIEM"]
+      "coreSkills": [
+        "Security Architecture",
+        "Penetration Testing",
+        "OWASP",
+        "Compliance",
+        "SIEM"
+      ]
     }
   },
-
   "capabilities": {
-    "mainSkills": [
+    "mainSkills": [],
+    "atomicSkills": [
+      "read-file",
+      "write-file",
+      "api-call",
       "security-architecture",
       "vulnerability-assessment",
       "penetration-testing",
       "compliance",
       "incident-response"
-    ],
-    "atomicSkills": [
-      "read-file",
-      "write-file",
-      "api-call"
     ]
   },
-
   "context": {
     "techStack": {
-      "scanning": ["Nessus", "Qualys", "Burp Suite"],
-      "monitoring": ["Splunk", "ELK", "WAF"],
-      "compliance": ["SOC2", "GDPR", "ISO27001"]
+      "scanning": [
+        "Nessus",
+        "Qualys",
+        "Burp Suite"
+      ],
+      "monitoring": [
+        "Splunk",
+        "ELK",
+        "WAF"
+      ],
+      "compliance": [
+        "SOC2",
+        "GDPR",
+        "ISO27001"
+      ]
     }
   }
 }

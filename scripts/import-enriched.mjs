@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { initDb, migrateDb, getDb } from '../server/db.js';
+import { initDb, migrateDb, getDb } from '../app/server/db.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, '..', 'data', 'enriched');

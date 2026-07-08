@@ -3,21 +3,23 @@
   "id": "backend-developer",
   "type": "role",
   "version": "1.0.0",
-  
   "metadata": {
     "name": "Backend Developer",
     "nameZh": "后端开发工程师",
     "description": "负责 API 开发、数据库设计、服务维护",
     "descriptionZh": "负责 API 开发、数据库设计、服务维护",
     "author": "skills4coder-team",
-    "tags": ["backend", "api", "database", "nodejs"],
+    "tags": [
+      "backend",
+      "api",
+      "database",
+      "nodejs"
+    ],
     "level": "mid"
   },
-  
   "jd": {
     "summary": "设计和实现高性能、可扩展的后端服务",
     "summaryZh": "设计和实现高性能、可扩展的后端服务",
-    
     "responsibilities": [
       "设计 RESTful/GraphQL API",
       "数据库设计和优化",
@@ -30,18 +32,19 @@
       "实现业务逻辑",
       "编写单元测试和集成测试"
     ],
-    
     "requirements": {
       "experience": "2-5 years",
-      "coreSkills": ["Node.js", "PostgreSQL", "Redis", "Docker"]
+      "coreSkills": [
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "Docker"
+      ]
     }
   },
-  
   "capabilities": {
     "mainSkills": [
-      "api-development",
       "database-design",
-      "authentication",
       "testing"
     ],
     "atomicSkills": [
@@ -49,16 +52,31 @@
       "write-file",
       "run-tests",
       "database-query",
-      "api-request"
+      "api-request",
+      "api-development",
+      "authentication"
     ]
   },
-  
   "context": {
     "techStack": {
-      "runtime": ["Node.js", "Deno"],
-      "framework": ["Express", "Fastify", "NestJS"],
-      "database": ["PostgreSQL", "MongoDB", "Redis"],
-      "testing": ["Jest", "Supertest"]
+      "runtime": [
+        "Node.js",
+        "Deno"
+      ],
+      "framework": [
+        "Express",
+        "Fastify",
+        "NestJS"
+      ],
+      "database": [
+        "PostgreSQL",
+        "MongoDB",
+        "Redis"
+      ],
+      "testing": [
+        "Jest",
+        "Supertest"
+      ]
     }
   }
 }

@@ -30,6 +30,6 @@ export default [
     }
   },
   {
-    ignores: ['dist/**', 'node_modules/**', '**/*.js', '**/*.d.ts', 'docs/**', 'webui/**', 'scripts/**']
+    ignores: ['dist/**', 'node_modules/**', '**/*.js', '**/*.d.ts', 'docs/**', 'app/webui/**', 'scripts/**', 'app/server/**']
   }
 ];

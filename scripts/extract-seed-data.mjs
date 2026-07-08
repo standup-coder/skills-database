@@ -6,7 +6,7 @@ import vm from 'vm';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
 
-const htmlPath = join(rootDir, 'webui', 'index.html');
+const htmlPath = join(rootDir, 'app', 'webui', 'index.html');
 const seedDataPath = join(rootDir, 'data', 'seed-data.json');
 
 const html = fs.readFileSync(htmlPath, 'utf-8');

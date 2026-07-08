@@ -93,3 +93,6 @@ data/*.db-shm
 
 # Skills tracker local data
 .skills-tracker/
+
+# Test artifacts (written by write-file atomic skill tests)
+test.txt
