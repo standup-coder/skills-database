@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "cloud-incident-response",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Cloud Incident Response",
     "nameZh": "云安全事件响应",
-    "description": "云安全事件的检测、分析、遏制和修复，支持凭据泄露、数据外泄等场景",
+    "description": "Detection, analysis, containment, and remediation of cloud security incidents, supporting scenarios such as credential compromise and data exfiltration",
     "descriptionZh": "云安全事件的检测、分析、遏制和修复，支持凭据泄露、数据外泄等场景",
     "author": "skills4coder-team",
     "tags": ["incident-response", "cloud-security", "forensics", "containment"],

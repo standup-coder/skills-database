@@ -1,19 +1,22 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "k8s-deployment-review",
   "type": "composite-skill",
   "version": "1.0.0",
-
   "metadata": {
-    "name": "K8s Deployment Review",
+    "name": "Kubernetes Deployment Review",
     "nameZh": "K8s 部署审查",
-    "description": "审查 Kubernetes Deployment YAML 的配置正确性、安全性与最佳实践",
+    "description": "Review Kubernetes Deployment YAML for configuration correctness, security, and best practices",
     "descriptionZh": "审查 Kubernetes Deployment YAML 的配置正确性、安全性与最佳实践",
     "author": "skills4coder-team",
-    "tags": ["kubernetes", "security", "review", "ops"],
+    "tags": [
+      "kubernetes",
+      "security",
+      "review",
+      "ops"
+    ],
     "category": "operations"
   },
-
   "input": {
     "schema": {
       "type": "object",
@@ -24,36 +27,62 @@
         },
         "focus": {
           "type": "array",
-          "items": { "enum": ["security", "performance", "best-practice"] },
-          "default": ["security", "best-practice"]
+          "items": {
+            "enum": [
+              "security",
+              "performance",
+              "best-practice"
+            ]
+          },
+          "default": [
+            "security",
+            "best-practice"
+          ]
         }
       },
-      "required": ["manifestPath"]
+      "required": [
+        "manifestPath"
+      ]
     }
   },
-
   "output": {
     "schema": {
       "type": "object",
       "properties": {
-        "valid": { "type": "boolean" },
-        "score": { "type": "number" },
+        "valid": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "number"
+        },
         "issues": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "severity": { "enum": ["critical", "high", "medium", "low"] },
-              "category": { "type": "string" },
-              "message": { "type": "string" },
-              "suggestion": { "type": "string" }
+              "severity": {
+                "enum": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              },
+              "category": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
             }
           }
         }
       }
     }
   },
-
   "workflow": {
     "description": "K8s 部署审查工作流",
     "steps": [
@@ -112,7 +141,6 @@
       }
     ]
   },
-
   "errorHandling": {
     "strategy": "continue",
     "fallback": {

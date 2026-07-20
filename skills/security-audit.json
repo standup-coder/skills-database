@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "security-audit",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Security Audit",
     "nameZh": "安全审计",
-    "description": "对配置文件、代码和云资源进行安全扫描与合规检查",
+    "description": "Perform security scanning and compliance checks on configuration files, code, and cloud resources",
     "descriptionZh": "对配置文件、代码和云资源进行安全扫描与合规检查",
     "author": "skills4coder-team",
     "tags": ["security", "audit", "compliance", "ops"],

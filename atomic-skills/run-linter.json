@@ -2,36 +2,188 @@
   "$schema": "../schema/atomic-skill-v1.json",
   "id": "run-linter",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
     "name": "Run Linter",
     "nameZh": "运行检查",
-    "description": "Run code linter and report issues",
-    "descriptionZh": "运行代码检查器",
+    "description": "Execute static analysis linters on source code and return structured diagnostic results",
+    "descriptionZh": "对源代码执行静态分析检查器，返回结构化诊断结果",
     "author": "skills4coder-team",
     "tags": [
       "lint",
       "check",
-      "atomic"
+      "quality"
     ],
     "category": "linting"
   },
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "paths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Files or directories to lint (supports glob patterns)"
+        },
+        "linter": {
+          "type": "string",
+          "enum": ["eslint", "pylint", "flake8", "ruff", "golangci-lint", "clippy", "shellcheck", "auto"],
+          "default": "auto",
+          "description": "Linter to use ('auto' detects from file extension)"
+        },
+        "config": {
+          "type": "string",
+          "description": "Path to linter configuration file"
+        },
+        "rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Specific rules to enable (e.g., ['no-unused-vars', 'no-console'])"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["error", "warning", "info", "all"],
+          "default": "all",
+          "description": "Minimum severity level to report"
+        },
+        "fix": {
+          "type": "boolean",
+          "description": "Auto-fix fixable issues (equivalent to --fix flag)",
+          "default": false
+        },
+        "maxWarnings": {
+          "type": "number",
+          "description": "Maximum allowed warnings before reporting failure (-1 for unlimited)",
+          "default": -1
+        }
+      },
+      "required": ["paths"]
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "diagnostics": {
+          "type": "array",
+          "description": "List of lint findings",
+          "items": {
+            "type": "object",
+            "properties": {
+              "file": { "type": "string" },
+              "line": { "type": "number" },
+              "column": { "type": "number" },
+              "severity": { "type": "string", "enum": ["error", "warning", "info"] },
+              "rule": { "type": "string" },
+              "message": { "type": "string" },
+              "fixable": { "type": "boolean" },
+              "suggestion": { "type": "string" }
+            }
+          }
+        },
+        "summary": {
+          "type": "object",
+          "description": "Aggregate results",
+          "properties": {
+            "filesScanned": { "type": "number" },
+            "totalErrors": { "type": "number" },
+            "totalWarnings": { "type": "number" },
+            "fixableCount": { "type": "number" },
+            "passed": { "type": "boolean" }
+          }
+        },
+        "fixedFiles": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Files that were auto-fixed (when fix=true)"
+        }
+      },
+      "required": ["diagnostics", "summary"]
     }
   },
   "implementation": {
     "type": "native",
-    "function": "run_linter"
+    "function": "run_linter",
+    "fallback": {
+      "type": "mcp-tool",
+      "server": "filesystem",
+      "tool": "exec_command"
+    }
   },
-  "errors": {}
+  "constraints": {
+    "permissions": ["read", "exec"],
+    "blockedPaths": [
+      "node_modules/**",
+      "vendor/**",
+      ".git/**",
+      "dist/**",
+      "build/**"
+    ],
+    "maxFiles": 1000,
+    "timeout": 60000,
+    "allowedLinters": ["eslint", "pylint", "flake8", "ruff", "golangci-lint", "clippy", "shellcheck"]
+  },
+  "errors": {
+    "LINTER_NOT_FOUND": {
+      "code": "E401",
+      "message": "指定的 linter 未安装或不在 PATH 中",
+      "retryable": false
+    },
+    "CONFIG_ERROR": {
+      "code": "E402",
+      "message": "linter 配置文件格式错误",
+      "retryable": false
+    },
+    "TIMEOUT": {
+      "code": "E403",
+      "message": "lint 执行超时（文件过多或规则过复杂）",
+      "retryable": true
+    },
+    "NO_FILES_MATCHED": {
+      "code": "E404",
+      "message": "没有匹配到可检查的文件",
+      "retryable": false
+    }
+  },
+  "learning": {
+    "summaryZh": "Linter 的难点不在跑命令，而在多语言检测、配置继承链、增量 lint 策略和将诊断结果转化为 agent 可执行的修复动作。",
+    "keyPoints": [
+      "不同语言需要不同 linter，auto 模式必须根据文件扩展名和项目配置（package.json/pyproject.toml）智能选择",
+      "ESLint 配置有继承链（extends/plugins/overrides），agent 修改配置时必须理解层级关系",
+      "增量 lint（只检查 git diff 涉及的文件）比全量 lint 快 10-100 倍，agent 应默认增量",
+      "fixable 的诊断可以自动修复，但 agent 必须验证修复后不引入新问题",
+      "linter 输出格式各异（JSON/unix/checkstyle），需要统一解析为结构化诊断"
+    ],
+    "bestPractices": [
+      "优先使用项目已有的 lint 配置（.eslintrc / pyproject.toml），不覆盖团队规范",
+      "输出结构化 JSON 格式（eslint --format json / ruff --output-format json）便于程序解析",
+      "对 monorepo 按 package 分别 lint，避免跨包配置冲突",
+      "将诊断按 severity 排序，error 优先于 warning，帮助 agent 聚焦关键问题",
+      "fix 模式执行后重新 lint 验证，确保修复没有引入新错误"
+    ],
+    "antiPatterns": [
+      "忽略项目已有配置直接用默认规则 lint，产生大量与团队规范冲突的误报",
+      "对 node_modules / vendor 目录执行 lint 导致超时",
+      "把数百条 warning 全部塞给 LLM 而不做优先级排序和去重",
+      "自动 fix 后不验证，导致代码格式正确但逻辑被破坏",
+      "在 CI 环境中使用交互式 linter（如需要 stdin 确认的 prompt）"
+    ],
+    "resources": [
+      {
+        "title": "ESLint Configuration Guide",
+        "url": "https://eslint.org/docs/latest/use/configure/",
+        "type": "doc"
+      },
+      {
+        "title": "Ruff - An Extremely Fast Python Linter",
+        "url": "https://docs.astral.sh/ruff/",
+        "type": "doc"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能对单文件运行 linter、解读输出、区分 error 和 warning",
+      "mid": "能处理多语言 auto-detect、增量 lint、配置继承、结构化输出解析",
+      "senior": "能为 agent 设计 lint 策略：增量+缓存、自动修复验证、与 code review 流程集成、自定义规则推荐"
+    }
+  }
 }

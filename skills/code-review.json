@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "code-review",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Code Review",
     "nameZh": "代码审查",
-    "description": "全面审查代码质量、安全性、性能和可维护性",
+    "description": "Comprehensive review of code quality, security, performance, and maintainability",
     "descriptionZh": "全面审查代码质量、安全性、性能和可维护性",
     "author": "skills4coder-team",
     "tags": ["review", "quality", "security"],

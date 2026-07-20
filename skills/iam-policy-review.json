@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "iam-policy-review",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "IAM Policy Review",
     "nameZh": "IAM 策略审查",
-    "description": "审查云 IAM 策略文件，识别过度授权、权限泄露和最小权限违规",
+    "description": "Review cloud IAM policy files to identify over-permissioning, privilege leaks, and least-privilege violations",
     "descriptionZh": "审查云 IAM 策略文件，识别过度授权、权限泄露和最小权限违规",
     "author": "skills4coder-team",
     "tags": ["iam", "policy", "least-privilege", "rbac", "cloud-security"],

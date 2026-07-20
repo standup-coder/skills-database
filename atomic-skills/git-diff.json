@@ -2,12 +2,12 @@
   "$schema": "../schema/atomic-skill-v1.json",
   "id": "git-diff",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
     "name": "Git Diff",
     "nameZh": "Git差异",
-    "description": "Show changes between commits or working tree",
-    "descriptionZh": "显示提交或工作树之间的变更",
+    "description": "Show changes between commits, branches, or working tree with structured hunk output",
+    "descriptionZh": "显示提交、分支或工作树之间的变更，输出结构化差异块",
     "author": "skills4coder-team",
     "tags": [
       "git",
@@ -19,19 +19,173 @@
   "input": {
     "schema": {
       "type": "object",
-      "properties": {},
+      "properties": {
+        "base": {
+          "type": "string",
+          "description": "Base reference (commit SHA, branch name, or tag)"
+        },
+        "head": {
+          "type": "string",
+          "description": "Head reference to compare against base (defaults to working tree)"
+        },
+        "paths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Limit diff to specific file paths or glob patterns"
+        },
+        "staged": {
+          "type": "boolean",
+          "description": "Show staged changes (git diff --cached)",
+          "default": false
+        },
+        "unified": {
+          "type": "number",
+          "description": "Number of context lines around each hunk",
+          "default": 3
+        },
+        "stat": {
+          "type": "boolean",
+          "description": "Return diffstat summary instead of full diff",
+          "default": false
+        },
+        "nameOnly": {
+          "type": "boolean",
+          "description": "Return only changed file names",
+          "default": false
+        },
+        "ignoreWhitespace": {
+          "type": "boolean",
+          "description": "Ignore whitespace-only changes",
+          "default": false
+        }
+      },
       "required": []
     }
   },
   "output": {
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "files": {
+          "type": "array",
+          "description": "List of changed files with per-file diff details",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": { "type": "string" },
+              "status": { "type": "string", "enum": ["added", "modified", "deleted", "renamed"] },
+              "additions": { "type": "number" },
+              "deletions": { "type": "number" },
+              "hunks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "header": { "type": "string" },
+                    "lines": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": {
+          "type": "object",
+          "description": "Aggregate statistics",
+          "properties": {
+            "filesChanged": { "type": "number" },
+            "totalAdditions": { "type": "number" },
+            "totalDeletions": { "type": "number" }
+          }
+        },
+        "rawDiff": {
+          "type": "string",
+          "description": "Raw unified diff output for direct consumption"
+        }
+      },
+      "required": ["files", "summary"]
     }
   },
   "implementation": {
     "type": "native",
-    "function": "git_diff"
+    "function": "git_diff",
+    "fallback": {
+      "type": "mcp-tool",
+      "server": "filesystem",
+      "tool": "exec_command"
+    }
   },
-  "errors": {}
+  "constraints": {
+    "permissions": ["read", "exec"],
+    "blockedPaths": [
+      ".git/objects/**",
+      ".git/hooks/**"
+    ],
+    "maxDiffSize": 524288,
+    "maxFiles": 500,
+    "requireGitRepo": true
+  },
+  "errors": {
+    "NOT_A_GIT_REPO": {
+      "code": "E201",
+      "message": "当前目录不是 Git 仓库",
+      "retryable": false
+    },
+    "INVALID_REF": {
+      "code": "E202",
+      "message": "无效的 commit/branch 引用",
+      "retryable": false
+    },
+    "DIFF_TOO_LARGE": {
+      "code": "E203",
+      "message": "差异超过大小限制，请缩小范围",
+      "retryable": false
+    },
+    "BINARY_FILE": {
+      "code": "E204",
+      "message": "包含二进制文件变更，无法显示文本差异",
+      "retryable": false
+    }
+  },
+  "learning": {
+    "summaryZh": "git diff 看似只是文本对比，但 merge-base 计算、rename 检测、submodule 差异和超大 diff 截断才是 agent 真正要处理的工程问题。",
+    "keyPoints": [
+      "三点 diff（A...B）基于 merge-base，两点 diff（A..B）是直接比较——agent 必须根据语义选择",
+      "rename 检测（-M）和 copy 检测（-C）影响 diff 结构，关闭时 rename 会显示为 delete + add",
+      "超大 diff（如 lock 文件变更）会淹没真正有意义的代码变更，需按路径过滤",
+      "staged vs unstaged vs untracked 是三种不同状态，agent 需明确用户意图",
+      "submodule 和 symlink 的 diff 输出格式特殊，解析器必须处理"
+    ],
+    "bestPractices": [
+      "默认使用 --stat 获取概览，用户确认后再获取完整 diff",
+      "对 lock 文件（package-lock.json / yarn.lock）自动跳过或仅报告 stat",
+      "提供 nameOnly 模式让 agent 先了解变更范围再决定是否深入",
+      "限制 maxDiffSize 并在超限时返回截断标记而非静默丢弃",
+      "结合 git log --oneline 提供变更上下文（谁在什么时候改的）"
+    ],
+    "antiPatterns": [
+      "把整个 monorepo 的 diff 一次性塞进 LLM context 导致 token 溢出",
+      "不区分 staged/unstaged 导致 agent 基于错误的变更集做判断",
+      "忽略 rename 检测导致将文件移动误判为大规模删除+新增",
+      "对 binary 文件尝试文本 diff 产生乱码输出",
+      "在 shallow clone 中执行跨 commit diff 导致 missing object 错误"
+    ],
+    "resources": [
+      {
+        "title": "Git Diff Documentation",
+        "url": "https://git-scm.com/docs/git-diff",
+        "type": "doc"
+      },
+      {
+        "title": "Pro Git - Git Tools Revision Selection",
+        "url": "https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能执行基本 git diff、区分 staged/unstaged、读取 unified diff 格式",
+      "mid": "能处理 rename 检测、三点 diff 语义、按路径过滤、解析 hunk 结构",
+      "senior": "能为 agent 设计 diff 策略：智能截断、lock 文件过滤、与 code review 流程集成、增量 context 构建"
+    }
+  }
 }

@@ -4,7 +4,7 @@
   "type": "atomic-skill",
   "version": "1.0.0",
   "metadata": {
-    "name": "Validate K8s Manifest",
+    "name": "Validate Kubernetes Manifest",
     "nameZh": "校验 K8s 清单",
     "description": "Validate Kubernetes YAML manifests using kubeval or kubectl",
     "descriptionZh": "使用 kubeval 或 kubectl 校验 Kubernetes YAML 清单",

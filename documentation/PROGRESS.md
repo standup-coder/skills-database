@@ -2,12 +2,13 @@
 
 > 日期: 2026-05-19
 > 状态: 全部完成 (7/7)
+> **最新评估: [ASSESSMENT_2026-07.md](./ASSESSMENT_2026-07.md) (2026-07-19, 总评 7.0/10, 含安全审计+代码级 bug 分析)**
 
 ---
 
 ## 一、评估结果
 
-详见: [EVALUATION_REPORT.md](./EVALUATION_REPORT.md)
+详见: [EVALUATION_REPORT.md](./EVALUATION_REPORT.md) · [ASSESSMENT_2026-07.md](./ASSESSMENT_2026-07.md) (最新)
 
 | 维度 | 评分 | 说明 |
 |------|------|------|

@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "ci-pipeline-setup",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "CI Pipeline Setup",
     "nameZh": "CI 流水线搭建",
-    "description": "为项目生成 GitHub Actions 等 CI/CD 流水线配置",
+    "description": "Generate CI/CD pipeline configurations such as GitHub Actions for projects",
     "descriptionZh": "为项目生成 GitHub Actions 等 CI/CD 流水线配置",
     "author": "skills4coder-team",
     "tags": ["cicd", "github-actions", "automation", "ops"],

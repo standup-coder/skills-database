@@ -6,7 +6,7 @@
   "metadata": {
     "name": "Read File",
     "nameZh": "读取文件",
-    "description": "读取指定路径的文件内容",
+    "description": "Read file content from a specified path with encoding and size control",
     "descriptionZh": "读取指定路径的文件内容",
     "author": "skills4coder-team",
     "tags": [

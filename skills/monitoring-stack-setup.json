@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "monitoring-stack-setup",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Monitoring Stack Setup",
     "nameZh": "监控栈搭建",
-    "description": "生成 Prometheus + Grafana 监控栈的 Docker Compose 配置与告警规则",
+    "description": "Generate Docker Compose configurations and alert rules for a Prometheus + Grafana monitoring stack",
     "descriptionZh": "生成 Prometheus + Grafana 监控栈的 Docker Compose 配置与告警规则",
     "author": "skills4coder-team",
     "tags": ["prometheus", "grafana", "monitoring", "observability", "ops"],

@@ -55,21 +55,22 @@ npm run docs:build        # Build VitePress docs
 ### Key Directories
 | Directory | Purpose |
 |-----------|---------|
-| `roles/` | 16 JSON role definitions (JD = mainSkills + atomicSkills) |
+| `roles/` | 22 JSON role definitions (JD = mainSkills + atomicSkills) |
 | `skills/` | Composite skill definitions with workflow steps |
 | `atomic-skills/` | Atomic skill definitions (e.g., read-file, run-shell-command) |
 | `skill-lists/` | 3-level skill trees (beginner/intermediate/advanced) per role |
 | `orchestration/` | Runtime for agent execution, MCP server, SkillHub adapter |
 
-## Roles (16 total)
+## Roles (22 total)
 
 Product lifecycle coverage: `创意 → 客户 → 产品 → 发布 → 运维 → 销售/商业化 → 运营`
 
 | Category | Roles |
 |----------|-------|
-| Product | product-manager, senior-frontend-dev, backend-developer, backend-architect, ui-ux-designer, mobile-developer |
-| Engineering | devops-engineer, sre-engineer, qa-automation, security-engineer, data-engineer |
-| Business | cto, growth-engineer, marketing-manager, customer-success |
+| Product | product-manager, senior-frontend-dev, backend-developer, backend-architect, ui-ux-designer, mobile-developer, fullstack-developer |
+| Engineering | devops-engineer, sre-engineer, qa-automation, security-engineer, data-engineer, platform-engineer, engineering-manager, cloud-security-engineer |
+| Data & AI | data-scientist, ai-ml-engineer |
+| Business | cto, growth-engineer, marketing-manager, customer-success, technical-writer |
 
 ## Important Patterns
 

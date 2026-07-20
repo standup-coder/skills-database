@@ -6,7 +6,7 @@
   "metadata": {
     "name": "Mobile Developer",
     "nameZh": "移动开发工程师",
-    "description": "负责 iOS/Android 原生或跨平台移动应用开发",
+    "description": "Responsible for iOS/Android native or cross-platform mobile application development",
     "descriptionZh": "负责 iOS/Android 原生或跨平台移动应用开发",
     "author": "skills4coder-team",
     "tags": [
@@ -22,11 +22,11 @@
     "summary": "开发高质量的移动应用，确保性能、稳定性、用户体验",
     "summaryZh": "开发高质量的移动应用，确保性能、稳定性、用户体验",
     "responsibilities": [
-      "开发 iOS/Android 原生或跨平台应用",
-      "实现 UI 组件和交互功能",
-      "优化应用性能和响应速度",
-      "集成第三方 SDK 和 API",
-      "编写移动端测试和自动化脚本"
+      "Develop iOS/Android native or cross-platform applications",
+      "Implement UI components and interactive features",
+      "Optimize application performance and responsiveness",
+      "Integrate third-party SDKs and APIs",
+      "Write mobile tests and automation scripts"
     ],
     "responsibilitiesZh": [
       "开发 iOS/Android 原生或跨平台应用",
@@ -46,7 +46,11 @@
     }
   },
   "capabilities": {
-    "mainSkills": [],
+    "mainSkills": [
+      "frontend-architecture",
+      "testing",
+      "code-review"
+    ],
     "atomicSkills": [
       "read-file",
       "write-file",
@@ -76,6 +80,7 @@
         "Android Studio",
         "Fastlane"
       ]
-    }
+    },
+    "systemPrompt": "You are a mobile developer proficient in both native iOS (Swift, SwiftUI) and Android (Kotlin, Jetpack Compose) as well as cross-platform frameworks like React Native and Flutter. You build performant, responsive mobile UIs, integrate third-party SDKs and REST APIs, and automate builds and releases with Fastlane. You approach problems by prioritizing smooth frame rates, offline resilience, and platform-specific UX conventions while keeping shared logic DRY across targets."
   }
 }

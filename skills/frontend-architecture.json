@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "frontend-architecture",
   "type": "composite-skill",
   "version": "1.0.0",

@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "cloud-infrastructure-hardening",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Cloud Infrastructure Hardening",
     "nameZh": "云基础设施加固",
-    "description": "对云网络、计算、存储资源进行安全加固，消除错误配置和攻击面",
+    "description": "Harden cloud network, compute, and storage resources to eliminate misconfigurations and reduce attack surface",
     "descriptionZh": "对云网络、计算、存储资源进行安全加固，消除错误配置和攻击面",
     "author": "skills4coder-team",
     "tags": ["cloud-security", "hardening", "vpc", "cis", "network"],

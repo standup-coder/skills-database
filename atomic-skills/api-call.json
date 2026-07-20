@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema/atomic-skill-v1.json",
   "id": "api-call",
   "type": "atomic-skill",
   "version": "1.0.0",

@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "log-analysis",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Log Analysis",
     "nameZh": "日志分析",
-    "description": "分析应用日志，定位异常模式并生成摘要报告",
+    "description": "Analyze application logs to identify anomaly patterns and generate summary reports",
     "descriptionZh": "分析应用日志，定位异常模式并生成摘要报告",
     "author": "skills4coder-team",
     "tags": ["logging", "analysis", "troubleshooting", "ops"],

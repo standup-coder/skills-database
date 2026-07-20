@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "docker-container-management",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Docker Container Management",
     "nameZh": "Docker 容器管理",
-    "description": "管理 Docker 容器生命周期：查看状态、执行命令、收集日志",
+    "description": "Manage Docker container lifecycle: check status, execute commands, and collect logs",
     "descriptionZh": "管理 Docker 容器生命周期：查看状态、执行命令、收集日志",
     "author": "skills4coder-team",
     "tags": ["docker", "container", "ops"],

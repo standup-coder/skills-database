@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "cloud-compliance-check",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Cloud Compliance Check",
     "nameZh": "云合规检查",
-    "description": "对云资源配置进行合规框架检查（CIS、SOC2、GDPR、HIPAA、PCI-DSS）",
+    "description": "Check cloud resource configurations against compliance frameworks (CIS, SOC2, GDPR, HIPAA, PCI-DSS)",
     "descriptionZh": "对云资源配置进行合规框架检查（CIS、SOC2、GDPR、HIPAA、PCI-DSS）",
     "author": "skills4coder-team",
     "tags": ["compliance", "cis", "soc2", "gdpr", "hipaa", "pci-dss", "cloud"],

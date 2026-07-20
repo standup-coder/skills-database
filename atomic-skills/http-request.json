@@ -1,39 +1,200 @@
 {
+  "$schema": "../schema/atomic-skill-v1.json",
   "id": "http-request",
   "type": "atomic-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "metadata": {
-    "name": "http-request",
+    "name": "HTTP Request",
     "nameZh": "HTTP请求",
-    "description": "Make an HTTP request to a specified endpoint",
-    "descriptionZh": "向指定端点发起HTTP请求",
-    "author": "skills4coder",
-    "tags": ["http", "request", "atomic"],
+    "description": "Execute low-level HTTP requests with full control over method, headers, body, and response handling",
+    "descriptionZh": "执行底层 HTTP 请求，完全控制方法、头部、请求体和响应处理",
+    "author": "skills4coder-team",
+    "tags": [
+      "http",
+      "request",
+      "network"
+    ],
     "category": "network"
   },
   "input": {
     "schema": {
       "type": "object",
-      "required": ["url"],
       "properties": {
-        "url": { "type": "string" },
-        "method": { "type": "string", "enum": ["GET", "POST", "PUT", "DELETE"], "default": "GET" },
-        "headers": { "type": "object" },
-        "body": { "type": "object" }
-      }
+        "url": {
+          "type": "string",
+          "description": "Target URL (must include scheme, e.g., https://api.example.com/data)"
+        },
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+          "default": "GET",
+          "description": "HTTP method"
+        },
+        "headers": {
+          "type": "object",
+          "description": "Request headers as key-value pairs",
+          "additionalProperties": { "type": "string" }
+        },
+        "body": {
+          "type": "object",
+          "description": "Request body (auto-serialized to JSON unless Content-Type specifies otherwise)"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "Request timeout in milliseconds",
+          "default": 30000
+        },
+        "followRedirects": {
+          "type": "boolean",
+          "description": "Whether to follow HTTP redirects automatically",
+          "default": true
+        },
+        "maxRedirects": {
+          "type": "number",
+          "description": "Maximum number of redirects to follow",
+          "default": 5
+        },
+        "responseType": {
+          "type": "string",
+          "enum": ["json", "text", "arraybuffer", "stream"],
+          "default": "json",
+          "description": "Expected response body format"
+        },
+        "proxy": {
+          "type": "string",
+          "description": "Proxy URL to route the request through"
+        }
+      },
+      "required": ["url"]
     }
   },
   "output": {
     "schema": {
       "type": "object",
       "properties": {
-        "status": { "type": "number" },
-        "body": { "type": "any" }
-      }
+        "status": {
+          "type": "number",
+          "description": "HTTP response status code"
+        },
+        "statusText": {
+          "type": "string",
+          "description": "HTTP status text (e.g., 'OK', 'Not Found')"
+        },
+        "headers": {
+          "type": "object",
+          "description": "Response headers",
+          "additionalProperties": { "type": "string" }
+        },
+        "body": {
+          "type": "object",
+          "description": "Parsed response body"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Total request duration in milliseconds"
+        },
+        "redirects": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of redirect URLs followed"
+        },
+        "size": {
+          "type": "number",
+          "description": "Response body size in bytes"
+        }
+      },
+      "required": ["status", "body", "duration"]
     }
   },
   "implementation": {
     "type": "native",
-    "function": "httpRequest"
+    "function": "httpRequest",
+    "fallback": {
+      "type": "mcp-tool",
+      "server": "fetch",
+      "tool": "fetch"
+    }
+  },
+  "constraints": {
+    "permissions": ["network"],
+    "blockedHosts": [
+      "169.254.169.254",
+      "metadata.google.internal",
+      "127.0.0.1",
+      "0.0.0.0",
+      "::1"
+    ],
+    "allowedSchemes": ["https", "http"],
+    "maxResponseSize": 52428800,
+    "maxTimeout": 120000,
+    "maxRedirects": 10
+  },
+  "errors": {
+    "DNS_RESOLUTION_FAILED": {
+      "code": "E701",
+      "message": "DNS 解析失败，域名不存在",
+      "retryable": true
+    },
+    "CONNECTION_TIMEOUT": {
+      "code": "E702",
+      "message": "连接超时",
+      "retryable": true
+    },
+    "TLS_ERROR": {
+      "code": "E703",
+      "message": "TLS/SSL 握手失败（证书无效或过期）",
+      "retryable": false
+    },
+    "REDIRECT_LOOP": {
+      "code": "E704",
+      "message": "重定向次数超过上限，可能存在循环",
+      "retryable": false
+    },
+    "RESPONSE_TOO_LARGE": {
+      "code": "E705",
+      "message": "响应体超过大小限制",
+      "retryable": false
+    }
+  },
+  "learning": {
+    "summaryZh": "HTTP 请求的底层难点在于 DNS 缓存、TLS 证书链验证、重定向安全、连接复用和响应体流式处理——这些决定了 agent 网络调用的可靠性。",
+    "keyPoints": [
+      "与 api-request 的区别：http-request 是底层原语，不含业务级认证/重试/校验逻辑",
+      "重定向可能跨域泄露 Authorization 头，必须在跨域 redirect 时自动剥离敏感头",
+      "TLS 证书验证不能跳过（rejectUnauthorized: false），否则 agent 易受中间人攻击",
+      "大响应体（文件下载）必须用 stream 模式，不能缓冲到内存",
+      "HTTP/2 多路复用和连接池影响并发请求性能，agent 批量调用时需考虑"
+    ],
+    "bestPractices": [
+      "默认 HTTPS，仅在明确指定时允许 HTTP（开发环境）",
+      "设置合理的 connect timeout（5s）和 read timeout（30s）分离",
+      "跨域重定向时自动移除 Authorization/Cookie 头防止凭据泄露",
+      "对 stream 响应提供背压（backpressure）控制，防止内存溢出",
+      "记录请求的 url/method/status/duration 用于调试和审计"
+    ],
+    "antiPatterns": [
+      "设置 rejectUnauthorized: false 跳过证书验证（安全漏洞）",
+      "不限制重定向次数导致无限循环",
+      "将 50MB 响应体一次性读入内存导致 OOM",
+      "在 URL 中拼接敏感参数（?token=xxx）而非使用 Authorization 头",
+      "忽略 HTTP 响应的 Content-Encoding（gzip/br）导致解析失败"
+    ],
+    "resources": [
+      {
+        "title": "Node.js HTTP/HTTPS Module",
+        "url": "https://nodejs.org/api/http.html",
+        "type": "doc"
+      },
+      {
+        "title": "OWASP SSRF Prevention Cheat Sheet",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+        "type": "article"
+      }
+    ],
+    "maturityLevels": {
+      "junior": "能发送基本 GET/POST 请求、解析 JSON 响应、处理常见状态码",
+      "mid": "能处理重定向安全、TLS 验证、流式响应、连接超时分离",
+      "senior": "能为 agent 设计网络层：连接池管理、SSRF 防护、HTTP/2 复用、熔断器与背压控制"
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema/skill-v1.json",
+  "$schema": "../schema/composite-skill-v1.json",
   "id": "terraform-plan-review",
   "type": "composite-skill",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "metadata": {
     "name": "Terraform Plan Review",
     "nameZh": "Terraform Plan 审查",
-    "description": "分析 Terraform Plan 的风险、成本影响与策略合规性",
+    "description": "Analyze Terraform Plan for risks, cost impact, and policy compliance",
     "descriptionZh": "分析 Terraform Plan 的风险、成本影响与策略合规性",
     "author": "skills4coder-team",
     "tags": ["terraform", "iac", "security", "cost", "ops"],
