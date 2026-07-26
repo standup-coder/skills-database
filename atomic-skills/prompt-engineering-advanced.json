@@ -1,0 +1,94 @@
+{
+  "$schema": "../schema/atomic-skill-v1.json",
+  "id": "prompt-engineering-advanced",
+  "type": "atomic-skill",
+  "version": "1.0.0",
+  "metadata": {
+    "name": "Advanced Prompt Engineering",
+    "nameZh": "高级提示工程",
+    "description": "Master advanced prompting techniques: system prompts for agents, few-shot calibration, chain-of-thought variants, structured outputs, and programmatic prompt optimization.",
+    "descriptionZh": "掌握高级提示技术：Agent 系统提示设计、few-shot 校准、思维链变体、结构化输出与程序化提示优化。",
+    "author": "skills-database-team",
+    "tags": ["llm", "prompt", "chain-of-thought", "structured-output", "dspy", "agent"],
+    "category": "ai-llm"
+  },
+  "input": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "task": { "type": "string", "description": "目标任务描述" },
+        "taskComplexity": { "enum": ["simple", "multi-step", "reasoning-heavy", "agentic"], "description": "任务复杂度类型" },
+        "outputFormat": { "type": "string", "description": "期望输出格式（JSON schema / Pydantic model / markdown）" },
+        "model": { "type": "string", "description": "目标模型标识符" },
+        "evalSet": { "type": "array", "items": { "type": "object" }, "description": "用于驱动 prompt 迭代的评估集" }
+      },
+      "required": ["task", "taskComplexity"]
+    }
+  },
+  "output": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "systemPrompt": { "type": "string" },
+        "userPromptTemplate": { "type": "string" },
+        "chainOfThoughtStrategy": { "type": "string", "description": "使用的 CoT 变体及原因" },
+        "fewShotExamples": { "type": "array", "items": { "type": "object" } },
+        "outputSchema": { "type": "object", "description": "结构化输出的 JSON Schema" },
+        "optimizationNotes": { "type": "string", "description": "DSPy/自动优化配置说明" }
+      }
+    }
+  },
+  "implementation": {
+    "type": "native",
+    "function": "prompt_engineering_advanced"
+  },
+  "constraints": {
+    "permissions": ["read"],
+    "notes": "高级 CoT 与长 system prompt 会大幅增加 token 消耗，需在质量与成本之间做权衡"
+  },
+  "errors": {
+    "OVERTHINKING": { "code": "APE_001", "message": "CoT 推理链过长导致模型迷失，最终答案质量下降", "retryable": true },
+    "SCHEMA_HALLUCINATION": { "code": "APE_002", "message": "模型输出不符合约定 JSON Schema，需强化格式约束", "retryable": true },
+    "FEW_SHOT_CONFLICT": { "code": "APE_003", "message": "few-shot 示例间风格或格式冲突，模型学到错误模式", "retryable": false },
+    "CONTEXT_OVERFLOW": { "code": "APE_004", "message": "system prompt + few-shot + 输入超出上下文窗口", "retryable": false }
+  },
+  "learning": {
+    "summaryZh": "高级提示工程的本质是把 prompt 当程序来管理：可测试、可版本化、可自动优化。",
+    "keyPoints": [
+      "CoT 变体选择：标准 CoT（数学/逻辑）vs Zero-shot CoT（'think step by step'）vs Tree-of-Thought（分支探索）vs ReAct（推理+行动交织）",
+      "Agent 系统提示四要素：角色定义 + 能力边界 + 行为约束 + 输出格式规范",
+      "结构化输出三种方式：JSON mode / function calling / grammar-constrained generation（可靠性递增）",
+      "Meta-prompting：让模型生成/改写自己的 prompt，再用评估集打分选优",
+      "DSPy 范式：把 prompt 编译为优化器可调整的模块，由数据驱动而非手写",
+      "Prompt chaining vs 单次多步：复杂任务拆分为有检查点的多阶段更可控",
+      "上下文工程（Context Engineering）：精确控制哪些信息、以何种顺序进入窗口"
+    ],
+    "bestPractices": [
+      "始终先写评估集（≥50 条），再开始优化 prompt",
+      "对 Agent 系统提示做角色扮演测试：尝试让它越权，观察是否拒绝",
+      "用 XML 标签明确分隔系统提示各节（<persona>, <tools>, <constraints>, <output_format>）",
+      "few-shot 示例要覆盖正例、反例与边界输入，保持风格高度一致",
+      "生产提示纳入版本控制，每次变更记录 diff 与评估分数变化",
+      "对结构化输出做 schema 验证 + 重试（Instructor / Outlines / Guidance）"
+    ],
+    "antiPatterns": [
+      "在没有评估集的情况下 '调感觉' 优化 prompt",
+      "系统提示超过 2000 tokens 却不做精简，增加成本与 'lost in the middle' 风险",
+      "对所有任务强制使用 CoT，简单分类任务反而更差",
+      "few-shot 示例从同一数据集取，与评估集有重叠（数据泄漏）",
+      "结构化输出用正则解析自由文本而非 schema 约束"
+    ],
+    "resources": [
+      { "title": "Chain-of-Thought Prompting (Wei et al.)", "url": "https://arxiv.org/abs/2201.11903", "type": "article" },
+      { "title": "Tree of Thoughts (Yao et al.)", "url": "https://arxiv.org/abs/2305.10601", "type": "article" },
+      { "title": "DSPy: Declarative Self-improving Prompts", "url": "https://github.com/stanfordnlp/dspy", "type": "tool" },
+      { "title": "Instructor (Structured Outputs)", "url": "https://github.com/jxnl/instructor", "type": "tool" },
+      { "title": "Anthropic Prompt Engineering Guides", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", "type": "doc" }
+    ],
+    "maturityLevels": {
+      "junior": "能理解 CoT 与 few-shot 的基本原理并套用到具体任务",
+      "mid": "能为 Agent 系统提示设计完整约束体系，能用 Instructor 实现稳定结构化输出",
+      "senior": "能用 DSPy 等工具做程序化 prompt 优化，建立提示治理体系并解决大规模幻觉问题"
+    }
+  }
+}

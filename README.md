@@ -1,9 +1,9 @@
-# Skills4Coder
+# Skills Database
 
 > **高质量岗位技能知识库，Agent 专业分工协作**
 
-Skills4Coder 首先是一份**可机器消费的岗位技能知识资产**——
-**22 个角色 × 42 个复合技能 × 141 个原子技能（112 个高价值原子已完成学习字段升级）**，全部由 JSON Schema 严格约束，中英双语描述。
+Skills Database 首先是一份**可机器消费的岗位技能知识资产**——
+**23 个角色 × 42 个复合技能 × 145 个原子技能（116 个高价值原子已完成学习字段升级）**，全部由 JSON Schema 严格约束，中英双语描述。
 配套的 Agent 编排 SDK 与 LLM 辅助扩充工具，是知识库的下游消费方。
 
 ```
@@ -17,14 +17,16 @@ Skills4Coder 首先是一份**可机器消费的岗位技能知识资产**——
 
 | 资产 | 数量 | 成熟度 | 校验命令 |
 |------|------|--------|----------|
-| 岗位（roles/） | 22 | 99/100 | `npm run validate-roles` |
+| 岗位（roles/） | 23 | 99/100 | `npm run validate-roles` |
 | 复合技能（skills/） | 42 | 96/100 | `npm run validate-skills` |
-| 原子技能（atomic-skills/） | 141 | 98/100† | `npm run validate-skills` |
-| **整体** | **205** | **97/100** | — |
+| 原子技能（atomic-skills/） | 145 | 98/100† | `npm run validate-skills` |
+| **整体** | **210** | **97/100** | — |
 
 > 量化口径：必填合规 50% + 丰富度 40%（双语/tags/input/output/constraints/errors）+ learning 字段 10% 加分。详见 [docs/contribute/knowledge-base.md](./docs/contribute/knowledge-base.md)。
 >
-> † 其中 23 个高价值原子技能已示范级填充（8 个架构与测试基本盘 + 15 个 2026-05 新增的 LLM 链路与韧性/可观测/测试细分），含双语、完整 schema、constraints、errors 与丰富的 `learning` 节（keyPoints / bestPractices / antiPatterns / resources / maturityLevels），可作贡献参考；剩余为骨架条目，可查 [KNOWLEDGE_GAPS.json](./documentation/KNOWLEDGE_GAPS.json) 按优先级补全。
+> † 其中 27 个高价值原子技能已示范级填充（8 个架构与测试基本盘 + 15 个 2026-05 新增的 LLM 链路与韧性/可观测/测试细分 + 4 个 2026-06 新增的 Agentic 技能），含双语、完整 schema、constraints、errors 与丰富的 `learning` 节（keyPoints / bestPractices / antiPatterns / resources / maturityLevels），可作贡献参考；剩余为骨架条目，可查 [KNOWLEDGE_GAPS.json](./documentation/KNOWLEDGE_GAPS.json) 按优先级补全。
+>
+> ✅ **2026-06 第五轮质量提升**：岗位 22→23（+1 AI Agent Engineer 2026 新兴岗位）；原子 141→145（+4 Agentic 技能：mcp-server-development / agent-evaluation / prompt-engineering-advanced / rag-pipeline-design）。
 >
 > ✅ **2026-05 第四轮质量提升**：岗位 16→22（+6 P0 缺口岗位：AI/ML、Platform、Engineering Manager、Fullstack、Data Scientist、Technical Writer）；复合 28→42（+14 零复合岗位与横向治理）；原子 126→141（+15 LLM/韧性/可观测）。详见 [COVERAGE_GAP_REPORT.md](./documentation/COVERAGE_GAP_REPORT.md) 与 [REASSESSMENT_FIX_LOG.md](./documentation/REASSESSMENT_FIX_LOG.md)。
 
@@ -42,7 +44,7 @@ cat skills/code-review.json
 cat atomic-skills/read-file.json
 
 # 3. 通过 SDK 加载（参考实现）
-import { Role } from 'skills4coder';
+import { Role } from 'skills-database';
 const role = Role.fromJSON('./roles/senior-frontend-dev.json');
 ```
 
@@ -50,9 +52,9 @@ const role = Role.fromJSON('./roles/senior-frontend-dev.json');
 
 ## 核心理念
 
-### 传统方式 vs Skills4Coder
+### 传统方式 vs Skills Database
 
-| 传统方式 | Skills4Coder |
+| 传统方式 | Skills Database |
 |---------|-------------|
 | 单一的 AI 助手做所有事情 | 多个专业 Agent 分工协作 |
 | 技能内嵌在 Prompt 中 | 技能外置，可组合复用 |
@@ -185,7 +187,7 @@ const role = Role.fromJSON('./roles/senior-frontend-dev.json');
 **需求**: 需要一个专业的前端开发者 Agent 来审查 PR
 
 ```javascript
-import { Agent, Role } from 'skills4coder';
+import { Agent, Role } from 'skills-database';
 
 // 加载角色定义
 const role = Role.fromJSON('./roles/senior-frontend-dev.json');
@@ -210,7 +212,7 @@ console.log(result);
 **需求**: 开发一个新功能，需要前后端协作
 
 ```javascript
-import { Team, Role, Workflow } from 'skills4coder';
+import { Team, Role, Workflow } from 'skills-database';
 
 // 加载角色
 const pmRole = Role.fromJSON('./roles/product-manager.json');
@@ -252,7 +254,7 @@ console.log(`Completed ${result.completedSteps}/${result.totalSteps} steps`);
 **需求**: 系统出现异常，需要多领域专家诊断
 
 ```javascript
-import { Team, Role } from 'skills4coder';
+import { Team, Role } from 'skills-database';
 
 const sreRole = Role.fromJSON('./roles/sre-engineer.json');
 const dbaRole = Role.fromJSON('./roles/dba.json');
@@ -288,15 +290,15 @@ if (sreReport.category === 'database') {
 ### 安装
 
 ```bash
-npm install skills4coder
+npm install skills-database
 # or
-yarn add skills4coder
+yarn add skills-database
 ```
 
 ### 定义一个 Role
 
 ```javascript
-import { Role } from 'skills4coder';
+import { Role } from 'skills-database';
 
 const backendDev = Role.fromObject({
   id: 'backend-developer',
@@ -324,7 +326,7 @@ const backendDev = Role.fromObject({
 ### 创建一个 Agent
 
 ```javascript
-import { Agent } from 'skills4coder';
+import { Agent } from 'skills-database';
 
 const agent = new Agent({
   role: backendDev,
@@ -360,7 +362,7 @@ node feature-development.js
 根目录以**语料库为主**，所有代码（SDK + Web 栈）统一收拢在 `app/`，编译产物 `dist/` 留根供 npm 发布消费。
 
 ```
-skills4coder/
+skills-database/
 ├── roles/                       # 语料库 · 岗位定义 (JD)
 ├── skills/                      # 语料库 · 复合技能
 ├── atomic-skills/               # 语料库 · 原子技能
@@ -412,7 +414,7 @@ skills4coder/
 
 ### MCP (Model Context Protocol)
 
-Skills4Coder 原生支持 MCP，可以直接调用：
+Skills Database 原生支持 MCP，可以直接调用：
 - Filesystem Server - 文件操作
 - Git Server - 版本控制
 - Database Server - 数据库查询
@@ -422,7 +424,7 @@ Skills4Coder 原生支持 MCP，可以直接调用：
 
 可以加载和查询项目中的技能定义：
 ```javascript
-import { SkillHubAdapter } from 'skills4coder/orchestration/skillhub-adapter';
+import { SkillHubAdapter } from 'skills-database/orchestration/skillhub-adapter';
 
 const adapter = new SkillHubAdapter();
 adapter.initialize();
@@ -467,7 +469,7 @@ const { resolved, missing } = adapter.resolveRoleSkills('senior-frontend-dev');
 
 ## License
 
-MIT License © 2026 Skills4Coder Contributors
+MIT License © 2026 Skills Database Contributors
 
 ---
 
