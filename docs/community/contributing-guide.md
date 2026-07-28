@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to Skills4Coder! This guide will help you get started.
+Thank you for your interest in contributing to Skills Database! This guide will help you get started.
 
 ## 🌐 Languages
 - [English](contributing-guide.md) | [中文](contributing-guide_zh.md)
@@ -100,8 +100,8 @@ Technical contributors can help with:
 
 ```bash
 # Fork the repository on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/skills4coder.git
-cd skills4coder
+git clone https://github.com/YOUR_USERNAME/skills-database.git
+cd skills-database
 ```
 
 ### Create a Branch
@@ -323,10 +323,10 @@ Official docs, tutorials, community
 
 ## Questions?
 
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [Open an Issue](https://github.com/standup-coder/skills4coder/issues)
-- 📧 Email: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [Open an Issue](https://github.com/standup-coder/skills-database/issues)
+- 📧 Email: skills-database@example.com
 
 ---
 
-**Thank you for helping make Skills4Coder better for everyone!** 🙏
+**Thank you for helping make Skills Database better for everyone!** 🙏

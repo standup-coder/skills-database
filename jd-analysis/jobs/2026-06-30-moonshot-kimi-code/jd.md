@@ -2,7 +2,7 @@
 
 > 沉淀时间：2026-07-02
 > JD 来源：Moonshot AI（月之暗面）官方招聘，发布于 2026-06-30
-> 解析视角：skills4coder 框架（主技能 / 原子技能体系）
+> 解析视角：skills-database 框架（主技能 / 原子技能体系）
 > 学习入口：[START-HERE](./START-HERE.md) ｜ [学习总览](./study/00-overview.md) ｜ [实操 practice](./practice/README.md)
 > 导航：[本 JD README](./README.md) ｜ [专项入口](../../README.md) ｜ [通用技能库](../../shared/skills-library.md)
 
@@ -86,7 +86,7 @@
 
 ---
 
-## 三、主技能 vs 原子技能映射（贴合 skills4coder 框架）
+## 三、主技能 vs 原子技能映射（贴合 skills-database 框架）
 
 ### 主技能（mainSkills）— 复合能力
 ```

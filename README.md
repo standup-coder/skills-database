@@ -1,476 +1,171 @@
 # Skills Database
 
-> **高质量岗位技能知识库，Agent 专业分工协作**
+> **本地化的职业技能学习与挑选平台 · Personal SkillHub**
 
-Skills Database 首先是一份**可机器消费的岗位技能知识资产**——
-**23 个角色 × 42 个复合技能 × 145 个原子技能（116 个高价值原子已完成学习字段升级）**，全部由 JSON Schema 严格约束，中英双语描述。
-配套的 Agent 编排 SDK 与 LLM 辅助扩充工具，是知识库的下游消费方。
+一个**以 Markdown 为唯一真值**的本地技能资料库——把外部权威 skill 资源（mcpmarket、skills-sh、anthropics/skills、qoder-community、VoltAgent/awesome-agent-skills 等）按职业技能领域整理成可学习、可挑选、可沉淀的目录。
 
-```
-知识库（核心）   →   schema 校验 / 成熟度报表   →   编排 SDK / LLM 辅助扩充（辅助）
-```
+**核心理念**
 
-## 🌐 Languages
-- [English](README.md) | [中文](README_zh.md)
+- **职业技能优先**：这里的 skills 是**岗位胜任能力**（job competencies），不是 Agent runtime 能力
+- **MD 主、Web 次**：Markdown 文档是源真值；`tools/web/` 只是渲染层
+- **本地沉淀**：支持个人挑选状态（picked / in-progress / learned），独立于版本控制
 
-## 知识库一览（实测）
+---
 
-| 资产 | 数量 | 成熟度 | 校验命令 |
-|------|------|--------|----------|
-| 岗位（roles/） | 23 | 99/100 | `npm run validate-roles` |
-| 复合技能（skills/） | 42 | 96/100 | `npm run validate-skills` |
-| 原子技能（atomic-skills/） | 145 | 98/100† | `npm run validate-skills` |
-| **整体** | **210** | **97/100** | — |
-
-> 量化口径：必填合规 50% + 丰富度 40%（双语/tags/input/output/constraints/errors）+ learning 字段 10% 加分。详见 [docs/contribute/knowledge-base.md](./docs/contribute/knowledge-base.md)。
->
-> † 其中 27 个高价值原子技能已示范级填充（8 个架构与测试基本盘 + 15 个 2026-05 新增的 LLM 链路与韧性/可观测/测试细分 + 4 个 2026-06 新增的 Agentic 技能），含双语、完整 schema、constraints、errors 与丰富的 `learning` 节（keyPoints / bestPractices / antiPatterns / resources / maturityLevels），可作贡献参考；剩余为骨架条目，可查 [KNOWLEDGE_GAPS.json](./documentation/KNOWLEDGE_GAPS.json) 按优先级补全。
->
-> ✅ **2026-06 第五轮质量提升**：岗位 22→23（+1 AI Agent Engineer 2026 新兴岗位）；原子 141→145（+4 Agentic 技能：mcp-server-development / agent-evaluation / prompt-engineering-advanced / rag-pipeline-design）。
->
-> ✅ **2026-05 第四轮质量提升**：岗位 16→22（+6 P0 缺口岗位：AI/ML、Platform、Engineering Manager、Fullstack、Data Scientist、Technical Writer）；复合 28→42（+14 零复合岗位与横向治理）；原子 126→141（+15 LLM/韧性/可观测）。详见 [COVERAGE_GAP_REPORT.md](./documentation/COVERAGE_GAP_REPORT.md) 与 [REASSESSMENT_FIX_LOG.md](./documentation/REASSESSMENT_FIX_LOG.md)。
-
-## 快速消费知识资产
+## 🚀 快速开始
 
 ```bash
-# 1. 校验完整性与质量
-npm run validate-roles
-npm run validate-skills            # 人类可读
-npm run validate-skills -- --json  # CI 友好
+# 1. 浏览目录(两种方式任选)
+open catalog/_index.md                              # 直接读 MD
+open tools/web/index.html                           # 静态浏览站(含搜索/筛选)
 
-# 2. 直接读取 JSON 资产
-cat roles/senior-frontend-dev.json
-cat skills/code-review.json
-cat atomic-skills/read-file.json
+# 2. 跑一次归类/索引/浏览站构建
+npm run import:classify                              # sources → catalog
+npm run import:regenerate                           # 重生成所有 _index.md
+npm run web:build                                    # 重建 tools/web/index.html
 
-# 3. 通过 SDK 加载（参考实现）
-import { Role } from 'skills-database';
-const role = Role.fromJSON('./roles/senior-frontend-dev.json');
+# 3. 个人挑选
+$EDITOR personal/picked.md                           # 在 personal/ 标记想学的 skill
 ```
+
+> **不需要 npm install**:所有 tools/ 脚本都是纯 Node,无第三方依赖。`npm install` 只为 ESLint。
 
 ---
 
-## 核心理念
-
-### 传统方式 vs Skills Database
-
-| 传统方式 | Skills Database |
-|---------|-------------|
-| 单一的 AI 助手做所有事情 | 多个专业 Agent 分工协作 |
-| 技能内嵌在 Prompt 中 | 技能外置，可组合复用 |
-| 岗位边界模糊 | 岗位 = JD = Skills 集合 |
-| 难以评估能力 | 原子技能可验证、可追踪 |
-
-### 三层架构
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    Role (岗位)                        │
-│  JD = 主 Skills 集合                                  │
-│  例：Senior Frontend Developer                        │
-│      = 架构设计 + 代码审查 + 性能优化                   │
-└──────────────────┬──────────────────────────────────┘
-                   │ 组合调用
-                   ▼
-┌─────────────────────────────────────────────────────┐
-│              Composite Skills (复合技能)              │
-│  可复用的专业能力模块                                  │
-│  例：Code Review = 读文件 → 分析 → 写评论              │
-└──────────────────┬──────────────────────────────────┘
-                   │ 编排调用
-                   ▼
-┌─────────────────────────────────────────────────────┐
-│              Atomic Skills (原子技能)                 │
-│  最基础的操作能力，不可再分                            │
-│  例：read_file, write_code, run_test                  │
-└─────────────────────────────────────────────────────┘
-```
-
----
-
-## 架构说明
-
-### 1. Role (岗位定义)
-
-**Role = JD = 主 Skills 集合**
-
-每个 Role 对应一个传统岗位，包含：
-- **JD 描述**: 岗位职责和要求的自然语言描述
-- **主 Skills**: 该岗位需要掌握的复合技能
-- **原子 Skills**: 基础操作能力
-- **Parameters**: 技术栈、经验要求等参数
-
-```json
-{
-  "id": "senior-frontend-dev",
-  "type": "role",
-  "name": "Senior Frontend Developer",
-  "jd": "负责前端架构设计，代码审查，性能优化，指导初中级开发者",
-  "mainSkills": ["architecture-design", "code-review", "performance-optimization"],
-  "atomicSkills": ["read-file", "write-code", "run-linter", "git-commit"],
-  "parameters": {
-    "techStack": ["React", "TypeScript", "Next.js"],
-    "experience": "5+ years",
-    "teamSize": "3-5 developers"
-  }
-}
-```
-
-### 2. Composite Skills (复合技能)
-
-**分 Skills = 可组合的复合能力**
-
-复合技能是完成特定任务的能力模块，可以：
-- 调用多个原子技能
-- 被多个 Role 复用
-- 嵌套调用其他复合技能
-
-```json
-{
-  "id": "code-review",
-  "type": "composite-skill",
-  "name": "Code Review",
-  "description": "全面审查代码质量、安全性、性能",
-  "atomicSkills": ["read-file", "analyze-code", "write-comment"],
-  "workflow": {
-    "steps": [
-      { "skill": "read-file", "input": "{{filePath}}" },
-      { "skill": "analyze-code", "input": "{{fileContent}}", "config": { "depth": "deep" } },
-      { "skill": "write-comment", "input": "{{analysis}}" }
-    ]
-  },
-  "output": {
-    "format": "markdown",
-    "sections": ["issues", "suggestions", "score"]
-  }
-}
-```
-
-### 3. Atomic Skills (原子技能)
-
-**原子技能 = 最基础的能力单元**
-
-原子技能是不可再分的基础操作，直接映射到：
-- MCP Tools
-- API 调用
-- 本地命令执行
-- 文件系统操作
-
-```json
-{
-  "id": "read-file",
-  "type": "atomic-skill",
-  "name": "Read File",
-  "description": "读取文件内容",
-  "input": { 
-    "path": { "type": "string", "required": true },
-    "encoding": { "type": "string", "default": "utf-8" }
-  },
-  "output": { 
-    "content": "string",
-    "size": "number"
-  },
-  "implementation": {
-    "type": "mcp-tool",
-    "server": "filesystem",
-    "tool": "read_file"
-  }
-}
-```
-
----
-
-## 使用场景
-
-### 场景 1: 单 Agent 执行专业任务
-
-**需求**: 需要一个专业的前端开发者 Agent 来审查 PR
-
-```javascript
-import { Agent, Role } from 'skills-database';
-
-// 加载角色定义
-const role = Role.fromJSON('./roles/senior-frontend-dev.json');
-
-// 创建专业 Agent
-const agent = new Agent({
-  name: 'FrontendReviewer',
-  role,
-  llm: 'gpt-4'
-});
-
-// 执行专业技能
-const result = await agent.use('code-review', {
-  filePath: 'src/components/Button.tsx'
-});
-
-console.log(result);
-```
-
-### 场景 2: 多 Agent 协作完成项目
-
-**需求**: 开发一个新功能，需要前后端协作
-
-```javascript
-import { Team, Role, Workflow } from 'skills-database';
-
-// 加载角色
-const pmRole = Role.fromJSON('./roles/product-manager.json');
-const beRole = Role.fromJSON('./roles/backend-architect.json');
-const feRole = Role.fromJSON('./roles/senior-frontend-dev.json');
-const qaRole = Role.fromJSON('./roles/qa-automation.json');
-
-// 创建团队
-const team = new Team({
-  name: 'Feature Development Team',
-  members: [
-    { role: pmRole, name: 'PM', lead: true },
-    { role: beRole, name: 'Backend' },
-    { role: feRole, name: 'Frontend' },
-    { role: qaRole, name: 'QA' }
-  ]
-});
-
-// 定义工作流
-const workflow = new Workflow({
-  name: 'User Authentication Feature',
-  description: '实现用户认证功能',
-  steps: [
-    { id: 'prd', name: 'Write PRD', agent: 'PM', skill: 'write-prd', input: {} },
-    { id: 'api', name: 'Design API', agent: 'Backend', skill: 'api-design', input: {}, dependsOn: ['prd'] },
-    { id: 'ui', name: 'Implement UI', agent: 'Frontend', skill: 'implement-ui', input: {}, dependsOn: ['api'] },
-    { id: 'test', name: 'Write Tests', agent: 'QA', skill: 'write-e2e-tests', input: {}, dependsOn: ['api', 'ui'] }
-  ],
-  strategy: { failFast: false }
-});
-
-// 执行工作流
-const result = await team.executeWorkflow(workflow);
-console.log(`Completed ${result.completedSteps}/${result.totalSteps} steps`);
-```
-
-### 场景 3: Agent 动态调用不同岗位
-
-**需求**: 系统出现异常，需要多领域专家诊断
-
-```javascript
-import { Team, Role } from 'skills-database';
-
-const sreRole = Role.fromJSON('./roles/sre-engineer.json');
-const dbaRole = Role.fromJSON('./roles/dba.json');
-const feRole = Role.fromJSON('./roles/senior-frontend-dev.json');
-
-const team = new Team({
-  name: 'Incident Response Team',
-  members: [
-    { role: sreRole, name: 'sre-engineer', lead: true },
-    { role: dbaRole, name: 'dba' },
-    { role: feRole, name: 'senior-frontend-dev' }
-  ]
-});
-
-// SRE 先诊断
-const sreReport = await team.callAgent('sre-engineer', 'diagnose', {
-  logs: context.logs,
-  metrics: context.metrics
-});
-
-// 根据诊断结果调用不同专家
-if (sreReport.category === 'database') {
-  await team.callAgent('dba', 'optimize-query', sreReport);
-} else if (sreReport.category === 'frontend') {
-  await team.callAgent('senior-frontend-dev', 'fix-performance', sreReport);
-}
-```
-
----
-
-## 快速开始
-
-### 安装
-
-```bash
-npm install skills-database
-# or
-yarn add skills-database
-```
-
-### 定义一个 Role
-
-```javascript
-import { Role } from 'skills-database';
-
-const backendDev = Role.fromObject({
-  id: 'backend-developer',
-  type: 'role',
-  version: '1.0.0',
-  metadata: {
-    name: 'Backend Developer',
-    description: '负责 API 开发、数据库设计、服务维护',
-    author: 'you',
-    tags: ['backend'],
-    level: 'senior'
-  },
-  jd: {
-    summary: '设计和实现高可用后端服务',
-    responsibilities: ['API 开发', '数据库设计', '代码审查'],
-    requirements: { experience: '5+ years' }
-  },
-  capabilities: {
-    mainSkills: ['api-design', 'database-design', 'code-review'],
-    atomicSkills: ['read-file', 'write-code', 'run-tests']
-  }
-});
-```
-
-### 创建一个 Agent
-
-```javascript
-import { Agent } from 'skills-database';
-
-const agent = new Agent({
-  role: backendDev,
-  llm: 'gpt-4',  // 或其他 LLM
-  tools: ['mcp-filesystem', 'mcp-git']
-});
-
-// 执行复合技能
-const result = await agent.use('api-design', {
-  requirements: '用户认证 API，支持 JWT',
-  techStack: ['Node.js', 'Express']
-});
-
-console.log(result.openapi_spec);
-```
-
-### 查看示例
-
-```bash
-# 单 Agent 任务示例
-cd examples/single-agent-task
-node code-review-example.js
-
-# 多 Agent 协作示例
-cd examples/multi-agent-project
-node feature-development.js
-```
-
----
-
-## 项目结构
-
-根目录以**语料库为主**，所有代码（SDK + Web 栈）统一收拢在 `app/`，编译产物 `dist/` 留根供 npm 发布消费。
+## 📚 目录结构
 
 ```
 skills-database/
-├── roles/                       # 语料库 · 岗位定义 (JD)
-├── skills/                      # 语料库 · 复合技能
-├── atomic-skills/               # 语料库 · 原子技能
-├── schema/                      # 语料库 · JSON Schema 约束
-├── skill-lists/                 # 语料库 · 岗位能力清单
-├── data/                        # 语料派生数据 (seed-data, SQLite, enriched)
-├── dist/                        # 编译产物 (npm 发布入口，留根)
-├── scripts/                     # 语料校验/扩充工具
-├── docs/                        # VitePress 文档站
-├── examples/                    # 使用示例
-├── app/                         # 代码入口（SDK + Web）
-│   ├── src/                     #   SDK 核心库 (Agent/Role/Team/Workflow)
-│   ├── orchestration/           #   编排运行时 (agent-runtime / mcp-server / skillhub-adapter)
-│   ├── server/                  #   Web API (Express + SQLite)
-│   ├── webui/                   #   Web UI (静态页)
-│   ├── skills-cli.ts            #   能力追踪 CLI
-│   └── start.sh                 #   Web 服务启停脚本
-├── package.json
-└── tsconfig.json
+├── catalog/                       # 【主】按领域分类的 skills MD
+│   ├── _index.md                  # 总索引
+│   ├── frontend/                  # 前端开发（12 条）
+│   ├── backend/                   # 后端工程
+│   ├── mobile/                    # 移动开发
+│   ├── ai-ml/                     # AI / ML / LLM
+│   ├── data/                      # 数据工程
+│   ├── devops/                    # DevOps / 基础设施
+│   ├── security/                  # 安全
+│   ├── testing/                   # 测试工程
+│   ├── design/                    # 设计与创意
+│   ├── product/                   # 产品
+│   ├── marketing/                 # 营销
+│   ├── docs/                      # 文档
+│   ├── productivity/              # 生产力 / 工具
+│   ├── tools/                     # 第三方工具集成（vendor）
+│   └── uncategorized/             # 待整理
+│
+├── sources/                       # 原始采集（来源溯源档案）
+│   ├── anthropic/                 # 17 条官方
+│   ├── mcpmarket/                 # 50 条垂直生态
+│   ├── skills-sh/                 # 50 条英文市场
+│   ├── qoder/                     # 50 条中文社区
+│   ├── voltagent/                 # 50 条聚合器
+│   └── _global_index.md           # 跨站点采集总览
+│
+├── personal/                      # 【本地】个人挑选状态(默认 .gitignore)
+│
+├── tools/                         # 工具集(非核心)
+│   ├── import/                    # 归类、JSON→MD、索引刷新
+│   │   ├── classify.js            # sources → catalog
+│   │   ├── json-to-md.js          # 老 JSON → MD
+│   │   └── regenerate-indices.js  # 重建 _index.md
+│   └── web/                       # 【呈现层】静态浏览站
+│       ├── build.js               # 从 catalog/ 生成 index.html
+│       └── index.html             # 单文件离线浏览站(可双击打开)
+│
+├── templates/                     # skill frontmatter schema 与模板
+├── documentation/                 # 项目自身的过程文档
+└── README.md / CLAUDE.md / ...
 ```
 
 ---
 
-## 核心优势
+## 📊 知识库一览（实测）
 
-### 1. 专业化分工
-- 每个 Agent 都有明确的岗位定义
-- 不同 Agent 擅长不同领域
-- 避免"万金油" AI 的局限性
+| 领域 | 数量 | 入口 |
+|------|------|------|
+| 工具集成（vendor） | 63 | [catalog/tools/](./catalog/tools/_index.md) |
+| 测试工程 | 25 | [catalog/testing/](./catalog/testing/_index.md) |
+| 安全 | 21 | [catalog/security/](./catalog/security/_index.md) |
+| AI / ML / LLM | 19 | [catalog/ai-ml/](./catalog/ai-ml/_index.md) |
+| 数据工程 | 17 | [catalog/data/](./catalog/data/_index.md) |
+| 设计与创意 | 15 | [catalog/design/](./catalog/design/_index.md) |
+| 文档 | 13 | [catalog/docs/](./catalog/docs/_index.md) |
+| 前端开发 | 12 | [catalog/frontend/](./catalog/frontend/_index.md) |
+| 移动开发 | 8 | [catalog/mobile/](./catalog/mobile/_index.md) |
+| 未分类 | 8 | [catalog/uncategorized/](./catalog/uncategorized/_index.md) |
+| 后端工程 | 6 | [catalog/backend/](./catalog/backend/_index.md) |
+| 生产力 / 工具 | 5 | [catalog/productivity/](./catalog/productivity/_index.md) |
+| 产品 | 2 | [catalog/product/](./catalog/product/_index.md) |
+| DevOps / 基础设施 | 2 | [catalog/devops/](./catalog/devops/_index.md) |
+| 营销 | 1 | [catalog/marketing/](./catalog/marketing/_index.md) |
+| **总计** | **217** | [catalog/_index.md](./catalog/_index.md) |
 
-### 2. 可复用组合
-- Skills 可以在不同 Role 间复用
-- 复合技能可以嵌套组合
-- 原子技能标准化，易于扩展
-
-### 3. 可验证评估
-- 原子技能可单独测试验证
-- Agent 能力可量化评估
-- 支持技能认证和徽章系统
-
-### 4. 生态整合
-- 支持 MCP 协议，无缝接入各类工具
-- 兼容 SkillHub、Claw Hub 等技能市场
-- 支持自定义技能实现
+> 归类口径见 [`tools/import/classify.js`](./tools/import/classify.js)。约 3.7% 未自动归类,需手工裁决。
 
 ---
 
-## 生态集成
+## 🚀 快速开始
 
-### MCP (Model Context Protocol)
+### 浏览目录
 
-Skills Database 原生支持 MCP，可以直接调用：
-- Filesystem Server - 文件操作
-- Git Server - 版本控制
-- Database Server - 数据库查询
-- Custom Servers - 自定义工具
+```bash
+# 直接在 GitHub/VSCode/编辑器里读 MD
+open catalog/frontend/_index.md
 
-### SkillHub / Claw Hub
+# 或用 grep 搜全文
+grep -r "react" catalog/frontend/
+```
 
-可以加载和查询项目中的技能定义：
-```javascript
-import { SkillHubAdapter } from 'skills-database/orchestration/skillhub-adapter';
+### 添加新 skill
 
-const adapter = new SkillHubAdapter();
-adapter.initialize();
+1. 选一个外部 skill → 写入 `sources/<vendor>/<id>.md`,带 frontmatter
+2. 跑归类脚本:
+   ```bash
+   node tools/import/classify.js        # 实际归类
+   node tools/import/classify.js --dry  # 预览统计
+   ```
+3. 脚本会自动:
+   - 解析 frontmatter
+   - 按规则映射到 `catalog/<领域>/`
+   - 重名时加后缀
+   - 补充 `id / domain / catalogSource / catalogAddedAt` 字段
+   - 重新生成每个领域的 `_index.md` 和顶层 `_index.md`
 
-// 查询所有技能
-const allSkills = adapter.getAllSkills();
-console.log(`Loaded ${allSkills.length} skills`);
+### 标记个人状态
 
-// 按角色获取可用技能
-const roleSkills = adapter.getRoleSkills('senior-frontend-dev');
+`personal/` 目录默认 `.gitignore`,放你想学的 skill:
 
-// 检查角色技能缺失
-const { resolved, missing } = adapter.resolveRoleSkills('senior-frontend-dev');
+```markdown
+<!-- personal/picked.md -->
+# 已挑选(待开始)
+
+- [ ] [前端设计](./catalog/frontend/frontend-design.md) — 前端审美补课
+- [ ] [代码审查](./catalog/testing/...) — 测试基础
 ```
 
 ---
 
-## 贡献指南
+## 🎯 设计原则
 
-我们欢迎各种形式的贡献：
-
-- **新增 Role**: 提交你所在岗位的定义
-- **新增 Skill**: 分享可复用的能力模块
-- **改进文档**: 帮助完善使用指南
-- **提交 Issue**: 报告问题或建议
-
-详见 [AGENTS.md](./AGENTS.md) 和 [CONTRIBUTING.md](./CONTRIBUTING.md)
-
----
-
-## 路线图
-
-- [x] 核心架构设计
-- [x] Role/Skill/Atomic Skill 定义
-- [ ] Agent 运行时 v1.0
-- [ ] Visual Skill Builder
-- [ ] Skill Marketplace
-- [ ] Multi-Agent Orchestration
-- [ ] Performance Benchmarks
+| 原则 | 含义 |
+|------|------|
+| **MD 唯一真值** | 所有 skill 都是 `.md`,可被任意编辑器、grep、静态站消费 |
+| **来源可溯** | 每条 catalog MD 的 frontmatter 含 `catalogSource`,可反查 `sources/<source>/<file>` |
+| **分类可重跑** | `tools/import/classify.js` 幂等,规则可改后整体重归类 |
+| **个人与公共分离** | 个人状态在 `personal/`,不入库 |
+| **Web 仅呈现** | `tools/web/` 从 `catalog/` 渲染,不持有自己的数据库 |
 
 ---
 
-## License
+## 🤝 贡献
 
-MIT License © 2026 Skills Database Contributors
+- **补一条 skill**:放进 `sources/<vendor>/`,跑 `classify.js`,提交 PR
+- **调整分类**:改 `tools/import/classify.js` 的 RULES 顺序或新增规则
+- **新增领域**:在 `catalog/` 下建子目录,把对应 skill 移过去,改 classify 规则
 
 ---
 
-**让 AI Agent 像专业团队一样工作** 🤖👥
+## 📝 License
+
+MIT

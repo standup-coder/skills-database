@@ -101,7 +101,7 @@ Skill Validation Report
 
 - 修复 110 个 mainSkills 引用 warning：需要决定将 `architecture-design` 等 ID 提升为 composite-skill 或调整 roles 引用方式。
 - 补齐 238 个 atomic constraints / errors warning：可由 `enrich:llm` 工具批量辅助，但需人工 review。
-- `data/skills4coder.db` 从历史中移除：涉及 `git filter-repo`，影响协作者，需团队对齐。
+- `data/skills-database.db` 从历史中移除：涉及 `git filter-repo`，影响协作者，需团队对齐。
 - LLM 真实集成到 `Agent.executeSkill()`：与项目"知识库优先"定位不冲突，但属于 SDK 演进，非本轮目标。
 
 ---
@@ -150,7 +150,7 @@ Role Validation Report (16 files)
 
 ### 3. 数据库入库问题——前轮判断需更正
 
-前轮报告中关于「`data/skills4coder.db` 已被 Git 提交」的判断有误：
+前轮报告中关于「`data/skills-database.db` 已被 Git 提交」的判断有误：
 
 ```
 $ git ls-files 'data/*.db*'

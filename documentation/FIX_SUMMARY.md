@@ -1,4 +1,4 @@
-# Skills4Coder 修复总结
+# Skills Database 修复总结
 
 > 修复日期: 2026-05-19
 > 基于: documentation/EVALUATION_REPORT.md

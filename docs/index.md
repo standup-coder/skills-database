@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: "Skills4Coder"
+  name: "Skills Database"
   text: "Agent 技能编排框架"
   tagline: 岗位即 Skills 集合，让 AI Agent 像专业团队一样协作
   image:
     src: /images/architecture-hero.svg
-    alt: Skills4Coder Architecture
+    alt: Skills Database Architecture
   actions:
     - theme: brand
       text: 快速开始
@@ -17,7 +17,7 @@ hero:
       link: /concepts/
     - theme: alt
       text: GitHub
-      link: https://github.com/standup-coder/skills4coder
+      link: https://github.com/standup-coder/skills-database
 
 features:
   - icon: 🎯
@@ -104,7 +104,7 @@ features:
 
 ---
 
-## 为什么选择 Skills4Coder？
+## 为什么选择 Skills Database？
 
 <div class="home-compare">
   <div class="home-compare__card">
@@ -117,7 +117,7 @@ features:
       </div>
       <div class="home-compare__arrow">→</div>
       <div class="home-compare__new">
-        <span class="home-compare__label">Skills4Coder</span>
+        <span class="home-compare__label">Skills Database</span>
         <p>每个 Agent 专注特定岗位，像专业团队协作</p>
       </div>
     </div>
@@ -133,7 +133,7 @@ features:
       </div>
       <div class="home-compare__arrow">→</div>
       <div class="home-compare__new">
-        <span class="home-compare__label">Skills4Coder</span>
+        <span class="home-compare__label">Skills Database</span>
         <p>技能外置为可复用模块，一次定义处处使用，团队共享</p>
       </div>
     </div>
@@ -149,7 +149,7 @@ features:
       </div>
       <div class="home-compare__arrow">→</div>
       <div class="home-compare__new">
-        <span class="home-compare__label">Skills4Coder</span>
+        <span class="home-compare__label">Skills Database</span>
         <p>原子技能可单独测试，能力可量化评估，支持认证系统</p>
       </div>
     </div>
@@ -203,7 +203,7 @@ features:
     <p>创建一个 Agent，赋予专业 Role，执行复合 Skill。</p>
 
 ```javascript
-import { Agent } from 'skills4coder'
+import { Agent } from 'skills-database'
 
 // 创建专业代码审查 Agent
 const reviewer = new Agent({
@@ -225,7 +225,7 @@ console.log(`发现 ${result.issues.length} 个问题`)
     <p>定义团队角色，编排工作流，Agent 自动协作。</p>
 
 ```javascript
-import { Team } from 'skills4coder'
+import { Team } from 'skills-database'
 
 const team = new Team({
   name: 'Auth Feature Team',
@@ -262,7 +262,7 @@ await team.executeWorkflow({
   <a href="/getting-started/quickstart" class="home-cta__card home-cta__card--primary">
     <span class="home-cta__icon">🚀</span>
     <span class="home-cta__title">快速开始</span>
-    <span class="home-cta__desc">5 分钟上手 Skills4Coder</span>
+    <span class="home-cta__desc">5 分钟上手 Skills Database</span>
   </a>
   <a href="/concepts/" class="home-cta__card">
     <span class="home-cta__icon">📚</span>

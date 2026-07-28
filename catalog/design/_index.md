@@ -1,0 +1,34 @@
+---
+title: design
+domain: design
+count: 22
+---
+
+# design
+
+> 共 22 条。来源：voltagent、skills-sh、anthropic、internal、qoder、mcpmarket。
+
+| ID | 中文名 | 类型 | 来源 |
+|----|--------|------|------|
+| [mongodb-mongodb-schema-design](./mongodb-mongodb-schema-design.md) | "MongoDB 模式设计" | external | voltagent |
+| [anthropic-pptx](./anthropic-pptx.md) | "PowerPoint 演示文稿" | external | voltagent |
+| [supabase-postgres-best-practices](./supabase-postgres-best-practices.md) | "Supabase Postgres 最佳实践" | external | voltagent |
+| [grill-with-docs](./grill-with-docs.md) | 带文档的计划拷问器 | external | skills-sh |
+| [canvas-design](./canvas-design.md) | 画布设计（canvas-design） | external | anthropic |
+| [grill-me](./grill-me.md) | 计划拷问器 | external | skills-sh |
+| [interaction-design](./interaction-design-atomic.md) | 交互设计 | atomic-skill | internal |
+| [品牌指南](./品牌指南.md) | 品牌指南 | external | qoder |
+| [design-system](./design-system-atomic.md) | 设计系统 | atomic-skill | internal |
+| [design-system-build](./design-system-build-skill.md) | 设计系统构建 | composite-skill | internal |
+| [文档协作](./文档协作.md) | 文档协作 | external | qoder |
+| [user-research](./user-research-atomic.md) | 用户研究 | atomic-skill | internal |
+| [user-research-process](./user-research-process-skill.md) | 用户研究流程 | composite-skill | internal |
+| [prototype](./prototype-atomic.md) | 原型设计 | atomic-skill | internal |
+| [主题工厂](./主题工厂.md) | 主题工厂 | external | qoder |
+| [ai-师傅课程创建器](./ai-师傅课程创建器.md) | AI 师傅课程创建器 | external | qoder |
+| [brand-guidelines](./brand-guidelines.md) | Anthropic 品牌指南（brand-guidelines） | external | anthropic |
+| [canvas-设计](./canvas-设计.md) | Canvas 设计 | external | qoder |
+| [django-architecture-patterns](./django-architecture-patterns-1.md) | Django 架构模式(二) | external | mcpmarket |
+| [django-architecture-patterns](./django-architecture-patterns.md) | Django 架构模式(二) | external | mcpmarket |
+| [linear-集成](./linear-集成.md) | Linear 集成 | external | qoder |
+| [ui-design](./ui-design-atomic.md) | UI 设计 | atomic-skill | internal |

@@ -211,11 +211,11 @@ await server.connect(transport);
 
 ---
 
-## MCP + Skills4Coder Integration
+## MCP + Skills Database Integration
 
 ### Skill Mapping
 
-| Skills4Coder Skill | MCP Server | Capability |
+| Skills Database Skill | MCP Server | Capability |
 |-------------------|------------|------------|
 | Code Review | Git + GitHub | PR analysis, issue tracking |
 | Database Design | PostgreSQL/SQLite | Schema analysis, query optimization |

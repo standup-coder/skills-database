@@ -208,7 +208,7 @@ Agents can be shared via:
 
 ---
 
-## Integration with Skills4Coder
+## Integration with Skills Database
 
 ### Custom Agents for Developers
 
@@ -245,7 +245,7 @@ Create specialized agents for each skill:
    - Share with team
 ```
 
-### Plugin Ideas for Skills4Coder
+### Plugin Ideas for Skills Database
 
 | Plugin | Purpose |
 |--------|---------|
@@ -325,4 +325,4 @@ Create specialized agents for each skill:
 
 ---
 
-Return to [Ecosystem Overview](./) | [Skills4Coder Home](../index.md)
+Return to [Ecosystem Overview](./) | [Skills Database Home](../index.md)

@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-Common questions about Skills4Coder and how to use it effectively.
+Common questions about Skills Database and how to use it effectively.
 
 ## 🌐 Languages
 - [English](faq.md) | [中文](faq_zh.md)
@@ -9,9 +9,9 @@ Common questions about Skills4Coder and how to use it effectively.
 
 ## General Questions
 
-### What is Skills4Coder?
+### What is Skills Database?
 
-**Skills4Coder** is a comprehensive skill tree framework for technology professionals. It provides structured learning paths for developers, architects, testers, and operations engineers, while also serving as a hub for AI skill ecosystems.
+**Skills Database** is a comprehensive skill tree framework for technology professionals. It provides structured learning paths for developers, architects, testers, and operations engineers, while also serving as a hub for AI skill ecosystems.
 
 ### Who is this for?
 
@@ -23,13 +23,13 @@ Common questions about Skills4Coder and how to use it effectively.
 
 ### Is it free to use?
 
-Yes! Skills4Coder is open source under the MIT License. You can use, modify, and distribute it freely.
+Yes! Skills Database is open source under the MIT License. You can use, modify, and distribute it freely.
 
 ---
 
 ## Getting Started
 
-### How do I start using Skills4Coder?
+### How do I start using Skills Database?
 
 1. Choose your [role](../index.md#role-specific-skills) (Developer, Architect, Tester, or Operations)
 2. Select your [experience level](user-guide.md#skill-levels-explained)
@@ -46,7 +46,7 @@ Basic familiarity with GitHub and Markdown is helpful but not required. You can 
 
 Yes! Clone the repository and access all content locally:
 ```bash
-git clone https://github.com/standup-coder/skills4coder.git
+git clone https://github.com/standup-coder/skills-database.git
 ```
 
 ---
@@ -184,7 +184,7 @@ Not currently, but we're planning a JSON API for skill data access.
 
 ### Will this guarantee me a job?
 
-No tool can guarantee employment. Skills4Coder helps you:
+No tool can guarantee employment. Skills Database helps you:
 - Identify skill gaps
 - Plan learning paths
 - Demonstrate capabilities to employers
@@ -207,9 +207,9 @@ It depends on your region and target employers. We mark certifications as option
 
 ### How do I get help?
 
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [GitHub Issues](https://github.com/standup-coder/skills4coder/issues)
-- 📧 Email: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [GitHub Issues](https://github.com/standup-coder/skills-database/issues)
+- 📧 Email: skills-database@example.com
 
 ### Is there a community chat?
 
@@ -237,7 +237,7 @@ Yes! We're actively seeking translators. See the contributing guide for translat
 
 ### Something else wrong?
 
-Please [open an issue](https://github.com/standup-coder/skills4coder/issues/new) with:
+Please [open an issue](https://github.com/standup-coder/skills-database/issues/new) with:
 - What you were trying to do
 - What happened instead
 - Your environment (OS, browser, etc.)
@@ -250,7 +250,7 @@ We're here to help!
 
 - 📖 Browse the [full documentation](../index.md)
 - 🤝 Read the [contributing guide](contributing-guide.md)
-- 💬 Join [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
+- 💬 Join [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
 
 ---
 

@@ -1,87 +1,48 @@
 {
-  "name": "skills4coder",
-  "version": "2.0.0",
-  "description": "岗位即 Skills 集合，Agent 专业分工协作的编排框架",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "name": "skills-database",
+  "version": "3.0.0",
+  "description": "本地化的职业技能学习与挑选平台 · Markdown 驱动的 SkillHub",
   "type": "module",
-  "bin": {
-    "skills": "./dist/skills-cli.js"
-  },
+  "private": true,
   "scripts": {
-    "build": "tsc && tsc -p tsconfig.orchestration.json",
-    "dev": "tsc --watch",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "test": "vitest",
-    "lint": "eslint . --ext .ts,.js",
-    "validate-roles": "node scripts/validate-roles.js",
-    "validate-skills": "node scripts/validate-skills.js",
-    "webui": "bash app/start.sh",
-    "seed": "node app/server/seed.js",
-    "enrich": "node app/server/enrich-template.mjs",
-    "enrich:llm": "node app/server/enrich-kps.mjs",
-    "server": "node app/server/index.js"
+    "import:classify": "node tools/import/classify.js",
+    "import:classify:dry": "node tools/import/classify.js --dry",
+    "import:json-to-md": "node tools/import/json-to-md.js",
+    "import:json-to-md:dry": "node tools/import/json-to-md.js --dry",
+    "import:regenerate": "node tools/import/regenerate-indices.js",
+    "web:build": "node tools/web/build.js",
+    "lint": "eslint . --ext .js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/standup-coder/skills4coder.git"
+    "url": "https://github.com/standup-coder/skills-database.git"
   },
   "keywords": [
     "skills",
-    "agent",
-    "ai",
-    "mcp",
-    "orchestration",
-    "workflow",
-    "code-review",
-    "multi-agent",
-    "job-description",
-    "developer-tools"
+    "skillhub",
+    "job-competencies",
+    "learning",
+    "markdown",
+    "knowledge-base",
+    "developer-tools",
+    "career-development"
   ],
-  "author": "Skills4Coder Contributors",
+  "author": "Skills Database Contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/standup-coder/skills4coder/issues"
+    "url": "https://github.com/standup-coder/skills-database/issues"
   },
-  "homepage": "https://standup-coder.github.io/skills4coder/",
+  "homepage": "https://standup-coder.github.io/skills-database/",
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.59.3",
-    "@typescript-eslint/parser": "^8.59.3",
-    "eslint": "^9.39.4",
-    "eslint-plugin-import": "^2.32.0",
-    "typescript": "^5.6.0",
-    "vitepress": "^1.6.3",
-    "vitest": "^4.1.10",
-    "vue": "^3.5.31"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.115.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "better-sqlite3": "^12.10.0",
-    "express": "^5.2.1",
-    "openai": "^6.49.0",
-    "zod": "^4.4.3"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./orchestration/*": {
-      "import": "./dist/orchestration/*/index.js",
-      "types": "./dist/orchestration/*/index.d.ts"
-    }
+    "eslint": "^9.39.4"
   },
   "files": [
-    "dist/",
-    "roles/",
-    "skills/",
-    "atomic-skills/",
-    "schema/",
+    "catalog/",
+    "sources/",
+    "templates/",
+    "tools/",
     "README.md",
-    "AGENTS.md"
+    "CLAUDE.md",
+    "LICENSE"
   ]
 }

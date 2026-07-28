@@ -181,11 +181,11 @@ const response = await fetch('https://api.lobehub.com/v1/chat', {
 
 ---
 
-## Integration with Skills4Coder
+## Integration with Skills Database
 
 ### Mapped Skills
 
-| Skills4Coder | Claw Hub Skill | Notes |
+| Skills Database | Claw Hub Skill | Notes |
 |--------------|----------------|-------|
 | Code Review | Code Reviewer | Open source, customizable |
 | Learning | Research Helper | Paper summarization |

@@ -1,4 +1,4 @@
-# Skills4Coder 重新评估报告（知识库优先定位）
+# Skills Database 重新评估报告（知识库优先定位）
 
 > 评估日期: 2026-05-23
 > 评估范围: 全项目
@@ -9,7 +9,7 @@
 
 ## 一、定位修正
 
-此前评估将 Skills4Coder 视为"可运行的 Agent 编排引擎"，因此把 `Agent.executeSkill()` 与 `Workflow.executeStep()` 的 Mock 实现判为致命问题。
+此前评估将 Skills Database 视为"可运行的 Agent 编排引擎"，因此把 `Agent.executeSkill()` 与 `Workflow.executeStep()` 的 Mock 实现判为致命问题。
 
 **真实定位修正：**
 
@@ -52,7 +52,7 @@
 1. **add-resources-v*.cjs 13 个版本残留**（重要） — 这些是知识扩充工具但版本混乱，损害知识库可信度。应合并为单一 enrich CLI 并文档化。
 2. **知识扩充流程未文档化** — `enrich-kps.mjs`、`enrich-template.mjs` 是核心工具，但 docs/ 中无对应使用指南，外部贡献者无法复现扩充流程。
 3. **Schema 与数据局部不一致** — roles JSON 引用 `../schema/role-v1.json` 但仓库中实际无此文件；`validate-roles` / `validate-skills` 脚本被 package.json 引用但 scripts/ 下也不存在。
-4. **DB 二进制入库** — `data/skills4coder.db`（1.2MB）应由 `npm run seed` 从 JSON 重建，不该入库。
+4. **DB 二进制入库** — `data/skills-database.db`（1.2MB）应由 `npm run seed` 从 JSON 重建，不该入库。
 5. **README 主线偏向"框架运行"叙事** — 与"知识输出"定位不匹配，给读者错误预期；应突出"如何消费这些 JSON 知识资产"。
 
 ---
@@ -71,7 +71,7 @@
 
 ## 六、一句话总评
 
-作为"高质量岗位技能知识库"，Skills4Coder 已交付了行业里少见的细颗粒度、双语、可机器消费的资产；LLM 扩充工具与参考 SDK 起到良好辅助作用——真正需要打磨的不是引擎，而是让外界更容易看懂、复用、贡献这套知识体系。
+作为"高质量岗位技能知识库"，Skills Database 已交付了行业里少见的细颗粒度、双语、可机器消费的资产；LLM 扩充工具与参考 SDK 起到良好辅助作用——真正需要打磨的不是引擎，而是让外界更容易看懂、复用、贡献这套知识体系。
 
 ---
 

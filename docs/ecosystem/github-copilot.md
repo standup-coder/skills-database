@@ -219,11 +219,11 @@ Copilot: Shows:
 
 ---
 
-## Integration with Skills4Coder
+## Integration with Skills Database
 
 ### Skill Development Workflow
 
-| Skills4Coder Skill | Copilot Usage |
+| Skills Database Skill | Copilot Usage |
 |-------------------|---------------|
 | Programming Fundamentals | Learn syntax, common patterns |
 | Design Patterns | Generate pattern implementations |

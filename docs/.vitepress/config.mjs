@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Skills4Coder',
-  titleTemplate: ':title | Skills4Coder',
+  title: 'Skills Database',
+  titleTemplate: ':title | Skills Database',
   description: '岗位即 Skills 集合，Agent 专业分工协作的编排框架',
   
   // Base URL
@@ -30,7 +30,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#326CE5' }],
     ['meta', { name: 'og:type', content: 'website' }],
     ['meta', { name: 'og:locale', content: 'zh_CN' }],
-    ['meta', { name: 'og:site_name', content: 'Skills4Coder' }],
+    ['meta', { name: 'og:site_name', content: 'Skills Database' }],
     ['meta', { name: 'og:image', content: '/og-image.png' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:image', content: '/og-image.png' }],
@@ -49,12 +49,12 @@ export default defineConfig({
     // Logo
     logo: { 
       src: '/logo.svg', 
-      alt: 'Skills4Coder',
+      alt: 'Skills Database',
       width: 32,
       height: 32
     },
     
-    siteTitle: 'Skills4Coder',
+    siteTitle: 'Skills Database',
     
     // Navigation
     nav: [
@@ -95,13 +95,13 @@ export default defineConfig({
     
     // Social links
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/standup-coder/skills4coder' }
+      { icon: 'github', link: 'https://github.com/standup-coder/skills-database' }
     ],
     
     // Footer
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2026 Skills4Coder Contributors'
+      copyright: 'Copyright © 2026 Skills Database Contributors'
     },
     
     // Search

@@ -1,6 +1,6 @@
 # 用户手册
 
-Complete guide to using Skills4Coder for your professional development.
+Complete guide to using Skills Database for your professional development.
 
 ## 🌐 Languages
 - [English](user-guide.md) | [中文](user-guide_zh.md)
@@ -21,9 +21,9 @@ Complete guide to using Skills4Coder for your professional development.
 
 ## Introduction
 
-Skills4Coder is a comprehensive skill tree framework designed for technology professionals. Whether you're starting your career or looking to advance to the next level, this guide will help you navigate and utilize the skill trees effectively.
+Skills Database is a comprehensive skill tree framework designed for technology professionals. Whether you're starting your career or looking to advance to the next level, this guide will help you navigate and utilize the skill trees effectively.
 
-### What Makes Skills4Coder Different?
+### What Makes Skills Database Different?
 
 - **Comprehensive Coverage**: Four major roles with detailed skill breakdowns
 - **AI-Native Integration**: Direct links to AI skill markets (SkillHub, Claw, MCP)
@@ -122,7 +122,7 @@ Role Overview
 
 ### AI-Native Skills
 
-Modern development increasingly involves AI assistants. Skills4Coder integrates with major AI skill markets:
+Modern development increasingly involves AI assistants. Skills Database integrates with major AI skill markets:
 
 #### [Tencent SkillHub](../ecosystem/skillhub.md)
 - Access Tencent's AI skill marketplace
@@ -165,8 +165,8 @@ Modern development increasingly involves AI assistants. Skills4Coder integrates 
 1. **Fork the Repository**
    ```bash
    # Click "Fork" on GitHub, then:
-   git clone https://github.com/YOUR_USERNAME/skills4coder.git
-   cd skills4coder
+   git clone https://github.com/YOUR_USERNAME/skills-database.git
+   cd skills-database
    ```
 
 2. **Track Your Skills**
@@ -186,7 +186,7 @@ Modern development increasingly involves AI assistants. Skills4Coder integrates 
 Simply download the repository and edit files locally:
 
 ```bash
-git clone https://github.com/standup-coder/skills4coder.git
+git clone https://github.com/standup-coder/skills-database.git
 # Edit files with your favorite editor
 ```
 
@@ -216,7 +216,7 @@ You can create custom skill trees for your organization:
 Compare your current skills with job requirements:
 
 1. Review job descriptions in your target role
-2. Map required skills to Skills4Coder categories
+2. Map required skills to Skills Database categories
 3. Identify gaps and create learning plan
 4. Track progress over time
 
@@ -268,6 +268,6 @@ See our [Ecosystem](../ecosystem/) section for AI integration guides.
 ---
 
 **Need Help?**
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [Report Issues](https://github.com/standup-coder/skills4coder/issues)
-- 📧 Contact: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [Report Issues](https://github.com/standup-coder/skills-database/issues)
+- 📧 Contact: skills-database@example.com

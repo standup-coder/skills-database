@@ -4,7 +4,7 @@
       <div class="table-header">
         <div class="header-cell feature-col">特性</div>
         <div class="header-cell traditional-col">传统 AI</div>
-        <div class="header-cell s4c-col">Skills4Coder</div>
+        <div class="header-cell s4c-col">Skills Database</div>
       </div>
       
       <div class="table-row">

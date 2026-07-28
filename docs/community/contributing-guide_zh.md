@@ -1,6 +1,6 @@
 # 贡献指南
 
-感谢您有兴趣为 Skills4Coder 做出贡献！本指南将帮助您入门。
+感谢您有兴趣为 Skills Database 做出贡献！本指南将帮助您入门。
 
 ## 🌐 语言
 - [English](contributing-guide.md) | [中文](contributing-guide_zh.md)
@@ -100,8 +100,8 @@
 
 ```bash
 # 在 GitHub 上 Fork 仓库，然后：
-git clone https://github.com/YOUR_USERNAME/skills4coder.git
-cd skills4coder
+git clone https://github.com/YOUR_USERNAME/skills-database.git
+cd skills-database
 ```
 
 ### 创建分支
@@ -323,10 +323,10 @@ docs/
 
 ## 有问题？
 
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [提交 Issue](https://github.com/standup-coder/skills4coder/issues)
-- 📧 邮件: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [提交 Issue](https://github.com/standup-coder/skills-database/issues)
+- 📧 邮件: skills-database@example.com
 
 ---
 
-**感谢您帮助让 Skills4Coder 变得更好！** 🙏
+**感谢您帮助让 Skills Database 变得更好！** 🙏

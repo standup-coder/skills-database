@@ -148,7 +148,7 @@ nameZh: 读取文件
 category: filesystem
 domain: 开发
 tags: [file, io, basic]
-author: skills4coder-team
+author: skills-database-team
 ---
 
 # 读取文件

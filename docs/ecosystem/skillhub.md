@@ -179,11 +179,11 @@ prompt: |
 
 ---
 
-## Skill Mapping to Skills4Coder
+## Skill Mapping to Skills Database
 
 ### Developer Skills
 
-| Skills4Coder Skill | SkillHub Equivalent | Notes |
+| Skills Database Skill | SkillHub Equivalent | Notes |
 |-------------------|---------------------|-------|
 | Code Review | Code Reviewer | AI-powered analysis |
 | Documentation | Doc Writer | Auto-generate docs |
@@ -192,7 +192,7 @@ prompt: |
 
 ### Architect Skills
 
-| Skills4Coder Skill | SkillHub Equivalent | Notes |
+| Skills Database Skill | SkillHub Equivalent | Notes |
 |-------------------|---------------------|-------|
 | System Design | Architecture Advisor | Pattern suggestions |
 | Tech Selection | Stack Recommender | Technology comparison |

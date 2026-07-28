@@ -1,6 +1,6 @@
 # 知识库贡献指南
 
-> Skills4Coder 的核心交付物是**高质量的岗位技能知识库**：16 个角色 × 28 个复合技能 × 126 个原子技能。LLM 仅作为辅助扩充工具。本指南说明如何贡献、扩充和质量量化。
+> Skills Database 的核心交付物是**高质量的岗位技能知识库**：16 个角色 × 28 个复合技能 × 126 个原子技能。LLM 仅作为辅助扩充工具。本指南说明如何贡献、扩充和质量量化。
 
 ## 1. 知识体系总览
 
@@ -142,7 +142,7 @@ npm run validate-skills -- --strict # warning 即失败
 
 ## 7. 不要做什么
 
-- ❌ 直接编辑 `data/skills4coder.db`——它由 `npm run seed` 从 JSON 重建
+- ❌ 直接编辑 `data/skills-database.db`——它由 `npm run seed` 从 JSON 重建
 - ❌ 跳过 schema 校验提交 PR
 - ❌ 用 LLM 自动生成新原子技能不经 review 就合入
 - ❌ 在 `roles/` 中引用尚未在 `atomic-skills/` 或 `skills/` 中定义的 ID

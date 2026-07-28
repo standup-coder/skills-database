@@ -1,6 +1,6 @@
 # 用户手册
 
-使用 Skills4Coder 进行职业发展的完整指南。
+使用 Skills Database 进行职业发展的完整指南。
 
 ## 🌐 语言
 - [English](user-guide.md) | [中文](user-guide_zh.md)
@@ -21,9 +21,9 @@
 
 ## 简介
 
-Skills4Coder 是一个为技术专业人士设计的综合技能树框架。无论您是刚开始职业生涯，还是希望晋升到下一个级别，本指南将帮助您有效地导航和利用技能树。
+Skills Database 是一个为技术专业人士设计的综合技能树框架。无论您是刚开始职业生涯，还是希望晋升到下一个级别，本指南将帮助您有效地导航和利用技能树。
 
-### Skills4Coder 有什么不同？
+### Skills Database 有什么不同？
 
 - **全面覆盖**: 四大主要角色，详细的技能分解
 - **AI 原生整合**: 直接链接到 AI 技能市场（SkillHub、Claw、MCP）
@@ -122,7 +122,7 @@ Skills4Coder 是一个为技术专业人士设计的综合技能树框架。无�
 
 ### AI 原生技能
 
-现代开发越来越多地涉及 AI 助手。Skills4Coder 整合了主要 AI 技能市场：
+现代开发越来越多地涉及 AI 助手。Skills Database 整合了主要 AI 技能市场：
 
 #### [腾讯 SkillHub](../ecosystem/skillhub_zh.md)
 - 访问腾讯 AI 技能市场
@@ -165,8 +165,8 @@ Skills4Coder 是一个为技术专业人士设计的综合技能树框架。无�
 1. **Fork 仓库**
    ```bash
    # 点击 GitHub 上的 "Fork"，然后：
-   git clone https://github.com/YOUR_USERNAME/skills4coder.git
-   cd skills4coder
+   git clone https://github.com/YOUR_USERNAME/skills-database.git
+   cd skills-database
    ```
 
 2. **追踪您的技能**
@@ -186,7 +186,7 @@ Skills4Coder 是一个为技术专业人士设计的综合技能树框架。无�
 简单地下载仓库并在本地编辑：
 
 ```bash
-git clone https://github.com/standup-coder/skills4coder.git
+git clone https://github.com/standup-coder/skills-database.git
 # 用您喜欢的编辑器编辑文件
 ```
 
@@ -216,7 +216,7 @@ git clone https://github.com/standup-coder/skills4coder.git
 将当前技能与职位要求对比：
 
 1. 查看目标角色的职位描述
-2. 将所需技能映射到 Skills4Coder 分类
+2. 将所需技能映射到 Skills Database 分类
 3. 识别差距并创建学习计划
 4. 随时间追踪进度
 
@@ -268,6 +268,6 @@ git clone https://github.com/standup-coder/skills4coder.git
 ---
 
 **需要帮助？**
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [报告问题](https://github.com/standup-coder/skills4coder/issues)
-- 📧 联系: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [报告问题](https://github.com/standup-coder/skills-database/issues)
+- 📧 联系: skills-database@example.com

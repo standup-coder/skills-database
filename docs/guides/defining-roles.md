@@ -17,7 +17,7 @@ Role 由以下部分组成：
 
 ```json
 {
-  "$schema": "https://skills4coder.org/schemas/role-v1.json",
+  "$schema": "https://skills-database.org/schemas/role-v1.json",
   "id": "my-custom-role",
   "type": "role",
   "version": "1.0.0",
@@ -56,7 +56,7 @@ Role 由以下部分组成：
 ## 使用自定义 Role
 
 ```javascript
-import { Role, Agent } from 'skills4coder';
+import { Role, Agent } from 'skills-database';
 
 // 加载自定义 Role
 const role = Role.fromJSON('./my-custom-role.json');

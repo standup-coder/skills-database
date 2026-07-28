@@ -2,11 +2,11 @@
 
 **Role = JD = 主 Skills 集合**
 
-Role 是 Skills4Coder 的核心概念之一，它定义了一个岗位的能力边界、职责范围和技能要求。
+Role 是 Skills Database 的核心概念之一，它定义了一个岗位的能力边界、职责范围和技能要求。
 
 ## 什么是 Role？
 
-在传统软件开发中，我们通过 **Job Description (JD)** 来描述一个岗位的职责和要求。在 Skills4Coder 中，我们将 JD 转化为可执行、可复用、可版本管理的代码定义，这就是 **Role**。
+在传统软件开发中，我们通过 **Job Description (JD)** 来描述一个岗位的职责和要求。在 Skills Database 中，我们将 JD 转化为可执行、可复用、可版本管理的代码定义，这就是 **Role**。
 
 ### Role 的核心组成
 
@@ -63,7 +63,7 @@ interface Role {
     "name": "Senior Frontend Developer",
     "nameZh": "高级前端开发工程师",
     "description": "负责前端架构设计、代码审查、性能优化",
-    "author": "skills4coder-team",
+    "author": "skills-database-team",
     "tags": ["frontend", "react", "typescript", "architecture"],
     "level": "senior"
   },
@@ -125,7 +125,7 @@ interface Role {
 ### 加载 Role
 
 ```javascript
-import { Role } from 'skills4coder';
+import { Role } from 'skills-database';
 
 // 从 JSON 文件加载
 const role = Role.fromJSON('./roles/senior-frontend-dev.json');
@@ -161,7 +161,7 @@ console.log(role.systemPrompt);  // 用于 LLM 的系统提示
 ### 创建 Agent
 
 ```javascript
-import { Agent } from 'skills4coder';
+import { Agent } from 'skills-database';
 
 const agent = new Agent({
   role: role,
@@ -180,7 +180,7 @@ const result = await agent.use('code-review', {
 一个复杂的项目可能需要多个 Role 协作。你可以将多个 Role 组合成团队：
 
 ```javascript
-import { Team } from 'skills4coder';
+import { Team } from 'skills-database';
 
 const team = new Team({
   name: 'Feature Development Team',
@@ -218,7 +218,7 @@ v2.0: 架构升级（破坏性变更）
 
 ## 预定义 Roles
 
-Skills4Coder 提供了一些预定义的 Role：
+Skills Database 提供了一些预定义的 Role：
 
 ### 开发者 Roles
 

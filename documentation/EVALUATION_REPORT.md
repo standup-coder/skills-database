@@ -1,4 +1,4 @@
-# Skills4Coder 项目全面评估报告
+# Skills Database 项目全面评估报告
 
 > 评估日期: 2026-05-19
 > 评估人: Hermes Agent
@@ -8,7 +8,7 @@
 
 ## 一、项目概况
 
-Skills4Coder 是一个面向 AI Agent 的技能编排框架，核心理念是"岗位即 Skills 集合"——将传统岗位(JD)拆解为可组合的技能单元，让 AI Agent 像专业团队一样协作完成复杂任务。
+Skills Database 是一个面向 AI Agent 的技能编排框架，核心理念是"岗位即 Skills 集合"——将传统岗位(JD)拆解为可组合的技能单元，让 AI Agent 像专业团队一样协作完成复杂任务。
 
 | 指标 | 数据 |
 |------|------|
@@ -136,7 +136,7 @@ Skills4Coder 是一个面向 AI Agent 的技能编排框架，核心理念是"�
 
 ## 八、README vs 代码一致性
 
-- [-] README 声称 `import { SkillHubAdapter } from 'skills4coder'` 但 src/index.ts 未导出
+- [-] README 声称 `import { SkillHubAdapter } from 'skills-database'` 但 src/index.ts 未导出
 - [-] README 示例使用 Project 类但代码中不存在
 - [-] README 示例 `agent.execute(...)` 但实际 API 是 `agent.use(...)`
 - [-] examples/ 目录存在但内容与 TypeScript 源码不一致
@@ -145,7 +145,7 @@ Skills4Coder 是一个面向 AI Agent 的技能编排框架，核心理念是"�
 
 ## 总评：5/10
 
-Skills4Coder 有一个出色的架构设计——三层技能模型、MCP 协议集成、Workflow 编排、Team 协作等概念都很成熟。数据资产丰富(126 原子技能 + 28 复合技能 + 16 角色)，文档站点完善。
+Skills Database 有一个出色的架构设计——三层技能模型、MCP 协议集成、Workflow 编排、Team 协作等概念都很成熟。数据资产丰富(126 原子技能 + 28 复合技能 + 16 角色)，文档站点完善。
 
 但核心问题是：框架的"引擎"是空的。Agent.executeSkill() 返回硬编码字典，Workflow.executeStep() 返回占位符，整个 LLM 集成层是声明式的而非实现的。这意味着当前版本更接近一个"技能定义规范 + CLI 追踪器"而非一个真正可运行的 Agent 编排框架。
 

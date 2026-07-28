@@ -1,131 +1,57 @@
-# Contributing to Skills4Coder
+# Contributing to Skills Database
 
-Thank you for your interest in contributing! Skills4Coder is an agent skill orchestration framework that helps organize, compose, and deploy coding agent capabilities.
+Skills Database 是一个**本地化的职业技能 SkillHub**,主要消费形式是 Markdown,所有数据通过 git + Node 脚本维护,无需编译。
 
-## Prerequisites
+## 0. 先读
 
-- Node.js 20+
-- npm 10+
-- Git
+- [README.md](./README.md) — 项目说明
+- [CLAUDE.md](./CLAUDE.md) — 给 AI Agent 的项目地图
 
-## Getting Started
+## 1. 添加一条外部 skill
 
-```bash
-git clone https://github.com/your-org/skills4coder.git
-cd skills4coder
-npm install
-npm run build
-npm test
-```
-
-## Project Structure
-
-```
-roles/  skills/  atomic-skills/   # 语料库（JSON 资产，根目录主体）
-schema/  skill-lists/  data/      # 语料约束 / 清单 / 派生数据
-app/                            # 所有代码（SDK + Web）
-├── src/                        #   SDK 核心库
-├── orchestration/              #   编排运行时 (agent-runtime / mcp-server / skillhub-adapter)
-├── server/                     #   Web API 层
-├── webui/                      #   Web UI
-├── skills-cli.ts               #   CLI 入口
-└── start.sh                    #   Web 服务启停
-dist/                           # 编译产物（npm 发布入口，留根）
-docs/                           # 文档
-```
-
-## Development Workflow
-
-Start the dev server with watch mode:
+把原始 MD 放到 `sources/<vendor>/<id>.md`,然后跑归类:
 
 ```bash
-npm run dev
+# 预览(不写文件)
+npm run import:classify:dry
+
+# 实际归类 → catalog/<domain>/<id>.md
+npm run import:classify
 ```
 
-Run the full build:
+归类规则在 [`tools/import/classify.js`](./tools/import/classify.js) 的 `RULES` 数组。如果某条 skill 没归对:
+- 手工移动文件后跑 `npm run import:regenerate` 重建索引
+- 或者改 `RULES` 后整体重跑
+
+## 2. 添加一个内部 role / composite / atomic skill
+
+模板在 [`templates/`](./templates/):
+- `role.md` — 职业角色
+- `workflow-skill.md` — 复合技能(多步)
+- `atomic-skill.md` — 原子技能(单步)
+
+按模板生成 MD,放进 `catalog/<domain>/<id>.md`。
+
+## 3. 添加新领域
+
+1. `catalog/` 下建新子目录
+2. 在 `tools/import/classify.js` 的 `RULES` 加映射规则
+3. 在 `tools/import/regenerate-indices.js` 的 `DOMAIN_LABELS` 加人类可读标签
+
+## 4. 重建浏览站
 
 ```bash
-npm run build
+npm run web:build
+# 输出: tools/web/index.html — 单文件离线浏览站
 ```
 
-Run tests:
+## 5. 提交规范
 
-```bash
-npm test
-```
+- `feat(catalog): add <domain>/<id>` — 新增 skill
+- `fix(import): tune <category> mapping` — 归类规则调整
+- `docs: update <file>` — 文档
+- `chore: remove obsolete` — 清理
 
-Lint the codebase:
+## 6. 本地状态
 
-```bash
-npm run lint
-```
-
-## Code Style
-
-- **TypeScript** with strict mode enabled
-- **ESLint** for linting — fix all warnings before submitting
-- **Import order**: built-in modules, external packages, internal modules
-- 2-space indentation, LF line endings (see `.editorconfig`)
-- Use ESM (`import`/`export`), no CommonJS
-
-## Testing
-
-Tests use [Vitest](https://vitest.dev/). Place test files next to the module they test with a `.test.ts` suffix.
-
-```bash
-npm test            # run all tests
-npm test -- --watch # watch mode
-```
-
-## Adding a New Role, Skill, or Atomic Skill
-
-1. Create a JSON file in the appropriate directory (`roles/`, `skills/`, or `atomic-skills/`).
-2. Follow the existing schema — check neighboring files for reference.
-3. Register it in the orchestration config if needed.
-4. Add tests verifying the definition loads and validates correctly.
-
-### JSON File Format
-
-```json
-{
-  "id": "my-new-skill",
-  "name": "My New Skill",
-  "description": "What this skill does",
-  "version": "1.0.0",
-  "parameters": {}
-}
-```
-
-## Adding a New Orchestration Module
-
-1. Create your module in `app/orchestration/`.
-2. Export a public API surface with clear TypeScript types.
-3. Wire it into the orchestration engine entry point.
-4. Add unit and integration tests.
-5. Update docs if the module changes user-facing behavior.
-
-## Commit Convention
-
-We follow [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat: add new role for code review
-fix: resolve skill loading race condition
-docs: update orchestration guide
-refactor: simplify atomic-skill resolver
-test: add coverage for CLI commands
-chore: update dependencies
-```
-
-## Pull Request Process
-
-1. Fork the repo and create a feature branch from `main`.
-2. Make your changes following the guidelines above.
-3. Ensure `npm run build`, `npm test`, and `npm run lint` all pass.
-4. Write a clear PR description explaining what and why.
-5. Link any related issues.
-6. Request review from a maintainer.
-
-## Questions?
-
-Open an issue or start a discussion. We're happy to help!
+`personal/` 默认 gitignore,你的学习记录只在你自己的机器上。如需同步到自己的 fork,编辑 `personal/.gitignore` 取消对应行的注释。

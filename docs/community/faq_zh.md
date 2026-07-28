@@ -1,6 +1,6 @@
 # 常见问题
 
-关于 Skills4Coder 及如何有效使用的常见问题。
+关于 Skills Database 及如何有效使用的常见问题。
 
 ## 🌐 语言
 - [English](faq.md) | [中文](faq_zh.md)
@@ -9,9 +9,9 @@
 
 ## 一般问题
 
-### 什么是 Skills4Coder？
+### 什么是 Skills Database？
 
-**Skills4Coder** 是一个为技术专业人士设计的综合技能树框架。它为开发者、架构师、测试和运维工程师提供结构化学习路径，同时也是 AI 技能生态的枢纽。
+**Skills Database** 是一个为技术专业人士设计的综合技能树框架。它为开发者、架构师、测试和运维工程师提供结构化学习路径，同时也是 AI 技能生态的枢纽。
 
 ### 这适合谁？
 
@@ -23,13 +23,13 @@
 
 ### 使用是免费的吗？
 
-是的！Skills4Coder 基于 MIT 许可证开源。您可以自由使用、修改和分发。
+是的！Skills Database 基于 MIT 许可证开源。您可以自由使用、修改和分发。
 
 ---
 
 ## 开始使用
 
-### 如何开始使用 Skills4Coder？
+### 如何开始使用 Skills Database？
 
 1. 选择您的[角色](../index_zh.md#角色特定技能)（开发者、架构师、测试或运维）
 2. 选择您的[经验级别](../getting-started/user-guide_zh.md#技能级别说明)
@@ -46,7 +46,7 @@
 
 可以！克隆仓库并本地访问所有内容：
 ```bash
-git clone https://github.com/standup-coder/skills4coder.git
+git clone https://github.com/standup-coder/skills-database.git
 ```
 
 ---
@@ -184,7 +184,7 @@ Markdown (`.md`) 带复选框：
 
 ### 这能保证我找到工作吗？
 
-没有工具能保证就业。Skills4Coder 帮助您：
+没有工具能保证就业。Skills Database 帮助您：
 - 识别技能差距
 - 规划学习路径
 - 向雇主展示能力
@@ -207,9 +207,9 @@ Markdown (`.md`) 带复选框：
 
 ### 如何获得帮助？
 
-- 💬 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
-- 🐛 [GitHub Issues](https://github.com/standup-coder/skills4coder/issues)
-- 📧 邮件: skills4coder@example.com
+- 💬 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
+- 🐛 [GitHub Issues](https://github.com/standup-coder/skills-database/issues)
+- 📧 邮件: skills-database@example.com
 
 ### 有社区聊天吗？
 
@@ -237,7 +237,7 @@ Markdown (`.md`) 带复选框：
 
 ### 其他问题？
 
-请[提交 issue](https://github.com/standup-coder/skills4coder/issues/new)并提供：
+请[提交 issue](https://github.com/standup-coder/skills-database/issues/new)并提供：
 - 您尝试做什么
 - 实际发生了什么
 - 您的环境（操作系统、浏览器等）
@@ -250,7 +250,7 @@ Markdown (`.md`) 带复选框：
 
 - 📖 浏览[完整文档](../index_zh.md)
 - 🤝 阅读[贡献指南](contributing-guide_zh.md)
-- 💬 加入 [GitHub Discussions](https://github.com/standup-coder/skills4coder/discussions)
+- 💬 加入 [GitHub Discussions](https://github.com/standup-coder/skills-database/discussions)
 
 ---
 

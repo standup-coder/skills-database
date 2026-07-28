@@ -1,15 +1,15 @@
 # 快速上手指南
 
-快速了解 Skills4Coder 并开始使用技能树规划您的职业发展。
+快速了解 Skills Database 并开始使用技能树规划您的职业发展。
 
 ## 🌐 语言
 - [English](quick-start.md) | [中文](quick-start_zh.md)
 
 ---
 
-## 什么是 Skills4Coder？
+## 什么是 Skills Database？
 
-**Skills4Coder** 是程序员的技能大本营，整合了：
+**Skills Database** 是程序员的技能大本营，整合了：
 
 - 📚 **全面的技能树** - 开发者、架构师、测试、运维四大职业路径
 - 🔗 **技能生态索引** - 腾讯 SkillHub、Claw Hub、MCP 等技能市场导航
@@ -67,7 +67,7 @@
 ### 方法一：本地 Markdown 编辑
 
 1. Fork 本项目到您的 GitHub 账号
-2. 克隆到本地: `git clone https://github.com/YOUR_USERNAME/skills4coder.git`
+2. 克隆到本地: `git clone https://github.com/YOUR_USERNAME/skills-database.git`
 3. 编辑技能清单文件，勾选 `- [x]` 已掌握的技能
 4. 提交更改: `git add . && git commit -m "Update my skills" && git push`
 
@@ -93,10 +93,10 @@
 
 | 资源 | 链接 |
 |------|------|
-| 项目首页 | [GitHub](https://github.com/standup-coder/skills4coder) |
+| 项目首页 | [GitHub](https://github.com/standup-coder/skills-database) |
 | 完整文档 | [docs/index.md](../index_zh.md) |
 | 技能生态 | [ecosystem/](../ecosystem/) |
-| 问题反馈 | [GitHub Issues](https://github.com/standup-coder/skills4coder/issues) |
+| 问题反馈 | [GitHub Issues](https://github.com/standup-coder/skills-database/issues) |
 
 ---
 

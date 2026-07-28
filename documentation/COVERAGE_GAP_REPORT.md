@@ -1,4 +1,4 @@
-# Skills4Coder 三层覆盖度诊断报告
+# Skills Database 三层覆盖度诊断报告
 
 > 生成时间：2026-05-23
 > 评估对象：roles / skills / atomic-skills 三层

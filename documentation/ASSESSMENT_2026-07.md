@@ -1,4 +1,4 @@
-# Skills4Coder 项目整体评估报告（2026-07）
+# Skills Database 项目整体评估报告（2026-07）
 
 > 评估日期: 2026-07-19
 > 评估人: Qoder Agent
@@ -10,7 +10,7 @@
 
 ## 一、项目概况
 
-Skills4Coder 是一个 AI Agent 技能编排框架，核心理念为 **Role = JD = Main Skills Set**——将真实岗位拆解为可组合、可机器消费的技能单元，由运行时编排多 Agent 协作。
+Skills Database 是一个 AI Agent 技能编排框架，核心理念为 **Role = JD = Main Skills Set**——将真实岗位拆解为可组合、可机器消费的技能单元，由运行时编排多 Agent 协作。
 
 | 指标 | 数据 |
 |------|------|
@@ -125,7 +125,7 @@ Skills4Coder 是一个 AI Agent 技能编排框架，核心理念为 **Role = JD
 
 | 问题 | 影响范围 |
 |------|----------|
-| 4 个文件 author 为 `"skills4coder"` 而非 `"skills4coder-team"` | `api-call`、`database-query`、`http-request`、`write-file` |
+| 4 个文件 author 为 `"skills-database"` 而非 `"skills-database-team"` | `api-call`、`database-query`、`http-request`、`write-file` |
 | 8 个 atomic skills 版本为 `1.1.0`，其余为 `1.0.0`，无 Changelog 说明 | `api-development`、`performance-optimization` 等 |
 | `fullstack-developer.json` 的英文 `responsibilities` 字段实际为中文 | 1 个 role |
 
@@ -277,7 +277,7 @@ Skills4Coder 是一个 AI Agent 技能编排框架，核心理念为 **Role = JD
 
 ### 8.2 依赖膨胀
 
-`@anthropic-ai/sdk`、`@modelcontextprotocol/sdk`、`openai` 作为 runtime dependencies 安装，但源码中 **零实际调用**。用户 `npm install skills4coder` 会拉取 ~50MB 未使用的 SDK 包。
+`@anthropic-ai/sdk`、`@modelcontextprotocol/sdk`、`openai` 作为 runtime dependencies 安装，但源码中 **零实际调用**。用户 `npm install skills-database` 会拉取 ~50MB 未使用的 SDK 包。
 
 **建议**：移至 `optionalDependencies` 或 `peerDependencies`，待 LLM 层实现后再提升为 runtime dep。
 
@@ -303,7 +303,7 @@ AGENTS.md 作为核心开发者协议，包含大量 **未实现的 API**：
 
 | 文档中的 API | 实际状态 |
 |-------------|----------|
-| `import { Tracer, Metrics } from 'skills4coder'` | 未导出，不存在 |
+| `import { Tracer, Metrics } from 'skills-database'` | 未导出，不存在 |
 | `new SharedContext()` | 未导出，不存在 |
 | `agent.addSkill(customSkill)` | 未导出 |
 | `agent.stream(skill, input)` | 存在但有 bug（双重执行） |
@@ -324,7 +324,7 @@ AGENTS.md 作为核心开发者协议，包含大量 **未实现的 API**：
 
 | 文件 | 可运行？ | 问题 |
 |------|----------|------|
-| `single-agent-task/code-review-example.js` | ❌ | import from `'skills4coder'`（未发布）；引用 MCPServer 子路径 |
+| `single-agent-task/code-review-example.js` | ❌ | import from `'skills-database'`（未发布）；引用 MCPServer 子路径 |
 | `multi-agent-project/feature-development.js` | ❌ | 同上 + 使用 `team.collaborate()`（结构性 bug） |
 | `ops-demo.js` | ❌ | 引用不存在的 `./examples/deployment.yaml` 和 `./examples/app.log` |
 
@@ -337,7 +337,7 @@ AGENTS.md 作为核心开发者协议，包含大量 **未实现的 API**：
 | `.github/PULL_REQUEST_TEMPLATE.md` | 仍为 pre-2.0 "Vibe Coding" 内容，与框架定位不符 |
 | `.github/ISSUE_TEMPLATE/` | 空目录 |
 | `docs/public/logo-v1~v6.svg` | 6 个 logo 迭代版本未清理 |
-| `data/skills4coder.db` | 1.2MB 二进制入库，应由 `npm run seed` 重建 |
+| `data/skills-database.db` | 1.2MB 二进制入库，应由 `npm run seed` 重建 |
 | 根目录 `test 2.txt`、`test 3.txt` | 5 字节测试残留 |
 
 ---
@@ -559,7 +559,7 @@ class LlmExecutor {
 
 ## 十五、总结
 
-Skills4Coder 的知识资产层是其核心竞争力——205 个结构化 JSON 实体、零断裂的交叉引用、严格的 Schema 约束、丰富的 learning 段落，在同类项目中属上乘。
+Skills Database 的知识资产层是其核心竞争力——205 个结构化 JSON 实体、零断裂的交叉引用、严格的 Schema 约束、丰富的 learning 段落，在同类项目中属上乘。
 
 但框架层存在三个层面的问题需要正视：
 1. **安全层**：核心工具（文件/命令/DB）无沙箱，存在 RCE 和路径穿越风险

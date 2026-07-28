@@ -206,11 +206,11 @@ Save common prompts and contexts:
 
 ---
 
-## Integration with Skills4Coder
+## Integration with Skills Database
 
 ### Learning Path Support
 
-| Skills4Coder Level | Cursor Features |
+| Skills Database Level | Cursor Features |
 |-------------------|-----------------|
 | Beginner | Code explanation, syntax help |
 | Intermediate | Refactoring, pattern suggestions |

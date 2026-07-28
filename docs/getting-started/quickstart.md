@@ -1,24 +1,24 @@
 # 快速开始
 
-在 5 分钟内上手 Skills4Coder，创建你的第一个 Agent。
+在 5 分钟内上手 Skills Database，创建你的第一个 Agent。
 
 ## 安装
 
 ```bash
-npm install skills4coder
+npm install skills-database
 # 或者
-yarn add skills4coder
+yarn add skills-database
 ```
 
 ## 第一步：加载预定义 Role
 
-Skills4Coder 提供了一些预定义的 Role，你可以直接使用：
+Skills Database 提供了一些预定义的 Role，你可以直接使用：
 
 ```javascript
-import { Role } from 'skills4coder';
+import { Role } from 'skills-database';
 
 // 加载 Senior Frontend Developer Role
-const role = Role.fromJSON('node_modules/skills4coder/roles/senior-frontend-dev.json');
+const role = Role.fromJSON('node_modules/skills-database/roles/senior-frontend-dev.json');
 
 console.log(role.name);        // "Senior Frontend Developer"
 console.log(role.mainSkills);  // ["frontend-architecture-design", "code-review", ...]
@@ -29,7 +29,7 @@ console.log(role.mainSkills);  // ["frontend-architecture-design", "code-review"
 基于 Role 创建 Agent：
 
 ```javascript
-import { Agent } from 'skills4coder';
+import { Agent } from 'skills-database';
 
 const agent = new Agent({
   role: role,
@@ -56,7 +56,7 @@ console.log(result.issues);     // [{ severity: "medium", ... }]
 ## 完整示例
 
 ```javascript
-import { Agent, Role } from 'skills4coder';
+import { Agent, Role } from 'skills-database';
 
 async function main() {
   // 1. 加载 Role
