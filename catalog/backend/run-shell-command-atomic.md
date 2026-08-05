@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/run-shell-command.json
 catalogAddedAt: 2026-07-26
 operation: system
-level: mid
+level: junior
 ---
 
 # 执行 Shell 命令

@@ -1,15 +1,16 @@
 ---
 title: tools
 domain: tools
-count: 66
+count: 67
 ---
 
 # tools
 
-> 共 66 条。来源：voltagent、skills-sh、mcpmarket。
+> 共 67 条。来源：voltagent、skills-sh、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [auth0-auth0-angular](./auth0-auth0-angular.md) | "Auth0 Angular 集成" | external | voltagent |
 | [hashicorp-azure-verified-modules](./hashicorp-azure-verified-modules.md) | "Azure 验证模块" | external | voltagent |
 | [better-auth-best-practices](./better-auth-best-practices.md) | "Better Auth 最佳实践" | external | voltagent |
 | [brave-answers](./brave-answers.md) | "Brave AI 搜索回答" | external | voltagent |

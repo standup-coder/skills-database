@@ -1,17 +1,18 @@
 ---
 title: product
 domain: product
-count: 16
+count: 17
 ---
 
 # product
 
-> 共 16 条。来源：internal、qoder、mcpmarket。
+> 共 17 条。来源：internal、qoder、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
 | [roadmap-design](./roadmap-design-atomic.md) | 产品路线图设计 | atomic-skill | internal |
 | [product-research](./product-research-skill.md) | 产品研究 | composite-skill | internal |
+| [定价策略](./定价策略.md) | 定价策略 | external | qoder |
 | [feedback-loop](./feedback-loop-atomic.md) | 反馈闭环 | atomic-skill | internal |
 | [risk-management](./risk-management-atomic.md) | 风险管理 | atomic-skill | internal |
 | [vendor-management](./vendor-management-atomic.md) | 供应商管理 | atomic-skill | internal |

@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/remotion-dev/skills/remotion-best-practices
 title: remotion-best-practices

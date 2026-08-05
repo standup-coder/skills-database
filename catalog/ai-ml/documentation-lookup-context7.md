@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/documentation-lookup-context7
 title: Documentation Lookup (Context7)

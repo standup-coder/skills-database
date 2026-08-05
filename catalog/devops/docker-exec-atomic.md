@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/docker-exec.json
 catalogAddedAt: 2026-07-26
 operation: container
-level: mid
+level: junior
 ---
 
 # Docker 容器执行

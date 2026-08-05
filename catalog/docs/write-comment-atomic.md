@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/write-comment.json
 catalogAddedAt: 2026-07-26
 operation: documentation
-level: mid
+level: junior
 ---
 
 # 写注释

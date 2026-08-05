@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/microsoft/azure-skills/entra-app-registration
 title: entra-app-registration

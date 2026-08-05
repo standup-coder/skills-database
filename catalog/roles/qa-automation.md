@@ -28,20 +28,20 @@ atomicSkills: read-file, write-file, run-tests, http-request, write-unit-tests, 
 
 ## 核心能力(主 Skills)
 
-- [testing](../testing/testing.md) — 一句话能力
-- [ci-pipeline-setup](../testing/ci-pipeline-setup.md) — 一句话能力
-- [code-review](../testing/code-review.md) — 一句话能力
+- [testing](../testing/testing-skill.md) — 一句话能力
+- [ci-pipeline-setup](../devops/ci-pipeline-setup-skill.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../testing/read-file.md) — 一句话能力
-- [write-file](../testing/write-file.md) — 一句话能力
-- [run-tests](../testing/run-tests.md) — 一句话能力
-- [http-request](../testing/http-request.md) — 一句话能力
-- [write-unit-tests](../testing/write-unit-tests.md) — 一句话能力
-- [write-e2e-tests](../testing/write-e2e-tests.md) — 一句话能力
-- [performance-testing](../testing/performance-testing.md) — 一句话能力
-- [test-strategy](../testing/test-strategy.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
+- [http-request](../security/http-request-atomic.md) — 一句话能力
+- [write-unit-tests](../testing/write-unit-tests-atomic.md) — 一句话能力
+- [write-e2e-tests](../testing/write-e2e-tests-atomic.md) — 一句话能力
+- [performance-testing](../testing/performance-testing-atomic.md) — 一句话能力
+- [test-strategy](../testing/test-strategy-atomic.md) — 一句话能力
 
 ## 经验门槛
 

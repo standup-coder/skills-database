@@ -29,21 +29,21 @@ atomicSkills: read-file, write-file, api-call, run-tests, ios-development, andro
 
 ## 核心能力(主 Skills)
 
-- [frontend-architecture](../frontend/frontend-architecture.md) — 一句话能力
-- [testing](../frontend/testing.md) — 一句话能力
-- [code-review](../frontend/code-review.md) — 一句话能力
+- [frontend-architecture](../frontend/frontend-architecture-skill.md) — 一句话能力
+- [testing](../testing/testing-skill.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../frontend/read-file.md) — 一句话能力
-- [write-file](../frontend/write-file.md) — 一句话能力
-- [api-call](../frontend/api-call.md) — 一句话能力
-- [run-tests](../frontend/run-tests.md) — 一句话能力
-- [ios-development](../frontend/ios-development.md) — 一句话能力
-- [android-development](../frontend/android-development.md) — 一句话能力
-- [cross-platform](../frontend/cross-platform.md) — 一句话能力
-- [performance-optimization](../frontend/performance-optimization.md) — 一句话能力
-- [sdk-integration](../frontend/sdk-integration.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
+- [ios-development](../mobile/ios-development-atomic.md) — 一句话能力
+- [android-development](../mobile/android-development-atomic.md) — 一句话能力
+- [cross-platform](../mobile/cross-platform-atomic.md) — 一句话能力
+- [performance-optimization](../backend/performance-optimization-atomic.md) — 一句话能力
+- [sdk-integration](../backend/sdk-integration-atomic.md) — 一句话能力
 
 ## 经验门槛
 

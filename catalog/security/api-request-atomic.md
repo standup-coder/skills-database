@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/api-request.json
 catalogAddedAt: 2026-07-26
 operation: network
-level: mid
+level: junior
 ---
 
 # API请求

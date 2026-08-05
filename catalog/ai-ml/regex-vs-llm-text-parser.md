@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/regex-vs-llm-text-parser
 title: Regex vs LLM Text Parser

@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/cloud-risk-management.json
 catalogAddedAt: 2026-07-26
 operation: security
-level: mid
+level: senior
 ---
 
 # 云风险管理

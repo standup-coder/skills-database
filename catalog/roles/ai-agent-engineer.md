@@ -32,26 +32,26 @@ atomicSkills: agent-orchestration, mcp-server-development, agent-evaluation, pro
 
 ## 核心能力(主 Skills)
 
-- [agent-orchestration-design](../backend/agent-orchestration-design.md) — 一句话能力
-- [llm-app-development](../backend/llm-app-development.md) — 一句话能力
+- [agent-orchestration-design](../ai-ml/agent-orchestration-design-skill.md) — 一句话能力
+- [llm-app-development](../ai-ml/llm-app-development-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [agent-orchestration](../backend/agent-orchestration.md) — 一句话能力
-- [mcp-server-development](../backend/mcp-server-development.md) — 一句话能力
-- [agent-evaluation](../backend/agent-evaluation.md) — 一句话能力
-- [prompt-engineering-advanced](../backend/prompt-engineering-advanced.md) — 一句话能力
-- [rag-pipeline-design](../backend/rag-pipeline-design.md) — 一句话能力
-- [tool-use-design](../backend/tool-use-design.md) — 一句话能力
-- [llm-evaluation](../backend/llm-evaluation.md) — 一句话能力
-- [embeddings-design](../backend/embeddings-design.md) — 一句话能力
-- [vector-search](../backend/vector-search.md) — 一句话能力
-- [system-design](../backend/system-design.md) — 一句话能力
-- [code-review](../backend/code-review.md) — 一句话能力
-- [read-file](../backend/read-file.md) — 一句话能力
-- [write-file](../backend/write-file.md) — 一句话能力
-- [api-call](../backend/api-call.md) — 一句话能力
-- [run-tests](../backend/run-tests.md) — 一句话能力
+- [agent-orchestration](../ai-ml/agent-orchestration-atomic.md) — 一句话能力
+- [mcp-server-development](../ai-ml/mcp-server-development-atomic.md) — 一句话能力
+- [agent-evaluation](../ai-ml/agent-evaluation-atomic.md) — 一句话能力
+- [prompt-engineering-advanced](../ai-ml/prompt-engineering-advanced-atomic.md) — 一句话能力
+- [rag-pipeline-design](../ai-ml/rag-pipeline-design-atomic.md) — 一句话能力
+- [tool-use-design](../ai-ml/tool-use-design-atomic.md) — 一句话能力
+- [llm-evaluation](../ai-ml/llm-evaluation-atomic.md) — 一句话能力
+- [embeddings-design](../ai-ml/embeddings-design-atomic.md) — 一句话能力
+- [vector-search](../ai-ml/vector-search-atomic.md) — 一句话能力
+- [system-design](../backend/system-design-atomic.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
 
 ## 经验门槛
 

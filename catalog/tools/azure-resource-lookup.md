@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/microsoft/azure-skills/azure-resource-lookup
 title: azure-resource-lookup

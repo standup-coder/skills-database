@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/rag-pipeline-design.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # RAG 管道架构设计

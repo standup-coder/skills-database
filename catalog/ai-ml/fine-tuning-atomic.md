@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/fine-tuning.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # 模型微调

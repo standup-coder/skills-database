@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/write-file.json
 catalogAddedAt: 2026-07-26
 operation: file
-level: mid
+level: junior
 ---
 
 # 写文件

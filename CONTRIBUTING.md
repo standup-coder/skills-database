@@ -45,6 +45,28 @@ npm run web:build
 # 输出: tools/web/index.html — 单文件离线浏览站
 ```
 
+## 4.5 结构校验
+
+提交前跑一次，确保 role 引用、相对链接、frontmatter 字段、重复 id 无回归：
+
+```bash
+npm run import:validate          # 人类可读报告，有死链/断引用时退出码非 0
+npm run import:validate -- --json # JSON 输出，供其他工具消费
+```
+
+## 4.6 批量修复工具
+
+校验发现问题时，先用 `--dry` 预览再执行：
+
+```bash
+npm run import:fix-links:dry     # 预览死链重写（按文件基名/id 索引解析目标）
+npm run import:fix-links         # 执行重写；无法解析的链接只报告不改写
+npm run import:fix-metadata:dry  # 预览 level 重标定与 external 补 type
+npm run import:fix-metadata      # 执行写入
+```
+
+修复后务必依次执行 `npm run import:regenerate` 与 `npm run import:validate` 确认无回归。
+
 ## 5. 提交规范
 
 - `feat(catalog): add <domain>/<id>` — 新增 skill

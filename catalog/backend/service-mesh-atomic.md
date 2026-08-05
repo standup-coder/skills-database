@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/service-mesh.json
 catalogAddedAt: 2026-07-26
 operation: microservices
-level: mid
+level: senior
 ---
 
 # 服务网格

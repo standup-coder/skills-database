@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/warehouse-design.json
 catalogAddedAt: 2026-07-26
 operation: data
-level: mid
+level: senior
 ---
 
 # 数据仓库设计

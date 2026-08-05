@@ -10,7 +10,13 @@
     "import:json-to-md": "node tools/import/json-to-md.js",
     "import:json-to-md:dry": "node tools/import/json-to-md.js --dry",
     "import:regenerate": "node tools/import/regenerate-indices.js",
+    "import:validate": "node tools/import/validate-refs.js",
+    "import:fix-links": "node tools/import/fix-links.js",
+    "import:fix-links:dry": "node tools/import/fix-links.js --dry",
+    "import:fix-metadata": "node tools/import/fix-metadata.js",
+    "import:fix-metadata:dry": "node tools/import/fix-metadata.js --dry",
     "web:build": "node tools/web/build.js",
+    "role:fit": "node tools/role-fit.js",
     "lint": "eslint . --ext .js"
   },
   "repository": {

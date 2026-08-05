@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/prompt-engineering-advanced.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # 高级提示工程

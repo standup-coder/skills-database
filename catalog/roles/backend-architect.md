@@ -28,19 +28,19 @@ atomicSkills: read-file, write-file, run-tests, database-query, api-request, sys
 
 ## 核心能力(主 Skills)
 
-- [database-design](../backend/database-design.md) — 一句话能力
-- [api-design](../backend/api-design.md) — 一句话能力
-- [code-review](../backend/code-review.md) — 一句话能力
+- [database-design](../data/database-design-skill.md) — 一句话能力
+- [api-design](../backend/api-design-skill.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../backend/read-file.md) — 一句话能力
-- [write-file](../backend/write-file.md) — 一句话能力
-- [run-tests](../backend/run-tests.md) — 一句话能力
-- [database-query](../backend/database-query.md) — 一句话能力
-- [api-request](../backend/api-request.md) — 一句话能力
-- [system-design](../backend/system-design.md) — 一句话能力
-- [generate-deployment-guide](../backend/generate-deployment-guide.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
+- [database-query](../data/database-query-atomic.md) — 一句话能力
+- [api-request](../security/api-request-atomic.md) — 一句话能力
+- [system-design](../backend/system-design-atomic.md) — 一句话能力
+- [generate-deployment-guide](../devops/generate-deployment-guide-atomic.md) — 一句话能力
 
 ## 经验门槛
 

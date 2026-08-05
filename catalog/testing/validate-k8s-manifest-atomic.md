@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/validate-k8s-manifest.json
 catalogAddedAt: 2026-07-26
 operation: validation
-level: mid
+level: junior
 ---
 
 # 校验 K8s 清单

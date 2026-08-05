@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/netmiko-ssh-automation-ja
 title: Netmiko SSH Automation (JA)

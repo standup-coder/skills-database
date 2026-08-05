@@ -93,6 +93,11 @@ for (const domain of domains) {
     const src = it.source || '-';
     lines.push(`| [${it.id}](./${it.file}) | ${zh} | ${type} | ${src} |`);
   }
+  // 手工附录：若存在 _index.append.md，把内容拼到索引末尾（附录文件本身不会被当作 skill 条目）
+  const appendFile = path.join(dir, '_index.append.md');
+  if (fs.existsSync(appendFile)) {
+    lines.push('', fs.readFileSync(appendFile, 'utf8').trim());
+  }
   fs.writeFileSync(path.join(dir, '_index.md'), lines.join('\n') + '\n');
   allItems.push({ domain, count: items.length });
   console.log(`  ${domain.padEnd(14)} ${items.length}`);

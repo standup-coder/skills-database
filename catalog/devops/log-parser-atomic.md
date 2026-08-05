@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/log-parser.json
 catalogAddedAt: 2026-07-26
 operation: logging
-level: mid
+level: junior
 ---
 
 # 日志解析

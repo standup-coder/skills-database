@@ -7,6 +7,7 @@
 - `picked.md` — 接下来想学的（带优先级）
 - `in-progress.md` — 正在学的（含学习笔记链接）
 - `learned.md` — 已掌握的（含掌握时间、复习周期）
+- `gap-analysis.md` — 对照目标 role 的技能差距自评（模板：[templates/gap-analysis.md](../templates/gap-analysis.md)，复制过来填写，建议每季度重做一次）
 
 ## 启用同步
 

@@ -31,15 +31,15 @@ atomicSkills: read-file, write-file, write-comment, search-code, git-diff
 
 ## 核心能力(主 Skills)
 
-- [code-review](../product/code-review.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../product/read-file.md) — 一句话能力
-- [write-file](../product/write-file.md) — 一句话能力
-- [write-comment](../product/write-comment.md) — 一句话能力
-- [search-code](../product/search-code.md) — 一句话能力
-- [git-diff](../product/git-diff.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [write-comment](../docs/write-comment-atomic.md) — 一句话能力
+- [search-code](../backend/search-code-atomic.md) — 一句话能力
+- [git-diff](../productivity/git-diff-atomic.md) — 一句话能力
 
 ## 经验门槛
 

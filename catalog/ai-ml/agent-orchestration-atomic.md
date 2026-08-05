@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/agent-orchestration.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # Agent 编排

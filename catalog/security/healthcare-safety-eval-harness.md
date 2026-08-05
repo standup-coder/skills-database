@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/healthcare-safety-eval-harness
 title: Healthcare Safety Eval Harness

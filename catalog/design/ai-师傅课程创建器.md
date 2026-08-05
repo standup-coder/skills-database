@@ -1,4 +1,5 @@
 ---
+type: external
 source: qoder-community
 sourceUrl: https://qoder-community.pages.dev/zh/skills/ai-shifu-course-creator
 title: AI 师傅课程创建器

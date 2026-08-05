@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/jpa-hibernate-patterns
 title: JPA & Hibernate Patterns

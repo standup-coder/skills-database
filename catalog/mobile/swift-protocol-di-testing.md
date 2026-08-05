@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/swift-protocol-di-testing-2
 title: Swift Protocol DI Testing

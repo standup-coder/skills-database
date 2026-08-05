@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/parse-json-log.json
 catalogAddedAt: 2026-07-26
 operation: data
-level: mid
+level: junior
 ---
 
 # 解析 JSON 日志

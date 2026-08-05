@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/terraform-basics.json
 catalogAddedAt: 2026-07-26
 operation: devops
-level: mid
+level: junior
 ---
 
 # Terraform 基础

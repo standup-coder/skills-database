@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/service-health-check.json
 catalogAddedAt: 2026-07-26
 operation: ops
-level: mid
+level: junior
 ---
 
 # 服务健康检查

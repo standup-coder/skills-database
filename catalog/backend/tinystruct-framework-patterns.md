@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/tinystruct-framework-patterns
 title: Tinystruct Framework Patterns

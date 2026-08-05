@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/http-health-check.json
 catalogAddedAt: 2026-07-26
 operation: network
-level: mid
+level: junior
 ---
 
 # HTTP 健康探测

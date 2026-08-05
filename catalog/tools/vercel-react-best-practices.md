@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices
 title: vercel-react-best-practices

@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/system-design.json
 catalogAddedAt: 2026-07-26
 operation: architecture
-level: mid
+level: senior
 ---
 
 # 系统设计

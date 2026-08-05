@@ -55,6 +55,6 @@ count: 48
 | [kubernetes-basics](./kubernetes-basics-atomic.md) | Kubernetes 基础 | atomic-skill | internal |
 | [prometheus-monitoring](./prometheus-monitoring-atomic.md) | Prometheus 监控 | atomic-skill | internal |
 | [slo-error-budget](./slo-error-budget-atomic.md) | SLO 与错误预算 | atomic-skill | internal |
-| [sre-engineer](./sre-engineer-atomic.md) | SRE 工程师 | atomic-skill | internal |
+| [sre-practices](./sre-practices-atomic.md) | SRE 工程师 | atomic-skill | internal |
 | [terraform-basics](./terraform-basics-atomic.md) | Terraform 基础 | atomic-skill | internal |
 | [terraform-plan-review](./terraform-plan-review-skill.md) | Terraform Plan 审查 | composite-skill | internal |

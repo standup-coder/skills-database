@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/technical-strategy-fundamentals.json
 catalogAddedAt: 2026-07-26
 operation: leadership
-level: mid
+level: senior
 ---
 
 # 技术战略（基础）

@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/ordercli-food-delivery-manager
 title: ordercli Food Delivery Manager

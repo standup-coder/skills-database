@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/microsoft/azure-skills/azure-compliance
 title: azure-compliance

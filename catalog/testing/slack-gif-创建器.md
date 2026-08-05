@@ -1,4 +1,5 @@
 ---
+type: external
 source: qoder-community
 sourceUrl: https://qoder-community.pages.dev/zh/skills/slack-gif-creator
 title: Slack GIF 创建器

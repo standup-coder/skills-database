@@ -1,12 +1,12 @@
 ---
 title: mobile
 domain: mobile
-count: 13
+count: 11
 ---
 
 # mobile
 
-> 共 13 条。来源：voltagent、internal、mcpmarket、qoder。
+> 共 11 条。来源：voltagent、internal、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -20,6 +20,4 @@ count: 13
 | [dart-flutter-patterns](./dart-flutter-patterns.md) | Dart 与 Flutter 模式 | external | mcpmarket |
 | [ios-development](./ios-development-atomic.md) | iOS 开发 | atomic-skill | internal |
 | [kotlin-ktor-server-patterns](./kotlin-ktor-server-patterns.md) | Kotlin Ktor 服务器模式 | external | mcpmarket |
-| [seo-审计](./seo-审计.md) | SEO 审计 | external | qoder |
-| [swift-protocol-di-testing](./swift-protocol-di-testing-1.md) | Swift 协议依赖注入测试(二) | external | mcpmarket |
 | [swift-protocol-di-testing](./swift-protocol-di-testing.md) | Swift 协议依赖注入测试(二) | external | mcpmarket |

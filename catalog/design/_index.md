@@ -1,18 +1,16 @@
 ---
 title: design
 domain: design
-count: 22
+count: 18
 ---
 
 # design
 
-> 共 22 条。来源：voltagent、skills-sh、anthropic、internal、qoder、mcpmarket。
+> 共 18 条。来源：voltagent、skills-sh、anthropic、internal、qoder。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
-| [mongodb-mongodb-schema-design](./mongodb-mongodb-schema-design.md) | "MongoDB 模式设计" | external | voltagent |
 | [anthropic-pptx](./anthropic-pptx.md) | "PowerPoint 演示文稿" | external | voltagent |
-| [supabase-postgres-best-practices](./supabase-postgres-best-practices.md) | "Supabase Postgres 最佳实践" | external | voltagent |
 | [grill-with-docs](./grill-with-docs.md) | 带文档的计划拷问器 | external | skills-sh |
 | [canvas-design](./canvas-design.md) | 画布设计（canvas-design） | external | anthropic |
 | [grill-me](./grill-me.md) | 计划拷问器 | external | skills-sh |
@@ -28,7 +26,5 @@ count: 22
 | [ai-师傅课程创建器](./ai-师傅课程创建器.md) | AI 师傅课程创建器 | external | qoder |
 | [brand-guidelines](./brand-guidelines.md) | Anthropic 品牌指南（brand-guidelines） | external | anthropic |
 | [canvas-设计](./canvas-设计.md) | Canvas 设计 | external | qoder |
-| [django-architecture-patterns](./django-architecture-patterns-1.md) | Django 架构模式(二) | external | mcpmarket |
-| [django-architecture-patterns](./django-architecture-patterns.md) | Django 架构模式(二) | external | mcpmarket |
 | [linear-集成](./linear-集成.md) | Linear 集成 | external | qoder |
 | [ui-design](./ui-design-atomic.md) | UI 设计 | atomic-skill | internal |

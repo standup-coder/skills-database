@@ -30,23 +30,23 @@ atomicSkills: read-file, write-file, analyze-code, run-linter, run-tests, git-di
 
 ## 核心能力(主 Skills)
 
-- [code-review](../frontend/code-review.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../frontend/read-file.md) — 一句话能力
-- [write-file](../frontend/write-file.md) — 一句话能力
-- [analyze-code](../frontend/analyze-code.md) — 一句话能力
-- [run-linter](../frontend/run-linter.md) — 一句话能力
-- [run-tests](../frontend/run-tests.md) — 一句话能力
-- [git-diff](../frontend/git-diff.md) — 一句话能力
-- [search-code](../frontend/search-code.md) — 一句话能力
-- [write-comment](../frontend/write-comment.md) — 一句话能力
-- [frontend-architecture-design](../frontend/frontend-architecture-design.md) — 一句话能力
-- [performance-optimization](../frontend/performance-optimization.md) — 一句话能力
-- [component-design](../frontend/component-design.md) — 一句话能力
-- [state-management](../frontend/state-management.md) — 一句话能力
-- [testing-strategy](../frontend/testing-strategy.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [analyze-code](../data/analyze-code-atomic.md) — 一句话能力
+- [run-linter](../testing/run-linter-atomic.md) — 一句话能力
+- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
+- [git-diff](../productivity/git-diff-atomic.md) — 一句话能力
+- [search-code](../backend/search-code-atomic.md) — 一句话能力
+- [write-comment](../docs/write-comment-atomic.md) — 一句话能力
+- [frontend-architecture-design](../frontend/frontend-architecture-design-atomic.md) — 一句话能力
+- [performance-optimization](../backend/performance-optimization-atomic.md) — 一句话能力
+- [component-design](../frontend/component-design-atomic.md) — 一句话能力
+- [state-management](../frontend/state-management-atomic.md) — 一句话能力
+- [testing-strategy](../testing/testing-strategy-atomic.md) — 一句话能力
 
 ## 经验门槛
 

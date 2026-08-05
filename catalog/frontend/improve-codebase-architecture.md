@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/mattpocock/skills/improve-codebase-architecture
 title: improve-codebase-architecture

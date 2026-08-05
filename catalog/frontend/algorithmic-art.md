@@ -1,4 +1,5 @@
 ---
+type: external
 source: anthropic-skills
 sourceUrl: https://github.com/anthropics/skills/tree/main/skills/algorithmic-art
 title: algorithmic-art

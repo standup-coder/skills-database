@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/read-file.json
 catalogAddedAt: 2026-07-26
 operation: filesystem
-level: mid
+level: junior
 ---
 
 # 读取文件

@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/ecc-tools-cost-audit
 title: ECC Tools Cost Audit

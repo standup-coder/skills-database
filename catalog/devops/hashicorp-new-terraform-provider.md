@@ -1,4 +1,5 @@
 ---
+type: external
 source: voltagent-awesome-agent-skills
 sourceUrl: https://github.com/VoltAgent/awesome-agent-skills
 repoUrl: https://github.com/hashicorp/skills

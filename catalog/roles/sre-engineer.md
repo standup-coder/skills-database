@@ -28,38 +28,38 @@ atomicSkills: read-file, write-file, run-shell-command, http-health-check, parse
 
 ## 核心能力(主 Skills)
 
-- [terraform-plan-review](../devops/terraform-plan-review.md) — 一句话能力
-- [docker-container-management](../devops/docker-container-management.md) — 一句话能力
-- [k8s-deployment-review](../devops/k8s-deployment-review.md) — 一句话能力
-- [ci-pipeline-setup](../devops/ci-pipeline-setup.md) — 一句话能力
-- [monitoring-stack-setup](../devops/monitoring-stack-setup.md) — 一句话能力
-- [incident-diagnosis](../devops/incident-diagnosis.md) — 一句话能力
-- [security-audit](../devops/security-audit.md) — 一句话能力
-- [log-analysis](../devops/log-analysis.md) — 一句话能力
+- [terraform-plan-review](../devops/terraform-plan-review-skill.md) — 一句话能力
+- [docker-container-management](../devops/docker-container-management-skill.md) — 一句话能力
+- [k8s-deployment-review](../devops/k8s-deployment-review-skill.md) — 一句话能力
+- [ci-pipeline-setup](../devops/ci-pipeline-setup-skill.md) — 一句话能力
+- [monitoring-stack-setup](../devops/monitoring-stack-setup-skill.md) — 一句话能力
+- [incident-diagnosis](../devops/incident-diagnosis-skill.md) — 一句话能力
+- [security-audit](../devops/security-audit-skill.md) — 一句话能力
+- [log-analysis](../devops/log-analysis-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../devops/read-file.md) — 一句话能力
-- [write-file](../devops/write-file.md) — 一句话能力
-- [run-shell-command](../devops/run-shell-command.md) — 一句话能力
-- [http-health-check](../devops/http-health-check.md) — 一句话能力
-- [parse-json-log](../devops/parse-json-log.md) — 一句话能力
-- [docker-exec](../devops/docker-exec.md) — 一句话能力
-- [validate-k8s-manifest](../devops/validate-k8s-manifest.md) — 一句话能力
-- [api-call](../devops/api-call.md) — 一句话能力
-- [sre-engineer](../devops/sre-engineer.md) — 一句话能力
-- [prometheus-monitoring](../devops/prometheus-monitoring.md) — 一句话能力
-- [grafana-dashboard](../devops/grafana-dashboard.md) — 一句话能力
-- [logging-observability](../devops/logging-observability.md) — 一句话能力
-- [incident-runbook](../devops/incident-runbook.md) — 一句话能力
-- [cost-optimization](../devops/cost-optimization.md) — 一句话能力
-- [platform-healthcheck](../devops/platform-healthcheck.md) — 一句话能力
-- [k8s-security](../devops/k8s-security.md) — 一句话能力
-- [k8s-troubleshooting](../devops/k8s-troubleshooting.md) — 一句话能力
-- [security-scan](../devops/security-scan.md) — 一句话能力
-- [log-parser](../devops/log-parser.md) — 一句话能力
-- [service-health-check](../devops/service-health-check.md) — 一句话能力
-- [system-watchdog](../devops/system-watchdog.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [run-shell-command](../backend/run-shell-command-atomic.md) — 一句话能力
+- [http-health-check](../security/http-health-check-atomic.md) — 一句话能力
+- [parse-json-log](../data/parse-json-log-atomic.md) — 一句话能力
+- [docker-exec](../devops/docker-exec-atomic.md) — 一句话能力
+- [validate-k8s-manifest](../testing/validate-k8s-manifest-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [sre-engineer](./sre-engineer.md) — 一句话能力
+- [prometheus-monitoring](../devops/prometheus-monitoring-atomic.md) — 一句话能力
+- [grafana-dashboard](../devops/grafana-dashboard-atomic.md) — 一句话能力
+- [logging-observability](../devops/logging-observability-atomic.md) — 一句话能力
+- [incident-runbook](../devops/incident-runbook-atomic.md) — 一句话能力
+- [cost-optimization](../devops/cost-optimization-atomic.md) — 一句话能力
+- [platform-healthcheck](../devops/platform-healthcheck-atomic.md) — 一句话能力
+- [k8s-security](../security/k8s-security-atomic.md) — 一句话能力
+- [k8s-troubleshooting](../devops/k8s-troubleshooting-atomic.md) — 一句话能力
+- [security-scan](../security/security-scan-atomic.md) — 一句话能力
+- [log-parser](../devops/log-parser-atomic.md) — 一句话能力
+- [service-health-check](../devops/service-health-check-atomic.md) — 一句话能力
+- [system-watchdog](../devops/system-watchdog-atomic.md) — 一句话能力
 
 ## 经验门槛
 

@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/vercel-labs/agent-skills/web-design-guidelines
 title: web-design-guidelines

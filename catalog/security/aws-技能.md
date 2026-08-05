@@ -1,4 +1,5 @@
 ---
+type: external
 source: qoder-community
 sourceUrl: https://qoder-community.pages.dev/zh/skills/aws-skills
 title: AWS 技能

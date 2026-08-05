@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/kotlin-ktor-server-patterns
 title: Kotlin Ktor Server Patterns

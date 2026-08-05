@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/tool-use-design.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # 工具调用设计

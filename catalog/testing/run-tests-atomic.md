@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/run-tests.json
 catalogAddedAt: 2026-07-26
 operation: testing
-level: mid
+level: junior
 ---
 
 # 运行测试

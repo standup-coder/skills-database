@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/chaos-engineering.json
 catalogAddedAt: 2026-07-26
 operation: testing
-level: mid
+level: senior
 ---
 
 # 混沌工程

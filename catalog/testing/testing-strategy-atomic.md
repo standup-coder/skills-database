@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/testing-strategy.json
 catalogAddedAt: 2026-07-26
 operation: quality
-level: mid
+level: senior
 ---
 
 # 测试策略

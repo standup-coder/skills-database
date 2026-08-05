@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/docker-essentials.json
 catalogAddedAt: 2026-07-26
 operation: devops
-level: mid
+level: junior
 ---
 
 # Docker 基础

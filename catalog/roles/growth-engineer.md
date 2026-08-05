@@ -29,20 +29,20 @@ atomicSkills: read-file, write-file, database-query, api-call, ab-testing, funne
 
 ## 核心能力(主 Skills)
 
-- [growth-analytics](../marketing/growth-analytics.md) — 一句话能力
-- [product-research](../marketing/product-research.md) — 一句话能力
+- [growth-analytics](../marketing/growth-analytics-skill.md) — 一句话能力
+- [product-research](../product/product-research-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../marketing/read-file.md) — 一句话能力
-- [write-file](../marketing/write-file.md) — 一句话能力
-- [database-query](../marketing/database-query.md) — 一句话能力
-- [api-call](../marketing/api-call.md) — 一句话能力
-- [ab-testing](../marketing/ab-testing.md) — 一句话能力
-- [funnel-analysis](../marketing/funnel-analysis.md) — 一句话能力
-- [growth-automation](../marketing/growth-automation.md) — 一句话能力
-- [analytics](../marketing/analytics.md) — 一句话能力
-- [cohort-analysis](../marketing/cohort-analysis.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [database-query](../data/database-query-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [ab-testing](../marketing/ab-testing-atomic.md) — 一句话能力
+- [funnel-analysis](../data/funnel-analysis-atomic.md) — 一句话能力
+- [growth-automation](../marketing/growth-automation-atomic.md) — 一句话能力
+- [analytics](../data/analytics-atomic.md) — 一句话能力
+- [cohort-analysis](../data/cohort-analysis-atomic.md) — 一句话能力
 
 ## 经验门槛
 

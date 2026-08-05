@@ -31,18 +31,18 @@ atomicSkills: database-query, read-file, ab-testing, cohort-analysis, funnel-ana
 
 ## 核心能力(主 Skills)
 
-- [data-pipeline-build](../data/data-pipeline-build.md) — 一句话能力
-- [data-quality-management](../data/data-quality-management.md) — 一句话能力
-- [growth-analytics](../data/growth-analytics.md) — 一句话能力
+- [data-pipeline-build](../data/data-pipeline-build-skill.md) — 一句话能力
+- [data-quality-management](../data/data-quality-management-skill.md) — 一句话能力
+- [growth-analytics](../marketing/growth-analytics-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [database-query](../data/database-query.md) — 一句话能力
-- [read-file](../data/read-file.md) — 一句话能力
-- [ab-testing](../data/ab-testing.md) — 一句话能力
-- [cohort-analysis](../data/cohort-analysis.md) — 一句话能力
-- [funnel-analysis](../data/funnel-analysis.md) — 一句话能力
-- [data-quality](../data/data-quality.md) — 一句话能力
+- [database-query](../data/database-query-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [ab-testing](../marketing/ab-testing-atomic.md) — 一句话能力
+- [cohort-analysis](../data/cohort-analysis-atomic.md) — 一句话能力
+- [funnel-analysis](../data/funnel-analysis-atomic.md) — 一句话能力
+- [data-quality](../data/data-quality-atomic.md) — 一句话能力
 
 ## 经验门槛
 

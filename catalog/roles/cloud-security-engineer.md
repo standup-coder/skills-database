@@ -31,57 +31,57 @@ atomicSkills: read-file, write-file, run-shell-command, docker-exec, validate-k8
 
 ## 核心能力(主 Skills)
 
-- [cloud-security-assessment](../devops/cloud-security-assessment.md) — 一句话能力
-- [cloud-compliance-check](../devops/cloud-compliance-check.md) — 一句话能力
-- [iam-policy-review](../devops/iam-policy-review.md) — 一句话能力
-- [cloud-infrastructure-hardening](../devops/cloud-infrastructure-hardening.md) — 一句话能力
-- [cloud-incident-response](../devops/cloud-incident-response.md) — 一句话能力
-- [security-audit](../devops/security-audit.md) — 一句话能力
-- [log-analysis](../devops/log-analysis.md) — 一句话能力
-- [terraform-plan-review](../devops/terraform-plan-review.md) — 一句话能力
-- [k8s-deployment-review](../devops/k8s-deployment-review.md) — 一句话能力
-- [docker-container-management](../devops/docker-container-management.md) — 一句话能力
-- [monitoring-stack-setup](../devops/monitoring-stack-setup.md) — 一句话能力
+- [cloud-security-assessment](../security/cloud-security-assessment-skill.md) — 一句话能力
+- [cloud-compliance-check](../security/cloud-compliance-check-skill.md) — 一句话能力
+- [iam-policy-review](../security/iam-policy-review-skill.md) — 一句话能力
+- [cloud-infrastructure-hardening](../security/cloud-infrastructure-hardening-skill.md) — 一句话能力
+- [cloud-incident-response](../security/cloud-incident-response-skill.md) — 一句话能力
+- [security-audit](../devops/security-audit-skill.md) — 一句话能力
+- [log-analysis](../devops/log-analysis-skill.md) — 一句话能力
+- [terraform-plan-review](../devops/terraform-plan-review-skill.md) — 一句话能力
+- [k8s-deployment-review](../devops/k8s-deployment-review-skill.md) — 一句话能力
+- [docker-container-management](../devops/docker-container-management-skill.md) — 一句话能力
+- [monitoring-stack-setup](../devops/monitoring-stack-setup-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../devops/read-file.md) — 一句话能力
-- [write-file](../devops/write-file.md) — 一句话能力
-- [run-shell-command](../devops/run-shell-command.md) — 一句话能力
-- [docker-exec](../devops/docker-exec.md) — 一句话能力
-- [validate-k8s-manifest](../devops/validate-k8s-manifest.md) — 一句话能力
-- [http-health-check](../devops/http-health-check.md) — 一句话能力
-- [parse-json-log](../devops/parse-json-log.md) — 一句话能力
-- [api-call](../devops/api-call.md) — 一句话能力
-- [shared-responsibility-model](../devops/shared-responsibility-model.md) — 一句话能力
-- [iam-core-concepts](../devops/iam-core-concepts.md) — 一句话能力
-- [least-privilege-iam](../devops/least-privilege-iam.md) — 一句话能力
-- [mfa-and-credential-management](../devops/mfa-and-credential-management.md) — 一句话能力
-- [vpc-security-groups](../devops/vpc-security-groups.md) — 一句话能力
-- [cloud-firewall-waf](../devops/cloud-firewall-waf.md) — 一句话能力
-- [cloud-encryption](../devops/cloud-encryption.md) — 一句话能力
-- [key-management](../devops/key-management.md) — 一句话能力
-- [storage-security](../devops/storage-security.md) — 一句话能力
-- [iac-security-scanning](../devops/iac-security-scanning.md) — 一句话能力
-- [container-image-scanning](../devops/container-image-scanning.md) — 一句话能力
-- [secret-detection](../devops/secret-detection.md) — 一句话能力
-- [identity-federation](../devops/identity-federation.md) — 一句话能力
-- [cross-account-security](../devops/cross-account-security.md) — 一句话能力
-- [privileged-access-management](../devops/privileged-access-management.md) — 一句话能力
-- [cis-benchmarks](../devops/cis-benchmarks.md) — 一句话能力
-- [compliance-as-code](../devops/compliance-as-code.md) — 一句话能力
-- [cspm-tools](../devops/cspm-tools.md) — 一句话能力
-- [k8s-rbac-security](../devops/k8s-rbac-security.md) — 一句话能力
-- [container-runtime-security](../devops/container-runtime-security.md) — 一句话能力
-- [cloud-logging-monitoring](../devops/cloud-logging-monitoring.md) — 一句话能力
-- [cloud-anomaly-detection](../devops/cloud-anomaly-detection.md) — 一句话能力
-- [zero-trust-cloud](../devops/zero-trust-cloud.md) — 一句话能力
-- [multi-cloud-security](../devops/multi-cloud-security.md) — 一句话能力
-- [pipeline-security-automation](../devops/pipeline-security-automation.md) — 一句话能力
-- [data-classification-dlp](../devops/data-classification-dlp.md) — 一句话能力
-- [privacy-engineering](../devops/privacy-engineering.md) — 一句话能力
-- [cloud-ir-playbook](../devops/cloud-ir-playbook.md) — 一句话能力
-- [cloud-risk-management](../devops/cloud-risk-management.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [run-shell-command](../backend/run-shell-command-atomic.md) — 一句话能力
+- [docker-exec](../devops/docker-exec-atomic.md) — 一句话能力
+- [validate-k8s-manifest](../testing/validate-k8s-manifest-atomic.md) — 一句话能力
+- [http-health-check](../security/http-health-check-atomic.md) — 一句话能力
+- [parse-json-log](../data/parse-json-log-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [shared-responsibility-model](../security/shared-responsibility-model-atomic.md) — 一句话能力
+- [iam-core-concepts](../security/iam-core-concepts-atomic.md) — 一句话能力
+- [least-privilege-iam](../security/least-privilege-iam-atomic.md) — 一句话能力
+- [mfa-and-credential-management](../security/mfa-and-credential-management-atomic.md) — 一句话能力
+- [vpc-security-groups](../security/vpc-security-groups-atomic.md) — 一句话能力
+- [cloud-firewall-waf](../security/cloud-firewall-waf-atomic.md) — 一句话能力
+- [cloud-encryption](../security/cloud-encryption-atomic.md) — 一句话能力
+- [key-management](../security/key-management-atomic.md) — 一句话能力
+- [storage-security](../security/storage-security-atomic.md) — 一句话能力
+- [iac-security-scanning](../security/iac-security-scanning-atomic.md) — 一句话能力
+- [container-image-scanning](../security/container-image-scanning-atomic.md) — 一句话能力
+- [secret-detection](../security/secret-detection-atomic.md) — 一句话能力
+- [identity-federation](../security/identity-federation-atomic.md) — 一句话能力
+- [cross-account-security](../security/cross-account-security-atomic.md) — 一句话能力
+- [privileged-access-management](../security/privileged-access-management-atomic.md) — 一句话能力
+- [cis-benchmarks](../security/cis-benchmarks-atomic.md) — 一句话能力
+- [compliance-as-code](../security/compliance-as-code-atomic.md) — 一句话能力
+- [cspm-tools](../security/cspm-tools-atomic.md) — 一句话能力
+- [k8s-rbac-security](../security/k8s-rbac-security-atomic.md) — 一句话能力
+- [container-runtime-security](../security/container-runtime-security-atomic.md) — 一句话能力
+- [cloud-logging-monitoring](../devops/cloud-logging-monitoring-atomic.md) — 一句话能力
+- [cloud-anomaly-detection](../security/cloud-anomaly-detection-atomic.md) — 一句话能力
+- [zero-trust-cloud](../security/zero-trust-cloud-atomic.md) — 一句话能力
+- [multi-cloud-security](../security/multi-cloud-security-atomic.md) — 一句话能力
+- [pipeline-security-automation](../security/pipeline-security-automation-atomic.md) — 一句话能力
+- [data-classification-dlp](../security/data-classification-dlp-atomic.md) — 一句话能力
+- [privacy-engineering](../security/privacy-engineering-atomic.md) — 一句话能力
+- [cloud-ir-playbook](../security/cloud-ir-playbook-atomic.md) — 一句话能力
+- [cloud-risk-management](../security/cloud-risk-management-atomic.md) — 一句话能力
 
 ## 经验门槛
 

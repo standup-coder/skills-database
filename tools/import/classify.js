@@ -22,6 +22,25 @@ const DRY = process.argv.includes('--dry');
 // 每条规则: { match: RegExp, domain: string, label: string }
 // 调整思路: vendor-tools 仅在 title/nameZh 明确以 vendor 命名时才入 tools；
 // AWS/GCP/Cloudflare 之类云设施默认走 devops,除非其他规则先命中。
+// 2026-07 修复: 自带 category 字段优先于正则（见 CATEGORY_MAP）；
+// 测试/前端规则上移到 AI 规则之前，避免 body 关键词误命中。
+
+// 源文件自带的 category 字段 → domain 直接映射（优先于正则规则）
+const CATEGORY_MAP = [
+  [/测试/, 'testing'],
+  [/前端/, 'frontend'],
+  [/后端|服务端/, 'backend'],
+  [/数据/, 'data'],
+  [/移动/, 'mobile'],
+  [/安全/, 'security'],
+  [/运维|devops|基础设施/i, 'devops'],
+  [/营销/, 'marketing'],
+  [/产品/, 'product'],
+  [/设计|创意/, 'design'],
+  [/文档/, 'docs'],
+  [/生产力|效率/, 'productivity'],
+  [/ai|ml|llm|智能/i, 'ai-ml'],
+];
 const RULES = [
   // ── 1. 工具集成（vendor-specific）—— 只在 title/nameZh 主语是该 vendor 时
   { match: /^(Lark|飞书|feishu)/i,                       domain: 'tools',      label: 'Lark/飞书' },
@@ -35,26 +54,26 @@ const RULES = [
   { match: /(安全|渗透|pentest|漏洞|vulnerab|\bcis\b|\biam\b|rbac|secrets?|encryption|zero[- ]?trust)/i,
     domain: 'security', label: '安全' },
 
-  // ── 3. AI / ML / LLM —— 必须在通用"开发/设计"前
-  { match: /(prompt[- ]?engineer|RAG|LLM|claude[- ]?api|agent[- ]?orchestr|coding[- ]?agent|mcp[- ]?builder|embeddings?|fine[- ]?tuning|tool[- ]?use|vector[- ]?search|model[- ]?context|continuous[- ]?agent|skill[- ]?creator)/i,
-    domain: 'ai-ml', label: 'AI/ML/LLM' },
-
-  // ── 4. 数据
-  { match: /(数据|warehouse|\betl\b|data[- ]?pipeline|data[- ]?quality|bigquery|snowflake|dbt|airflow)/i,
-    domain: 'data', label: '数据' },
-
-  // ── 5. 移动
-  { match: /(移动|\b(mobile|ios|android|flutter|dart|react[- ]?native|swift|kotlin)\b)/i,
-    domain: 'mobile', label: '移动' },
-
-  // ── 6. 测试 —— 在前端前，因为很多 testing 工具服务于 web
-  { match: /(测试|playwright|cypress|jest|\btdd\b|test[- ]?driven|\be2e\b|contract[- ]?test|webapp[- ]?testing)/i,
+  // ── 3. 测试 —— 在 AI/前端前，避免 tdd/testing 类技能被 body 关键词带入 ai-ml
+  { match: /(测试|playwright|cypress|jest|\btdd\b|test[- ]?driven|\be2e\b|contract[- ]?test|webapp[- ]?testing|testing[- ]?patterns)/i,
     domain: 'testing', label: '测试' },
-
-  // ── 7. 前端 —— 必须排在"设计"前，因为 frontend-design 应归前端
+  
+  // ── 4. 前端 —— 在 AI 与“设计”前，因为 frontend-design/angular 应归前端
   { match: /(前端|\b(frontend|react|vue|angular|next\.?js|svelte|tailwind|css|html|web[- ]?artifacts|webapp|frontend[- ]?design|frontend[- ]?arch)\b)/i,
     domain: 'frontend', label: '前端' },
-
+  
+  // ── 5. AI / ML / LLM
+  { match: /(prompt[- ]?engineer|RAG|LLM|claude[- ]?api|agent[- ]?orchestr|coding[- ]?agent|mcp[- ]?builder|embeddings?|fine[- ]?tuning|tool[- ]?use|vector[- ]?search|model[- ]?context|continuous[- ]?agent|skill[- ]?creator)/i,
+    domain: 'ai-ml', label: 'AI/ML/LLM' },
+  
+  // ── 6. 数据
+  { match: /(数据|warehouse|\betl\b|data[- ]?pipeline|data[- ]?quality|bigquery|snowflake|dbt|airflow)/i,
+    domain: 'data', label: '数据' },
+  
+  // ── 7. 移动 —— ios/swift 等均要求词边界，避免 seo 等子串误命中
+  { match: /(移动|\b(mobile|ios|android|flutter|dart|react[- ]?native|swift|kotlin)\b)/i,
+    domain: 'mobile', label: '移动' },
+  
   // ── 8. 设计
   { match: /(设计|\b(design|ux|ui|figma|brand|typography|canvas|art|artifacts|theme|visual)\b)/i,
     domain: 'design', label: '设计' },
@@ -111,6 +130,16 @@ function classify(fm, body) {
   const nameZh = String(fm.nameZh || '');
   const tags = Array.isArray(fm.tags) ? fm.tags.join(' ') : String(fm.tags || '');
   const haystack = `${title} ${nameZh} ${tags} ${body.slice(0, 500)}`;
+
+  // 自带 category 字段优先（qoder 等源自带人工归类，可信度高于正则）
+  const category = String(fm.category || '');
+  if (category) {
+    for (const [re, domain] of CATEGORY_MAP) {
+      if (re.test(category)) {
+        return { domain, label: `category:${category}`, matched: 'category' };
+      }
+    }
+  }
 
   for (const rule of RULES) {
     if (rule.match.test(haystack)) {

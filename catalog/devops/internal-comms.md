@@ -1,4 +1,5 @@
 ---
+type: external
 source: anthropic-skills
 sourceUrl: https://github.com/anthropics/skills/tree/main/skills/internal-comms
 title: internal-comms

@@ -1,4 +1,5 @@
 ---
+type: external
 source: qoder-community
 sourceUrl: https://qoder-community.pages.dev/zh/skills/mcp-builder
 title: MCP Server 构建器

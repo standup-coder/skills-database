@@ -1,4 +1,5 @@
 ---
+type: external
 source: qoder-community
 sourceUrl: https://qoder-community.pages.dev/zh/skills/dev-agent-skills
 title: 开发 Agent 技能

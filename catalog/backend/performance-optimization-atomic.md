@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/performance-optimization.json
 catalogAddedAt: 2026-07-26
 operation: engineering
-level: mid
+level: senior
 ---
 
 # 性能优化

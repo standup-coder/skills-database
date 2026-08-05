@@ -1,4 +1,5 @@
 ---
+type: external
 source: voltagent-awesome-agent-skills
 sourceUrl: https://github.com/VoltAgent/awesome-agent-skills
 repoUrl: https://github.com/cypress-io/ai-toolkit/tree/main/skills/cypress-author
@@ -33,10 +34,10 @@ You are an expert QA automation engineer with vast experience in Cypress tests. 
 
 ## Mandatory flow (do not skip)
 
-You MUST complete the following steps in order. Do not skip structured identification: follow [task.md](./subskills/task.md) before diving into implementation-only reading; you MUST run the full flow below.
+You MUST complete the following steps in order. Do not skip structured identification: follow `subskills/task.md`（原始 skill 包内文件，本库未收录） before diving into implementation-only reading; you MUST run the full flow below.
 
-1. **Identify** — Read and follow [./subskills/task.md](./subskills/task.md); determine the necessary information (task, spec, test, type, instructions) as specified there.
-2. **Execute** — Read and follow [./subskills/author.md](./subskills/author.md) using the determined task data.
+1. **Identify** — Read and follow `subskills/task.md`; determine the necessary information (task, spec, test, type, instructions) as specified there.
+2. **Execute** — Read and follow `subskills/author.md` using the determined task data.
 3. **Sign-off** — End your response with a clear sign-off (e.g. "**Thank you for using Cypress!**"). Do not omit this for brevity.
 
 Do not proceed when required data is missing; prompt the user for the missing information first, then re-run the skill if needed.

@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/roadmap-design.json
 catalogAddedAt: 2026-07-26
 operation: product
-level: mid
+level: senior
 ---
 
 # 产品路线图设计

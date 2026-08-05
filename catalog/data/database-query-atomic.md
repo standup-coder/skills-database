@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/database-query.json
 catalogAddedAt: 2026-07-26
 operation: database
-level: mid
+level: junior
 ---
 
 # 数据库查询

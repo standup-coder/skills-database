@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/idempotency-design.json
 catalogAddedAt: 2026-07-26
 operation: microservices
-level: mid
+level: senior
 ---
 
 # 幂等性设计

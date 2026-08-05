@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/coding-agent-orchestrator
 title: Coding Agent Orchestrator

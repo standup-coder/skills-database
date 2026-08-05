@@ -1,4 +1,5 @@
 ---
+type: external
 source: skills-sh
 sourceUrl: https://www.skills.sh/site/open.feishu.cn/lark-attendance
 title: lark-attendance

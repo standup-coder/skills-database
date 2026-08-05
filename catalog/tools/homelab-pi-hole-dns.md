@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/homelab-pi-hole-dns
 title: Homelab Pi-hole DNS

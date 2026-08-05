@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/run-linter.json
 catalogAddedAt: 2026-07-26
 operation: linting
-level: mid
+level: junior
 ---
 
 # 运行检查

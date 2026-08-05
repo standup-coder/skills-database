@@ -31,25 +31,25 @@ atomicSkills: validate-k8s-manifest, docker-exec, run-shell-command, read-file, 
 
 ## 核心能力(主 Skills)
 
-- [ci-pipeline-setup](../backend/ci-pipeline-setup.md) — 一句话能力
-- [release-strategy](../backend/release-strategy.md) — 一句话能力
-- [infrastructure-automation](../backend/infrastructure-automation.md) — 一句话能力
-- [monitoring-stack-setup](../backend/monitoring-stack-setup.md) — 一句话能力
-- [container-orchestration](../backend/container-orchestration.md) — 一句话能力
+- [ci-pipeline-setup](../devops/ci-pipeline-setup-skill.md) — 一句话能力
+- [release-strategy](../devops/release-strategy-skill.md) — 一句话能力
+- [infrastructure-automation](../devops/infrastructure-automation-skill.md) — 一句话能力
+- [monitoring-stack-setup](../devops/monitoring-stack-setup-skill.md) — 一句话能力
+- [container-orchestration](../devops/container-orchestration-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [validate-k8s-manifest](../backend/validate-k8s-manifest.md) — 一句话能力
-- [docker-exec](../backend/docker-exec.md) — 一句话能力
-- [run-shell-command](../backend/run-shell-command.md) — 一句话能力
-- [read-file](../backend/read-file.md) — 一句话能力
-- [write-file](../backend/write-file.md) — 一句话能力
-- [http-health-check](../backend/http-health-check.md) — 一句话能力
-- [service-mesh](../backend/service-mesh.md) — 一句话能力
-- [distributed-tracing](../backend/distributed-tracing.md) — 一句话能力
-- [slo-error-budget](../backend/slo-error-budget.md) — 一句话能力
-- [github-actions](../backend/github-actions.md) — 一句话能力
-- [terraform-basics](../backend/terraform-basics.md) — 一句话能力
+- [validate-k8s-manifest](../testing/validate-k8s-manifest-atomic.md) — 一句话能力
+- [docker-exec](../devops/docker-exec-atomic.md) — 一句话能力
+- [run-shell-command](../backend/run-shell-command-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [http-health-check](../security/http-health-check-atomic.md) — 一句话能力
+- [service-mesh](../backend/service-mesh-atomic.md) — 一句话能力
+- [distributed-tracing](../devops/distributed-tracing-atomic.md) — 一句话能力
+- [slo-error-budget](../devops/slo-error-budget-atomic.md) — 一句话能力
+- [github-actions](../devops/github-actions-atomic.md) — 一句话能力
+- [terraform-basics](../devops/terraform-basics-atomic.md) — 一句话能力
 
 ## 经验门槛
 

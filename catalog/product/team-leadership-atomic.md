@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/team-leadership.json
 catalogAddedAt: 2026-07-26
 operation: leadership
-level: mid
+level: senior
 ---
 
 # 团队领导力

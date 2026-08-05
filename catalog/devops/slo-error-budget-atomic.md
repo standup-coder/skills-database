@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/slo-error-budget.json
 catalogAddedAt: 2026-07-26
 operation: observability
-level: mid
+level: senior
 ---
 
 # SLO 与错误预算

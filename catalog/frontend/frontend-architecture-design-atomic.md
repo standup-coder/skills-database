@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/frontend-architecture-design.json
 catalogAddedAt: 2026-07-26
 operation: frontend
-level: mid
+level: senior
 ---
 
 # 前端架构设计

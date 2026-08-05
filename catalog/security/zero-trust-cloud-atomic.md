@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/zero-trust-cloud.json
 catalogAddedAt: 2026-07-26
 operation: security
-level: mid
+level: senior
 ---
 
 # 零信任云

@@ -1,12 +1,12 @@
 ---
 title: security
 domain: security
-count: 68
+count: 65
 ---
 
 # security
 
-> 共 68 条。来源：internal、qoder、mcpmarket。
+> 共 65 条。来源：internal、qoder、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -72,9 +72,6 @@ count: 68
 | [mcp-server-构建器](./mcp-server-构建器.md) | MCP Server 构建器 | external | qoder |
 | [netmiko-ssh-automation](./netmiko-ssh-automation.md) | Netmiko SSH 自动化 | external | mcpmarket |
 | [openclaw](./openclaw.md) | OpenClaw | external | qoder |
-| [postgresql-查询](./postgresql-查询.md) | PostgreSQL 查询 | external | qoder |
 | [quarkus-security-review](./quarkus-security-review.md) | Quarkus 安全评审 | external | mcpmarket |
-| [rust-idiomatic-patterns](./rust-idiomatic-patterns.md) | Rust 惯用模式 | external | mcpmarket |
 | [varlock](./varlock.md) | Varlock | external | qoder |
 | [vpc-security-groups](./vpc-security-groups-atomic.md) | VPC 与安全组 | atomic-skill | internal |
-| [word-文档处理](./word-文档处理.md) | Word 文档处理 | external | qoder |

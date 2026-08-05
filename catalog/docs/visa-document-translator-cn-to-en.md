@@ -1,4 +1,5 @@
 ---
+type: external
 source: mcpmarket
 sourceUrl: https://mcpmarket.com/zh/tools/skills/visa-document-translator-cn-to-en
 title: Visa Document Translator (CN to EN)

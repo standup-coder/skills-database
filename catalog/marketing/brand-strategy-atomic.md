@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/brand-strategy.json
 catalogAddedAt: 2026-07-26
 operation: marketing
-level: mid
+level: senior
 ---
 
 # 品牌战略

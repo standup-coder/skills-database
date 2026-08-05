@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/embeddings-design.json
 catalogAddedAt: 2026-07-26
 operation: ai-llm
-level: mid
+level: senior
 ---
 
 # 向量嵌入设计

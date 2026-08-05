@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/stakeholder-management.json
 catalogAddedAt: 2026-07-26
 operation: leadership
-level: mid
+level: senior
 ---
 
 # 利益相关方管理

@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/config-validator.json
 catalogAddedAt: 2026-07-26
 operation: ops
-level: mid
+level: junior
 ---
 
 # 配置校验

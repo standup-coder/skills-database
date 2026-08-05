@@ -29,19 +29,19 @@ atomicSkills: read-file, write-file, api-call, content-marketing, seo-optimizati
 
 ## 核心能力(主 Skills)
 
-- [growth-analytics](../marketing/growth-analytics.md) — 一句话能力
-- [product-research](../marketing/product-research.md) — 一句话能力
+- [growth-analytics](../marketing/growth-analytics-skill.md) — 一句话能力
+- [product-research](../product/product-research-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../marketing/read-file.md) — 一句话能力
-- [write-file](../marketing/write-file.md) — 一句话能力
-- [api-call](../marketing/api-call.md) — 一句话能力
-- [content-marketing](../marketing/content-marketing.md) — 一句话能力
-- [seo-optimization](../marketing/seo-optimization.md) — 一句话能力
-- [community-management](../marketing/community-management.md) — 一句话能力
-- [analytics](../marketing/analytics.md) — 一句话能力
-- [brand-strategy](../marketing/brand-strategy.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [content-marketing](../marketing/content-marketing-atomic.md) — 一句话能力
+- [seo-optimization](../marketing/seo-optimization-atomic.md) — 一句话能力
+- [community-management](../marketing/community-management-atomic.md) — 一句话能力
+- [analytics](../data/analytics-atomic.md) — 一句话能力
+- [brand-strategy](../marketing/brand-strategy-atomic.md) — 一句话能力
 
 ## 经验门槛
 

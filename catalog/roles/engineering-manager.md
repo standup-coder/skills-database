@@ -31,17 +31,17 @@ atomicSkills: read-file, git-diff, analyze-code, write-comment
 
 ## 核心能力(主 Skills)
 
-- [incident-postmortem](../backend/incident-postmortem.md) — 一句话能力
-- [release-strategy](../backend/release-strategy.md) — 一句话能力
-- [code-review](../backend/code-review.md) — 一句话能力
-- [customer-onboarding](../backend/customer-onboarding.md) — 一句话能力
+- [incident-postmortem](../devops/incident-postmortem-skill.md) — 一句话能力
+- [release-strategy](../devops/release-strategy-skill.md) — 一句话能力
+- [code-review](../backend/code-review-skill.md) — 一句话能力
+- [customer-onboarding](../product/customer-onboarding-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../backend/read-file.md) — 一句话能力
-- [git-diff](../backend/git-diff.md) — 一句话能力
-- [analyze-code](../backend/analyze-code.md) — 一句话能力
-- [write-comment](../backend/write-comment.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [git-diff](../productivity/git-diff-atomic.md) — 一句话能力
+- [analyze-code](../data/analyze-code-atomic.md) — 一句话能力
+- [write-comment](../docs/write-comment-atomic.md) — 一句话能力
 
 ## 经验门槛
 

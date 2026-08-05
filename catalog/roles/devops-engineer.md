@@ -28,38 +28,38 @@ atomicSkills: read-file, write-file, run-shell-command, docker-exec, validate-k8
 
 ## 核心能力(主 Skills)
 
-- [docker-container-management](../devops/docker-container-management.md) — 一句话能力
-- [k8s-deployment-review](../devops/k8s-deployment-review.md) — 一句话能力
-- [terraform-plan-review](../devops/terraform-plan-review.md) — 一句话能力
-- [ci-pipeline-setup](../devops/ci-pipeline-setup.md) — 一句话能力
-- [monitoring-stack-setup](../devops/monitoring-stack-setup.md) — 一句话能力
-- [incident-diagnosis](../devops/incident-diagnosis.md) — 一句话能力
-- [security-audit](../devops/security-audit.md) — 一句话能力
-- [log-analysis](../devops/log-analysis.md) — 一句话能力
+- [docker-container-management](../devops/docker-container-management-skill.md) — 一句话能力
+- [k8s-deployment-review](../devops/k8s-deployment-review-skill.md) — 一句话能力
+- [terraform-plan-review](../devops/terraform-plan-review-skill.md) — 一句话能力
+- [ci-pipeline-setup](../devops/ci-pipeline-setup-skill.md) — 一句话能力
+- [monitoring-stack-setup](../devops/monitoring-stack-setup-skill.md) — 一句话能力
+- [incident-diagnosis](../devops/incident-diagnosis-skill.md) — 一句话能力
+- [security-audit](../devops/security-audit-skill.md) — 一句话能力
+- [log-analysis](../devops/log-analysis-skill.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../devops/read-file.md) — 一句话能力
-- [write-file](../devops/write-file.md) — 一句话能力
-- [run-shell-command](../devops/run-shell-command.md) — 一句话能力
-- [docker-exec](../devops/docker-exec.md) — 一句话能力
-- [validate-k8s-manifest](../devops/validate-k8s-manifest.md) — 一句话能力
-- [http-health-check](../devops/http-health-check.md) — 一句话能力
-- [parse-json-log](../devops/parse-json-log.md) — 一句话能力
-- [api-call](../devops/api-call.md) — 一句话能力
-- [docker-essentials](../devops/docker-essentials.md) — 一句话能力
-- [kubernetes-basics](../devops/kubernetes-basics.md) — 一句话能力
-- [docker-to-k8s](../devops/docker-to-k8s.md) — 一句话能力
-- [terraform-basics](../devops/terraform-basics.md) — 一句话能力
-- [ansible-automation](../devops/ansible-automation.md) — 一句话能力
-- [github-actions](../devops/github-actions.md) — 一句话能力
-- [gitops-workflow](../devops/gitops-workflow.md) — 一句话能力
-- [secrets-management](../devops/secrets-management.md) — 一句话能力
-- [config-validator](../devops/config-validator.md) — 一句话能力
-- [aws-cli-basics](../devops/aws-cli-basics.md) — 一句话能力
-- [azure-cli-basics](../devops/azure-cli-basics.md) — 一句话能力
-- [tencent-cloud-lighthouse](../devops/tencent-cloud-lighthouse.md) — 一句话能力
-- [cloudflare-manager](../devops/cloudflare-manager.md) — 一句话能力
+- [read-file](../productivity/read-file-atomic.md) — 一句话能力
+- [write-file](../productivity/write-file-atomic.md) — 一句话能力
+- [run-shell-command](../backend/run-shell-command-atomic.md) — 一句话能力
+- [docker-exec](../devops/docker-exec-atomic.md) — 一句话能力
+- [validate-k8s-manifest](../testing/validate-k8s-manifest-atomic.md) — 一句话能力
+- [http-health-check](../security/http-health-check-atomic.md) — 一句话能力
+- [parse-json-log](../data/parse-json-log-atomic.md) — 一句话能力
+- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [docker-essentials](../devops/docker-essentials-atomic.md) — 一句话能力
+- [kubernetes-basics](../devops/kubernetes-basics-atomic.md) — 一句话能力
+- [docker-to-k8s](../devops/docker-to-k8s-atomic.md) — 一句话能力
+- [terraform-basics](../devops/terraform-basics-atomic.md) — 一句话能力
+- [ansible-automation](../devops/ansible-automation-atomic.md) — 一句话能力
+- [github-actions](../devops/github-actions-atomic.md) — 一句话能力
+- [gitops-workflow](../devops/gitops-workflow-atomic.md) — 一句话能力
+- [secrets-management](../security/secrets-management-atomic.md) — 一句话能力
+- [config-validator](../devops/config-validator-atomic.md) — 一句话能力
+- [aws-cli-basics](../devops/aws-cli-basics-atomic.md) — 一句话能力
+- [azure-cli-basics](../devops/azure-cli-basics-atomic.md) — 一句话能力
+- [tencent-cloud-lighthouse](../devops/tencent-cloud-lighthouse-atomic.md) — 一句话能力
+- [cloudflare-manager](../devops/cloudflare-manager-atomic.md) — 一句话能力
 
 ## 经验门槛
 

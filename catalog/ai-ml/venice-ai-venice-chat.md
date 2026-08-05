@@ -1,4 +1,5 @@
 ---
+type: external
 source: voltagent-awesome-agent-skills
 sourceUrl: https://github.com/VoltAgent/awesome-agent-skills
 repoUrl: https://github.com/veniceai/skills/tree/main/skills/venice-chat
@@ -33,7 +34,7 @@ catalogAddedAt: 2026-07-26
 - You need prompt caching for large system prompts or long documents.
 - You need structured (`json_schema`) output.
 
-For the newer Alpha **Responses API**, see [`venice-responses`](../venice-responses/SKILL.md).
+For the newer Alpha **Responses API**, see `venice-responses`（原始 skill 包的姊妹技能，本库未收录）.
 
 ## Minimal request
 

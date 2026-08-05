@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/security-architecture.json
 catalogAddedAt: 2026-07-26
 operation: security
-level: mid
+level: senior
 ---
 
 # 安全架构

@@ -9,7 +9,7 @@ catalogSource: internal
 catalogFile: atomic-skills/git-diff.json
 catalogAddedAt: 2026-07-26
 operation: vcs
-level: mid
+level: junior
 ---
 
 # Git差异
