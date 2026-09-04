@@ -382,7 +382,7 @@ function fmToYaml(fm) {
 }
 
 // ── 主流程 ───────────────────────────────────────────────────────────
-function processDir(srcDir, type, renderer, defaultDomainFn) {
+function processDir(srcDir, type, renderer, _defaultDomainFn) {
   const dir = path.join(ROOT, srcDir);
   if (!fs.existsSync(dir)) return [];
   const results = [];

@@ -21,6 +21,7 @@ author: skills-database-team
 maturity: 0-100
 status: draft | reviewed | mature | deprecated
 relatedSkills: [other-skill-id, ...]
+duplicateOf: canonical-skill-id   # 本条是其它 skill 的跨源转载时,指向 canonical 版本的 id(如 voltagent 转载 anthropic 原版)
 ---
 
 # 中文标题

@@ -1,35 +1,27 @@
-import tsparser from '@typescript-eslint/parser';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import importPlugin from 'eslint-plugin-import';
-
 export default [
   {
-    files: ['**/*.ts'],
+    files: ['tools/**/*.js'],
     languageOptions: {
-      parser: tsparser,
-      parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'module',
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly'
       }
     },
-    plugins: {
-      '@typescript-eslint': tseslint,
-      'import': importPlugin
-    },
     rules: {
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', {
+      'no-unused-vars': ['error', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
         caughtErrorsIgnorePattern: '^_'
       }],
       'no-console': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-this-alias': 'error',
-      'import/order': ['warn', { 'alphabetize': { 'order': 'asc' }, 'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'] }]
+      'no-undef': 'error',
+      'prefer-const': 'warn',
+      'eqeqeq': ['warn', 'smart']
     }
   },
   {
-    ignores: ['dist/**', 'node_modules/**', '**/*.js', '**/*.d.ts', 'docs/**', 'app/webui/**', 'scripts/**', 'app/server/**']
+    ignores: ['node_modules/**', 'tools/web/index.html', 'personal/**']
   }
 ];

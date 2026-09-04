@@ -21,7 +21,7 @@ count: 25
 | [browser-rendering](./browser-rendering-atomic.md) | 浏览器渲染原理 | atomic-skill | internal |
 | [frontend-architecture](./frontend-architecture-skill.md) | 前端架构 | composite-skill | internal |
 | [frontend-architecture-design](./frontend-architecture-design-atomic.md) | 前端架构设计 | atomic-skill | internal |
-| [前端设计](./前端设计.md) | 前端设计 | external | qoder |
+| [qoder-frontend-design](./qoder-frontend-design.md) | 前端设计 | external | qoder |
 | [frontend-design](./frontend-design.md) | 前端设计（frontend-design） | external | anthropic |
 | [frontend-performance-optimization](./frontend-performance-optimization-skill.md) | 前端性能优化 | composite-skill | internal |
 | [state-management](./state-management-atomic.md) | 前端状态管理 | atomic-skill | internal |

@@ -44,7 +44,7 @@ count: 39
 | [gget-bioinformatics-toolkit](./gget-bioinformatics-toolkit.md) | Gget 生物信息学工具包 | external | mcpmarket |
 | [jpa-hibernate-patterns](./jpa-hibernate-patterns.md) | JPA 与 Hibernate 模式 | external | mcpmarket |
 | [ml-experiment-workflow](./ml-experiment-workflow-skill.md) | ML 实验工作流 | composite-skill | internal |
-| [notion-技能](./notion-技能.md) | Notion 技能 | external | qoder |
+| [notion-skills](./notion-skills.md) | Notion 技能 | external | qoder |
 | [pdf-工具包](./pdf-工具包.md) | PDF 工具包 | external | qoder |
 | [postgresql-查询](./postgresql-查询.md) | PostgreSQL 查询 | external | qoder |
 | [sql-optimization](./sql-optimization-atomic.md) | SQL 优化 | atomic-skill | internal |

@@ -9,6 +9,7 @@ category: "Official Skills / Documents"
 tags: 
 rank: 4
 id: anthropic-pdf
+duplicateOf: pdf
 domain: docs
 domainLabel: 文档
 catalogSource: voltagent

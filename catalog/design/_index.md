@@ -25,6 +25,6 @@ count: 18
 | [主题工厂](./主题工厂.md) | 主题工厂 | external | qoder |
 | [ai-师傅课程创建器](./ai-师傅课程创建器.md) | AI 师傅课程创建器 | external | qoder |
 | [brand-guidelines](./brand-guidelines.md) | Anthropic 品牌指南（brand-guidelines） | external | anthropic |
-| [canvas-设计](./canvas-设计.md) | Canvas 设计 | external | qoder |
+| [qoder-canvas-design](./qoder-canvas-design.md) | Canvas 设计 | external | qoder |
 | [linear-集成](./linear-集成.md) | Linear 集成 | external | qoder |
 | [ui-design](./ui-design-atomic.md) | UI 设计 | atomic-skill | internal |

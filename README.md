@@ -15,9 +15,10 @@
 ## 🚀 快速开始
 
 ```bash
-# 1. 浏览目录(两种方式任选)
+# 1. 浏览目录(三种方式任选)
 open catalog/_index.md                              # 直接读 MD
 open tools/web/index.html                           # 静态浏览站(含搜索/筛选)
+# 或访问 GitHub Pages 在线版(见下方链接)
 
 # 2. 跑一次归类/索引/浏览站构建
 npm run import:classify                              # sources → catalog
@@ -36,9 +37,10 @@ $EDITOR personal/picked.md                           # 在 personal/ 标记想�
 
 ```
 skills-database/
-├── catalog/                       # 【主】按领域分类的 skills MD
+├── catalog/                       # 【主】按领域分类的 skills MD(454 条)
 │   ├── _index.md                  # 总索引
-│   ├── frontend/                  # 前端开发（12 条）
+│   ├── roles/                     # 27 个职业角色(含成长线索引)
+│   ├── frontend/                  # 前端开发
 │   ├── backend/                   # 后端工程
 │   ├── mobile/                    # 移动开发
 │   ├── ai-ml/                     # AI / ML / LLM
@@ -49,12 +51,11 @@ skills-database/
 │   ├── design/                    # 设计与创意
 │   ├── product/                   # 产品
 │   ├── marketing/                 # 营销
-│   ├── docs/                      # 文档
+│   ├── docs/                      # 技术写作
 │   ├── productivity/              # 生产力 / 工具
-│   ├── tools/                     # 第三方工具集成（vendor）
-│   └── uncategorized/             # 待整理
+│   └── tools/                     # 第三方工具集成(vendor)
 │
-├── sources/                       # 原始采集（来源溯源档案）
+├── sources/                       # 原始采集(来源溯源档案)
 │   ├── anthropic/                 # 17 条官方
 │   ├── mcpmarket/                 # 50 条垂直生态
 │   ├── skills-sh/                 # 50 条英文市场
@@ -65,10 +66,10 @@ skills-database/
 ├── personal/                      # 【本地】个人挑选状态(默认 .gitignore)
 │
 ├── tools/                         # 工具集(非核心)
-│   ├── import/                    # 归类、JSON→MD、索引刷新
+│   ├── import/                    # 归类、JSON→MD、索引刷新、校验
 │   │   ├── classify.js            # sources → catalog
-│   │   ├── json-to-md.js          # 老 JSON → MD
-│   │   └── regenerate-indices.js  # 重建 _index.md
+│   │   ├── regenerate-indices.js  # 重建 _index.md
+│   │   └── validate-refs.js       # 校验链接/重复/必填字段
 │   └── web/                       # 【呈现层】静态浏览站
 │       ├── build.js               # 从 catalog/ 生成 index.html
 │       └── index.html             # 单文件离线浏览站(可双击打开)
@@ -80,34 +81,34 @@ skills-database/
 
 ---
 
-## 📊 知识库一览（实测）
+## 📊 知识库一览（实测 454 条）
 
 | 领域 | 数量 | 入口 |
 |------|------|------|
-| 工具集成（vendor） | 63 | [catalog/tools/](./catalog/tools/_index.md) |
-| 测试工程 | 25 | [catalog/testing/](./catalog/testing/_index.md) |
-| 安全 | 21 | [catalog/security/](./catalog/security/_index.md) |
-| AI / ML / LLM | 19 | [catalog/ai-ml/](./catalog/ai-ml/_index.md) |
-| 数据工程 | 17 | [catalog/data/](./catalog/data/_index.md) |
-| 设计与创意 | 15 | [catalog/design/](./catalog/design/_index.md) |
-| 文档 | 13 | [catalog/docs/](./catalog/docs/_index.md) |
-| 前端开发 | 12 | [catalog/frontend/](./catalog/frontend/_index.md) |
-| 移动开发 | 8 | [catalog/mobile/](./catalog/mobile/_index.md) |
-| 未分类 | 8 | [catalog/uncategorized/](./catalog/uncategorized/_index.md) |
-| 后端工程 | 6 | [catalog/backend/](./catalog/backend/_index.md) |
-| 生产力 / 工具 | 5 | [catalog/productivity/](./catalog/productivity/_index.md) |
-| 产品 | 2 | [catalog/product/](./catalog/product/_index.md) |
-| DevOps / 基础设施 | 2 | [catalog/devops/](./catalog/devops/_index.md) |
-| 营销 | 1 | [catalog/marketing/](./catalog/marketing/_index.md) |
-| **总计** | **217** | [catalog/_index.md](./catalog/_index.md) |
+| 职业角色 | 27 | [catalog/roles/](./catalog/roles/_index.md) |
+| 工具集成（vendor） | 67 | [catalog/tools/](./catalog/tools/_index.md) |
+| 安全 | 65 | [catalog/security/](./catalog/security/_index.md) |
+| DevOps / 基础设施 | 48 | [catalog/devops/](./catalog/devops/_index.md) |
+| 数据工程 | 39 | [catalog/data/](./catalog/data/_index.md) |
+| 测试工程 | 35 | [catalog/testing/](./catalog/testing/_index.md) |
+| AI / ML / LLM | 34 | [catalog/ai-ml/](./catalog/ai-ml/_index.md) |
+| 后端工程 | 29 | [catalog/backend/](./catalog/backend/_index.md) |
+| 前端开发 | 25 | [catalog/frontend/](./catalog/frontend/_index.md) |
+| 设计与创意 | 18 | [catalog/design/](./catalog/design/_index.md) |
+| 产品 | 17 | [catalog/product/](./catalog/product/_index.md) |
+| 技术写作 | 16 | [catalog/docs/](./catalog/docs/_index.md) |
+| 营销 | 14 | [catalog/marketing/](./catalog/marketing/_index.md) |
+| 移动开发 | 11 | [catalog/mobile/](./catalog/mobile/_index.md) |
+| 生产力 / 工具 | 9 | [catalog/productivity/](./catalog/productivity/_index.md) |
+| **总计** | **454** | [catalog/_index.md](./catalog/_index.md) |
 
-> 归类口径见 [`tools/import/classify.js`](./tools/import/classify.js)。约 3.7% 未自动归类,需手工裁决。
+> 数据来源:241 条内部沉淀(`catalogSource: internal`)+ 213 条外部采集。归类口径见 [`tools/import/classify.js`](./tools/import/classify.js),归类与索引可随时重跑。
 
 ---
 
-## 🚀 快速开始
+## 📖 怎么用
 
-### 浏览目录
+### 浏览与搜索
 
 ```bash
 # 直接在 GitHub/VSCode/编辑器里读 MD
@@ -115,6 +116,9 @@ open catalog/frontend/_index.md
 
 # 或用 grep 搜全文
 grep -r "react" catalog/frontend/
+
+# 离线浏览站(单 HTML,含搜索/领域筛选/来源筛选)
+open tools/web/index.html
 ```
 
 ### 添加新 skill
@@ -131,6 +135,15 @@ grep -r "react" catalog/frontend/
    - 重名时加后缀
    - 补充 `id / domain / catalogSource / catalogAddedAt` 字段
    - 重新生成每个领域的 `_index.md` 和顶层 `_index.md`
+
+### 校验目录健康
+
+```bash
+npm run import:validate   # role→skill 引用、正文链接、重复 id、必填字段
+npm run web:build         # 重建浏览站
+```
+
+CI 会在每次 push 时自动跑以上两步,并检查浏览站是否过期。
 
 ### 标记个人状态
 
@@ -163,6 +176,8 @@ grep -r "react" catalog/frontend/
 - **补一条 skill**:放进 `sources/<vendor>/`,跑 `classify.js`,提交 PR
 - **调整分类**:改 `tools/import/classify.js` 的 RULES 顺序或新增规则
 - **新增领域**:在 `catalog/` 下建子目录,把对应 skill 移过去,改 classify 规则
+
+详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 ---
 

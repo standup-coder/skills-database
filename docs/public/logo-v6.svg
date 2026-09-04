@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- 简约版本 6: 六边形 S (类似 CNCF) -->
-  <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#326CE5"/>
-  <text x="50" y="65" font-family="Inter, -apple-system, sans-serif" font-size="45" font-weight="700" text-anchor="middle" fill="white">S</text>
-</svg>

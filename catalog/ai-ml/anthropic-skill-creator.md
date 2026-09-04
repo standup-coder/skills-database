@@ -9,6 +9,7 @@ category: "Official Skills / Meta"
 tags: 
 rank: 1
 id: anthropic-skill-creator
+duplicateOf: skill-creator
 domain: ai-ml
 domainLabel: AI/ML/LLM
 catalogSource: voltagent

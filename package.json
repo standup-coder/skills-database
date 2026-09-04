@@ -1,6 +1,6 @@
 {
   "name": "skills-database",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "本地化的职业技能学习与挑选平台 · Markdown 驱动的 SkillHub",
   "type": "module",
   "private": true,

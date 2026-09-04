@@ -20,7 +20,7 @@ count: 35
 | [测试驱动开发](./测试驱动开发.md) | 测试驱动开发 | external | qoder |
 | [tdd](./tdd.md) | 测试驱动开发(TDD) | external | skills-sh |
 | [chaos-engineering](./chaos-engineering-atomic.md) | 混沌工程 | atomic-skill | internal |
-| [开发-agent-技能](./开发-agent-技能.md) | 开发 Agent 技能 | external | qoder |
+| [agent-development-skills](./agent-development-skills.md) | 开发 Agent 技能 | external | qoder |
 | [评估](./评估.md) | 评估 | external | qoder |
 | [contract-testing](./contract-testing-atomic.md) | 契约测试 | atomic-skill | internal |
 | [请求代码审查](./请求代码审查.md) | 请求代码审查 | external | qoder |

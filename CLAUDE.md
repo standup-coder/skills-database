@@ -56,25 +56,27 @@ cd tools/web && <启动命令>     # 待 tools/web/ 实现
 | `templates/` | skill MD frontmatter 模板 | ✅ |
 | `documentation/` | 项目过程文档(gap 报告、采集日志) | ✅ |
 
-## Catalog Domains(共 14 个 + uncategorized)
+## Catalog Domains(共 16 个,454 条;数量会增长,以 `catalog/_index.md` 为准)
 
 | Domain | 数量 | 说明 |
 |--------|------|------|
-| tools | 63 | 第三方 vendor 工具集成(Lark/Azure/Vercel/…) |
-| testing | 25 | 测试工程 |
-| security | 21 | 安全 |
-| ai-ml | 19 | AI/ML/LLM |
-| data | 17 | 数据工程 |
-| design | 15 | 设计与创意 |
-| docs | 13 | 文档 |
-| frontend | 12 | 前端开发 |
-| mobile | 8 | 移动开发 |
-| backend | 6 | 后端工程 |
-| productivity | 5 | 生产力/工具 |
-| product | 2 | 产品 |
-| devops | 2 | DevOps/基础设施 |
-| marketing | 1 | 营销 |
-| uncategorized | 8 | 待手工裁决 |
+| roles | 27 | 职业角色(含成长线索引) |
+| tools | 67 | 第三方 vendor 工具集成(Lark/Azure/Vercel/…) |
+| security | 65 | 安全 |
+| devops | 48 | DevOps/基础设施 |
+| data | 39 | 数据工程 |
+| testing | 35 | 测试工程 |
+| ai-ml | 34 | AI/ML/LLM |
+| backend | 29 | 后端工程 |
+| frontend | 25 | 前端开发 |
+| design | 18 | 设计与创意 |
+| product | 17 | 产品 |
+| docs | 16 | 技术写作 |
+| marketing | 14 | 营销 |
+| mobile | 11 | 移动开发 |
+| productivity | 9 | 生产力/工具 |
+
+> 新增 skill 若无匹配领域,`classify.js` 会落到 `catalog/uncategorized/`(按需重建),需手工裁决后归位。
 
 ## Important Patterns
 

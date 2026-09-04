@@ -9,6 +9,7 @@ category: "Official Skills / Documents"
 tags: 
 rank: 5
 id: anthropic-pptx
+duplicateOf: pptx
 domain: design
 domainLabel: 设计
 catalogSource: voltagent

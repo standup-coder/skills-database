@@ -9,6 +9,7 @@ category: "Official Skills / Integrations"
 tags: 
 rank: 2
 id: anthropic-mcp-builder
+duplicateOf: mcp-builder
 domain: ai-ml
 domainLabel: AI/ML/LLM
 catalogSource: voltagent

@@ -9,6 +9,7 @@ category: "Official Skills / Creative"
 tags: 
 rank: 7
 id: anthropic-algorithmic-art
+duplicateOf: algorithmic-art
 domain: frontend
 domainLabel: 前端
 catalogSource: voltagent

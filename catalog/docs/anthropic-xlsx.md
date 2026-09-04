@@ -9,6 +9,7 @@ category: "Official Skills / Documents"
 tags: 
 rank: 6
 id: anthropic-xlsx
+duplicateOf: xlsx
 domain: docs
 domainLabel: 文档
 catalogSource: voltagent

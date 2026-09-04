@@ -9,6 +9,7 @@ category: "Official Skills / Frontend"
 tags: 
 rank: 8
 id: anthropic-frontend-design
+duplicateOf: frontend-design
 domain: frontend
 domainLabel: 前端
 catalogSource: voltagent

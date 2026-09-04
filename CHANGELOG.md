@@ -1,5 +1,32 @@
 # Changelog
 
+## [3.1.0] - 2026-08-31
+
+### Fixed — 基建对齐:CI 与公开站点跟上 3.0 转型
+
+**CI / 部署**
+- `ci.yml`:移除对已删除的 `npm run build` / `npm test` 的引用(此前每次 push 必挂),改为 `import:validate` + `web:build` + 构建新鲜度检查 + `lint`
+- `deploy.yml`:不再部署过时的 VitePress 站,改为从 `catalog/` 构建 `tools/web/index.html` 单文件站部署到 GitHub Pages
+- `eslint.config.js`:移除对已删除的 `@typescript-eslint` / `eslint-plugin-import` 的引用,简化为纯 JS 规则
+
+**内容同步**
+- `tools/web/index.html` 重建:428 → 454 条(补齐 security/devops 等领域增长)
+- `README.md`:修正知识库统计(217 → 455),补 `roles/` 目录,合并重复的"快速开始"章节
+- `CLAUDE.md`:领域表更新为 16 域 455 条实际数据
+
+**清理**
+- 删除:过时 VitePress `docs/`(6.4MB,内容描述已删除的 SDK 架构)、`README_zh.md`(过时副本,主 README 即中文)、`.env.example`(server 时代残留)、空 `catalog/uncategorized/`
+- 归档:`RESTRUCTURE_DESIGN.md` → `documentation/archive/`;`PRODUCT.md` → `documentation/PRODUCT-GTM-PLAN.md`(其引用的 GTM/ 目录从未创建)
+
+**规范化**
+- 5 个中文文件名改英文 id:`canvas-设计` → `qoder-canvas-design`、`前端设计` → `qoder-frontend-design`、`aws-技能` → `aws-skills`、`开发-agent-技能` → `agent-development-skills`、`notion-技能` → `notion-skills`
+- 9 组跨源重复(voltagent/qoder 转载 anthropic 原版)共 10 个文件加 `duplicateOf` frontmatter 标注,约定写入 `templates/skill.md`
+
+**文档**
+- 新增 [`documentation/EVALUATION_REPORT_2026-09.md`](documentation/EVALUATION_REPORT_2026-09.md):第三轮整体评估(9/10)——愿景对齐验证、三轮演进、剩余短板与实测数据快照
+
+---
+
 ## [3.0.0] - 2026-07-26
 
 ### Changed — 重大重组:从"Agent 编排框架"转向"本地 SkillHub"

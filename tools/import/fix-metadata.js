@@ -63,7 +63,7 @@ for (const domain of fs.readdirSync(CATALOG)) {
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.md') || f.startsWith('_')) continue;
     const full = path.join(dir, f);
-    let src = fs.readFileSync(full, 'utf8');
+    const src = fs.readFileSync(full, 'utf8');
     const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
     if (!m) continue;
     let fmBlock = m[1];

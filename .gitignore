@@ -96,3 +96,11 @@ data/*.db-shm
 
 # Test artifacts (written by write-file atomic skill tests)
 test.txt
+
+# Agent tool residue
+.mimosa/
+.video_agent/
+.impeccable/
+
+# Generated web staging (CI deploy only)
+tools/web/site/

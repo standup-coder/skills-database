@@ -55,7 +55,7 @@ count: 65
 | [least-privilege-iam](./least-privilege-iam-atomic.md) | 最小权限 IAM | atomic-skill | internal |
 | [api-call](./api-call-atomic.md) | API调用 | atomic-skill | internal |
 | [api-request](./api-request-atomic.md) | API请求 | atomic-skill | internal |
-| [aws-技能](./aws-技能.md) | AWS 技能 | external | qoder |
+| [aws-skills](./aws-skills.md) | AWS 技能 | external | qoder |
 | [cis-benchmarks](./cis-benchmarks-atomic.md) | CIS 基线 | atomic-skill | internal |
 | [cisco-ios-review-configuration-patterns](./cisco-ios-review-configuration-patterns.md) | Cisco IOS 评审与配置模式 | external | mcpmarket |
 | [django-verification-loop](./django-verification-loop.md) | Django 验证循环 | external | mcpmarket |
