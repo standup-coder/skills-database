@@ -13,16 +13,16 @@ count: 16
 | [anthropic-xlsx](./anthropic-xlsx.md) | "Excel 电子表格" | external | voltagent |
 | [anthropic-pdf](./anthropic-pdf.md) | "PDF 处理" | external | voltagent |
 | [anthropic-docx](./anthropic-docx.md) | "Word 文档处理" | external | voltagent |
-| [编写计划](./编写计划.md) | 编写计划 | external | qoder |
+| [writing-plans](./writing-plans.md) | 编写计划 | external | qoder |
 | [setup-matt-pocock-skills](./setup-matt-pocock-skills.md) | 工程技能仓库初始化 | external | skills-sh |
-| [内部沟通](./内部沟通.md) | 内部沟通 | external | qoder |
+| [internal-communication](./internal-communication.md) | 内部沟通 | external | qoder |
 | [visa-document-translator](./visa-document-translator.md) | 签证文档翻译器 | external | mcpmarket |
 | [visa-document-translator-cn-to-en](./visa-document-translator-cn-to-en.md) | 签证文档翻译器(中译英) | external | mcpmarket |
 | [write-comment](./write-comment-atomic.md) | 写注释 | atomic-skill | internal |
 | [xlsx](./xlsx.md) | Excel 表格处理（xlsx） | external | anthropic |
 | [netmiko-ssh-automation-ja](./netmiko-ssh-automation-ja.md) | Netmiko SSH 自动化(日文本地化) | external | mcpmarket |
 | [pdf](./pdf.md) | PDF 处理（pdf） | external | anthropic |
-| [powerpoint-演示文稿](./powerpoint-演示文稿.md) | PowerPoint 演示文稿 | external | qoder |
+| [qoder-pptx](./qoder-pptx.md) | PowerPoint 演示文稿 | external | qoder |
 | [pptx](./pptx.md) | PowerPoint 演示文稿处理（pptx） | external | anthropic |
-| [word-文档处理](./word-文档处理.md) | Word 文档处理 | external | qoder |
+| [qoder-docx](./qoder-docx.md) | Word 文档处理 | external | qoder |
 | [docx](./docx.md) | Word 文档处理（docx） | external | anthropic |

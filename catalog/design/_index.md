@@ -1,12 +1,12 @@
 ---
 title: design
 domain: design
-count: 18
+count: 17
 ---
 
 # design
 
-> 共 18 条。来源：voltagent、skills-sh、anthropic、internal、qoder。
+> 共 17 条。来源：voltagent、skills-sh、anthropic、internal、qoder。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -15,16 +15,15 @@ count: 18
 | [canvas-design](./canvas-design.md) | 画布设计（canvas-design） | external | anthropic |
 | [grill-me](./grill-me.md) | 计划拷问器 | external | skills-sh |
 | [interaction-design](./interaction-design-atomic.md) | 交互设计 | atomic-skill | internal |
-| [品牌指南](./品牌指南.md) | 品牌指南 | external | qoder |
+| [qoder-brand-guidelines](./qoder-brand-guidelines.md) | 品牌指南 | external | qoder |
 | [design-system](./design-system-atomic.md) | 设计系统 | atomic-skill | internal |
 | [design-system-build](./design-system-build-skill.md) | 设计系统构建 | composite-skill | internal |
-| [文档协作](./文档协作.md) | 文档协作 | external | qoder |
+| [document-collaboration](./document-collaboration.md) | 文档协作 | external | qoder |
 | [user-research](./user-research-atomic.md) | 用户研究 | atomic-skill | internal |
 | [user-research-process](./user-research-process-skill.md) | 用户研究流程 | composite-skill | internal |
 | [prototype](./prototype-atomic.md) | 原型设计 | atomic-skill | internal |
-| [主题工厂](./主题工厂.md) | 主题工厂 | external | qoder |
-| [ai-师傅课程创建器](./ai-师傅课程创建器.md) | AI 师傅课程创建器 | external | qoder |
+| [ai-tutor-course-creator](./ai-tutor-course-creator.md) | AI 师傅课程创建器 | external | qoder |
 | [brand-guidelines](./brand-guidelines.md) | Anthropic 品牌指南（brand-guidelines） | external | anthropic |
 | [qoder-canvas-design](./qoder-canvas-design.md) | Canvas 设计 | external | qoder |
-| [linear-集成](./linear-集成.md) | Linear 集成 | external | qoder |
+| [linear-integration](./linear-integration.md) | Linear 集成 | external | qoder |
 | [ui-design](./ui-design-atomic.md) | UI 设计 | atomic-skill | internal |

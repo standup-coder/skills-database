@@ -1,12 +1,12 @@
 ---
 title: frontend
 domain: frontend
-count: 25
+count: 28
 ---
 
 # frontend
 
-> 共 25 条。来源：voltagent、skills-sh、internal、qoder、anthropic、mcpmarket。
+> 共 28 条。来源：voltagent、skills-sh、internal、qoder、anthropic、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -25,13 +25,16 @@ count: 25
 | [frontend-design](./frontend-design.md) | 前端设计（frontend-design） | external | anthropic |
 | [frontend-performance-optimization](./frontend-performance-optimization-skill.md) | 前端性能优化 | composite-skill | internal |
 | [state-management](./state-management-atomic.md) | 前端状态管理 | atomic-skill | internal |
+| [qoder-algorithmic-art](./qoder-algorithmic-art.md) | 算法艺术 | external | qoder |
 | [algorithmic-art](./algorithmic-art.md) | 算法艺术（algorithmic-art） | external | anthropic |
 | [diagram-maker-visualizer](./diagram-maker-visualizer.md) | 图表制作与可视化 | external | mcpmarket |
 | [micro-frontend](./micro-frontend-atomic.md) | 微前端 | atomic-skill | internal |
+| [qoder-theme-factory](./qoder-theme-factory.md) | 主题工厂 | external | qoder |
 | [theme-factory](./theme-factory.md) | 主题工厂（theme-factory） | external | anthropic |
 | [component-design](./component-design-atomic.md) | 组件设计 | atomic-skill | internal |
 | [css-architecture](./css-architecture-atomic.md) | CSS 架构 | atomic-skill | internal |
 | [react-code-fix-linter](./react-code-fix-linter.md) | React 代码修复与 Lint | external | mcpmarket |
 | [typescript-advanced](./typescript-advanced-atomic.md) | TypeScript 高级类型 | atomic-skill | internal |
 | [web-performance-audit](./web-performance-audit-atomic.md) | Web 性能审计 | atomic-skill | internal |
+| [qoder-web-artifacts-builder](./qoder-web-artifacts-builder.md) | Web Artifacts 构建器 | external | qoder |
 | [web-artifacts-builder](./web-artifacts-builder.md) | Web Artifacts 构建器（web-artifacts-builder） | external | anthropic |

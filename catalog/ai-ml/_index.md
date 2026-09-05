@@ -1,12 +1,12 @@
 ---
 title: ai-ml
 domain: ai-ml
-count: 34
+count: 36
 ---
 
 # ai-ml
 
-> 共 34 条。来源：voltagent、mcpmarket、internal、anthropic、qoder。
+> 共 36 条。来源：voltagent、mcpmarket、internal、qoder、anthropic。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -22,6 +22,7 @@ count: 34
 | [prompt-engineering-advanced](./prompt-engineering-advanced-atomic.md) | 高级提示工程 | atomic-skill | internal |
 | [tool-use-design](./tool-use-design-atomic.md) | 工具调用设计 | atomic-skill | internal |
 | [fine-tuning](./fine-tuning-atomic.md) | 模型微调 | atomic-skill | internal |
+| [qoder-agent-evaluation](./qoder-agent-evaluation.md) | 评估 | external | qoder |
 | [context-window-management](./context-window-management-atomic.md) | 上下文窗口管理 | atomic-skill | internal |
 | [prompt-engineering](./prompt-engineering-atomic.md) | 提示工程 | atomic-skill | internal |
 | [documentation-lookup-context7](./documentation-lookup-context7.md) | 文档查询(Context7) | external | mcpmarket |
@@ -39,8 +40,9 @@ count: 34
 | [llm-app-development](./llm-app-development-skill.md) | LLM 应用开发 | composite-skill | internal |
 | [mcp-builder](./mcp-builder.md) | MCP 服务器构建器（mcp-builder） | external | anthropic |
 | [mcp-server-development](./mcp-server-development-atomic.md) | MCP 服务器开发 | atomic-skill | internal |
-| [n8n-工作流模式](./n8n-工作流模式.md) | n8n 工作流模式 | external | qoder |
+| [n8n-workflow-patterns](./n8n-workflow-patterns.md) | n8n 工作流模式 | external | qoder |
 | [rag-pipeline-design](./rag-pipeline-design-atomic.md) | RAG 管道架构设计 | atomic-skill | internal |
 | [rag-pipeline](./rag-pipeline-atomic.md) | RAG 检索增强生成 | atomic-skill | internal |
+| [qoder-skill-creator](./qoder-skill-creator.md) | Skill 创建器 | external | qoder |
 | [skill-creator](./skill-creator.md) | Skill 创建器（skill-creator） | external | anthropic |
 | [vexor](./vexor.md) | Vexor | external | qoder |

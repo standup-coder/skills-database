@@ -1,12 +1,12 @@
 ---
 title: productivity
 domain: productivity
-count: 9
+count: 10
 ---
 
 # productivity
 
-> 共 9 条。来源：voltagent、internal、mcpmarket、anthropic、qoder。
+> 共 10 条。来源：voltagent、internal、mcpmarket、qoder、anthropic。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -17,5 +17,6 @@ count: 9
 | [discord-integration](./discord-integration.md) | Discord 集成 | external | mcpmarket |
 | [git-diff](./git-diff-atomic.md) | Git差异 | atomic-skill | internal |
 | [github-integration](./github-integration.md) | GitHub 集成 | external | mcpmarket |
+| [qoder-slack-gif-creator](./qoder-slack-gif-creator.md) | Slack GIF 创建器 | external | qoder |
 | [slack-gif-creator](./slack-gif-creator.md) | Slack GIF 创建器（slack-gif-creator） | external | anthropic |
-| [things3-任务管理](./things3-任务管理.md) | Things3 任务管理 | external | qoder |
+| [things3-task-management](./things3-task-management.md) | Things3 任务管理 | external | qoder |

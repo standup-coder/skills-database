@@ -11,7 +11,7 @@ count: 65
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
 | [security-architecture](./security-architecture-atomic.md) | 安全架构 | atomic-skill | internal |
-| [安全蓝皮书生成器](./安全蓝皮书生成器.md) | 安全蓝皮书生成器 | external | qoder |
+| [security-blueprint-generator](./security-blueprint-generator.md) | 安全蓝皮书生成器 | external | qoder |
 | [security-assessment](./security-assessment-skill.md) | 安全评估 | composite-skill | internal |
 | [security-scan](./security-scan-atomic.md) | 安全扫描 | atomic-skill | internal |
 | [continuous-agent-loop](./continuous-agent-loop.md) | 持续代理循环 | external | mcpmarket |
@@ -19,10 +19,10 @@ count: 65
 | [mfa-and-credential-management](./mfa-and-credential-management-atomic.md) | 多因子与凭据管理 | atomic-skill | internal |
 | [multi-cloud-security](./multi-cloud-security-atomic.md) | 多云安全 | atomic-skill | internal |
 | [shared-responsibility-model](./shared-responsibility-model-atomic.md) | 共担责任模型 | atomic-skill | internal |
-| [构建安全合约](./构建安全合约.md) | 构建安全合约 | external | qoder |
+| [smart-contract-security](./smart-contract-security.md) | 构建安全合约 | external | qoder |
 | [compliance](./compliance-atomic.md) | 合规管理 | atomic-skill | internal |
 | [compliance-as-code](./compliance-as-code-atomic.md) | 合规即代码 | atomic-skill | internal |
-| [静态分析](./静态分析.md) | 静态分析 | external | qoder |
+| [static-analysis](./static-analysis.md) | 静态分析 | external | qoder |
 | [cross-account-security](./cross-account-security-atomic.md) | 跨账号安全 | atomic-skill | internal |
 | [zero-trust-cloud](./zero-trust-cloud-atomic.md) | 零信任云 | atomic-skill | internal |
 | [pipeline-security-automation](./pipeline-security-automation-atomic.md) | 流水线安全自动化 | atomic-skill | internal |
@@ -69,7 +69,7 @@ count: 65
 | [k8s-security](./k8s-security-atomic.md) | K8s 集群安全 | atomic-skill | internal |
 | [k8s-rbac-security](./k8s-rbac-security-atomic.md) | K8s RBAC 安全 | atomic-skill | internal |
 | [kotlin-exposed-orm-patterns](./kotlin-exposed-orm-patterns.md) | Kotlin Exposed ORM 模式 | external | mcpmarket |
-| [mcp-server-构建器](./mcp-server-构建器.md) | MCP Server 构建器 | external | qoder |
+| [mcp-server-builder](./mcp-server-builder.md) | MCP Server 构建器 | external | qoder |
 | [netmiko-ssh-automation](./netmiko-ssh-automation.md) | Netmiko SSH 自动化 | external | mcpmarket |
 | [openclaw](./openclaw.md) | OpenClaw | external | qoder |
 | [quarkus-security-review](./quarkus-security-review.md) | Quarkus 安全评审 | external | mcpmarket |
