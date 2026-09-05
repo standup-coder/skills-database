@@ -70,5 +70,5 @@ level: mid
 
 ## 相关 Skills
 
-- [web-performance-audit](./web-performance-audit-atomic.md) — 用指标发现问题，用本技能归因
-- [component-design](./component-design-atomic.md)
+- [web-performance-audit](./web-performance-audit.md) — 用指标发现问题，用本技能归因
+- [component-design](./component-design.md)

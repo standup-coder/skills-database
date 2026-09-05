@@ -28,18 +28,18 @@ atomicSkills: read-file, write-file, run-tests, database-query, api-request, api
 
 ## 核心能力(主 Skills)
 
-- [database-design](../data/database-design-skill.md) — 一句话能力
-- [testing](../testing/testing-skill.md) — 一句话能力
+- [database-design](../data/database-design.md) — 一句话能力
+- [testing](../testing/testing.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
-- [database-query](../data/database-query-atomic.md) — 一句话能力
-- [api-request](../security/api-request-atomic.md) — 一句话能力
-- [api-development](../backend/api-development-atomic.md) — 一句话能力
-- [authentication](../security/authentication-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [run-tests](../testing/run-tests.md) — 一句话能力
+- [database-query](../data/database-query.md) — 一句话能力
+- [api-request](../security/api-request.md) — 一句话能力
+- [api-development](../backend/api-development.md) — 一句话能力
+- [authentication](../security/authentication.md) — 一句话能力
 
 ## 经验门槛
 

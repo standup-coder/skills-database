@@ -29,18 +29,18 @@ atomicSkills: read-file, write-file, api-call, onboarding, health-monitoring, re
 
 ## 核心能力(主 Skills)
 
-- [product-research](../product/product-research-skill.md) — 一句话能力
+- [product-research](../product/product-research.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
-- [onboarding](../product/onboarding-atomic.md) — 一句话能力
-- [health-monitoring](../devops/health-monitoring-atomic.md) — 一句话能力
-- [retention](../marketing/retention-atomic.md) — 一句话能力
-- [feedback-loop](../product/feedback-loop-atomic.md) — 一句话能力
-- [stakeholder-management](../product/stakeholder-management-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
+- [onboarding](../product/onboarding.md) — 一句话能力
+- [health-monitoring](../devops/health-monitoring.md) — 一句话能力
+- [retention](../marketing/retention.md) — 一句话能力
+- [feedback-loop](../product/feedback-loop.md) — 一句话能力
+- [stakeholder-management](../product/stakeholder-management.md) — 一句话能力
 
 ## 经验门槛
 

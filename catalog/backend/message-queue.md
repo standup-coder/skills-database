@@ -45,7 +45,7 @@ level: mid
 - 消息体存引用不存大对象：>1MB 的负载放对象存储，消息里只放 key（claim check 模式）
 ## 最佳实践
 
-- 消费逻辑先写幂等（唯一键去重表 / 版本号），再谈其他——参考 [idempotency-design](./idempotency-design-atomic.md)
+- 消费逻辑先写幂等（唯一键去重表 / 版本号），再谈其他——参考 [idempotency-design](./idempotency-design.md)
 - 重试用指数退避 + 有限次数 + DLQ 三件套；DLQ 配告警与人工重放工具
 - schema 用 Avro/Protobuf + schema registry 管理演进，禁止裸 JSON 随意加减字段
 - 分区数一开始留余量（分区只能加不能减），但单 broker 分区总数控制在几千以内
@@ -72,6 +72,6 @@ level: mid
 
 ## 相关 Skills
 
-- [idempotency-design](./idempotency-design-atomic.md) — 消费端幂等是 MQ 的前置必修
-- [event-driven-architecture](./event-driven-architecture-atomic.md) — MQ 之上的架构范式
-- [circuit-breaker](./circuit-breaker-atomic.md)
+- [idempotency-design](./idempotency-design.md) — 消费端幂等是 MQ 的前置必修
+- [event-driven-architecture](./event-driven-architecture.md) — MQ 之上的架构范式
+- [circuit-breaker](./circuit-breaker.md)

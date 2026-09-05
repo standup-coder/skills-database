@@ -91,7 +91,7 @@ level: senior
 
 ## 相关 Skills
 
-- [web-performance-audit](./web-performance-audit-atomic.md) — 步骤 1-2 的审计方法
-- [browser-rendering](./browser-rendering-atomic.md) — 渲染管线的原理底座
-- [bundler-optimization](./bundler-optimization-atomic.md) — JS 体积优化的实施手段
-- [ssr-hydration](./ssr-hydration-atomic.md) — LCP/TTFB 优化的架构选项
+- [web-performance-audit](./web-performance-audit.md) — 步骤 1-2 的审计方法
+- [browser-rendering](./browser-rendering.md) — 渲染管线的原理底座
+- [bundler-optimization](./bundler-optimization.md) — JS 体积优化的实施手段
+- [ssr-hydration](./ssr-hydration.md) — LCP/TTFB 优化的架构选项

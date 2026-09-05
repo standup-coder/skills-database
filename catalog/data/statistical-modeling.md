@@ -22,7 +22,7 @@ level: mid
 - 需要置信区间与显著性结论支撑决策汇报
 ## 何时不使用
 - 只关心预测精度且特征间高度非线性——梯度提升树/深度模型通常更强
-- 数据是观测性的却想下因果结论——回归系数≠因果效应，去看 [causal-inference](./causal-inference-atomic.md)
+- 数据是观测性的却想下因果结论——回归系数≠因果效应，去看 [causal-inference](./causal-inference.md)
 ## 输入参数
 - `question` (string, **必填**) — 业务问题（解释型/预测型）
 - `dataProfile` (object, **必填**) — 因变量类型、样本量、特征结构
@@ -71,6 +71,6 @@ level: mid
 
 ## 相关 Skills
 
-- [causal-inference](./causal-inference-atomic.md) — 想下因果结论时的正确工具
-- [feature-engineering](./feature-engineering-atomic.md)
-- [model-evaluation](./model-evaluation-atomic.md) — 预测型目标的验证方法
+- [causal-inference](./causal-inference.md) — 想下因果结论时的正确工具
+- [feature-engineering](./feature-engineering.md)
+- [model-evaluation](./model-evaluation.md) — 预测型目标的验证方法

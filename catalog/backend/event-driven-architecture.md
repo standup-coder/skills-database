@@ -71,6 +71,6 @@ level: senior
 
 ## 相关 Skills
 
-- [message-queue](./message-queue-atomic.md) — 事件的传输载体
-- [idempotency-design](./idempotency-design-atomic.md) — 消费端硬前提
-- [ddd-modeling](./ddd-modeling-atomic.md) — 领域事件从建模中来
+- [message-queue](./message-queue.md) — 事件的传输载体
+- [idempotency-design](./idempotency-design.md) — 消费端硬前提
+- [ddd-modeling](./ddd-modeling.md) — 领域事件从建模中来

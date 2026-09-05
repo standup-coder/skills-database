@@ -71,6 +71,6 @@ DDD 的精髓是战略设计（限界上下文 + 通用语言），不是战术�
 
 ## 相关 Skills
 
-- [event-driven-architecture](./event-driven-architecture-atomic.md) — 跨聚合/跨上下文协作的载体
-- [system-design](./system-design-atomic.md)
-- [architecture-design-fundamentals](./architecture-design-fundamentals-atomic.md)
+- [event-driven-architecture](./event-driven-architecture.md) — 跨聚合/跨上下文协作的载体
+- [system-design](./system-design.md)
+- [architecture-design-fundamentals](./architecture-design-fundamentals.md)

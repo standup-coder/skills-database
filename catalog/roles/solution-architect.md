@@ -31,18 +31,18 @@ relatedRoles: backend-architect, cto, engineering-manager
 
 ## 核心能力(主 Skills)
 
-- [architecture-design](../backend/architecture-design-skill.md) — 端到端方案架构设计
-- [technical-strategy](../backend/technical-strategy-skill.md) — 技术路线与选型策略
+- [architecture-design](../backend/architecture-design.md) — 端到端方案架构设计
+- [technical-strategy](../backend/technical-strategy.md) — 技术路线与选型策略
 
 ## 基础操作(原子 Skills)
 
-- [system-design](../backend/system-design-atomic.md) — 容量估算与组件权衡
-- [architecture-design-fundamentals](../backend/architecture-design-fundamentals-atomic.md) — 架构原则与文档化
-- [stakeholder-management](../product/stakeholder-management-atomic.md) — 多方预期管理
-- [risk-management](../product/risk-management-atomic.md) — 交付风险识别
-- [cost-optimization](../devops/cost-optimization-atomic.md) — 云成本建模
-- [vendor-management](../product/vendor-management-atomic.md) — 第三方组件与供应商评估
-- [competitive-analysis](../product/competitive-analysis-atomic.md) — 竞品方案对比
+- [system-design](../backend/system-design.md) — 容量估算与组件权衡
+- [architecture-design-fundamentals](../backend/architecture-design-fundamentals.md) — 架构原则与文档化
+- [stakeholder-management](../product/stakeholder-management.md) — 多方预期管理
+- [risk-management](../product/risk-management.md) — 交付风险识别
+- [cost-optimization](../devops/cost-optimization.md) — 云成本建模
+- [vendor-management](../product/vendor-management.md) — 第三方组件与供应商评估
+- [competitive-analysis](../product/competitive-analysis.md) — 竞品方案对比
 
 ## 经验门槛
 

@@ -70,6 +70,6 @@ level: mid
 
 ## 相关 Skills
 
-- [agent-memory-design](./agent-memory-design-atomic.md) — 窗口外的状态去处
-- [llm-cost-optimization](./llm-cost-optimization-atomic.md) — 缓存与预算的成本视角
-- [prompt-engineering](./prompt-engineering-atomic.md)
+- [agent-memory-design](./agent-memory-design.md) — 窗口外的状态去处
+- [llm-cost-optimization](./llm-cost-optimization.md) — 缓存与预算的成本视角
+- [prompt-engineering](./prompt-engineering.md)

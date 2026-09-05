@@ -30,23 +30,23 @@ atomicSkills: read-file, write-file, analyze-code, run-linter, run-tests, git-di
 
 ## 核心能力(主 Skills)
 
-- [api-design](../backend/api-design-skill.md) — 一句话能力
-- [frontend-architecture](../frontend/frontend-architecture-skill.md) — 一句话能力
-- [database-design](../data/database-design-skill.md) — 一句话能力
-- [code-review](../backend/code-review-skill.md) — 一句话能力
-- [testing](../testing/testing-skill.md) — 一句话能力
+- [api-design](../backend/api-design.md) — 一句话能力
+- [frontend-architecture](../frontend/frontend-architecture.md) — 一句话能力
+- [database-design](../data/database-design.md) — 一句话能力
+- [code-review](../backend/code-review.md) — 一句话能力
+- [testing](../testing/testing.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [analyze-code](../data/analyze-code-atomic.md) — 一句话能力
-- [run-linter](../testing/run-linter-atomic.md) — 一句话能力
-- [run-tests](../testing/run-tests-atomic.md) — 一句话能力
-- [git-diff](../productivity/git-diff-atomic.md) — 一句话能力
-- [database-query](../data/database-query-atomic.md) — 一句话能力
-- [http-request](../security/http-request-atomic.md) — 一句话能力
-- [search-code](../backend/search-code-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [analyze-code](../data/analyze-code.md) — 一句话能力
+- [run-linter](../testing/run-linter.md) — 一句话能力
+- [run-tests](../testing/run-tests.md) — 一句话能力
+- [git-diff](../productivity/git-diff.md) — 一句话能力
+- [database-query](../data/database-query.md) — 一句话能力
+- [http-request](../security/http-request.md) — 一句话能力
+- [search-code](../backend/search-code.md) — 一句话能力
 
 ## 经验门槛
 

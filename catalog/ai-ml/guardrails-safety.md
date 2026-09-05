@@ -70,6 +70,6 @@ Prompt injection 自 2023 年起持续位居 OWASP LLM Top 10 第一位，且没
 
 ## 相关 Skills
 
-- [tool-use-design](./tool-use-design-atomic.md) — 权限最小化在工具层落地
-- [llm-evaluation](./llm-evaluation-atomic.md) — 护栏效果的评估方法
-- [prompt-engineering-advanced](./prompt-engineering-advanced-atomic.md)
+- [tool-use-design](./tool-use-design.md) — 权限最小化在工具层落地
+- [llm-evaluation](./llm-evaluation.md) — 护栏效果的评估方法
+- [prompt-engineering-advanced](./prompt-engineering-advanced.md)

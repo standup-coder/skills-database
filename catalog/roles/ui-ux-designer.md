@@ -29,19 +29,19 @@ atomicSkills: read-file, write-file, api-call, ui-design, interaction-design, us
 
 ## 核心能力(主 Skills)
 
-- [frontend-architecture](../frontend/frontend-architecture-skill.md) — 一句话能力
-- [product-research](../product/product-research-skill.md) — 一句话能力
+- [frontend-architecture](../frontend/frontend-architecture.md) — 一句话能力
+- [product-research](../product/product-research.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
-- [ui-design](../design/ui-design-atomic.md) — 一句话能力
-- [interaction-design](../design/interaction-design-atomic.md) — 一句话能力
-- [user-research](../design/user-research-atomic.md) — 一句话能力
-- [design-system](../design/design-system-atomic.md) — 一句话能力
-- [prototype](../design/prototype-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
+- [ui-design](../design/ui-design.md) — 一句话能力
+- [interaction-design](../design/interaction-design.md) — 一句话能力
+- [user-research](../design/user-research.md) — 一句话能力
+- [design-system](../design/design-system.md) — 一句话能力
+- [prototype](../design/prototype.md) — 一句话能力
 
 ## 经验门槛
 

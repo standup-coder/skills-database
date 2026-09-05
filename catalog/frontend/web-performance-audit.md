@@ -72,6 +72,6 @@ level: mid
 
 ## 相关 Skills
 
-- [browser-rendering](./browser-rendering-atomic.md) — 归因渲染类瓶颈的原理基础
-- [bundler-optimization](./bundler-optimization-atomic.md) — JS 体积类瓶颈的下游修复手段
-- [frontend-architecture-design](./frontend-architecture-design-atomic.md)
+- [browser-rendering](./browser-rendering.md) — 归因渲染类瓶颈的原理基础
+- [bundler-optimization](./bundler-optimization.md) — JS 体积类瓶颈的下游修复手段
+- [frontend-architecture-design](./frontend-architecture-design.md)

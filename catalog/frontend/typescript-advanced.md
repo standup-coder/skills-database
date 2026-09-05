@@ -71,5 +71,5 @@ level: senior
 
 ## 相关 Skills
 
-- [component-design](./component-design-atomic.md) — 组件 Props API 的类型设计
-- [state-management](./state-management-atomic.md) — 状态机的判别联合建模
+- [component-design](./component-design.md) — 组件 Props API 的类型设计
+- [state-management](./state-management.md) — 状态机的判别联合建模

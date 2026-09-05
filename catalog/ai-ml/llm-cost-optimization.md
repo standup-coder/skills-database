@@ -71,6 +71,6 @@ LLM 成本优化的第一定律是"先测量再优化"：绝大多数团队连"�
 
 ## 相关 Skills
 
-- [context-window-management](./context-window-management-atomic.md) — token 预算的窗口视角
-- [llm-evaluation](./llm-evaluation-atomic.md) — 质量底线的验证手段
-- [fine-tuning](./fine-tuning-atomic.md) — 小模型替代旗舰的路径之一
+- [context-window-management](./context-window-management.md) — token 预算的窗口视角
+- [llm-evaluation](./llm-evaluation.md) — 质量底线的验证手段
+- [fine-tuning](./fine-tuning.md) — 小模型替代旗舰的路径之一

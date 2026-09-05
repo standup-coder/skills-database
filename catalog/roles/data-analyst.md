@@ -31,18 +31,18 @@ relatedRoles: data-scientist, data-engineer, product-manager
 
 ## 核心能力(主 Skills)
 
-- [data-quality-management](../data/data-quality-management-skill.md) — 口径治理与数据可信度是分析结论的前提
+- [data-quality-management](../data/data-quality-management.md) — 口径治理与数据可信度是分析结论的前提
 
 ## 基础操作(原子 Skills)
 
-- [database-query](../data/database-query-atomic.md) — SQL 是本岗位第一技能（所有 JD 的共同硬要求）
-- [sql-optimization](../data/sql-optimization-atomic.md) — 大表查询与看板性能
-- [analytics](../data/analytics-atomic.md) — 指标体系与埋点消费
-- [funnel-analysis](../data/funnel-analysis-atomic.md) — 转化诊断
-- [cohort-analysis](../data/cohort-analysis-atomic.md) — 留存与用户分群
-- [data-quality](../data/data-quality-atomic.md) — 数据校验与异常发现
-- [parse-json-log](../data/parse-json-log-atomic.md) — 半结构化数据处理
-- [read-file](../productivity/read-file-atomic.md)
+- [database-query](../data/database-query.md) — SQL 是本岗位第一技能（所有 JD 的共同硬要求）
+- [sql-optimization](../data/sql-optimization.md) — 大表查询与看板性能
+- [analytics](../data/analytics.md) — 指标体系与埋点消费
+- [funnel-analysis](../data/funnel-analysis.md) — 转化诊断
+- [cohort-analysis](../data/cohort-analysis.md) — 留存与用户分群
+- [data-quality](../data/data-quality.md) — 数据校验与异常发现
+- [parse-json-log](../data/parse-json-log.md) — 半结构化数据处理
+- [read-file](../productivity/read-file.md)
 
 ## 与数据科学家的分工（365DataScience/Indeed 市场共识）
 
@@ -67,10 +67,10 @@ relatedRoles: data-scientist, data-engineer, product-manager
 ### 入门 → Mid（本 role）
 - SQL 练到肌肉记忆：窗口函数、多表 join、CTE 是面试与日常的分水岭
 - 掌握一个 BI 工具并做出 3 个可讲故事的看板（含指标口径文档）
-- 用 [funnel-analysis](../data/funnel-analysis-atomic.md) 与 [cohort-analysis](../data/cohort-analysis-atomic.md) 各完成一次真实业务诊断
+- 用 [funnel-analysis](../data/funnel-analysis.md) 与 [cohort-analysis](../data/cohort-analysis.md) 各完成一次真实业务诊断
 
 ### Mid → Senior Analyst / 转型
-- 纵深：实验设计与因果推断（→ [experiment-design](../data/experiment-design-atomic.md)、[causal-inference](../data/causal-inference-atomic.md)），从"报数"升级到"归因"
+- 纵深：实验设计与因果推断（→ [experiment-design](../data/experiment-design.md)、[causal-inference](../data/causal-inference.md)），从"报数"升级到"归因"
 - 转 [data-scientist](./data-scientist.md)：补 Python 建模主线（statistical-modeling → feature-engineering → model-evaluation）
 - 转 [data-engineer](./data-engineer.md)：补管道与数仓（data-pipeline-build → warehouse-design）
 

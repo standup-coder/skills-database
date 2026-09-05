@@ -46,7 +46,7 @@ level: mid
 
 - 预处理全部进 pipeline（sklearn Pipeline/Spark ML），fit 只发生在训练折内——这一条同时消灭预处理泄漏与上线不一致
 - 每个特征写一行文档：业务含义、计算窗口、可用时点、负责人
-- 用时间切分验证特征有效性（见 [model-evaluation](./model-evaluation-atomic.md)），随机切分会掩盖时间泄漏
+- 用时间切分验证特征有效性（见 [model-evaluation](./model-evaluation.md)），随机切分会掩盖时间泄漏
 - 上线后监控特征分布漂移（PSI/KS），特征坏掉往往早于指标坏掉
 
 ## 反模式
@@ -71,6 +71,6 @@ level: mid
 
 ## 相关 Skills
 
-- [model-evaluation](./model-evaluation-atomic.md) — 验证特征真实增益
-- [data-quality](./data-quality-atomic.md) — 特征的上游防线
-- [statistical-modeling](./statistical-modeling-atomic.md)
+- [model-evaluation](./model-evaluation.md) — 验证特征真实增益
+- [data-quality](./data-quality.md) — 特征的上游防线
+- [statistical-modeling](./statistical-modeling.md)

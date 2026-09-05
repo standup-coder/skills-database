@@ -83,9 +83,9 @@ contentStatus: reviewed
 
 ## 相关 Skills
 
-- [component-design](./component-design-atomic.md) — 步骤 2 组件分层与 Props API 约定
-- [state-management](./state-management-atomic.md) — 步骤 2 server/client 状态分型
-- [css-architecture](./css-architecture-atomic.md) — 样式层架构与设计系统约束
-- [micro-frontend](./micro-frontend-atomic.md) — 多团队并行时的边界方案选项
-- [ssr-hydration](./ssr-hydration-atomic.md) — 渲染策略选型的原理底座
-- [typescript-advanced](./typescript-advanced-atomic.md) — 步骤 3 类型层约定与边界类型
+- [component-design](./component-design.md) — 步骤 2 组件分层与 Props API 约定
+- [state-management](./state-management.md) — 步骤 2 server/client 状态分型
+- [css-architecture](./css-architecture.md) — 样式层架构与设计系统约束
+- [micro-frontend](./micro-frontend.md) — 多团队并行时的边界方案选项
+- [ssr-hydration](./ssr-hydration.md) — 渲染策略选型的原理底座
+- [typescript-advanced](./typescript-advanced.md) — 步骤 3 类型层约定与边界类型

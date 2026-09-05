@@ -31,19 +31,19 @@ relatedRoles: devops-engineer, platform-engineer, sre-engineer
 
 ## 核心能力(主 Skills)
 
-- [ci-pipeline-setup](../devops/ci-pipeline-setup-skill.md) — 流水线从 0 到 1 与持续治理
-- [release-strategy](../devops/release-strategy-skill.md) — 灰度/金丝雀/回滚策略设计
+- [ci-pipeline-setup](../devops/ci-pipeline-setup.md) — 流水线从 0 到 1 与持续治理
+- [release-strategy](../devops/release-strategy.md) — 灰度/金丝雀/回滚策略设计
 
 ## 基础操作(原子 Skills)
 
-- [github-actions](../devops/github-actions-atomic.md) — 主流 CI 平台实操
-- [gitops-workflow](../devops/gitops-workflow-atomic.md) — 声明式部署与漂移检测
-- [docker-essentials](../devops/docker-essentials-atomic.md) — 镜像构建与分层优化
-- [kubernetes-basics](../devops/kubernetes-basics-atomic.md) — 部署对象与滚动更新
-- [terraform-basics](../devops/terraform-basics-atomic.md) — 环境即代码
-- [incident-response](../devops/incident-response-atomic.md) — 发布事故的止血与回滚
-- [config-validator](../devops/config-validator-atomic.md) — 配置漂移与校验
-- [monitoring-setup](../devops/monitoring-setup-skill.md) — 发布健康度监控
+- [github-actions](../devops/github-actions.md) — 主流 CI 平台实操
+- [gitops-workflow](../devops/gitops-workflow.md) — 声明式部署与漂移检测
+- [docker-essentials](../devops/docker-essentials.md) — 镜像构建与分层优化
+- [kubernetes-basics](../devops/kubernetes-basics.md) — 部署对象与滚动更新
+- [terraform-basics](../devops/terraform-basics.md) — 环境即代码
+- [incident-response](../devops/incident-response.md) — 发布事故的止血与回滚
+- [config-validator](../devops/config-validator.md) — 配置漂移与校验
+- [monitoring-setup](../devops/monitoring-setup.md) — 发布健康度监控
 
 ## 经验门槛
 

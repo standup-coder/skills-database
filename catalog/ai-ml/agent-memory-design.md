@@ -71,6 +71,6 @@ level: senior
 
 ## 相关 Skills
 
-- [context-window-management](./context-window-management-atomic.md) — 记忆与窗口的分工
-- [rag-pipeline](./rag-pipeline-atomic.md) — 检索技术的共享底座
-- [agent-orchestration](./agent-orchestration-atomic.md)
+- [context-window-management](./context-window-management.md) — 记忆与窗口的分工
+- [rag-pipeline](./rag-pipeline.md) — 检索技术的共享底座
+- [agent-orchestration](./agent-orchestration.md)

@@ -23,8 +23,8 @@ Atomic Skill（146，-atomic 后缀） ＝ 最小能力单元：单一操作 + �
 | 类型 | 学习语义 | 范例 | 现状质量 |
 |---|---|---|---|
 | role | **"我要成为谁"** — 岗位定位与差距清单 | [ai-agent-engineer](../catalog/roles/ai-agent-engineer.md) | 结构好，但正文链接死链、"一句话能力"全是占位符 |
-| composite-skill | **"我能完成什么工作流"** — 面试中的项目经验单元 | [api-design-skill](../catalog/backend/api-design-skill.md) | 两极分化：第四轮新增的有肉，JSON 转换的是骨架 |
-| atomic-skill | **"我掌握什么操作"** — 可勾选、可自测的最小单元 | [prompt-engineering-atomic](../catalog/ai-ml/prompt-engineering-atomic.md) | 最佳资产，含反模式+分级掌握+资源 |
+| composite-skill | **"我能完成什么工作流"** — 面试中的项目经验单元 | [api-design-skill](../catalog/backend/api-design.md) | 两极分化：第四轮新增的有肉，JSON 转换的是骨架 |
+| atomic-skill | **"我掌握什么操作"** — 可勾选、可自测的最小单元 | [prompt-engineering-atomic](../catalog/ai-ml/prompt-engineering.md) | 最佳资产，含反模式+分级掌握+资源 |
 | external | **"参考资料"** — vendor 卡片，不是能力单元 | [django-tdd-pro](../catalog/testing/django-tdd-pro.md) | 是索引卡不是教材，应明确降级为"资源引用" |
 
 **关键判断**：这个模型天然就是"技能蒸馏"结构——atomic 是蒸馏出的最小知识单元，composite 是组合应用，role 是岗位适配面。骨架已经对，问题在三处断点（**2026-07-29 已全部修复**，以下保留作为历史诊断记录）：
@@ -117,8 +117,8 @@ atomic-skill 模板已含 `maturityLevels`（junior/mid/senior 三档行为描�
 
 | 技能 | 层 | 权重 | 自评(0-3) | 证据 | 计划 |
 |---|---|---|---|---|---|
-| [prompt-engineering](../catalog/ai-ml/prompt-engineering-atomic.md) | atomic | 1 | 2 | 完成 XX 项目 prompt 治理 | 补评估集实践 → 3 |
-| [llm-app-development](../catalog/ai-ml/llm-app-development-skill.md) | main | 2 | 1 | 仅读过 | Q3 完成端到端 RAG demo |
+| [prompt-engineering](../catalog/ai-ml/prompt-engineering.md) | atomic | 1 | 2 | 完成 XX 项目 prompt 治理 | 补评估集实践 → 3 |
+| [llm-app-development](../catalog/ai-ml/llm-app-development.md) | main | 2 | 1 | 仅读过 | Q3 完成端到端 RAG demo |
 | … | | | | | |
 
 **适配度：58%**（门槛 60%，差 X 分 → 优先补 llm-evaluation、agent-orchestration）

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Changed — 文件名与 id 严格 1:1(2026-09-05)
+
+- 214 个文件改名去掉历史 `-atomic`/`-skill` 后缀(`-atomic`×168、`-skill`×46),文件名与 frontmatter id 完全一致(470/470);0 冲突
+- 同步修正 412 处正文引用(45+32 个文件,含 roles 成长线附录与 documentation 链接);validate 全绿(0 死链/0 重复)
+
 ### Added — 目录防腐化刷新(2026-09-05)
 
 - 按 skills.sh 榜单(600 条记录,含累计/周安装量)与库内 454 条精确去重,**新增 16 条主流热榜技能**:mattpocock/skills 方法论套件 ×10(handoff/triage/prototype/teach/domain-modeling/codebase-design/diagnosing-bugs/code-review/wayfinder/to-spec/to-tickets)、microsoft/azure-skills 官方 ×3、vercel-labs composition-patterns、heygen hyperframes

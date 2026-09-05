@@ -71,6 +71,6 @@ level: mid
 
 ## 相关 Skills
 
-- [performance-optimization](./performance-optimization-atomic.md) — 先定位瓶颈再决定是否上缓存
-- [database-query](../data/database-query-atomic.md)
-- [circuit-breaker](./circuit-breaker-atomic.md) — 缓存故障时的降级
+- [performance-optimization](./performance-optimization.md) — 先定位瓶颈再决定是否上缓存
+- [database-query](../data/database-query.md)
+- [circuit-breaker](./circuit-breaker.md) — 缓存故障时的降级

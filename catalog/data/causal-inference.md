@@ -21,7 +21,7 @@ level: senior
 - A/B 不可行：伦理限制、流量不够、网络效应、不可逆决策
 - 预测模型给出高相关特征，业务想知道"动这个特征有没有用"
 ## 何时不使用
-- 能做随机实验就做实验（[experiment-design](./experiment-design-atomic.md)）——任何观测方法的假设都比随机化脆弱
+- 能做随机实验就做实验（[experiment-design](./experiment-design.md)）——任何观测方法的假设都比随机化脆弱
 - 只需要预测不需要干预决策——预测模型不需要因果正确也能预测得准
 ## 输入参数
 - `treatment` (string, **必填**) — 干预及其发生机制（谁、为何、何时被处理）
@@ -71,6 +71,6 @@ level: senior
 
 ## 相关 Skills
 
-- [experiment-design](./experiment-design-atomic.md) — 能随机化时的第一选择
-- [statistical-modeling](./statistical-modeling-atomic.md) — 估计工具的基础
-- [analytics](./analytics-atomic.md)
+- [experiment-design](./experiment-design.md) — 能随机化时的第一选择
+- [statistical-modeling](./statistical-modeling.md) — 估计工具的基础
+- [analytics](./analytics.md)

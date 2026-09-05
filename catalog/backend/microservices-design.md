@@ -91,9 +91,9 @@ level: senior
 
 ## 相关 Skills
 
-- [ddd-modeling](./ddd-modeling-atomic.md) — 步骤 1 的领域分解方法
-- [event-driven-architecture](./event-driven-architecture-atomic.md) — 步骤 3 的异步通信设计
-- [grpc](./grpc-atomic.md) — 同步通信的协议选项
-- [circuit-breaker](./circuit-breaker-atomic.md) — 步骤 4 的韧性模式
-- [service-mesh](./service-mesh-atomic.md) — 韧性能力的基础设施化
-- [system-design](./system-design-atomic.md) — 整体架构权衡的底座
+- [ddd-modeling](./ddd-modeling.md) — 步骤 1 的领域分解方法
+- [event-driven-architecture](./event-driven-architecture.md) — 步骤 3 的异步通信设计
+- [grpc](./grpc.md) — 同步通信的协议选项
+- [circuit-breaker](./circuit-breaker.md) — 步骤 4 的韧性模式
+- [service-mesh](./service-mesh.md) — 韧性能力的基础设施化
+- [system-design](./system-design.md) — 整体架构权衡的底座

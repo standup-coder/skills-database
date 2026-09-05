@@ -29,20 +29,20 @@ atomicSkills: read-file, write-file, api-call, security-architecture, vulnerabil
 
 ## 核心能力(主 Skills)
 
-- [security-assessment](../security/security-assessment-skill.md) — 一句话能力
-- [security-audit](../devops/security-audit-skill.md) — 一句话能力
-- [cloud-security](../security/cloud-security-skill.md) — 一句话能力
+- [security-assessment](../security/security-assessment.md) — 一句话能力
+- [security-audit](../devops/security-audit.md) — 一句话能力
+- [cloud-security](../security/cloud-security.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
-- [security-architecture](../security/security-architecture-atomic.md) — 一句话能力
-- [vulnerability-assessment](../security/vulnerability-assessment-atomic.md) — 一句话能力
-- [penetration-testing](../security/penetration-testing-atomic.md) — 一句话能力
-- [compliance](../security/compliance-atomic.md) — 一句话能力
-- [incident-response](../devops/incident-response-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
+- [security-architecture](../security/security-architecture.md) — 一句话能力
+- [vulnerability-assessment](../security/vulnerability-assessment.md) — 一句话能力
+- [penetration-testing](../security/penetration-testing.md) — 一句话能力
+- [compliance](../security/compliance.md) — 一句话能力
+- [incident-response](../devops/incident-response.md) — 一句话能力
 
 ## 经验门槛
 

@@ -114,11 +114,11 @@ devops/ 48 条是全库质量标杆：K8s/Terraform/Docker/CI/监控/追踪/SLO/
 
 ### 3.4 AI/Agent 工程师 — 匹配度 ★★★★☆（80%）
 
-LLM 链路 8 个原子技能 + 2 个复合技能（llm-app-development、agent-orchestration-design）+ 2 个 role，是第四/五轮补强的成果，[prompt-engineering-atomic.md](../catalog/ai-ml/prompt-engineering-atomic.md) 的质量（关键要点/反模式/分级掌握/参考资源齐全）应作为全库范本。缺口：context-window-management、agent-memory-design（KNOWLEDGE_GAPS.json 已识别为 P1）、guardrails-safety、multimodal-app。
+LLM 链路 8 个原子技能 + 2 个复合技能（llm-app-development、agent-orchestration-design）+ 2 个 role，是第四/五轮补强的成果，[prompt-engineering-atomic.md](../catalog/ai-ml/prompt-engineering.md) 的质量（关键要点/反模式/分级掌握/参考资源齐全）应作为全库范本。缺口：context-window-management、agent-memory-design（KNOWLEDGE_GAPS.json 已识别为 P1）、guardrails-safety、multimodal-app。
 
 ### 3.5 后端开发工程师 — 匹配度 ★★★☆☆（60%）
 
-backend/ 21 条有系统设计/API/熔断/幂等/服务网格骨架，但对照后端 JD：缺 message-queue（Kafka/RabbitMQ）、cache-strategy（Redis 模式）、db-transaction-isolation、grpc、ddd-modeling/event-sourcing/cqrs（backlog P1 已列）。且 [api-design-skill.md](../catalog/backend/api-design-skill.md) 是骨架文件——三个步骤全是"执行对应 atomic skill"占位符，无实际知识含量（详见 §五.3）。
+backend/ 21 条有系统设计/API/熔断/幂等/服务网格骨架，但对照后端 JD：缺 message-queue（Kafka/RabbitMQ）、cache-strategy（Redis 模式）、db-transaction-isolation、grpc、ddd-modeling/event-sourcing/cqrs（backlog P1 已列）。且 [api-design-skill.md](../catalog/backend/api-design.md) 是骨架文件——三个步骤全是"执行对应 atomic skill"占位符，无实际知识含量（详见 §五.3）。
 
 ### 3.6 测试工程师 — 匹配度 ★★★☆☆（60%）
 

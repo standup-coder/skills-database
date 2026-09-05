@@ -59,7 +59,7 @@
 
 ### 5. 骨架 composite 内容填充（42 → 0 占位符）
 
-- 手工深度范本：[`catalog/backend/api-design-skill.md`](../catalog/backend/api-design-skill.md)（真实的何时使用/不使用 + 每步完整契约）
+- 手工深度范本：[`catalog/backend/api-design-skill.md`](../catalog/backend/api-design.md)（真实的何时使用/不使用 + 每步完整契约）
 - 新工具 [`tools/import/fill-composite-steps.js`](../tools/import/fill-composite-steps.js)：为其余 41 个骨架按步骤名语义（analyze/produce/verify/deliver/observe/remediate 七类）生成"目标/输入/输出/失败处理"四要素大纲，场景/反例从自身 description 与 tags 派生
 - 升级后的 41 个文件 frontmatter 打 `contentStatus: outline` 标记——**已脱离占位符但仍待人工深化**，人工深化后应改为 `reviewed`（范本即 api-design-skill）
 

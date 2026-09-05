@@ -71,6 +71,6 @@ gRPC 的核心价值是"契约先行"：proto 文件是唯一事实源，代码�
 
 ## 相关 Skills
 
-- [api-design](./api-design-skill.md) — REST 侧的契约设计对照
-- [idempotency-design](./idempotency-design-atomic.md) — 重试安全的前提
-- [service-mesh](./service-mesh-atomic.md) — mTLS/流量治理的基础设施化
+- [api-design](./api-design.md) — REST 侧的契约设计对照
+- [idempotency-design](./idempotency-design.md) — 重试安全的前提
+- [service-mesh](./service-mesh.md) — mTLS/流量治理的基础设施化

@@ -21,7 +21,7 @@ level: mid
 - 设计扣减类业务（库存/余额/配额）需要选隔离级别与锁方案
 - 排查死锁、长事务导致的锁等待与连接池耗尽
 ## 何时不使用
-- 跨服务的数据一致性——单机事务管不到，去看 saga/outbox（[event-driven-architecture](./event-driven-architecture-atomic.md)）
+- 跨服务的数据一致性——单机事务管不到，去看 saga/outbox（[event-driven-architecture](./event-driven-architecture.md)）
 - 纯读分析查询的性能问题——那是索引与执行计划的领域
 ## 输入参数
 - `concurrencyScenario` (string, **必填**) — 并发读写模式描述
@@ -71,6 +71,6 @@ level: mid
 
 ## 相关 Skills
 
-- [idempotency-design](./idempotency-design-atomic.md) — 重试安全的另一半
-- [sql-optimization](../data/sql-optimization-atomic.md)
-- [database-design](../data/database-design-skill.md)
+- [idempotency-design](./idempotency-design.md) — 重试安全的另一半
+- [sql-optimization](../data/sql-optimization.md)
+- [database-design](../data/database-design.md)

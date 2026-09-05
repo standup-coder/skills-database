@@ -72,5 +72,5 @@ level: senior
 
 ## 相关 Skills
 
-- [frontend-architecture-design](./frontend-architecture-design-atomic.md) — 先用单体架构方案对比论证
-- [bundler-optimization](./bundler-optimization-atomic.md) — 共享依赖与产物治理
+- [frontend-architecture-design](./frontend-architecture-design.md) — 先用单体架构方案对比论证
+- [bundler-optimization](./bundler-optimization.md) — 共享依赖与产物治理

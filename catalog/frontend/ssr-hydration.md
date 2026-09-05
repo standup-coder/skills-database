@@ -71,5 +71,5 @@ SSR 解决"首帧快 + 可被爬虫读"，代价是水合：HTML 先到但要等
 
 ## 相关 Skills
 
-- [web-performance-audit](./web-performance-audit-atomic.md) — TTFB/LCP/INP 是渲染策略的验收指标
-- [state-management](./state-management-atomic.md) — 服务端状态注水与客户端状态的边界
+- [web-performance-audit](./web-performance-audit.md) — TTFB/LCP/INP 是渲染策略的验收指标
+- [state-management](./state-management.md) — 服务端状态注水与客户端状态的边界

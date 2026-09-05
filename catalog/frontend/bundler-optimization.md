@@ -73,5 +73,5 @@ level: mid
 
 ## 相关 Skills
 
-- [web-performance-audit](./web-performance-audit-atomic.md) — 确认体积确实是瓶颈后再动手
-- [micro-frontend](./micro-frontend-atomic.md) — 微前端下的共享依赖策略
+- [web-performance-audit](./web-performance-audit.md) — 确认体积确实是瓶颈后再动手
+- [micro-frontend](./micro-frontend.md) — 微前端下的共享依赖策略

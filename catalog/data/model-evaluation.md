@@ -21,7 +21,7 @@ level: mid
 - 离线指标与线上业务指标持续背离，需要重审评估体系
 - 评审他人模型时判断"这个 AUC 可信吗"
 ## 何时不使用
-- 需要因果结论（模型带来多少增量收入）——离线评估回答不了，要上线实验（[experiment-design](./experiment-design-atomic.md)）
+- 需要因果结论（模型带来多少增量收入）——离线评估回答不了，要上线实验（[experiment-design](./experiment-design.md)）
 ## 输入参数
 - `task` (string, **必填**) — 任务类型（分类/回归/排序）与业务目标
 - `dataStructure` (string, **必填**) — 数据的时间/分组结构
@@ -71,6 +71,6 @@ level: mid
 
 ## 相关 Skills
 
-- [feature-engineering](./feature-engineering-atomic.md) — 泄漏审计的另一半
-- [experiment-design](./experiment-design-atomic.md) — 离线过关后的在线验证
-- [llm-evaluation](../ai-ml/llm-evaluation-atomic.md) — 生成式模型的评估分支
+- [feature-engineering](./feature-engineering.md) — 泄漏审计的另一半
+- [experiment-design](./experiment-design.md) — 离线过关后的在线验证
+- [llm-evaluation](../ai-ml/llm-evaluation.md) — 生成式模型的评估分支

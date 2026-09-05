@@ -91,7 +91,7 @@ level: mid
 
 ## 相关 Skills
 
-- [write-e2e-tests](./write-e2e-tests-atomic.md) — 步骤 3 的实现细节
-- [test-strategy](./test-strategy-atomic.md) — 金字塔分层的整体策略
-- [contract-testing](./contract-testing-atomic.md) — 服务间集成的下沉替代方案
-- [run-tests](./run-tests-atomic.md) — CI 中的执行环节
+- [write-e2e-tests](./write-e2e-tests.md) — 步骤 3 的实现细节
+- [test-strategy](./test-strategy.md) — 金字塔分层的整体策略
+- [contract-testing](./contract-testing.md) — 服务间集成的下沉替代方案
+- [run-tests](./run-tests.md) — CI 中的执行环节

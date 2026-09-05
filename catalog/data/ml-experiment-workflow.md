@@ -100,7 +100,7 @@ level: senior
 
 ## 相关 Skills
 
-- [experiment-design](./experiment-design-atomic.md) — 上线后 A/B 验证的实验方法
-- [feature-engineering](./feature-engineering-atomic.md) — 步骤 3 的特征迭代与防泄漏
-- [model-evaluation](./model-evaluation-atomic.md) — 步骤 4 的评估方法论
-- [statistical-modeling](./statistical-modeling-atomic.md) — 基线与可解释模型的选型底座
+- [experiment-design](./experiment-design.md) — 上线后 A/B 验证的实验方法
+- [feature-engineering](./feature-engineering.md) — 步骤 3 的特征迭代与防泄漏
+- [model-evaluation](./model-evaluation.md) — 步骤 4 的评估方法论
+- [statistical-modeling](./statistical-modeling.md) — 基线与可解释模型的选型底座

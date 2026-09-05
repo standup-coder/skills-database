@@ -31,24 +31,24 @@ relatedRoles: senior-frontend-dev, fullstack-developer, ui-ux-designer
 
 ## 核心能力(主 Skills)
 
-- [frontend-architecture](../frontend/frontend-architecture-skill.md) — 中型项目的目录组织、数据流与技术选型
+- [frontend-architecture](../frontend/frontend-architecture.md) — 中型项目的目录组织、数据流与技术选型
 
 ## 基础操作(原子 Skills)
 
-- [component-design](../frontend/component-design-atomic.md) — 可复用、可访问的组件 API 设计
-- [state-management](../frontend/state-management-atomic.md) — 客户端/服务端状态的边界与工具选型
-- [css-architecture](../frontend/css-architecture-atomic.md) — 作用域策略与 design token
-- [typescript-advanced](../frontend/typescript-advanced-atomic.md) — 类型安全建模
-- [accessibility-audit](../frontend/accessibility-audit-atomic.md) — WCAG 审计与修复
-- [web-performance-audit](../frontend/web-performance-audit-atomic.md) — Core Web Vitals 归因
-- [browser-rendering](../frontend/browser-rendering-atomic.md) — 渲染管线与卡顿排查
-- [bundler-optimization](../frontend/bundler-optimization-atomic.md) — 产物体积治理
-- [run-tests](../testing/run-tests-atomic.md)
-- [run-linter](../testing/run-linter-atomic.md)
-- [write-unit-tests](../testing/write-unit-tests-atomic.md)
-- [git-diff](../productivity/git-diff-atomic.md)
-- [read-file](../productivity/read-file-atomic.md)
-- [write-file](../productivity/write-file-atomic.md)
+- [component-design](../frontend/component-design.md) — 可复用、可访问的组件 API 设计
+- [state-management](../frontend/state-management.md) — 客户端/服务端状态的边界与工具选型
+- [css-architecture](../frontend/css-architecture.md) — 作用域策略与 design token
+- [typescript-advanced](../frontend/typescript-advanced.md) — 类型安全建模
+- [accessibility-audit](../frontend/accessibility-audit.md) — WCAG 审计与修复
+- [web-performance-audit](../frontend/web-performance-audit.md) — Core Web Vitals 归因
+- [browser-rendering](../frontend/browser-rendering.md) — 渲染管线与卡顿排查
+- [bundler-optimization](../frontend/bundler-optimization.md) — 产物体积治理
+- [run-tests](../testing/run-tests.md)
+- [run-linter](../testing/run-linter.md)
+- [write-unit-tests](../testing/write-unit-tests.md)
+- [git-diff](../productivity/git-diff.md)
+- [read-file](../productivity/read-file.md)
+- [write-file](../productivity/write-file.md)
 
 ## 经验门槛
 
@@ -63,12 +63,12 @@ relatedRoles: senior-frontend-dev, fullstack-developer, ui-ux-designer
 
 ### Junior → Mid（本 role 的入口）
 - 先吃透三大基础：语义化 HTML → CSS 布局（Flex/Grid/响应式）→ JavaScript 核心（闭包/异步/事件循环），再进框架
-- 用 [component-design](../frontend/component-design-atomic.md) + [state-management](../frontend/state-management-atomic.md) 完成 2-3 个真实项目（含表单、列表、鉴权流程）
+- 用 [component-design](../frontend/component-design.md) + [state-management](../frontend/state-management.md) 完成 2-3 个真实项目（含表单、列表、鉴权流程）
 - 建立测试习惯：每个组件配单测，关键流程配 e2e
 
 ### Mid → Senior（进阶到 [senior-frontend-dev](./senior-frontend-dev.md)）
-- 补性能与原理纵深：[web-performance-audit](../frontend/web-performance-audit-atomic.md) → [browser-rendering](../frontend/browser-rendering-atomic.md) → [bundler-optimization](../frontend/bundler-optimization-atomic.md)
-- 补架构广度：[css-architecture](../frontend/css-architecture-atomic.md)、[ssr-hydration](../frontend/ssr-hydration-atomic.md)、[micro-frontend](../frontend/micro-frontend-atomic.md)
+- 补性能与原理纵深：[web-performance-audit](../frontend/web-performance-audit.md) → [browser-rendering](../frontend/browser-rendering.md) → [bundler-optimization](../frontend/bundler-optimization.md)
+- 补架构广度：[css-architecture](../frontend/css-architecture.md)、[ssr-hydration](../frontend/ssr-hydration.md)、[micro-frontend](../frontend/micro-frontend.md)
 - 产出可举证的成果：主导一次性能专项或设计系统落地
 
 ## 相关角色

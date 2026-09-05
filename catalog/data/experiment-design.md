@@ -21,7 +21,7 @@ level: mid
 - 多个方案争执不下，需要数据而非嗓门决策
 - 算法/模型迭代需要在线验证离线指标的真实增益
 ## 何时不使用
-- 样本量根本不够（低流量 × 小效应 = 实验永远跑不出结论）——改用前后对比 + [causal-inference](./causal-inference-atomic.md) 方法
+- 样本量根本不够（低流量 × 小效应 = 实验永远跑不出结论）——改用前后对比 + [causal-inference](./causal-inference.md) 方法
 - 干预有强网络效应（社交/市场双边）且无法切换随机化单元——个体随机化的结论是错的
 - 伦理或战略性不可逆决策（品牌重塑）——不是所有问题都该 A/B
 ## 输入参数
@@ -73,6 +73,6 @@ level: mid
 
 ## 相关 Skills
 
-- [causal-inference](./causal-inference-atomic.md) — 不能做实验时的替代方案
-- [funnel-analysis](./funnel-analysis-atomic.md) — 实验指标常来自漏斗
-- [analytics](./analytics-atomic.md)
+- [causal-inference](./causal-inference.md) — 不能做实验时的替代方案
+- [funnel-analysis](./funnel-analysis.md) — 实验指标常来自漏斗
+- [analytics](./analytics.md)

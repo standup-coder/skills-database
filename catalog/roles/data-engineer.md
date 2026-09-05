@@ -29,20 +29,20 @@ atomicSkills: read-file, write-file, database-query, api-call, data-pipeline, et
 
 ## 核心能力(主 Skills)
 
-- [database-design](../data/database-design-skill.md) — 一句话能力
-- [architecture-design](../backend/architecture-design-skill.md) — 一句话能力
+- [database-design](../data/database-design.md) — 一句话能力
+- [architecture-design](../backend/architecture-design.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [database-query](../data/database-query-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
-- [data-pipeline](../data/data-pipeline-atomic.md) — 一句话能力
-- [etl-development](../data/etl-development-atomic.md) — 一句话能力
-- [sql-optimization](../data/sql-optimization-atomic.md) — 一句话能力
-- [data-quality](../data/data-quality-atomic.md) — 一句话能力
-- [warehouse-design](../data/warehouse-design-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [database-query](../data/database-query.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
+- [data-pipeline](../data/data-pipeline.md) — 一句话能力
+- [etl-development](../data/etl-development.md) — 一句话能力
+- [sql-optimization](../data/sql-optimization.md) — 一句话能力
+- [data-quality](../data/data-quality.md) — 一句话能力
+- [warehouse-design](../data/warehouse-design.md) — 一句话能力
 
 ## 经验门槛
 

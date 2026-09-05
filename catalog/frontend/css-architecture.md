@@ -71,5 +71,5 @@ CSS 架构解决的是三个规模化问题：作用域隔离（谁影响谁）�
 
 ## 相关 Skills
 
-- [component-design](./component-design-atomic.md) — 组件层是语义抽象的载体
-- [accessibility-audit](./accessibility-audit-atomic.md) — 焦点/状态样式的可访问性约束
+- [component-design](./component-design.md) — 组件层是语义抽象的载体
+- [accessibility-audit](./accessibility-audit.md) — 焦点/状态样式的可访问性约束

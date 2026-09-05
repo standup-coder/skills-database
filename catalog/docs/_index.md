@@ -18,7 +18,7 @@ count: 16
 | [internal-communication](./internal-communication.md) | 内部沟通 | external | qoder |
 | [visa-document-translator](./visa-document-translator.md) | 签证文档翻译器 | external | mcpmarket |
 | [visa-document-translator-cn-to-en](./visa-document-translator-cn-to-en.md) | 签证文档翻译器(中译英) | external | mcpmarket |
-| [write-comment](./write-comment-atomic.md) | 写注释 | atomic-skill | internal |
+| [write-comment](./write-comment.md) | 写注释 | atomic-skill | internal |
 | [xlsx](./xlsx.md) | Excel 表格处理（xlsx） | external | anthropic |
 | [netmiko-ssh-automation-ja](./netmiko-ssh-automation-ja.md) | Netmiko SSH 自动化(日文本地化) | external | mcpmarket |
 | [pdf](./pdf.md) | PDF 处理（pdf） | external | anthropic |

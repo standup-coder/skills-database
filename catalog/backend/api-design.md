@@ -83,7 +83,7 @@ level: mid
 
 ## 相关 Skills
 
-- [api-development](./api-development-atomic.md) — 契约确定后的实现环节
-- [system-design](./system-design-atomic.md) — API 是系统边界设计的一部分
-- [idempotency-design](./idempotency-design-atomic.md) — 写操作端点的幂等语义
-- [code-review](./code-review-skill.md) — 契约实现的评审环节
+- [api-development](./api-development.md) — 契约确定后的实现环节
+- [system-design](./system-design.md) — API 是系统边界设计的一部分
+- [idempotency-design](./idempotency-design.md) — 写操作端点的幂等语义
+- [code-review](./code-review.md) — 契约实现的评审环节

@@ -71,5 +71,5 @@ level: mid
 
 ## 相关 Skills
 
-- [component-design](./component-design-atomic.md) — 在组件 API 层内建可访问性
-- [css-architecture](./css-architecture-atomic.md) — 焦点样式与状态样式的系统化管理
+- [component-design](./component-design.md) — 在组件 API 层内建可访问性
+- [css-architecture](./css-architecture.md) — 焦点样式与状态样式的系统化管理

@@ -31,22 +31,22 @@ atomicSkills: prompt-engineering, embeddings-design, vector-search, rag-pipeline
 
 ## 核心能力(主 Skills)
 
-- [llm-app-development](../ai-ml/llm-app-development-skill.md) — 一句话能力
-- [agent-orchestration-design](../ai-ml/agent-orchestration-design-skill.md) — 一句话能力
+- [llm-app-development](../ai-ml/llm-app-development.md) — 一句话能力
+- [agent-orchestration-design](../ai-ml/agent-orchestration-design.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [prompt-engineering](../ai-ml/prompt-engineering-atomic.md) — 一句话能力
-- [embeddings-design](../ai-ml/embeddings-design-atomic.md) — 一句话能力
-- [vector-search](../ai-ml/vector-search-atomic.md) — 一句话能力
-- [rag-pipeline](../ai-ml/rag-pipeline-atomic.md) — 一句话能力
-- [llm-evaluation](../ai-ml/llm-evaluation-atomic.md) — 一句话能力
-- [agent-orchestration](../ai-ml/agent-orchestration-atomic.md) — 一句话能力
-- [tool-use-design](../ai-ml/tool-use-design-atomic.md) — 一句话能力
-- [fine-tuning](../ai-ml/fine-tuning-atomic.md) — 一句话能力
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
+- [prompt-engineering](../ai-ml/prompt-engineering.md) — 一句话能力
+- [embeddings-design](../ai-ml/embeddings-design.md) — 一句话能力
+- [vector-search](../ai-ml/vector-search.md) — 一句话能力
+- [rag-pipeline](../ai-ml/rag-pipeline.md) — 一句话能力
+- [llm-evaluation](../ai-ml/llm-evaluation.md) — 一句话能力
+- [agent-orchestration](../ai-ml/agent-orchestration.md) — 一句话能力
+- [tool-use-design](../ai-ml/tool-use-design.md) — 一句话能力
+- [fine-tuning](../ai-ml/fine-tuning.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
 
 ## 经验门槛
 

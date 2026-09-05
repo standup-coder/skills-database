@@ -29,17 +29,17 @@ atomicSkills: read-file, write-file, api-call, risk-management, team-leadership,
 
 ## 核心能力(主 Skills)
 
-- [technical-strategy](../backend/technical-strategy-skill.md) — 一句话能力
-- [architecture-design](../backend/architecture-design-skill.md) — 一句话能力
+- [technical-strategy](../backend/technical-strategy.md) — 一句话能力
+- [architecture-design](../backend/architecture-design.md) — 一句话能力
 
 ## 基础操作(原子 Skills)
 
-- [read-file](../productivity/read-file-atomic.md) — 一句话能力
-- [write-file](../productivity/write-file-atomic.md) — 一句话能力
-- [api-call](../security/api-call-atomic.md) — 一句话能力
-- [risk-management](../product/risk-management-atomic.md) — 一句话能力
-- [team-leadership](../product/team-leadership-atomic.md) — 一句话能力
-- [vendor-management](../product/vendor-management-atomic.md) — 一句话能力
+- [read-file](../productivity/read-file.md) — 一句话能力
+- [write-file](../productivity/write-file.md) — 一句话能力
+- [api-call](../security/api-call.md) — 一句话能力
+- [risk-management](../product/risk-management.md) — 一句话能力
+- [team-leadership](../product/team-leadership.md) — 一句话能力
+- [vendor-management](../product/vendor-management.md) — 一句话能力
 
 ## 经验门槛
 
