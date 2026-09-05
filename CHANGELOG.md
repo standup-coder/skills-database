@@ -1,5 +1,23 @@
 # Changelog
 
+## [Unreleased]
+
+### Added — 评估建议落地(2026-09-04)
+
+- **校验器扩展**(`validate-refs.js`):duplicateOf 解析校验(存在/自指/成链,违规拦截)、title/tags 必填检查、type/domain/source 枚举合法性(从实际目录推导)、id kebab-case 与日期格式检查、章节覆盖统计;路径统一经 `resolveWithin` 边界防护,链接遍历改用 `matchAll`
+- **浏览站折叠跨源转载**(`web/build.js`):带 `duplicateOf` 的条目不再单独渲染,canonical 卡片标注"另有 N 个跨源转载版本";454 条呈现为 435 可见 + 19 折叠
+- **documentation/ 导航**:新增 `_index.md`(当前有效 vs 历史档案),SDK 时代过程文档 9 件移入 `archive/`,受影响链接已修复
+- **README**:`role:fit` 自评用法、`tools/gtm/` 目录说明
+
+### Changed — id 规范化补完(2026-09-04)
+
+- 42 个中文 id/文件名改英文 kebab-case(首轮只清理了 3 种关键词命中的 5 个,校验器新增 id 格式检查后暴露存量),含语义翻译与碰撞消解
+- 新发现 9 组 qoder 转载并标注 `duplicateOf`(品牌指南→brand-guidelines、算法艺术→algorithmic-art、PowerPoint→pptx、Word→docx、skill 创建器→skill-creator、web-artifacts 构建器→web-artifacts-builder、主题工厂→theme-factory、slack-gif 创建器→slack-gif-creator、评估→agent-evaluation),转载总数 10 → 19;跨域转载移至 canonical 所在领域
+- `GTM/` → `tools/gtm/`(web 呈现层统一归口);移除冗余 `dist/` 构建产物;`.env` 随迁移脱离版本控制
+- `.gitignore` 清理 docs/data 时代残留条目,新增 `tools/gtm/dist/`
+
+---
+
 ## [3.1.0] - 2026-08-31
 
 ### Fixed — 基建对齐:CI 与公开站点跟上 3.0 转型

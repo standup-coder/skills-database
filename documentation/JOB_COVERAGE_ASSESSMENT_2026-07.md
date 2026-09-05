@@ -103,7 +103,7 @@ frontend/ 16 条中真正可学的岗位技能只有 5 条 internal（frontend-a
 
 ### 3.2 数据科学家 — 匹配度 ★★★☆☆（55%）
 
-data-scientist role 存在，data/ 33 条中管道/仓库/质量三条复合技能线完整（data-pipeline-build、data-warehouse-design、data-quality-management，见 [COVERAGE_GAP_REPORT](./COVERAGE_GAP_REPORT.md) 第四轮成果）。但 DS 的**建模主线完全缺失**：
+data-scientist role 存在，data/ 33 条中管道/仓库/质量三条复合技能线完整（data-pipeline-build、data-warehouse-design、data-quality-management，见 [COVERAGE_GAP_REPORT](./archive/COVERAGE_GAP_REPORT.md) 第四轮成果）。但 DS 的**建模主线完全缺失**：
 
 - ❌ 缺失：statistical-modeling、experiment-design（A/B 深化版）、causal-inference、feature-engineering、model-evaluation-offline、ml-model-deployment
 - ⚠️ 现状把 DS 的 mainSkills 挂到 data-pipeline-build 上，这是 data-engineer 的技能面，属"岗位画像借用"，会误导学习者
@@ -158,7 +158,7 @@ backend/ 21 条有系统设计/API/熔断/幂等/服务网格骨架，但对照�
 2. **后端 6 条**（P0）：message-queue、cache-strategy、db-transaction、grpc、ddd-modeling、event-driven-architecture —— **✅ 2026-07-29 已全部产出**（见 `catalog/backend/`）
 3. **DS 建模 5 条**（P1）：statistical-modeling、experiment-design、feature-engineering、model-evaluation、causal-inference —— **✅ 2026-07-29 已全部产出**（见 `catalog/data/`）
 4. **AI 深化 4 条**（P1）：context-window-management、agent-memory-design、guardrails-safety、llm-cost-optimization —— **✅ 2026-07-29 已全部产出**（见 `catalog/ai-ml/`，参考源含 Anthropic 工程博客/OWASP LLM Top 10/MemGPT-CoALA 论文）
-5. backlog（[KNOWLEDGE_BACKLOG.json](./KNOWLEDGE_BACKLOG.json)）中 P1 的数据库进阶 4 条、产品/UX 3 条继续按原计划推进
+5. backlog（[KNOWLEDGE_BACKLOG.json](./archive/KNOWLEDGE_BACKLOG.json)）中 P1 的数据库进阶 4 条、产品/UX 3 条继续按原计划推进
 
 ### 5.2 复合技能补齐 —— **✅ 2026-07-29 已全部产出**
 

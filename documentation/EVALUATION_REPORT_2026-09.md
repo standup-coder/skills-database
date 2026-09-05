@@ -218,3 +218,23 @@ grep -rh "^catalogSource:" catalog --include="*.md" | sort | uniq -c
 | `frontend/algorithmic-art` | `frontend/anthropic-algorithmic-art`(voltagent) |
 | `frontend/frontend-design` | `frontend/anthropic-frontend-design`(voltagent) · `frontend/qoder-frontend-design`(qoder) |
 | `design/canvas-design` | `design/qoder-canvas-design`(qoder) |
+
+---
+
+## 后记(2026-09-04 · 评估建议落地)
+
+§六 剩余短板的处置进展:
+
+1. **内容深度** — 未变(策略待定:聚焦 personal/ 真实在学的条目补全)。章节覆盖已纳入 `import:validate` 常态输出,后续可量化追踪。
+2. **未提交** — 仍未提交(含本后记对应的全部落地改动)。
+3. **提交历史** — 未变。
+4. **小项全部落地**:
+   - `role:fit` 已写入 README「怎么用」;
+   - 浏览站已折叠 `duplicateOf` 条目(435 可见 + 19 折叠,canonical 卡片标注转载数);
+   - CI/Pages 修改仍未真实 push 验证。
+
+**数据修正**:
+
+- 正文"其引用的 GTM/ 目录从未创建"已过时:GTM 说服页后续已提交,现位于 [`tools/gtm/`](../tools/gtm/)(按"web 呈现层归口 tools/"原则从顶层迁入,冗余 `dist/` 已删,`.env` 已脱离版本控制)。
+- 附录-三 中文文件名改名实际为两批:首批 5 个(2026-08-31),第二批 42 个(2026-09-04,校验器新增 id 格式检查后暴露存量),累计 47 个;转载标注 10 → 19 条。
+- `documentation/` 已建立导航(见 [`_index.md`](./_index.md)),SDK 时代过程文档移入 `archive/`。
