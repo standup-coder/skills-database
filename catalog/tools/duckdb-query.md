@@ -6,7 +6,7 @@ repoUrl: https://github.com/duckdb/skills
 title: "DuckDB/query"
 nameZh: "DuckDB 查询"
 category: "Database"
-tags: 
+tags: ["duckdb","analytics","sql"]
 rank: 20
 id: duckdb-query
 domain: tools

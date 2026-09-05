@@ -6,7 +6,7 @@ repoUrl: https://github.com/cypress-io/ai-toolkit/tree/main/skills/cypress-autho
 title: "Cypress/cypress-author"
 nameZh: "Cypress 测试编写"
 category: "Testing"
-tags: 
+tags: ["cypress","e2e","testing"]
 rank: 33
 id: cypress-cypress-author
 domain: testing

@@ -6,7 +6,7 @@ repoUrl: https://github.com/veniceai/skills/tree/main/skills/venice-chat
 title: "Venice.ai/venice-chat"
 nameZh: "Venice 对话 API"
 category: "AI/LLM APIs"
-tags: 
+tags: ["venice-ai","llm","chat"]
 rank: 13
 id: venice-ai-venice-chat
 domain: ai-ml

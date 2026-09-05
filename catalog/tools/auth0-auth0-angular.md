@@ -6,7 +6,7 @@ repoUrl: https://github.com/auth0/skills
 title: "Auth0/auth0-angular"
 nameZh: "Auth0 Angular 集成"
 category: "Auth / Security"
-tags: 
+tags: ["auth0","authentication","angular"]
 rank: 41
 id: auth0-auth0-angular
 domain: tools

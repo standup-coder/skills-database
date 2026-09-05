@@ -6,7 +6,7 @@ repoUrl: https://github.com/mendableai/skills
 title: "Firecrawl/firecrawl-build"
 nameZh: "Firecrawl 网页抓取"
 category: "Data / Crawling"
-tags: 
+tags: ["firecrawl","web-scraping","crawler"]
 rank: 45
 id: firecrawl-firecrawl-build
 domain: tools

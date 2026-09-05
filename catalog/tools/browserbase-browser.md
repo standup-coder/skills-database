@@ -6,7 +6,7 @@ repoUrl: https://github.com/browserbase/skills
 title: "Browserbase/browser"
 nameZh: "Browserbase 浏览器自动化"
 category: "Testing / Automation"
-tags: 
+tags: ["browserbase","browser-automation"]
 rank: 34
 id: browserbase-browser
 domain: tools

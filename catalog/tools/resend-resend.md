@@ -6,7 +6,7 @@ repoUrl: https://github.com/resend/resend-skills/tree/main/skills/resend
 title: "Resend/resend"
 nameZh: "Resend 邮件 API"
 category: "Communication"
-tags: 
+tags: ["resend","email","api"]
 rank: 35
 id: resend-resend
 domain: tools

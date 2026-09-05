@@ -6,7 +6,7 @@ repoUrl: https://github.com/apollographql/skills
 title: "Apollo/apollo-client"
 nameZh: "Apollo Client GraphQL"
 category: "GraphQL"
-tags: 
+tags: ["apollo","graphql","client"]
 rank: 47
 id: apollo-apollo-client
 domain: frontend

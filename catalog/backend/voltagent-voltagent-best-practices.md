@@ -6,7 +6,7 @@ repoUrl: https://github.com/voltagent/voltagent
 title: "VoltAgent/voltagent-best-practices"
 nameZh: "VoltAgent 最佳实践"
 category: "Agent Framework"
-tags: 
+tags: ["voltagent","agent","best-practices"]
 rank: 48
 id: voltagent-voltagent-best-practices
 domain: backend

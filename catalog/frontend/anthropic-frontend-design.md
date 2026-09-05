@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/frontend-design
 title: "Anthropic/frontend-design"
 nameZh: "前端设计"
 category: "Official Skills / Frontend"
-tags: 
+tags: ["anthropic","ui-design","frontend"]
 rank: 8
 id: anthropic-frontend-design
 duplicateOf: frontend-design

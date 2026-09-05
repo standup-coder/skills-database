@@ -6,7 +6,7 @@ repoUrl: https://github.com/replicate/skills
 title: "Replicate/replicate"
 nameZh: "Replicate 模型运行"
 category: "AI/LLM APIs"
-tags: 
+tags: ["replicate","ml-models","api"]
 rank: 14
 id: replicate-replicate
 domain: tools

@@ -6,7 +6,7 @@ repoUrl: https://github.com/neondatabase/skills
 title: "Neon/neon-postgres"
 nameZh: "Neon Postgres"
 category: "Database"
-tags: 
+tags: ["neon","postgresql","serverless"]
 rank: 22
 id: neon-neon-postgres
 domain: tools

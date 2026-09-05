@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/xlsx
 title: "Anthropic/xlsx"
 nameZh: "Excel 电子表格"
 category: "Official Skills / Documents"
-tags: 
+tags: ["anthropic","xlsx","spreadsheet"]
 rank: 6
 id: anthropic-xlsx
 duplicateOf: xlsx

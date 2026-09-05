@@ -6,7 +6,7 @@ repoUrl: https://github.com/hashicorp/skills
 title: "HashiCorp/new-terraform-provider"
 nameZh: "Terraform Provider 脚手架"
 category: "DevOps / Infra"
-tags: 
+tags: ["hashicorp","terraform","provider","iac"]
 rank: 23
 id: hashicorp-new-terraform-provider
 domain: devops

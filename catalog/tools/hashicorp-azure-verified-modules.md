@@ -6,7 +6,7 @@ repoUrl: https://github.com/hashicorp/skills
 title: "HashiCorp/azure-verified-modules"
 nameZh: "Azure 验证模块"
 category: "DevOps / Infra"
-tags: 
+tags: ["hashicorp","terraform","azure","iac"]
 rank: 24
 id: hashicorp-azure-verified-modules
 domain: tools

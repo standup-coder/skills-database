@@ -6,7 +6,7 @@ repoUrl: https://github.com/brave/skills
 title: "Brave/answers"
 nameZh: "Brave AI 搜索回答"
 category: "Productivity / Search"
-tags: 
+tags: ["brave","search","ai"]
 rank: 39
 id: brave-answers
 domain: tools

@@ -6,7 +6,7 @@ repoUrl: https://github.com/LambdaTest/agent-skills/tree/main/playwright-skill
 title: "TestMu AI/playwright-skill"
 nameZh: "Playwright 测试生成"
 category: "Testing"
-tags: 
+tags: ["playwright","e2e","testing"]
 rank: 32
 id: testmu-ai-playwright-skill
 domain: testing

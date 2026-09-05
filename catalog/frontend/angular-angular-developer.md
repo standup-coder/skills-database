@@ -6,7 +6,7 @@ repoUrl: https://github.com/angular/skills
 title: "Angular/angular-developer"
 nameZh: "Angular 开发者"
 category: "Frontend / Web"
-tags: 
+tags: ["angular","frontend","framework"]
 rank: 31
 id: angular-angular-developer
 domain: frontend

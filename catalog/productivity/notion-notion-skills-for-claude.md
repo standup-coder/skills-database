@@ -6,7 +6,7 @@ repoUrl: https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d2718
 title: "Notion/Notion-Skills-for-Claude"
 nameZh: "Notion 协作技能"
 category: "Productivity"
-tags: 
+tags: ["notion","productivity","integration"]
 rank: 37
 id: notion-notion-skills-for-claude
 domain: productivity

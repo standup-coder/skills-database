@@ -6,7 +6,7 @@ repoUrl: https://github.com/huggingface/skills
 title: "Hugging Face/hf-cli"
 nameZh: "Hugging Face CLI"
 category: "AI/LLM APIs"
-tags: 
+tags: ["hugging-face","cli","models"]
 rank: 12
 id: hugging-face-hf-cli
 domain: tools

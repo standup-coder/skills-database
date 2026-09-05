@@ -6,7 +6,7 @@ repoUrl: https://github.com/firebase/skills
 title: "Firebase/firebase-basics"
 nameZh: "Firebase 基础"
 category: "Mobile / Backend"
-tags: 
+tags: ["firebase","baas","basics"]
 rank: 30
 id: firebase-firebase-basics
 domain: tools

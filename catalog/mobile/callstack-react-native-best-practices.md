@@ -6,7 +6,7 @@ repoUrl: https://github.com/callstackincubator/skills
 title: "CallStack/react-native-best-practices"
 nameZh: "React Native 最佳实践"
 category: "Mobile"
-tags: 
+tags: ["react-native","callstack","best-practices"]
 rank: 29
 id: callstack-react-native-best-practices
 domain: mobile

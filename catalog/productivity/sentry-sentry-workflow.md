@@ -6,7 +6,7 @@ repoUrl: https://github.com/getsentry/skills
 title: "Sentry/sentry-workflow"
 nameZh: "Sentry 工作流"
 category: "Observability"
-tags: 
+tags: ["sentry","monitoring","error-tracking"]
 rank: 42
 id: sentry-sentry-workflow
 domain: productivity

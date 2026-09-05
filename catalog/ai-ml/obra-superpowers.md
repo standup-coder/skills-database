@@ -6,7 +6,7 @@ repoUrl: https://github.com/obra/superpowers
 title: "obra/superpowers"
 nameZh: "Superpowers 工作流"
 category: "Community / Productivity"
-tags: 
+tags: ["superpowers","workflow","skills"]
 rank: 49
 id: obra-superpowers
 domain: ai-ml

@@ -6,7 +6,7 @@ repoUrl: https://github.com/composiohq/skills
 title: "Composio/composio"
 nameZh: "Composio 工具集成"
 category: "Integrations"
-tags: 
+tags: ["composio","integration","actions"]
 rank: 44
 id: composio-composio
 domain: tools

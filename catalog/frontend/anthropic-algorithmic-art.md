@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/algorithmic-art
 title: "Anthropic/algorithmic-art"
 nameZh: "算法生成艺术"
 category: "Official Skills / Creative"
-tags: 
+tags: ["anthropic","generative-art","p5js"]
 rank: 7
 id: anthropic-algorithmic-art
 duplicateOf: algorithmic-art

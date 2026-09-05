@@ -6,7 +6,7 @@ repoUrl: https://github.com/stripe/skills
 title: "Stripe/stripe-best-practices"
 nameZh: "Stripe 集成最佳实践"
 category: "Backend / Payments"
-tags: 
+tags: ["stripe","payments","best-practices"]
 rank: 15
 id: stripe-stripe-best-practices
 domain: tools

@@ -6,7 +6,7 @@ repoUrl: https://github.com/tinybirdco/skills
 title: "Tinybird/tinybird-best-practices"
 nameZh: "Tinybird 最佳实践"
 category: "Database"
-tags: 
+tags: ["tinybird","analytics","best-practices"]
 rank: 21
 id: tinybird-tinybird-best-practices
 domain: data

@@ -6,7 +6,7 @@ repoUrl: https://github.com/google-gemini/gemini-skills
 title: "Google Gemini/gemini-api-dev"
 nameZh: "Gemini API 开发"
 category: "AI/LLM APIs"
-tags: 
+tags: ["google","gemini","llm","api"]
 rank: 9
 id: google-gemini-gemini-api-dev
 domain: ai-ml

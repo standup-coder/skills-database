@@ -6,7 +6,7 @@ repoUrl: https://github.com/better-auth/skills
 title: "Better Auth/best-practices"
 nameZh: "Better Auth 最佳实践"
 category: "Auth / Security"
-tags: 
+tags: ["better-auth","authentication","best-practices"]
 rank: 40
 id: better-auth-best-practices
 domain: tools

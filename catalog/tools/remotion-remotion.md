@@ -6,7 +6,7 @@ repoUrl: https://github.com/remotion-dev/skills
 title: "Remotion/remotion"
 nameZh: "Remotion 视频生成"
 category: "Multimedia"
-tags: 
+tags: ["remotion","video","react"]
 rank: 46
 id: remotion-remotion
 domain: tools

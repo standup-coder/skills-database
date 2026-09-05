@@ -6,7 +6,7 @@ repoUrl: https://github.com/supabase/skills
 title: "Supabase/postgres-best-practices"
 nameZh: "Supabase Postgres 最佳实践"
 category: "Database"
-tags: 
+tags: ["supabase","postgresql","best-practices"]
 rank: 17
 id: supabase-postgres-best-practices
 domain: data

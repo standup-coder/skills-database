@@ -6,7 +6,7 @@ repoUrl: https://github.com/netlify/skills
 title: "Netlify/netlify-functions"
 nameZh: "Netlify Functions"
 category: "Frontend / Web"
-tags: 
+tags: ["netlify","serverless","functions"]
 rank: 26
 id: netlify-netlify-functions
 domain: devops

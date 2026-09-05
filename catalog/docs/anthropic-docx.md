@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/docx
 title: "Anthropic/docx"
 nameZh: "Word 文档处理"
 category: "Official Skills / Documents"
-tags: 
+tags: ["anthropic","docx","document"]
 rank: 3
 id: anthropic-docx
 duplicateOf: docx

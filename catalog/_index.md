@@ -26,10 +26,9 @@ subtitle: 职业技能学习与挑选 · 本地 SkillHub
 | [marketing](./marketing/) | 14 | 营销 |
 | [mobile](./mobile/) | 11 | 移动开发 |
 | [productivity](./productivity/) | 10 | 生产力 / 工具 |
-| [uncategorized](./uncategorized/) | 0 | 未分类 |
 
 ## 总计
 
-- 共 **454** 条 skills,分布在 16 个领域
+- 共 **454** 条 skills,分布在 15 个领域
 - 原始来源位于 `sources/`,保留采集时点与源站点元数据
 - 归类规则见 `tools/import/classify.js` · 索引刷新见 `tools/import/regenerate-indices.js`

@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/pdf
 title: "Anthropic/pdf"
 nameZh: "PDF 处理"
 category: "Official Skills / Documents"
-tags: 
+tags: ["anthropic","pdf","document"]
 rank: 4
 id: anthropic-pdf
 duplicateOf: pdf

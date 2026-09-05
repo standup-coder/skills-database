@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/mcp-builder
 title: "Anthropic/mcp-builder"
 nameZh: "MCP 服务器构建器"
 category: "Official Skills / Integrations"
-tags: 
+tags: ["anthropic","mcp","server","integration"]
 rank: 2
 id: anthropic-mcp-builder
 duplicateOf: mcp-builder

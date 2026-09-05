@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/skill-creator
 title: "Anthropic/skill-creator"
 nameZh: "技能创建器"
 category: "Official Skills / Meta"
-tags: 
+tags: ["anthropic","meta","authoring"]
 rank: 1
 id: anthropic-skill-creator
 duplicateOf: skill-creator

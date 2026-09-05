@@ -6,7 +6,7 @@ repoUrl: https://github.com/stripe/skills
 title: "Stripe/upgrade-stripe"
 nameZh: "Stripe SDK 升级"
 category: "Backend / Payments"
-tags: 
+tags: ["stripe","payments","mobile"]
 rank: 16
 id: stripe-upgrade-stripe
 domain: mobile

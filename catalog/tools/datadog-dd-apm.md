@@ -6,7 +6,7 @@ repoUrl: https://github.com/DataDog/skills
 title: "Datadog/dd-apm"
 nameZh: "Datadog APM 查询"
 category: "Observability"
-tags: 
+tags: ["datadog","apm","monitoring"]
 rank: 43
 id: datadog-dd-apm
 domain: tools

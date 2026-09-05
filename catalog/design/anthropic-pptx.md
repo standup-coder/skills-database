@@ -6,7 +6,7 @@ repoUrl: https://github.com/anthropics/skills/tree/main/skills/pptx
 title: "Anthropic/pptx"
 nameZh: "PowerPoint 演示文稿"
 category: "Official Skills / Documents"
-tags: 
+tags: ["anthropic","pptx","presentation"]
 rank: 5
 id: anthropic-pptx
 duplicateOf: pptx

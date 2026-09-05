@@ -6,7 +6,7 @@ repoUrl: https://github.com/cloudflare/skills
 title: "Cloudflare/cloudflare"
 nameZh: "Cloudflare 平台"
 category: "DevOps / Infra"
-tags: 
+tags: ["cloudflare","workers","edge","deployment"]
 rank: 25
 id: cloudflare-cloudflare
 domain: ai-ml

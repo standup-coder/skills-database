@@ -6,7 +6,7 @@ repoUrl: https://github.com/trycourier/courier-skills
 title: "Courier/courier-skills"
 nameZh: "Courier 多通道通知"
 category: "Communication"
-tags: 
+tags: ["courier","notification","messaging"]
 rank: 36
 id: courier-courier-skills
 domain: tools

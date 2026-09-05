@@ -6,7 +6,7 @@ repoUrl: https://github.com/mongodb-js/skills
 title: "MongoDB/mongodb-schema-design"
 nameZh: "MongoDB 模式设计"
 category: "Database"
-tags: 
+tags: ["mongodb","schema-design","database"]
 rank: 18
 id: mongodb-mongodb-schema-design
 domain: data

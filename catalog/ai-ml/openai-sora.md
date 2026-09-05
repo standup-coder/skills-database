@@ -6,7 +6,7 @@ repoUrl: https://github.com/openai/skills
 title: "OpenAI/sora"
 nameZh: "Sora 视频生成"
 category: "AI/LLM APIs"
-tags: 
+tags: ["openai","sora","video-generation"]
 rank: 11
 id: openai-sora
 domain: ai-ml

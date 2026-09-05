@@ -6,7 +6,7 @@ repoUrl: https://github.com/qdrant/skills
 title: "qdrant/skills"
 nameZh: "Qdrant 向量数据库"
 category: "Community / Vector DB"
-tags: 
+tags: ["qdrant","vector-database","search"]
 rank: 50
 id: qdrant-skills
 domain: ai-ml

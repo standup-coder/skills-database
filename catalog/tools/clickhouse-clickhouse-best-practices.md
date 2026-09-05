@@ -6,7 +6,7 @@ repoUrl: https://github.com/ClickHouse/skills
 title: "ClickHouse/clickhouse-best-practices"
 nameZh: "ClickHouse 最佳实践"
 category: "Database"
-tags: 
+tags: ["clickhouse","olap","database"]
 rank: 19
 id: clickhouse-clickhouse-best-practices
 domain: tools

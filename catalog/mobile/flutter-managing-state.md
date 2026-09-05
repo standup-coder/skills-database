@@ -6,7 +6,7 @@ repoUrl: https://github.com/flutter/skills
 title: "Flutter/managing-state"
 nameZh: "Flutter 状态管理"
 category: "Mobile"
-tags: 
+tags: ["flutter","state-management","mobile"]
 rank: 28
 id: flutter-managing-state
 domain: mobile

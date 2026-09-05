@@ -6,7 +6,7 @@ repoUrl: https://github.com/expo/skills
 title: "Expo/expo-deployment"
 nameZh: "Expo 部署"
 category: "Mobile"
-tags: 
+tags: ["expo","react-native","deployment"]
 rank: 27
 id: expo-expo-deployment
 domain: tools

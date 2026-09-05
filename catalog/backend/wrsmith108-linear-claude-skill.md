@@ -6,7 +6,7 @@ repoUrl: https://github.com/wrsmith108/linear-claude-skill
 title: "wrsmith108/linear-claude-skill"
 nameZh: "Linear 项目管理"
 category: "Productivity"
-tags: 
+tags: ["linear","project-management","integration"]
 rank: 38
 id: wrsmith108-linear-claude-skill
 domain: backend
