@@ -1,15 +1,17 @@
 ---
 title: productivity
 domain: productivity
-count: 10
+count: 12
 ---
 
 # productivity
 
-> 共 10 条。来源：voltagent、internal、mcpmarket、qoder、anthropic。
+> 共 12 条。来源：skills-sh、voltagent、internal、mcpmarket、qoder、anthropic。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [teach](./teach.md) | "工作区教学" | external | skills-sh |
+| [handoff](./handoff.md) | "会话交接" | external | skills-sh |
 | [notion-notion-skills-for-claude](./notion-notion-skills-for-claude.md) | "Notion 协作技能" | external | voltagent |
 | [sentry-sentry-workflow](./sentry-sentry-workflow.md) | "Sentry 工作流" | external | voltagent |
 | [read-file](./read-file-atomic.md) | 读取文件 | atomic-skill | internal |

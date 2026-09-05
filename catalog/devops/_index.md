@@ -1,15 +1,18 @@
 ---
 title: devops
 domain: devops
-count: 48
+count: 51
 ---
 
 # devops
 
-> 共 48 条。来源：voltagent、internal、anthropic、mcpmarket。
+> 共 51 条。来源：skills-sh、voltagent、internal、anthropic、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [azure-compute](./azure-compute.md) | "Azure 计算选型" | external | skills-sh |
+| [azure-cloud-migrate](./azure-cloud-migrate.md) | "Azure 跨云迁移" | external | skills-sh |
+| [azure-kubernetes](./azure-kubernetes.md) | "Azure Kubernetes(AKS)" | external | skills-sh |
 | [netlify-netlify-functions](./netlify-netlify-functions.md) | "Netlify Functions" | external | voltagent |
 | [hashicorp-new-terraform-provider](./hashicorp-new-terraform-provider.md) | "Terraform Provider 脚手架" | external | voltagent |
 | [security-audit](./security-audit-skill.md) | 安全审计 | composite-skill | internal |

@@ -1,12 +1,12 @@
 ---
 title: tools
 domain: tools
-count: 67
+count: 68
 ---
 
 # tools
 
-> 共 67 条。来源：voltagent、skills-sh、mcpmarket。
+> 共 68 条。来源：voltagent、skills-sh、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -24,6 +24,7 @@ count: 67
 | [firebase-firebase-basics](./firebase-firebase-basics.md) | "Firebase 基础" | external | voltagent |
 | [firecrawl-firecrawl-build](./firecrawl-firecrawl-build.md) | "Firecrawl 网页抓取" | external | voltagent |
 | [hugging-face-hf-cli](./hugging-face-hf-cli.md) | "Hugging Face CLI" | external | voltagent |
+| [hyperframes](./hyperframes.md) | "HyperFrames 视频创作" | external | skills-sh |
 | [neon-neon-postgres](./neon-neon-postgres.md) | "Neon Postgres" | external | voltagent |
 | [remotion-remotion](./remotion-remotion.md) | "Remotion 视频生成" | external | voltagent |
 | [replicate-replicate](./replicate-replicate.md) | "Replicate 模型运行" | external | voltagent |

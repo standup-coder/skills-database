@@ -18,12 +18,14 @@ sources: [qoder, skills-sh, anthropic, voltagent, mcpmarket]
 | 来源站点 | URL | 采集数 | 排序依据 | 独占技能 |
 |----------|-----|--------|----------|----------|
 | **qoder-community** | https://qoder-community.pages.dev/zh/skills/ | 50 | 徽章权重（高质量/热门/精选） | 49 |
-| **skills.sh** | https://www.skills.sh/ | 50 | All-Time installs 降序 | 49 |
+| **skills.sh** | https://www.skills.sh/ | 50 + 16（2026-09 热榜补充,见 `skills-sh/51_2026-09热榜补充.md`） | All-Time installs 降序 | 49 |
 | **anthropics/skills** | https://github.com/anthropics/skills | 17 | 官方仓库全量（不足 50） | 9 |
 | **VoltAgent/awesome-agent-skills** | https://github.com/VoltAgent/awesome-agent-skills | 50 | README 收录（声称 1497+）跨类均衡 | 42 |
 | **mcpmarket** | https://mcpmarket.com/zh/tools/skills | 50 | 页面默认排序（rank 1-50） | 46 |
-| **合计** | — | **217** | — | **195** |
-| **去重后唯一** | — | **204** | — | — |
+| **合计** | — | **233** | — | **195** |
+| **去重后唯一** | — | **220** | — | — |
+
+> 2026-09-05 防腐化刷新:按 skills.sh 榜单(600 条记录)比对库内 454 条,新增 16 条主流热榜技能(mattpocock/skills 方法论套件 ×10、microsoft/azure-skills ×3、vercel-labs、heygen 等),排除刷量与捆绑计数条目,明细与排除名单见 `skills-sh/51_2026-09热榜补充.md`。
 
 ---
 

@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Added — 目录防腐化刷新(2026-09-05)
+
+- 按 skills.sh 榜单(600 条记录,含累计/周安装量)与库内 454 条精确去重,**新增 16 条主流热榜技能**:mattpocock/skills 方法论套件 ×10(handoff/triage/prototype/teach/domain-modeling/codebase-design/diagnosing-bugs/code-review/wayfinder/to-spec/to-tickets)、microsoft/azure-skills 官方 ×3、vercel-labs composition-patterns、heygen hyperframes
+- 溯源文档 `sources/skills-sh/51_2026-09热榜补充.md`:收录明细 + 生态速览 + **排除名单**(刷量/捆绑计数/弱溯源条目)
+- 2 条与库内撞 id 的新条目按转载惯例加 `mattpocock-` 前缀;catalog 总量 454 → **470**
+- Mimosa 完整深度审计通过:0 findings,0 依赖风险
+
 ### Added — 评估建议落地(2026-09-04)
 
 - **校验器扩展**(`validate-refs.js`):duplicateOf 解析校验(存在/自指/成链,违规拦截)、title/tags 必填检查、type/domain/source 枚举合法性(从实际目录推导)、id kebab-case 与日期格式检查、章节覆盖统计;路径统一经 `resolveWithin` 边界防护,链接遍历改用 `matchAll`

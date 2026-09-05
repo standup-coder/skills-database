@@ -1,15 +1,17 @@
 ---
 title: backend
 domain: backend
-count: 29
+count: 31
 ---
 
 # backend
 
-> 共 29 条。来源：voltagent、internal、mcpmarket。
+> 共 31 条。来源：skills-sh、voltagent、internal、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [codebase-design](./codebase-design.md) | "代码库设计" | external | skills-sh |
+| [domain-modeling](./domain-modeling.md) | "领域建模" | external | skills-sh |
 | [google-gemini-gemini-live-api-dev](./google-gemini-gemini-live-api-dev.md) | "Gemini Live API 开发" | external | voltagent |
 | [wrsmith108-linear-claude-skill](./wrsmith108-linear-claude-skill.md) | "Linear 项目管理" | external | voltagent |
 | [voltagent-voltagent-best-practices](./voltagent-voltagent-best-practices.md) | "VoltAgent 最佳实践" | external | voltagent |

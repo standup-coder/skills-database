@@ -1,15 +1,17 @@
 ---
 title: testing
 domain: testing
-count: 32
+count: 34
 ---
 
 # testing
 
-> 共 32 条。来源：voltagent、internal、qoder、skills-sh、anthropic、mcpmarket。
+> 共 34 条。来源：skills-sh、voltagent、internal、qoder、anthropic、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [mattpocock-code-review](./mattpocock-code-review.md) | "双轴代码审查" | external | skills-sh |
+| [diagnosing-bugs](./diagnosing-bugs.md) | "疑难缺陷诊断" | external | skills-sh |
 | [cypress-cypress-author](./cypress-cypress-author.md) | "Cypress 测试编写" | external | voltagent |
 | [testmu-ai-playwright-skill](./testmu-ai-playwright-skill.md) | "Playwright 测试生成" | external | voltagent |
 | [write-unit-tests](./write-unit-tests-atomic.md) | 编写单元测试 | atomic-skill | internal |

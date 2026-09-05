@@ -1,12 +1,12 @@
 ---
 title: frontend
 domain: frontend
-count: 28
+count: 29
 ---
 
 # frontend
 
-> 共 28 条。来源：voltagent、skills-sh、internal、qoder、anthropic、mcpmarket。
+> 共 29 条。来源：voltagent、skills-sh、internal、qoder、anthropic、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
@@ -14,6 +14,7 @@ count: 28
 | [anthropic-algorithmic-art](./anthropic-algorithmic-art.md) | "算法生成艺术" | external | voltagent |
 | [angular-angular-developer](./angular-angular-developer.md) | "Angular 开发者" | external | voltagent |
 | [apollo-apollo-client](./apollo-apollo-client.md) | "Apollo Client GraphQL" | external | voltagent |
+| [vercel-composition-patterns](./vercel-composition-patterns.md) | "React 组合模式" | external | skills-sh |
 | [improve-codebase-architecture](./improve-codebase-architecture.md) | 代码库架构改进 | external | skills-sh |
 | [ssr-hydration](./ssr-hydration-atomic.md) | 服务端渲染与水合 | atomic-skill | internal |
 | [bundler-optimization](./bundler-optimization-atomic.md) | 构建产物优化 | atomic-skill | internal |

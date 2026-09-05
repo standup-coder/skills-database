@@ -1,15 +1,20 @@
 ---
 title: product
 domain: product
-count: 17
+count: 22
 ---
 
 # product
 
-> 共 17 条。来源：internal、qoder、mcpmarket。
+> 共 22 条。来源：skills-sh、internal、qoder、mcpmarket。
 
 | ID | 中文名 | 类型 | 来源 |
 |----|--------|------|------|
+| [to-spec](./to-spec.md) | "对话转规格" | external | skills-sh |
+| [to-tickets](./to-tickets.md) | "计划转工单" | external | skills-sh |
+| [wayfinder](./wayfinder.md) | "寻路规划" | external | skills-sh |
+| [mattpocock-prototype](./mattpocock-prototype.md) | "一次性原型" | external | skills-sh |
+| [triage](./triage.md) | "议题分诊" | external | skills-sh |
 | [roadmap-design](./roadmap-design-atomic.md) | 产品路线图设计 | atomic-skill | internal |
 | [product-research](./product-research-skill.md) | 产品研究 | composite-skill | internal |
 | [pricing-strategy](./pricing-strategy.md) | 定价策略 | external | qoder |
