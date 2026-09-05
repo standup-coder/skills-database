@@ -53,6 +53,7 @@ cd tools/web && <启动命令>     # 待 tools/web/ 实现
 | `personal/` | 个人挑选状态(picked/in-progress/learned) | ❌ gitignore |
 | `tools/import/classify.js` | sources → catalog 归类脚本 | ✅ |
 | `tools/web/` | 静态浏览站(呈现层) | ✅ |
+| `tools/gtm/` | GTM 说服页(呈现层,独立于浏览站) | ✅ |
 | `templates/` | skill MD frontmatter 模板 | ✅ |
 | `documentation/` | 项目过程文档(gap 报告、采集日志) | ✅ |
 

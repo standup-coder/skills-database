@@ -69,9 +69,11 @@ skills-database/
 │   ├── import/                    # 归类、JSON→MD、索引刷新、校验
 │   │   ├── classify.js            # sources → catalog
 │   │   ├── regenerate-indices.js  # 重建 _index.md
-│   │   └── validate-refs.js       # 校验链接/重复/必填字段
+│   │   └── validate-refs.js       # 校验链接/重复/schema/duplicateOf
+│   ├── role-fit.js                # 角色适配度自评 CLI
+│   ├── gtm/                       # GTM 说服页(静态单页,独立于浏览站)
 │   └── web/                       # 【呈现层】静态浏览站
-│       ├── build.js               # 从 catalog/ 生成 index.html
+│       ├── build.js               # 从 catalog/ 生成 index.html(自动折叠转载)
 │       └── index.html             # 单文件离线浏览站(可双击打开)
 │
 ├── templates/                     # skill frontmatter schema 与模板
@@ -139,11 +141,20 @@ open tools/web/index.html
 ### 校验目录健康
 
 ```bash
-npm run import:validate   # role→skill 引用、正文链接、重复 id、必填字段
-npm run web:build         # 重建浏览站
+npm run import:validate   # role→skill 引用、正文链接、duplicateOf、schema 规范、重复 id
+npm run web:build         # 重建浏览站(自动折叠跨源转载)
 ```
 
 CI 会在每次 push 时自动跑以上两步,并检查浏览站是否过期。
+
+### 评估自己与某个角色的差距
+
+```bash
+node tools/role-fit.js --list                  # 列出全部角色
+node tools/role-fit.js senior-frontend-dev     # 交互式自评(逐项 0-5 打分)
+```
+
+按该 role 的 mainSkills/atomicSkills 逐项自评,按技能 level 换算要求分(junior=2/mid=3/senior=4),输出适配度与差距清单。评分标准见 `templates/gap-analysis.md`。
 
 ### 标记个人状态
 
