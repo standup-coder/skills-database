@@ -79,7 +79,12 @@ if (!role) {
   process.exit(1);
 }
 
-const { fm: roleFM } = parseFM(fs.readFileSync(path.join(CATALOG, role.domain, role.file), 'utf8'));
+const rolePath = resolveWithin(CATALOG, role.domain, role.file);
+if (!rolePath || !rolePath.startsWith(CATALOG + path.sep)) {
+  console.error(`❌ 角色路径越界: ${role.domain}/${role.file}`);
+  process.exit(1);
+}
+const { fm: roleFM } = parseFM(fs.readFileSync(rolePath, 'utf8'));
 const splitIds = raw => (raw || '').replace(/^\[|\]$/g, '').split(',').map(s => s.trim()).filter(Boolean);
 const skillIds = [...new Set([...splitIds(roleFM.mainSkills), ...splitIds(roleFM.atomicSkills)])];
 if (skillIds.length === 0) {
