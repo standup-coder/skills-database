@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -40,11 +41,12 @@ const byId = new Map();
 const files = []; // { domain, file, full }
 
 for (const domain of fs.readdirSync(CATALOG)) {
-  const dir = path.join(CATALOG, domain);
-  if (!fs.statSync(dir).isDirectory()) continue;
+  const dir = resolveWithin(CATALOG, domain);
+  if (!dir || !fs.statSync(dir).isDirectory()) continue;
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.md') || f.startsWith('_')) continue;
-    const full = path.join(dir, f);
+    const full = resolveWithin(dir, f);
+    if (!full) continue;
     files.push({ domain, file: f, full });
     const base = f.replace(/\.md$/, '');
     if (!byBase.has(base)) byBase.set(base, { domain, file: f });

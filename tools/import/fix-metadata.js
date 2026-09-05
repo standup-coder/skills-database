@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -58,11 +59,12 @@ const SENIOR = new Set([
 const stats = { junior: 0, mid: 0, senior: 0, typeAdded: 0, files: 0 };
 
 for (const domain of fs.readdirSync(CATALOG)) {
-  const dir = path.join(CATALOG, domain);
-  if (!fs.statSync(dir).isDirectory()) continue;
+  const dir = resolveWithin(CATALOG, domain);
+  if (!dir || !fs.statSync(dir).isDirectory()) continue;
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.md') || f.startsWith('_')) continue;
-    const full = path.join(dir, f);
+    const full = resolveWithin(dir, f);
+    if (!full) continue;
     const src = fs.readFileSync(full, 'utf8');
     const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
     if (!m) continue;

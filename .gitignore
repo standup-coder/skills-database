@@ -75,16 +75,8 @@ dist
 # FuseBox cache
 .fusebox/
 
-# DynamoDB Local files
-.dynamodb/
-
 # Temporary folders for coverage reports
-!/docs/coverage
-
-# SQLite database
-data/*.db
-data/*.db-wal
-data/*.db-shm
+coverage-tmp/
 
 # Environment variables
 .env
@@ -104,3 +96,6 @@ test.txt
 
 # Generated web staging (CI deploy only)
 tools/web/site/
+
+# GTM build artifacts (source of truth: tools/gtm/index.html)
+tools/gtm/dist/

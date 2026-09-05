@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -45,17 +46,21 @@ const DOMAIN_LABELS = {
 };
 
 // 收集所有 domain
-const domains = fs.readdirSync(CATALOG).filter(d =>
-  fs.statSync(path.join(CATALOG, d)).isDirectory()
-);
+const domains = fs.readdirSync(CATALOG).filter(d => {
+  const dir = resolveWithin(CATALOG, d);
+  return dir && fs.statSync(dir).isDirectory();
+});
 
 const allItems = []; // for top-level index
 for (const domain of domains) {
-  const dir = path.join(CATALOG, domain);
+  const dir = resolveWithin(CATALOG, domain);
+  if (!dir) continue;
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md') && !f.startsWith('_'));
   const items = [];
   for (const f of files) {
-    const src = fs.readFileSync(path.join(dir, f), 'utf8');
+    const full = resolveWithin(dir, f);
+    if (!full) continue;
+    const src = fs.readFileSync(full, 'utf8');
     const { fm } = parseFM(src);
     items.push({
       file: f,

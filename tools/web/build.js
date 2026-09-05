@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -46,14 +47,13 @@ function excerpt(src, max = 200) {
 
 // 收集所有 skills
 const skills = [];
-const domains = {};
 for (const d of fs.readdirSync(CATALOG)) {
-  const dir = path.join(CATALOG, d);
-  if (!fs.statSync(dir).isDirectory()) continue;
-  domains[d] = 0;
+  const dir = resolveWithin(CATALOG, d);
+  if (!dir || !fs.statSync(dir).isDirectory()) continue;
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.md') || f.startsWith('_')) continue;
-    const full = path.join(dir, f);
+    const full = resolveWithin(dir, f);
+    if (!full) continue;
     const src = fs.readFileSync(full, 'utf8');
     const fm = parseFM(src);
     skills.push({
@@ -65,16 +65,27 @@ for (const d of fs.readdirSync(CATALOG)) {
       tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? String(fm.tags).split(',').map(s=>s.trim()) : []),
       type: fm.type || 'external',
       source: fm.catalogSource || '',
+      duplicateOf: fm.duplicateOf || '',
       file: f,
       path: `../../catalog/${d}/${f}`,
       excerpt: excerpt(src),
     });
-    domains[d]++;
   }
 }
 
+// 跨源转载版本(duplicateOf)在 MD 层保留溯源,浏览站折叠到 canonical 条目
+const allIds = new Set(skills.map(s => s.id));
+const folded = skills.filter(s => s.duplicateOf && s.duplicateOf !== s.id && allIds.has(s.duplicateOf));
+const foldedIds = new Set(folded.map(s => s.id));
+const visible = skills.filter(s => !foldedIds.has(s.id));
+const aliasCount = {};
+for (const s of folded) aliasCount[s.duplicateOf] = (aliasCount[s.duplicateOf] || 0) + 1;
+for (const s of visible) s.aliasCount = aliasCount[s.id] || 0;
+
 // 按 domain 计数排序
-const domainOrder = Object.entries(domains).sort((a, b) => b[1] - a[1]);
+const domainCount = {};
+for (const s of visible) domainCount[s.domain] = (domainCount[s.domain] || 0) + 1;
+const domainOrder = Object.entries(domainCount).sort((a, b) => b[1] - a[1]);
 
 // HTML 模板
 const html = `<!DOCTYPE html>
@@ -140,13 +151,14 @@ const html = `<!DOCTYPE html>
 <body>
 <header>
   <h1>Skills Database</h1>
-  <p class="subtitle">职业技能学习与挑选 · 本地 SkillHub · ${skills.length} 条 skills</p>
+  <p class="subtitle">职业技能学习与挑选 · 本地 SkillHub · ${visible.length} 条 skills</p>
   <div class="stats">
     <span><b>${domainOrder.length}</b> 个领域</span>
-    <span><b>${skills.filter(s => s.type === 'role').length}</b> 个职业角色</span>
-    <span><b>${skills.filter(s => s.type === 'composite-skill').length}</b> 个复合技能</span>
-    <span><b>${skills.filter(s => s.type === 'atomic-skill').length}</b> 个原子技能</span>
-    <span><b>${skills.filter(s => s.type === 'external' || !['role','composite-skill','atomic-skill'].includes(s.type)).length}</b> 条外部</span>
+    <span><b>${visible.filter(s => s.type === 'role').length}</b> 个职业角色</span>
+    <span><b>${visible.filter(s => s.type === 'composite-skill').length}</b> 个复合技能</span>
+    <span><b>${visible.filter(s => s.type === 'atomic-skill').length}</b> 个原子技能</span>
+    <span><b>${visible.filter(s => s.type === 'external' || !['role','composite-skill','atomic-skill'].includes(s.type)).length}</b> 条外部</span>
+    ${folded.length ? `<span><b>${folded.length}</b> 条跨源转载已折叠到原版</span>` : ''}
   </div>
   <input class="search" id="search" placeholder="搜索 skills… (按名称、标签、描述)" autofocus />
   <div class="filters" id="filters"></div>
@@ -157,7 +169,7 @@ const html = `<!DOCTYPE html>
   <a href="../../README.md">回到项目首页</a>
 </footer>
 <script>
-const SKILLS = ${JSON.stringify(skills)};
+const SKILLS = ${JSON.stringify(visible)};
 const DOMAINS = ${JSON.stringify(domainOrder.map(([d, n]) => ({id: d, count: n})))};
 
 let activeDomain = null;
@@ -213,10 +225,14 @@ function cardHTML(s) {
   const typeBadge = ['role','composite-skill','atomic-skill'].includes(s.type)
     ? \`<span class="type-badge">\${s.type === 'role' ? '角色' : s.type === 'composite-skill' ? '复合' : '原子'}</span>\`
     : '';
+  const aliasNote = s.aliasCount
+    ? '<div class="zh">另有 ' + s.aliasCount + ' 个跨源转载版本(MD 层保留溯源)</div>'
+    : '';
   return \`<a class="card" href="\${s.path}">
     \${typeBadge}
     <h3>\${escapeHtml(s.nameZh || s.title || s.id)}</h3>
     <div class="zh">\${escapeHtml(s.title || s.id)}</div>
+    \${aliasNote}
     <div class="desc">\${escapeHtml(s.excerpt)}</div>
     \${s.tags.length ? \`<div class="tags">\${s.tags.slice(0,5).map(t => \`<span class="tag">\${escapeHtml(t)}</span>\`).join('')}</div>\` : ''}
   </a>\`;
@@ -233,5 +249,5 @@ render();
 const out = path.join(__dirname, 'index.html');
 fs.writeFileSync(out, html);
 console.log(`✅ generated ${out}`);
-console.log(`   ${skills.length} skills, ${domainOrder.length} domains`);
+console.log(`   ${visible.length} skills (+${folded.length} 转载折叠), ${domainOrder.length} domains`);
 console.log(`   file://${out}`);

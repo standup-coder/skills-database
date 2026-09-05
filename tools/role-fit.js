@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from './lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -36,11 +37,13 @@ function parseFM(src) {
 // ── 收集全部 skills（与 validate-refs.js 同一套解析约定）────────────
 const idIndex = new Map(); // id → { domain, file, nameZh, type, level }
 for (const domain of fs.readdirSync(CATALOG)) {
-  const dir = path.join(CATALOG, domain);
-  if (!fs.statSync(dir).isDirectory()) continue;
+  const dir = resolveWithin(CATALOG, domain);
+  if (!dir || !fs.statSync(dir).isDirectory()) continue;
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.md') || f.startsWith('_')) continue;
-    const { fm } = parseFM(fs.readFileSync(path.join(dir, f), 'utf8'));
+    const entryPath = resolveWithin(dir, f);
+    if (!entryPath) continue;
+    const { fm } = parseFM(fs.readFileSync(entryPath, 'utf8'));
     const id = fm.id || f.replace(/\.md$/, '');
     if (!idIndex.has(id)) {
       idIndex.set(id, {

@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -161,7 +162,9 @@ function safeFilename(name, fallback) {
 function ensureUniqueFilename(dir, name) {
   let candidate = name;
   let i = 1;
-  while (fs.existsSync(path.join(dir, candidate + '.md'))) {
+  for (;;) {
+    const probe = resolveWithin(dir, candidate + '.md');
+    if (!probe || !fs.existsSync(probe)) break;
     candidate = `${name}-${i++}`;
   }
   return candidate + '.md';
@@ -173,20 +176,23 @@ if (!fs.existsSync(SRC)) {
   process.exit(1);
 }
 
-const sources = fs.readdirSync(SRC).filter(d =>
-  fs.statSync(path.join(SRC, d)).isDirectory()
-);
+const sources = fs.readdirSync(SRC).filter(d => {
+  const dir = resolveWithin(SRC, d);
+  return dir && fs.statSync(dir).isDirectory();
+});
 
 const stats = {}; // domain → count
 const placed = []; // for index generation
 const skipped = []; // non-skill files (_index.md etc)
 
 for (const source of sources) {
-  const dir = path.join(SRC, source);
+  const dir = resolveWithin(SRC, source);
+  if (!dir) continue;
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const file of files) {
     if (file.startsWith('_')) { skipped.push(`${source}/${file}`); continue; }
-    const full = path.join(dir, file);
+    const full = resolveWithin(dir, file);
+    if (!full) continue;
     const src = fs.readFileSync(full, 'utf8');
     const { fm, body } = parseFrontmatter(src);
 
@@ -200,7 +206,8 @@ for (const source of sources) {
     stats[domain] = (stats[domain] || 0) + 1;
 
     const id = safeFilename(fm.title || fm.nameZh, file.replace(/\.md$/, ''));
-    const targetDir = path.join(DST, domain);
+    const targetDir = resolveWithin(DST, domain);
+    if (!targetDir) continue;
     fs.mkdirSync(targetDir, { recursive: true });
     const targetName = ensureUniqueFilename(targetDir, id);
 
@@ -223,7 +230,8 @@ for (const source of sources) {
       '\n---\n' +
       body;
 
-    const targetPath = path.join(targetDir, targetName);
+    const targetPath = resolveWithin(targetDir, targetName);
+    if (!targetPath) continue;
     if (!DRY) {
       fs.writeFileSync(targetPath, newDoc);
     }
@@ -246,7 +254,8 @@ if (!DRY) {
     (byDomain[p.domain] = byDomain[p.domain] || []).push(p);
   }
   for (const [domain, items] of Object.entries(byDomain)) {
-    const dir = path.join(DST, domain);
+    const dir = resolveWithin(DST, domain);
+    if (!dir) continue;
     const indexPath = path.join(dir, '_index.md');
     const sorted = items.sort((a, b) =>
       (a.nameZh || a.title).localeCompare(b.nameZh || b.title, 'zh-Hans-CN')

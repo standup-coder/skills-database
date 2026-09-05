@@ -17,6 +17,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveWithin } from '../lib/guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -80,8 +81,8 @@ function domainForRole(id) {
 function collectExistingFilenames() {
   const set = new Set();
   for (const d of fs.readdirSync(path.join(ROOT, 'catalog'))) {
-    const dir = path.join(ROOT, 'catalog', d);
-    if (!fs.statSync(dir).isDirectory()) continue;
+    const dir = resolveWithin(ROOT, 'catalog', d);
+    if (!dir || !fs.statSync(dir).isDirectory()) continue;
     for (const f of fs.readdirSync(dir)) {
       if (f.endsWith('.md') && !f.startsWith('_')) set.add(f.replace(/\.md$/, ''));
     }
@@ -383,14 +384,16 @@ function fmToYaml(fm) {
 
 // ── 主流程 ───────────────────────────────────────────────────────────
 function processDir(srcDir, type, renderer, _defaultDomainFn) {
-  const dir = path.join(ROOT, srcDir);
-  if (!fs.existsSync(dir)) return [];
+  const dir = resolveWithin(ROOT, srcDir);
+  if (!dir || !fs.existsSync(dir)) return [];
   const results = [];
   const existing = collectExistingFilenames();
 
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.json')) continue;
-    const json = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    const jsonPath = resolveWithin(dir, f);
+    if (!jsonPath) continue;
+    const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     if (json.type && json.type !== type) continue;
     const { fm, body } = renderer(json);
     const baseName = type === 'role'
@@ -400,11 +403,11 @@ function processDir(srcDir, type, renderer, _defaultDomainFn) {
     const domain = type === 'role' ? 'roles' : fm.domain;
     if (!fm.domainLabel) fm.domainLabel = '';
 
-    const targetDir = type === 'role'
-      ? path.join(ROOT, 'catalog', 'roles')
-      : path.join(ROOT, 'catalog', fm.domain);
+    const targetDir = resolveWithin(ROOT, 'catalog', type === 'role' ? 'roles' : fm.domain);
+    if (!targetDir) continue;
     fs.mkdirSync(targetDir, { recursive: true });
-    const targetPath = path.join(targetDir, fname);
+    const targetPath = resolveWithin(targetDir, fname);
+    if (!targetPath) continue;
 
     const md = `---\n${fmToYaml(fm)}\n---\n\n${body}`;
     if (!DRY) fs.writeFileSync(targetPath, md);
