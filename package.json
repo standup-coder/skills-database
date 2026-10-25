@@ -16,6 +16,7 @@
     "import:fix-metadata": "node tools/import/fix-metadata.js",
     "import:fix-metadata:dry": "node tools/import/fix-metadata.js --dry",
     "web:build": "node tools/web/build.js",
+    "pull:top": "node tools/import/pull-top.js",
     "role:fit": "node tools/role-fit.js",
     "lint": "eslint . --ext .js"
   },
