@@ -93,6 +93,7 @@ test.txt
 .mimosa/
 .video_agent/
 .impeccable/
+.qwen/
 
 # Generated web staging (CI deploy only)
 tools/web/site/
