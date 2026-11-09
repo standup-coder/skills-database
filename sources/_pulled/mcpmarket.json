@@ -2,9 +2,9 @@
   "hub": "mcpmarket",
   "name": "mcpmarket",
   "region": "cn",
-  "fetchedAt": "2026-11-02T10:34:18.169Z",
+  "fetchedAt": "2026-11-09T10:55:00.170Z",
   "fetchType": "html",
-  "count": 41,
+  "count": 42,
   "entries": [
     {
       "rank": 1,
@@ -236,18 +236,24 @@
     },
     {
       "rank": 39,
+      "id": "与我们合作投放广告",
+      "url": "https://mcpmarket.com/zh/advertise",
+      "type": "link"
+    },
+    {
+      "rank": 40,
       "id": "联系我们",
       "url": "mailto:support@mcpmarket.com",
       "type": "link"
     },
     {
-      "rank": 40,
+      "rank": 41,
       "id": "Privacy",
       "url": "https://mcpmarket.com/zh/privacy",
       "type": "link"
     },
     {
-      "rank": 41,
+      "rank": 42,
       "id": "Terms",
       "url": "https://mcpmarket.com/zh/terms",
       "type": "link"
